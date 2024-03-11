@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Picklist_Plan_Period",
+	"Alias":"rpt_Period",
+	"Expression":"{TM1FILTERBYLEVEL( {TM1SUBSETALL( [plan_Period] )}, 0)}"
+}

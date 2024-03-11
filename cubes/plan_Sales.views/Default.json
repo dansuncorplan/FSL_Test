@@ -1,0 +1,323 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - TN')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Base Selling Price')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Cost Price per UOM Base')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 12')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('16')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('18')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('19')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Branch')/Hierarchies('Branch')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('05')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('11')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('15')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('25')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('30')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('35')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('40')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('45')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('50')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('55')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('65')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('75')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('80')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('85')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('95')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('83')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('01 MERCHBAR')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('02 PIPE')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('03 HOLLOWS')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('04 PLATE')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('04 PROFILE PLATE')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('FLETCHER REINFORCING ITEMS')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('05 SECTIONS')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('06 FLAT ROLL')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('07 SPECPUR')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('08 REINFORCING')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('09 CYCLONE PUR')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('10 CYCLONE MAN')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('11 PIPE FITTS')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('12 WELDING')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('13 MFG PRODS')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('14 TOLL ITEMS')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('15 STAINLESS')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('16 ALUMINIUM')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('17 FASTENERS')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('18 FREIGHT/CUT')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('AUD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('EUR')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('USD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD Converted')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('ES_NZ OTHER')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('ES_EXTERNAL')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('ES_STEEL GROUP')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('ES_OTHER DIVISIONS')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('TEST CUSTOMER')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('ES_NZ OTHER')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

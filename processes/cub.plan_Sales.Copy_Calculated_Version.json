@@ -1,0 +1,22 @@
+{
+	"@type":"Process",
+	"Name":"cub.plan_Sales.Copy_Calculated_Version",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"cub.plan_Sales.Copy_Calculated_Version.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersionTo",
+			"Prompt":"",
+			"Value":"Budget 002",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

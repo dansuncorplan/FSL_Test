@@ -1,0 +1,17 @@
+{
+	"@type":"Subset",
+	"Name":"sys.secanariotype",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Static Versions')"
+		},
+		{
+			"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Calculated Forecasts')"
+		},
+		{
+			"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Calculated Budgets')"
+		}
+	]
+}

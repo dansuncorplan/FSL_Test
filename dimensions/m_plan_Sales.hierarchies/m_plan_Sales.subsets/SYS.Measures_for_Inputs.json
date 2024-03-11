@@ -1,0 +1,62 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.Measures_for_Inputs",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - EA')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - TN')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - LM')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - UOM')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume Phasing Adjustment')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Base Selling Price')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Selling Price Adjustment')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Cost Price per UOM Base')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Cost Price per UOM Adjustment')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Cost of Sales $ Non Tonnes')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Revenue  $ Phasing Adjustment')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales revenue $ Non Tonne')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Selling Price Change %25')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Cost Price Change %25')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('TOTAL CUSTOMER REBATES $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('TOTAL SUPPLIER REBATES $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Customer Rebates %25')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Supplier Rebates %25')"
+		}
+	]
+}

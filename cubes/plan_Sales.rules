@@ -1,0 +1,410 @@
+FEEDSTRINGS ;
+SKIPCHECK ;
+
+## NZD Converted
+# 0 = Add Total, no conversion
+[{'Linked for Input','Planning Driver','Annual Input','Percentage Change'}]=STET;
+
+[ 'NZD Converted' ] = N:
+IF( ATTRN( 'm_plan_Sales', !m_plan_Sales, 'Currency_Conversion_Flag' ) = 0 ,
+# THEN
+	[ 'NZD' ] + [ 'AUD' ] + [ 'EUR' ] + [ 'USD' ] ,
+# ELSE
+	CONTINUE ) ;
+
+# 1 = Convert using currency rates
+[ 'NZD Converted' ] = N:
+IF( ATTRN( 'm_plan_Sales', !m_plan_Sales, 'Currency_Conversion_Flag' ) = 1 ,
+# THEN
+	( [ 'NZD' ] * DB('lookup_Currency_Rates',!plan_Version,!plan_Period,'LCY','NZD_Rate','Value') ) +
+	( [ 'AUD' ] * DB('lookup_Currency_Rates',!plan_Version,!plan_Period,'LCY','AUD_Rate','Value') ) +
+	( [ 'USD' ] * DB('lookup_Currency_Rates',!plan_Version,!plan_Period,'LCY','USD_Rate','Value') ) +
+	( [ 'EUR' ] * DB('lookup_Currency_Rates',!plan_Version,!plan_Period,'LCY','EUR_Rate','Value') ) ,
+# ELSE
+	CONTINUE ) ;
+
+#Region - calculate eighted average selling and costprice
+['Actual','Base Selling Price']=N:
+  If(['Sales Volume - EA']<>0,['TOTAL SALES $']\['Sales Volume - EA'],CONTINUE);
+['Actual','Base Selling Price']=N:
+  If(['Sales Volume - TN']<>0,['TOTAL SALES $']\['Sales Volume - TN'],CONTINUE);
+['Actual','Base Selling Price']=N:
+  If(['Sales Volume - LM']<>0,['TOTAL SALES $']\['Sales Volume - LM'],CONTINUE);
+
+['Actual','Cost Price per UOM Base']=N:
+  If(['Sales Volume - EA']<>0,['COST OF SALES STANDARD $']\['Sales Volume - EA'],CONTINUE);
+['Actual','Base Selling Price']=N:
+  If(['Sales Volume - TN']<>0,['COST OF SALES STANDARD $']\['Sales Volume - TN'],CONTINUE);
+['Actual','Base Selling Price']=N:
+  If(['Sales Volume - LM']<>0,['COST OF SALES STANDARD $']\['Sales Volume - LM'],CONTINUE);
+#EndRegion
+
+#Region - convert volumes to volume UOM
+[ 'Sales Volume - UOM' ] = N:
+IF( ATTRS( 'Product_Group', !Product_Group, 'UOM' ) @= 'EA' ,
+	[ 'Sales Volume - EA' ] ,
+	CONTINUE ) ;
+[ 'Sales Volume - UOM' ] = N:
+IF( ATTRS( 'Product_Group', !Product_Group, 'UOM' ) @= 'LM' ,
+	[ 'Sales Volume - LM' ] ,
+	CONTINUE ) ;
+[ 'Sales Volume - UOM' ] = N:
+  [ 'Sales Volume - TN' ] ;
+#EndRegion
+
+#Region--- average prices per consolidated levels  
+['Actual','Base Selling Price']=C:
+  ['TOTAL SALES $']\['Sales Volume - UOM'];
+
+['Actual','Cost Price per UOM Base']=C:
+  ['COST OF SALES STANDARD $']\['Sales Volume - UOM'];
+#EndRegion
+
+['Actual']=N:STET;
+
+#Region- average prices for other versions
+['Base Selling Price']=C:
+  ['TOTAL SALES $']\['Sales Volume - UOM'];
+
+['Cost Price per UOM Base']=C:
+  ['COST OF SALES STANDARD $']\['Sales Volume - UOM'];
+#EndRegion
+
+#Region - control calculated months
+[]=N:
+  If(ELISANC( 'plan_Version', 'Calculated Versions', !plan_Version)=1,
+    CONTINUE,
+  STET);
+  
+[]=N:
+  If(DB( 'plan_Version_Setup', !plan_Version, !plan_Period, 'Calculated Flag'  )=1,
+    CONTINUE,
+  STET);
+
+#EndRegion
+
+#Region - Forecast versions equal Actual for months with calculated flag off
+[] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Forecasts', !plan_Version)=1& DB( 'plan_Version_Setup', !plan_Version, !plan_Period, 'Calculated Flag'  )=0 ,
+      DB('plan_Sales','Actual',!Currency_Sales,!plan_Period,!Branch,!Branch,!Customer_Sales,!Product_Group,!m_plan_Sales) ,
+	CONTINUE ) ;
+    
+#EndRegion
+
+## Sales Volume UOM
+[ 'Sales Volume - UOM' ] = N:
+  IF( ATTRS( 'Product_Group', !Product_Group, 'UOM' ) @= 'EA' ,
+      [ 'Sales Volume - EA' ] ,
+	CONTINUE ) ;
+
+[ 'Sales Volume - UOM' ] = N:
+  IF( ATTRS( 'Product_Group', !Product_Group, 'UOM' ) @= 'LM' ,
+      [ 'Sales Volume - LM' ] ,
+	CONTINUE ) ;
+
+[ 'Sales Volume - UOM' ] = N:
+  [ 'Sales Volume - TN' ] ;
+
+
+#Region -------- PLANNING DRIVERS ------------------#
+
+#---- Phasing Driver 1 - LY Actuals from rpt_Sales Cube 
+[  {'Sales Volume - LM' ,'Sales Volume - EA'  ,'Sales Volume - TN'  ,'Sales Volume - UOM'    }]=N:
+If( ['Planning Driver']=1,
+  DB( 'plan_Sales',  'Actual', !Currency_Sales,STR(numbr(DB('}ElementAttributes_plan_Period', !plan_Period, 'rpt_Year')   )-2,4,0)|''|DB('}ElementAttributes_plan_Period', !plan_Period, 'rpt_Month'), !Branch, !Business_Unit, !Customer_Sales, !Product_Group, !m_plan_Sales  )
+,CONTINUE);
+
+#----Phasing Driver 2 - LY Actuals from rpt_Sales Cube multiply by the percentage change entered 
+[{'Sales Volume - LM' ,'Sales Volume - EA'  ,'Sales Volume - TN'  ,'Sales Volume - UOM'     }]=N:
+If( ['Planning Driver']=2,
+  DB( 'plan_Sales',  'Actual', !Currency_Sales,STR(numbr(DB('}ElementAttributes_plan_Period', !plan_Period, 'rpt_Year')   )-2,4,0)|''|DB('}ElementAttributes_plan_Period', !plan_Period, 'rpt_Month'), !Branch, !Business_Unit, !Customer_Sales, !Product_Group, !m_plan_Sales  ) * 
+    (1+['Percentage Change'])
+,CONTINUE);
+
+#---- Phasing Driver 3 - Phasing percentage multiply by the annual volume input by user
+[{'Sales Volume - LM' ,'Sales Volume - EA'  ,'Sales Volume - TN'  ,'Sales Volume - UOM'     }]=N:
+If( ['Planning Driver']=3,
+  DB( 'plan_Sales_Assumptions', !plan_Version, !plan_Period, !Business_Unit, 'Volume Phasing'  ) * ['Annual Input']
+,CONTINUE);
+
+
+#----This would get the pricing of the actual price of the prior month and if there is no actual just copy the pricing of budget from prior month 
+['Base Selling Price']=N:
+If( ['Planning Driver']=1,
+    IF( NUMBR( DB('}ElementAttributes_plan_Period', !plan_Period, 'Period_Offset')  ) < 1 ,
+     DB('plan_Sales','Actual',!Currency_Sales, DB('}ElementAttributes_plan_Period', !plan_Period, 'Prev_Period'),!Branch, !Business_Unit, !Customer_Sales,!Product_Group, 'Base Selling Price' ),
+	   DB('plan_Sales',!plan_Version,!Currency_Sales, DB('}ElementAttributes_plan_Period', !plan_Period, 'Prev_Period'),!Branch, !Business_Unit,   !Customer_Sales,!Product_Group, 'Base Selling Price' ))
+    ,CONTINUE); 
+    
+#-----This would get the pricing of the actual price of the prior month and if there is no actual just copy the pricing of budget from prior month multiply by the percentage change entered by user for hte same combination
+['Base Selling Price']=N:
+If( ['Planning Driver']=2,
+  IF( NUMBR( DB('}ElementAttributes_plan_Period', !plan_Period, 'Period_Offset')  ) < 1 ,
+   DB('plan_Sales','Actual',!Currency_Sales, DB('}ElementAttributes_plan_Period', !plan_Period, 'Prev_Period'),!Branch, !Business_Unit, !Customer_Sales,!Product_Group, 'Base Selling Price' ) * 
+    (1+['Selling Price Change %'])  ,
+	   DB('plan_Sales',!plan_Version,!Currency_Sales, DB('}ElementAttributes_plan_Period', !plan_Period, 'Prev_Period') , !Branch, !Business_Unit,     !Customer_Sales,!Product_Group, 'Base Selling Price' ))  *
+    (1+['Selling Price Change %'])
+    ,CONTINUE);
+    
+
+#----This would get the pricing of the actual price of the prior month and if there is no actual just copy the pricing of budget from prior month 
+['Cost Price per UOM Base']=N:
+If( ['Planning Driver']=1,
+  IF( NUMBR( DB('}ElementAttributes_plan_Period', !plan_Period, 'Period_Offset')  )  < 1 ,
+   DB('plan_Sales','Actual',!Currency_Sales, DB('}ElementAttributes_plan_Period', !plan_Period, 'Prev_Period'),!Branch, !Business_Unit, !Customer_Sales,!Product_Group, 'Cost Price per UOM Base' ),
+	   DB('plan_Sales',!plan_Version,!Currency_Sales, DB('}ElementAttributes_plan_Period', !plan_Period, 'Prev_Period') ,  !Branch, !Business_Unit,     !Customer_Sales,!Product_Group, 'Cost Price per UOM Base' ))
+    ,CONTINUE); 
+
+#---- This would get the pricing of the actual price of the prior month and if there is no actual just copy the pricing of budget from prior month multiply by the percentage change entered by user for the same combination
+['Cost Price per UOM Base']=N:
+If( ['Planning Driver']=2,
+  IF( NUMBR( DB('}ElementAttributes_plan_Period', !plan_Period, 'Period_Offset')  ) < 1 ,
+# THEN
+  DB('plan_Sales','Actual',!Currency_Sales, DB('}ElementAttributes_plan_Period', !plan_Period, 'Prev_Period'),!Branch, !Business_Unit, !Customer_Sales,!Product_Group, 'Cost Price per UOM Base' )*
+#   DB( 'rpt_Sales', 'Actual', !Currency_Sales, DB('}ElementAttributes_plan_Period', !plan_Period, 'rpt_Month'), DB('}ElementAttributes_plan_Period', !plan_Period, 'rpt_Year') , !Branch, !Business_Unit, !Customer_Sales, !Product_Group, !m_plan_Sales) *
+      (1+['Cost Price Change %']) ,
+# ELSE
+	   DB('plan_Sales',!plan_Version,!Currency_Sales, DB('}ElementAttributes_plan_Period', !plan_Period, 'Prev_Period') , !Branch, !Business_Unit,     !Customer_Sales,!Product_Group, 'Cost Price per UOM Base' ))  *
+    (1+['Cost Price Change %'])
+    ,CONTINUE); 
+
+#EndRegion 
+
+
+## Total Sales $
+## ( Final Sales Price x Final Selling Price ) + Sales revenue $ Non Tonne
+[ 'Total Sales $' ] = N:
+( ['Total Sales Volume'] * ['Final Selling Price'] ) + ['Sales revenue $ Non Tonne'] ;
+
+## Total Customer Rebates $
+## Total Sales $ After Phasing Adjustment * Customer Rebates %
+[ 'Total Customer Rebates $' ] = N:
+['TOTAL Sales $ After Phasing Adjustment'] * ['Customer Rebates %']	 ;
+
+## Total Customer Discounts $
+## Total Sales $ After Phasing Adjustment * Customer Discounts %
+[ 'Total Customer Discounts $' ] = N:
+['TOTAL Sales $ After Phasing Adjustment'] * ['Customer Discounts %'] ;
+
+#Region: Calculate Freight Rate from PnL and Sales 
+['Product_Freight','Customer_Freight','Freight Out Rate'] = N:  
+IF( NUMBR( DB('}ElementAttributes_plan_Period', !plan_Period, 'Period_Offset')  ) > 0
+  & !Business_Unit @= '22'  %
+   NUMBR( DB('}ElementAttributes_plan_Period', !plan_Period, 'Period_Offset')  ) > 0 &  !Business_Unit @= '24' ,
+    DB( 'plan_Profit_and_Loss', 'Actual', 'LCY', 'Previous Rolling 3 Months', !Branch, !Business_Unit, '27020', 'Value'  )\
+       DB( 'plan_Sales', 'Actual', !Currency_Sales, 'Previous Rolling 3 Months', !Branch, !Business_Unit, 'Customer_Sales':'Customer_by_Business_Unit', 'Product_Group':'Product_by_Business_Unit', 'Sales Volume - LM'  )
+,CONTINUE );
+  
+ 
+['Product_Freight','Customer_Freight','Freight Out Rate'] = N:  
+IF( NUMBR( DB('}ElementAttributes_plan_Period', !plan_Period, 'Period_Offset')  ) > 0 ,
+  DB( 'plan_Profit_and_Loss', 'Actual', 'LCY', 'Previous Rolling 3 Months', !Branch, !Business_Unit, '27020', 'Value'  )\
+   DB( 'plan_Sales', 'Actual', !Currency_Sales, 'Previous Rolling 3 Months', !Branch, !Business_Unit, 'Customer_Sales':'Customer_by_Business_Unit', 'Product_Group':'Product_by_Business_Unit', 'Sales Volume - TN'  )
+,CONTINUE );
+
+#EndRegion
+
+#Region - Freight Recoveries $
+## Total Sales $ After Phasing Adjustment * Freight Recoveries %
+[ 'Customer_Freight', 'Product_Freight', 'Freight Recoveries $' ] = N:
+  IF( ATTRN( 'Business_Unit', !Business_Unit, 'Freight_Manual_Calc_Flag' ) = 0 ,
+      ['TOTAL_CUSTOMER_SALES', 'TOTAL_PRODUCT_GROUP','TOTAL Sales $ After Phasing Adjustment'] * ['Freight Recoveries %'] ,
+	STET ) ;
+
+[ 'Freight Recoveries $' ] = N:
+  IF( ATTRN( 'Business_Unit', !Business_Unit, 'Freight_Manual_Calc_Flag' ) = 0 ,
+      ['TOTAL Sales $ After Phasing Adjustment'] * ['Freight Recoveries %'] ,
+	STET ) ;
+#EndRegion
+
+## Cost of Sales Standard $
+## ( Final Sales Price x Final Cost Price ) + Cost of Sales $ Non Tonne
+[ 'Cost of Sales Standard $' ] = N:
+( ['Total Sales Volume'] * ['Final Cost Price'] ) + ['Cost of Sales $ Non Tonnes'] ;
+
+## Supplier Rebates $
+## Total Cost of Sales $ After Phasing Adjustment * Supplier Rebates %
+[ 'Total Supplier Rebates $' ] = N:
+[ 'Total Cost of Sales $ After Adjustment' ] * [ 'Supplier Rebates %' ] ;
+
+## Interbranch Freight $
+## Total Sales $ After Phasing Adjustment * Interbranch Freight %
+[ 'Customer_Freight', 'Product_Freight', 'Interbranch Freight $' ] = N:
+  IF( ATTRN( 'Business_Unit', !Business_Unit, 'Freight_Manual_Calc_Flag' ) = 0 ,
+	[ 'TOTAL_CUSTOMER_SALES', 'TOTAL_PRODUCT_GROUP', 'TOTAL Sales Revenue $' ] * [ 'Interbranch Freight %' ] ,
+  STET ) ;
+
+## Freight In $
+## Total Sales Revenue $ * Freight In %
+[ 'Customer_Freight', 'Product_Freight', 'Freight In $' ] = N:
+IF( ATTRN( 'Business_Unit', !Business_Unit, 'Freight_Manual_Calc_Flag' ) = 0 ,
+	[ 'TOTAL_CUSTOMER_SALES', 'TOTAL_PRODUCT_GROUP', 'TOTAL Sales Revenue $' ] * [ 'Freight In %' ] ,
+	STET ) ;
+
+## Freight Out $
+## Total Sales Revenue $ * Freight Out %
+[ 'Customer_Freight', 'Product_Freight', 'Freight Out $' ] = N:
+IF( ATTRN( 'Business_Unit', !Business_Unit, 'Freight_Manual_Calc_Flag' ) = 0 ,
+	[ 'TOTAL_CUSTOMER_SALES', 'TOTAL_PRODUCT_GROUP', 'TOTAL Sales Revenue $' ] * [ 'Freight Out %' ] ,
+	STET ) ;
+
+## Raw Margin %
+## Total Cost of Sales after Phasing Adjustment / Totals Sales Revenue $
+[ 'Raw Margin %' ] =
+[ 'Raw Margin $' ]   \ [ 'TOTAL Sales Revenue $' ] ;
+
+
+## MAF Margin %
+## Total Freight $ / Total Cost of Sales after Phasing Adjustment
+[ 'MAF Margin %' ] =
+[ 'MAF Margin $' ] \ [ 'TOTAL Sales Revenue $' ] ;
+
+
+## Customer Rebates %
+## Consolidated Avg
+[ ] = C:
+IF( SCAN( '%', !m_Plan_Sales ) <> 0 ,
+# THEN
+	CONSOLIDATEDAVG( 2, 'plan_Sales',!plan_Version,!Currency_Sales,!plan_Period,!Branch,!Business_Unit,!Customer_Sales,!Product_Group,!m_plan_Sales) ,
+# ELSE
+	CONTINUE ) ;
+
+
+FEEDERS ;
+
+## Feed Actuals to Forecast
+[ 'Actual' ] =>
+DB(
+IF( NUMBR( ATTRS( 'plan_Period', !plan_Period, 'Period_Offset' ) ) < 0, 'plan_Sales', '' ) ,
+'Forecast',!Currency_Sales,!plan_Period,!Branch,!Business_Unit,!Customer_Sales, !Product_Group,!m_plan_Sales ) ;
+
+## Total Sales and Base Selling 
+['Actual', 'TOTAL SALES $'] => ['Base Selling Price'];
+
+## Total Sales and Base Selling 
+['Actual','COST OF SALES STANDARD $'] => ['Cost Price per UOM Base'];
+
+#--- feed actual volume UOM conversion
+['Actual', 'Sales Volume - TN' ] => [ 'Sales Volume - UOM' ] ;
+['Actual',  'Sales Volume - LM' ] => [ 'Sales Volume - UOM' ] ;
+['Actual',  'Sales Volume - EA' ] => [ 'Sales Volume - UOM' ] ;
+
+
+#Region - feeder phasing
+['plan_Version':'plan_Version':'Calculated Versions','Planning Driver',  {'Sales Volume - LM' ,'Sales Volume - EA'  ,'Sales Volume - TN'  ,'Sales Volume - UOM'    } ]=>
+  DB( 'plan_Sales', !plan_Version, !Currency_Sales, DB( 'plan_Version_Control', !plan_Version, 'Plan Year'  ), !Branch, !Business_Unit, !Customer_Sales, !Product_Group, !m_plan_Sales  );
+
+['plan_Version':'plan_Version':'Calculated Versions','Planning Driver','Cost Price per UOM Base']=>
+  DB( 'plan_Sales', !plan_Version, !Currency_Sales, DB( 'plan_Version_Control', !plan_Version, 'Plan Year'  ), !Branch, !Business_Unit, !Customer_Sales, !Product_Group, !m_plan_Sales  );
+
+['plan_Version':'plan_Version':'Calculated Versions','Planning Driver','Base Selling Price']=>
+  DB( 'plan_Sales', !plan_Version, !Currency_Sales,DB( 'plan_Version_Control', !plan_Version, 'Plan Year'  ), !Branch, !Business_Unit, !Customer_Sales, !Product_Group, !m_plan_Sales  );
+#EndRegion
+
+## Feed Total Sales $
+['plan_Version':'plan_Version':'Calculated Versions', 'Total Sales Volume' ] => [ 'Total Sales $' ] ;
+[ 'Sales revenue $ Non Tonne' ] => [ 'Total Sales $' ] ;
+[ 'Total Sales Volume' ] => [ 'Total Sales $' ] ;
+
+## Feed
+['plan_Version':'plan_Version':'Calculated Versions',  'Total Sales $' ]  => ['TOTAL Sales $ After Phasing Adjustment'] ;
+
+## Feed Customer Rebates
+['plan_Version':'plan_Version':'Calculated Versions',  'Customer Rebates %' ] => [ 'Total Customer Rebates $' ] ;
+
+## Feed Customer Discounts
+['plan_Version':'plan_Version':'Calculated Versions',  'Customer Discounts %' ] => [ 'Total Customer Discounts $' ] ;
+
+## Feed Freight Recoveries
+['plan_Version':'plan_Version':'Calculated Versions',  'Freight Recoveries %' ] => [ 'Freight Recoveries $' ] ;
+
+## Feed Cost of Sales Standard $
+['plan_Version':'plan_Version':'Calculated Versions',  'Total Sales Volume' ] => [ 'Cost of Sales Standard $' ] ;
+['plan_Version':'plan_Version':'Calculated Versions',  'Cost of Sales $ Non Tonnes' ] => [ 'Cost of Sales Standard $' ] ;
+
+## Feed Supplier Rebates
+['plan_Version':'plan_Version':'Calculated Versions',  'Supplier Rebates %' ] => [ 'Total Supplier Rebates $' ] ;
+
+## Feed Interbranch Freight $
+['plan_Version':'plan_Version':'Calculated Versions',  'Interbranch Freight %' ] => [ 'Interbranch Freight $' ] ;
+
+## Feed Freight In $
+['plan_Version':'plan_Version':'Calculated Versions',  'Freight In %' ] => [ 'Freight In $' ] ;
+
+## Feed Freight Out $
+['plan_Version':'plan_Version':'Calculated Versions',  'Freight Out %' ] => [ 'Freight Out $' ] ;
+
+## Feed Raw Margin %
+['plan_Version':'plan_Version':'Calculated Versions',  'Total Sales Revenue $' ] => [ 'Raw Margin %' ] ;
+
+## Feed MAF Margin %
+['plan_Version':'plan_Version':'Calculated Versions',  'Total Sales Revenue $' ] => [ 'MAF Margin %' ] ;
+
+## Sales Volume - UOM
+['plan_Version':'plan_Version':'Calculated Versions',  'Sales Volume - TN' ] => [ 'Sales Volume - UOM' ] ;
+['plan_Version':'plan_Version':'Calculated Versions',  'Sales Volume - LM' ] => [ 'Sales Volume - UOM' ] ;
+['plan_Version':'plan_Version':'Calculated Versions',  'Sales Volume - EA' ] => [ 'Sales Volume - UOM' ] ;
+
+
+## NZD Converted
+['plan_Version':'plan_Version':'Calculated Versions',  'NZD' ] => [ 'NZD Converted' ] ;
+
+## Plan Profit and Loss Feeders
+## Total External Sales
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'11010','Value') ;
+
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'11020','Value') ;
+
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'11030','Value') ;
+
+## PCC Sales
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','PCC','300045','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'11020','Value') ;
+
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','PCC','300019','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'11020','Value') ;
+
+## Customer Rebates
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL Customer Rebates $'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'12010','Value') ;
+
+## Customer Discounts
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL Customer Discounts $'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'11510','Value') ;
+
+## PCC Customer Discounts
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','PCC','300045','Product_by_Business_Unit','TOTAL Customer Discounts $'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'11520','Value') ;
+
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','PCC','300019','Product_by_Business_Unit','TOTAL Customer Discounts $'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'11520','Value') ;
+
+##Freight Recoveries
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','Customer_by_Business_Unit','Product_by_Business_Unit','Freight Recoveries $'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'27030','Value') ;
+
+## Cost of Sales
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL COST OF SALES $ After Adjustment'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'21010','Value') ;
+
+## Supplier Rebates
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL SUPPLIER REBATES $'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'22010','Value') ;
+
+## Freight Interbranch
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','Customer_by_Business_Unit','Product_by_Business_Unit','Interbranch Freight $'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'27000','Value') ;
+
+## Freight In
+['plan_Version':'plan_Version':'Calculated Versions','NZD Converted','Customer_by_Business_Unit','Product_by_Business_Unit','Freight In $'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'27010','Value') ;
+
+## Freight Out
+['plan_Version':'plan_Version':'Calculated Versions', 'NZD Converted','Customer_by_Business_Unit','Product_by_Business_Unit','Freight Out $'] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'27020','Value') ;
+
+
+

@@ -1,0 +1,20 @@
+{
+	"@type":"Subset",
+	"Name":"sys.planversion",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast Feb-24')"
+		},
+		{
+			"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast Mar-24')"
+		},
+		{
+			"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget What-if')"
+		},
+		{
+			"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget 001')"
+		}
+	]
+}

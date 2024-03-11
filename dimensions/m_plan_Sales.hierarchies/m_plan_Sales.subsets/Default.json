@@ -1,0 +1,76 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Total Sales Volume')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales revenue $ Non Tonne')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('TOTAL SALES $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Revenue  $ Phasing Adjustment')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('TOTAL Sales $ After Phasing Adjustment')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('TOTAL CUSTOMER REBATES $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('TOTAL CUSTOMER DISCOUNTS $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Freight Recoveries $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('TOTAL SALES REVENUE $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Cost of Sales $ Non Tonnes')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('COST OF SALES STANDARD $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('COS Manual Adjustment $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('TOTAL COST OF SALES $ After Adjustment')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('TOTAL SUPPLIER REBATES $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('TOTAL COST OF SALES After Rebates')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Interbranch Freight $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Freight In $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Freight Out $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Total Freight $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('RAW MARGIN $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('RAW MARGIN %25')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('MAF Margin $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('MAF Margin %25')"
+		}
+	]
+}

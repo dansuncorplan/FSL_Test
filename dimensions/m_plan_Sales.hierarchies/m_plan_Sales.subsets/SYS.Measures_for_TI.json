@@ -1,0 +1,23 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.Measures_for_TI",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - EA')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - TN')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - LM')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('TOTAL SALES $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('COST OF SALES STANDARD $')"
+		}
+	]
+}

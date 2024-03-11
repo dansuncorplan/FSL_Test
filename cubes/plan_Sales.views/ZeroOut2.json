@@ -1,0 +1,21 @@
+{
+	"@type":"MDXView",
+	"Name":"ZeroOut2",
+	"MDX@Code.link":"ZeroOut2.mdx",
+	"Meta": {
+		"Aliases": {
+			"[plan_Period].[plan_Period]": "rpt_Period"
+		},
+		"ExpandAboves": {
+			"[Business_Unit].[Business_Unit]": false,
+			"[plan_Period].[plan_Period]": false,
+			"[Product_Group].[Product_Group]": false,
+			"[plan_Version].[plan_Version]": false,
+			"[Branch].[Branch]": false,
+			"[Customer_Sales].[Customer_Sales]": false,
+			"[m_plan_Sales].[m_plan_Sales]": false,
+			"[Currency_Sales].[Currency_Sales]": false
+		},
+		"ContextSets": {}
+	}
+}

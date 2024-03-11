@@ -1,0 +1,107 @@
+#region Prolog
+
+# #----------------------------------------------------
+#  Define constant
+# #----------------------------------------------------
+
+cProcessName = GetProcessName();
+
+sErr = '' ;
+
+cTimeStamp = TIMST( NOW() , '\Y\m\d\h\i\s' ) | NumberToString( RAND * 1000000000 );
+cTempObjName = Expand('%cProcessName%_%cTimeStamp%');
+cSourceObj='source_'|cTempObjName;
+cTargetRandObjName = 'Target'|cProcessName|cTimeStamp;
+cTemp = 1 ;
+
+#--------------
+If(pVersionFrom@=pVersionTo );
+    sErr='Source and target cannot be the same!';
+    ProcessBreak; 
+Endif;    
+
+
+# # ----------------------------------------------------
+# # zero target view
+# # ----------------------------------------------------
+cTargetCube = 'plan_Capex_Item';
+
+ViewCreate( cTargetCube , cTargetRandObjName , cTemp );
+
+SubsetCreatebyMDX( cTargetRandObjName , '{[plan_Version].[plan_Version].['|pVersionTo |']}' , cTemp ); 
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Capex_Item_List].[Capex_Item_List]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([m_plan_Capex_Input].[m_plan_Capex_Input]) , 0)}' , cTemp );
+
+# Clears only the BU specified in the parameter
+
+
+nDimCount = 1;
+WHILE( TABDIM( cTargetCube , nDimCount )@<> '' );
+	sDim = TABDIM( cTargetCube , nDimCount );
+	IF( SUBSETEXISTS( sDim , cTargetRandObjName ) = 1 );
+		VIEWSUBSETASSIGN( cTargetCube , cTargetRandObjName , sDim , cTargetRandObjName );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+#--------------------------------------------------------------
+ViewSuppressZeroesSet( cTargetCube , cTargetRandObjName , 1 );
+ViewExtractSkipZeroesSet(cTargetCube, cTargetRandObjName , 1 );
+ViewExtractSkipRuleValuesSet(cTargetCube, cTargetRandObjName, 1);
+
+#---Zero Out the view in the Target Version 
+ViewZeroOut(cTargetCube, cTargetRandObjName);
+
+
+#-----------------
+# Set source view
+#-----------------
+ViewCreate( 'plan_Capex_Item' , cSourceObj , 1 );
+
+SubsetCreatebyMDX( cSourceObj , '{[plan_Version].[plan_Version].['|pVersionFrom |']}' , cTemp ); 
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Capex_Item_List].[Capex_Item_List]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([m_plan_Capex_Input].[m_plan_Capex_Input]) , 0)}' , cTemp );
+
+
+# Clears only the BU specified in the parameter
+
+nDimCount = 1;
+WHILE( TABDIM( 'plan_Capex_Item' , nDimCount )@<> '' );
+	sDim = TABDIM( 'plan_Capex_Item' , nDimCount );
+	IF( SUBSETEXISTS( sDim , cSourceObj ) = 1 );
+		VIEWSUBSETASSIGN( 'plan_Capex_Item' , cSourceObj , sDim , cSourceObj );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+ViewSuppressZeroesSet( 'plan_Capex_Item' , cSourceObj , 1 );
+ViewExtractSkipCalcsSet( 'plan_Capex_Item' , cSourceObj , 1 );
+ViewExtractSkipZeroesSet( 'plan_Capex_Item' , cSourceObj , 1 );
+ViewExtractSkipRuleValuesSet( 'plan_Capex_Item' , cSourceObj , 1 );
+ 
+
+DataSourceType = 'VIEW' ;
+DataSourceNameForServer = 'plan_Capex_Item' ;
+DataSourceCubeView = cSourceObj ;
+
+
+#endregion
+#region Data
+
+IF ( DType ('m_plan_Capex_Input', vm_plan_Capex_Input ) @= 'N' );
+    CellPutN(StringToNumber( vValue ), 'plan_Capex_Item', pVersionTo,vBusiness_Unit, vBranch, vCapex_Item_List, vm_plan_Capex_Input );
+elseif ( DType ('m_plan_Capex_Input', vm_plan_Capex_Input ) @= 'S' );
+    CellPutS ( vValue, 'plan_Capex_Item', pVersionTo,vBusiness_Unit, vBranch, vCapex_Item_List, vm_plan_Capex_Input );
+ENDIF;
+
+#endregion
+#region Epilog
+
+If(sErr@<>'');
+    ItemReject( sErr );
+Endif;    
+#endregion

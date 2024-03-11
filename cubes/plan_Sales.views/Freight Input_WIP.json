@@ -1,0 +1,42 @@
+{
+	"@type":"MDXView",
+	"Name":"Freight Input_WIP",
+	"MDX@Code.link":"Freight Input_WIP.mdx",
+	"Meta": {
+		"Aliases": {
+			"[Business_Unit].[Business_Unit]": "Code & Description",
+			"[plan_Period].[plan_Period]": "rpt_Period",
+			"[Branch].[Branch]": "Code & Description",
+			"[plan_Version].[plan_Version]": "MEMBER_NAME",
+			"[Customer_Sales].[Customer_Sales]": "Code & Description"
+		},
+		"ExpandAboves": {
+			"[Business_Unit].[Business_Unit]": false,
+			"[plan_Period].[plan_Period]": false,
+			"[Product_Group].[Product_Group]": false,
+			"[Branch].[Branch]": false,
+			"[plan_Version].[plan_Version]": false,
+			"[Customer_Sales].[Customer_Sales]": false,
+			"[m_plan_Sales].[m_plan_Sales]": false,
+			"[Currency_Sales].[Currency_Sales]": false
+		},
+		"ContextSets": {
+			"[Business_Unit].[Business_Unit]": {
+				"Expression": "{[Business_Unit].[Business_Unit].[Easysteel], [Business_Unit].[Business_Unit].[Dimond Consolidation], [Business_Unit].[Business_Unit].[PCC], [Business_Unit].[Business_Unit].[Reinforcing]}"
+			},
+			"[Product_Group].[Product_Group]": {
+				"Expression": "{[Product_Group].[Product_Group].[Product_Freight]}"
+			},
+			"[plan_Version].[plan_Version]": {
+				"SubsetName": "sys.version",
+				"IsPublic": true
+			},
+			"[Customer_Sales].[Customer_Sales]": {
+				"Expression": "{[Customer_Sales].[Customer_Sales].[Customer_Freight]}"
+			},
+			"[Currency_Sales].[Currency_Sales]": {
+				"Expression": "{[Currency_Sales].[Currency_Sales].[NZD], [Currency_Sales].[Currency_Sales].[AUD], [Currency_Sales].[Currency_Sales].[EUR], [Currency_Sales].[Currency_Sales].[USD], [Currency_Sales].[Currency_Sales].[NZD Converted]}"
+			}
+		}
+	}
+}
