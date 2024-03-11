@@ -1,0 +1,31 @@
+{
+	"@type":"Process",
+	"Name":"int_Dim_Version_Delete",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"int_Dim_Version_Delete.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"plan_Version:plan_Version",
+		"dataSourceNameForClient":"plan_Version:plan_Version",
+		"subset":"All"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersion",
+			"Prompt":"",
+			"Value":"Budget 002",
+			"Type":"String"
+		},
+		{
+			"Name":"pVersionType",
+			"Prompt":"",
+			"Value":"Calculated Budgets",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}
