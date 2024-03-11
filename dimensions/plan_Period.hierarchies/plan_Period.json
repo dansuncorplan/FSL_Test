@@ -1,0 +1,3814 @@
+{
+	"@type":"Hierarchy",
+	"Name":"plan_Period",
+	"ElementsSortType":"ByHierarchy",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL_PLAN_PERIOD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -4",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -4 0",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -3 0",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -2 0",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 0",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 0",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 0",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +2 0",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +3 0",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +4 0",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 0",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL_PLAN_PERIOD_YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 1 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 2 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 3 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 4 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 5 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 6 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 7 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 8 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 9 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 10 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 11 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 12 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 1 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 2 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 3 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 4 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 5 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 6 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 7 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 8 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 9 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 10 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 11 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 12 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 1 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 2 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 3 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 4 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 5 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 6 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 7 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 8 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 9 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 10 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 11 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 12 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +2 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +3 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +4 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 1 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 2 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 3 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 4 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 5 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 6 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 7 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 8 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 9 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 10 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 11 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 12 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Rolling 12 Months",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Future Rolling 12 Months",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Previous Rolling 12 Months",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Previous Rolling 3 Months",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Linked for Input",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Percentage Change",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Planning Driver",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Annual Input",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD",
+			"ComponentName":"Year -4",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD",
+			"ComponentName":"Year -3",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD",
+			"ComponentName":"Year -2",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD",
+			"ComponentName":"Year -1",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD",
+			"ComponentName":"Year 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD",
+			"ComponentName":"Year +1",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD",
+			"ComponentName":"Year +2",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD",
+			"ComponentName":"Year +3",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD",
+			"ComponentName":"Year +4",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD",
+			"ComponentName":"Year +5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4",
+			"ComponentName":"Year -4 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3",
+			"ComponentName":"Year -3 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2",
+			"ComponentName":"Year -2 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1",
+			"ComponentName":"Year -1 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0",
+			"ComponentName":"Year 0 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1",
+			"ComponentName":"Year +1 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2",
+			"ComponentName":"Year +2 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3",
+			"ComponentName":"Year +3 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4",
+			"ComponentName":"Year +4 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5",
+			"ComponentName":"Year +5 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD_YTD",
+			"ComponentName":"Year -1 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD_YTD",
+			"ComponentName":"Year 0 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD_YTD",
+			"ComponentName":"Year +1 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD_YTD",
+			"ComponentName":"Year +2 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD_YTD",
+			"ComponentName":"Year +3 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD_YTD",
+			"ComponentName":"Year +4 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PLAN_PERIOD_YTD",
+			"ComponentName":"Year +5 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 YTD",
+			"ComponentName":"Year -1 1 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 YTD",
+			"ComponentName":"Year -1 2 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 YTD",
+			"ComponentName":"Year -1 3 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 YTD",
+			"ComponentName":"Year -1 4 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 YTD",
+			"ComponentName":"Year -1 5 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 YTD",
+			"ComponentName":"Year -1 6 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 YTD",
+			"ComponentName":"Year -1 7 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 YTD",
+			"ComponentName":"Year -1 8 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 YTD",
+			"ComponentName":"Year -1 9 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 YTD",
+			"ComponentName":"Year -1 10 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 YTD",
+			"ComponentName":"Year -1 11 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 YTD",
+			"ComponentName":"Year -1 12 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 1 YTD",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 1 YTD",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 2 YTD",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 2 YTD",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 2 YTD",
+			"ComponentName":"Year -1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 3 YTD",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 3 YTD",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 3 YTD",
+			"ComponentName":"Year -1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 3 YTD",
+			"ComponentName":"Year -1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 4 YTD",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 4 YTD",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 4 YTD",
+			"ComponentName":"Year -1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 4 YTD",
+			"ComponentName":"Year -1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 4 YTD",
+			"ComponentName":"Year -1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 5 YTD",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 5 YTD",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 5 YTD",
+			"ComponentName":"Year -1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 5 YTD",
+			"ComponentName":"Year -1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 5 YTD",
+			"ComponentName":"Year -1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 5 YTD",
+			"ComponentName":"Year -1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 6 YTD",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 6 YTD",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 6 YTD",
+			"ComponentName":"Year -1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 6 YTD",
+			"ComponentName":"Year -1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 6 YTD",
+			"ComponentName":"Year -1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 6 YTD",
+			"ComponentName":"Year -1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 6 YTD",
+			"ComponentName":"Year -1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 7 YTD",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 7 YTD",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 7 YTD",
+			"ComponentName":"Year -1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 7 YTD",
+			"ComponentName":"Year -1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 7 YTD",
+			"ComponentName":"Year -1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 7 YTD",
+			"ComponentName":"Year -1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 7 YTD",
+			"ComponentName":"Year -1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 7 YTD",
+			"ComponentName":"Year -1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 8 YTD",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 8 YTD",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 8 YTD",
+			"ComponentName":"Year -1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 8 YTD",
+			"ComponentName":"Year -1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 8 YTD",
+			"ComponentName":"Year -1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 8 YTD",
+			"ComponentName":"Year -1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 8 YTD",
+			"ComponentName":"Year -1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 8 YTD",
+			"ComponentName":"Year -1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 8 YTD",
+			"ComponentName":"Year -1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 9 YTD",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 9 YTD",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 9 YTD",
+			"ComponentName":"Year -1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 9 YTD",
+			"ComponentName":"Year -1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 9 YTD",
+			"ComponentName":"Year -1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 9 YTD",
+			"ComponentName":"Year -1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 9 YTD",
+			"ComponentName":"Year -1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 9 YTD",
+			"ComponentName":"Year -1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 9 YTD",
+			"ComponentName":"Year -1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 9 YTD",
+			"ComponentName":"Year -1 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 10 YTD",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 10 YTD",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 10 YTD",
+			"ComponentName":"Year -1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 10 YTD",
+			"ComponentName":"Year -1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 10 YTD",
+			"ComponentName":"Year -1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 10 YTD",
+			"ComponentName":"Year -1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 10 YTD",
+			"ComponentName":"Year -1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 10 YTD",
+			"ComponentName":"Year -1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 10 YTD",
+			"ComponentName":"Year -1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 10 YTD",
+			"ComponentName":"Year -1 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 10 YTD",
+			"ComponentName":"Year -1 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 11 YTD",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 11 YTD",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 11 YTD",
+			"ComponentName":"Year -1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 11 YTD",
+			"ComponentName":"Year -1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 11 YTD",
+			"ComponentName":"Year -1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 11 YTD",
+			"ComponentName":"Year -1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 11 YTD",
+			"ComponentName":"Year -1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 11 YTD",
+			"ComponentName":"Year -1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 11 YTD",
+			"ComponentName":"Year -1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 11 YTD",
+			"ComponentName":"Year -1 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 11 YTD",
+			"ComponentName":"Year -1 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 11 YTD",
+			"ComponentName":"Year -1 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 12 YTD",
+			"ComponentName":"Year -1 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 YTD",
+			"ComponentName":"Year 0 1 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 YTD",
+			"ComponentName":"Year 0 2 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 YTD",
+			"ComponentName":"Year 0 3 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 YTD",
+			"ComponentName":"Year 0 4 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 YTD",
+			"ComponentName":"Year 0 5 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 YTD",
+			"ComponentName":"Year 0 6 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 YTD",
+			"ComponentName":"Year 0 7 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 YTD",
+			"ComponentName":"Year 0 8 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 YTD",
+			"ComponentName":"Year 0 9 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 YTD",
+			"ComponentName":"Year 0 10 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 YTD",
+			"ComponentName":"Year 0 11 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 YTD",
+			"ComponentName":"Year 0 12 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 1 YTD",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 1 YTD",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 2 YTD",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 2 YTD",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 2 YTD",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 3 YTD",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 3 YTD",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 3 YTD",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 3 YTD",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 4 YTD",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 4 YTD",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 4 YTD",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 4 YTD",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 4 YTD",
+			"ComponentName":"Year 0 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 5 YTD",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 5 YTD",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 5 YTD",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 5 YTD",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 5 YTD",
+			"ComponentName":"Year 0 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 5 YTD",
+			"ComponentName":"Year 0 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 6 YTD",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 6 YTD",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 6 YTD",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 6 YTD",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 6 YTD",
+			"ComponentName":"Year 0 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 6 YTD",
+			"ComponentName":"Year 0 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 6 YTD",
+			"ComponentName":"Year 0 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 7 YTD",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 7 YTD",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 7 YTD",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 7 YTD",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 7 YTD",
+			"ComponentName":"Year 0 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 7 YTD",
+			"ComponentName":"Year 0 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 7 YTD",
+			"ComponentName":"Year 0 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 7 YTD",
+			"ComponentName":"Year 0 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 8 YTD",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 8 YTD",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 8 YTD",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 8 YTD",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 8 YTD",
+			"ComponentName":"Year 0 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 8 YTD",
+			"ComponentName":"Year 0 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 8 YTD",
+			"ComponentName":"Year 0 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 8 YTD",
+			"ComponentName":"Year 0 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 8 YTD",
+			"ComponentName":"Year 0 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 9 YTD",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 9 YTD",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 9 YTD",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 9 YTD",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 9 YTD",
+			"ComponentName":"Year 0 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 9 YTD",
+			"ComponentName":"Year 0 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 9 YTD",
+			"ComponentName":"Year 0 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 9 YTD",
+			"ComponentName":"Year 0 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 9 YTD",
+			"ComponentName":"Year 0 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 9 YTD",
+			"ComponentName":"Year 0 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 10 YTD",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 10 YTD",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 10 YTD",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 10 YTD",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 10 YTD",
+			"ComponentName":"Year 0 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 10 YTD",
+			"ComponentName":"Year 0 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 10 YTD",
+			"ComponentName":"Year 0 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 10 YTD",
+			"ComponentName":"Year 0 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 10 YTD",
+			"ComponentName":"Year 0 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 10 YTD",
+			"ComponentName":"Year 0 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 10 YTD",
+			"ComponentName":"Year 0 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 11 YTD",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 11 YTD",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 11 YTD",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 11 YTD",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 11 YTD",
+			"ComponentName":"Year 0 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 11 YTD",
+			"ComponentName":"Year 0 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 11 YTD",
+			"ComponentName":"Year 0 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 11 YTD",
+			"ComponentName":"Year 0 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 11 YTD",
+			"ComponentName":"Year 0 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 11 YTD",
+			"ComponentName":"Year 0 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 11 YTD",
+			"ComponentName":"Year 0 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 11 YTD",
+			"ComponentName":"Year 0 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 12 YTD",
+			"ComponentName":"Year 0 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 YTD",
+			"ComponentName":"Year +1 1 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 YTD",
+			"ComponentName":"Year +1 2 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 YTD",
+			"ComponentName":"Year +1 3 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 YTD",
+			"ComponentName":"Year +1 4 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 YTD",
+			"ComponentName":"Year +1 5 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 YTD",
+			"ComponentName":"Year +1 6 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 YTD",
+			"ComponentName":"Year +1 7 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 YTD",
+			"ComponentName":"Year +1 8 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 YTD",
+			"ComponentName":"Year +1 9 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 YTD",
+			"ComponentName":"Year +1 10 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 YTD",
+			"ComponentName":"Year +1 11 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 YTD",
+			"ComponentName":"Year +1 12 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 1 YTD",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 1 YTD",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 2 YTD",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 2 YTD",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 2 YTD",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 3 YTD",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 3 YTD",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 3 YTD",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 3 YTD",
+			"ComponentName":"Year +1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 4 YTD",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 4 YTD",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 4 YTD",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 4 YTD",
+			"ComponentName":"Year +1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 4 YTD",
+			"ComponentName":"Year +1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 5 YTD",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 5 YTD",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 5 YTD",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 5 YTD",
+			"ComponentName":"Year +1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 5 YTD",
+			"ComponentName":"Year +1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 5 YTD",
+			"ComponentName":"Year +1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 6 YTD",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 6 YTD",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 6 YTD",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 6 YTD",
+			"ComponentName":"Year +1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 6 YTD",
+			"ComponentName":"Year +1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 6 YTD",
+			"ComponentName":"Year +1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 6 YTD",
+			"ComponentName":"Year +1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 7 YTD",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 7 YTD",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 7 YTD",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 7 YTD",
+			"ComponentName":"Year +1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 7 YTD",
+			"ComponentName":"Year +1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 7 YTD",
+			"ComponentName":"Year +1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 7 YTD",
+			"ComponentName":"Year +1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 7 YTD",
+			"ComponentName":"Year +1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 8 YTD",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 8 YTD",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 8 YTD",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 8 YTD",
+			"ComponentName":"Year +1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 8 YTD",
+			"ComponentName":"Year +1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 8 YTD",
+			"ComponentName":"Year +1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 8 YTD",
+			"ComponentName":"Year +1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 8 YTD",
+			"ComponentName":"Year +1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 8 YTD",
+			"ComponentName":"Year +1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 9 YTD",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 9 YTD",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 9 YTD",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 9 YTD",
+			"ComponentName":"Year +1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 9 YTD",
+			"ComponentName":"Year +1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 9 YTD",
+			"ComponentName":"Year +1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 9 YTD",
+			"ComponentName":"Year +1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 9 YTD",
+			"ComponentName":"Year +1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 9 YTD",
+			"ComponentName":"Year +1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 9 YTD",
+			"ComponentName":"Year +1 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 10 YTD",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 10 YTD",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 10 YTD",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 10 YTD",
+			"ComponentName":"Year +1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 10 YTD",
+			"ComponentName":"Year +1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 10 YTD",
+			"ComponentName":"Year +1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 10 YTD",
+			"ComponentName":"Year +1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 10 YTD",
+			"ComponentName":"Year +1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 10 YTD",
+			"ComponentName":"Year +1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 10 YTD",
+			"ComponentName":"Year +1 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 10 YTD",
+			"ComponentName":"Year +1 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 11 YTD",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 11 YTD",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 11 YTD",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 11 YTD",
+			"ComponentName":"Year +1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 11 YTD",
+			"ComponentName":"Year +1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 11 YTD",
+			"ComponentName":"Year +1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 11 YTD",
+			"ComponentName":"Year +1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 11 YTD",
+			"ComponentName":"Year +1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 11 YTD",
+			"ComponentName":"Year +1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 11 YTD",
+			"ComponentName":"Year +1 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 11 YTD",
+			"ComponentName":"Year +1 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 11 YTD",
+			"ComponentName":"Year +1 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 12 YTD",
+			"ComponentName":"Year +1 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 YTD",
+			"ComponentName":"Year +5 1 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 YTD",
+			"ComponentName":"Year +5 2 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 YTD",
+			"ComponentName":"Year +5 3 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 YTD",
+			"ComponentName":"Year +5 4 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 YTD",
+			"ComponentName":"Year +5 5 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 YTD",
+			"ComponentName":"Year +5 6 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 YTD",
+			"ComponentName":"Year +5 7 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 YTD",
+			"ComponentName":"Year +5 8 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 YTD",
+			"ComponentName":"Year +5 9 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 YTD",
+			"ComponentName":"Year +5 10 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 YTD",
+			"ComponentName":"Year +5 11 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 YTD",
+			"ComponentName":"Year +5 12 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 1 YTD",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 1 YTD",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 2 YTD",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 2 YTD",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 2 YTD",
+			"ComponentName":"Year +5 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 3 YTD",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 3 YTD",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 3 YTD",
+			"ComponentName":"Year +5 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 3 YTD",
+			"ComponentName":"Year +5 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 4 YTD",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 4 YTD",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 4 YTD",
+			"ComponentName":"Year +5 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 4 YTD",
+			"ComponentName":"Year +5 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 4 YTD",
+			"ComponentName":"Year +5 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 5 YTD",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 5 YTD",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 5 YTD",
+			"ComponentName":"Year +5 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 5 YTD",
+			"ComponentName":"Year +5 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 5 YTD",
+			"ComponentName":"Year +5 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 5 YTD",
+			"ComponentName":"Year +5 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 6 YTD",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 6 YTD",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 6 YTD",
+			"ComponentName":"Year +5 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 6 YTD",
+			"ComponentName":"Year +5 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 6 YTD",
+			"ComponentName":"Year +5 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 6 YTD",
+			"ComponentName":"Year +5 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 6 YTD",
+			"ComponentName":"Year +5 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 7 YTD",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 7 YTD",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 7 YTD",
+			"ComponentName":"Year +5 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 7 YTD",
+			"ComponentName":"Year +5 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 7 YTD",
+			"ComponentName":"Year +5 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 7 YTD",
+			"ComponentName":"Year +5 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 7 YTD",
+			"ComponentName":"Year +5 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 7 YTD",
+			"ComponentName":"Year +5 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 8 YTD",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 8 YTD",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 8 YTD",
+			"ComponentName":"Year +5 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 8 YTD",
+			"ComponentName":"Year +5 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 8 YTD",
+			"ComponentName":"Year +5 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 8 YTD",
+			"ComponentName":"Year +5 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 8 YTD",
+			"ComponentName":"Year +5 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 8 YTD",
+			"ComponentName":"Year +5 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 8 YTD",
+			"ComponentName":"Year +5 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 9 YTD",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 9 YTD",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 9 YTD",
+			"ComponentName":"Year +5 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 9 YTD",
+			"ComponentName":"Year +5 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 9 YTD",
+			"ComponentName":"Year +5 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 9 YTD",
+			"ComponentName":"Year +5 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 9 YTD",
+			"ComponentName":"Year +5 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 9 YTD",
+			"ComponentName":"Year +5 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 9 YTD",
+			"ComponentName":"Year +5 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 9 YTD",
+			"ComponentName":"Year +5 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 10 YTD",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 10 YTD",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 10 YTD",
+			"ComponentName":"Year +5 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 10 YTD",
+			"ComponentName":"Year +5 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 10 YTD",
+			"ComponentName":"Year +5 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 10 YTD",
+			"ComponentName":"Year +5 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 10 YTD",
+			"ComponentName":"Year +5 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 10 YTD",
+			"ComponentName":"Year +5 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 10 YTD",
+			"ComponentName":"Year +5 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 10 YTD",
+			"ComponentName":"Year +5 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 10 YTD",
+			"ComponentName":"Year +5 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 11 YTD",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 11 YTD",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 11 YTD",
+			"ComponentName":"Year +5 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 11 YTD",
+			"ComponentName":"Year +5 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 11 YTD",
+			"ComponentName":"Year +5 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 11 YTD",
+			"ComponentName":"Year +5 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 11 YTD",
+			"ComponentName":"Year +5 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 11 YTD",
+			"ComponentName":"Year +5 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 11 YTD",
+			"ComponentName":"Year +5 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 11 YTD",
+			"ComponentName":"Year +5 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 11 YTD",
+			"ComponentName":"Year +5 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 11 YTD",
+			"ComponentName":"Year +5 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 0",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 12 YTD",
+			"ComponentName":"Year +5 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rolling 12 Months",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rolling 12 Months",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rolling 12 Months",
+			"ComponentName":"Year 0 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rolling 12 Months",
+			"ComponentName":"Year 0 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rolling 12 Months",
+			"ComponentName":"Year 0 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rolling 12 Months",
+			"ComponentName":"Year 0 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rolling 12 Months",
+			"ComponentName":"Year 0 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rolling 12 Months",
+			"ComponentName":"Year 0 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rolling 12 Months",
+			"ComponentName":"Year 0 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rolling 12 Months",
+			"ComponentName":"Year 0 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rolling 12 Months",
+			"ComponentName":"Year 0 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rolling 12 Months",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months",
+			"ComponentName":"Year 0 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months",
+			"ComponentName":"Year 0 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months",
+			"ComponentName":"Year 0 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months",
+			"ComponentName":"Year 0 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months",
+			"ComponentName":"Year 0 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months",
+			"ComponentName":"Year +1 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months",
+			"ComponentName":"Year +1 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months",
+			"ComponentName":"Year +1 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months",
+			"ComponentName":"Year +1 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months",
+			"ComponentName":"Year +1 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months",
+			"ComponentName":"Year +1 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months",
+			"ComponentName":"Year +1 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 12 Months",
+			"ComponentName":"Year -1 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 12 Months",
+			"ComponentName":"Year -1 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 12 Months",
+			"ComponentName":"Year -1 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 12 Months",
+			"ComponentName":"Year -1 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 12 Months",
+			"ComponentName":"Year -1 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 12 Months",
+			"ComponentName":"Year 0 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 12 Months",
+			"ComponentName":"Year 0 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 12 Months",
+			"ComponentName":"Year 0 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 12 Months",
+			"ComponentName":"Year 0 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 12 Months",
+			"ComponentName":"Year 0 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 12 Months",
+			"ComponentName":"Year 0 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 12 Months",
+			"ComponentName":"Year 0 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 3 Months",
+			"ComponentName":"Year 0 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 3 Months",
+			"ComponentName":"Year 0 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Previous Rolling 3 Months",
+			"ComponentName":"Year 0 7",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"plan_Period.subsets/Current +3.json",
+		"plan_Period.subsets/Current Budget Periods.json",
+		"plan_Period.subsets/Default.json",
+		"plan_Period.subsets/Future Rolling 12 Months.json",
+		"plan_Period.subsets/Level_0.json",
+		"plan_Period.subsets/Picklist_Periods.json",
+		"plan_Period.subsets/Picklist_Plan_Period.json",
+		"plan_Period.subsets/sys.month.json",
+		"plan_Period.subsets/Sys.PAW.startperiod.json",
+		"plan_Period.subsets/Sys.PAW.Year_Selection.json"
+	]
+}

@@ -1,0 +1,50 @@
+{
+	"@type":"Subset",
+	"Name":"Future Rolling 12 Months",
+	"Alias":"rpt_Period",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Future Rolling 12 Months')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 8')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 9')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 10')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 11')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 12')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 1')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 2')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 3')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 4')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 5')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 6')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 7')"
+		}
+	]
+}

@@ -1,0 +1,27 @@
+#region Prolog
+
+sTargetStartMonth = CellGetS('plan_Version_Setup', pVersionTo,'Annual Input', 'Plan Start Month' ); 
+sTargetEndMonth = CellGetS('plan_Version_Setup', pVersionTo,'Annual Input', 'Plan End Month' ); 
+
+
+i=DIMIX( 'plan_Period', sTargetStartMonth );
+while (i<=DIMIX( 'plan_Period', sTargetEndMonth )); 
+    sPeriod=DIMNM( 'plan_Period', i );
+    if(ELLEV( 'plan_Period', sPeriod )=0);
+
+        sSourcePeriod = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Period' );
+        sSourceVersion = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Version' );
+
+        ExecuteProcess( ' cub.plan_ProfitandLoss.Copy_Calculated_Version_by_Period', 
+                       'pVersionTo', pVersionTo, 
+                       'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+                       'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+        
+        ASCIIOutput( 'temp.pnl_copy.txt', sTargetStartMonth, sTargetEndMonth, pVersionTo ,ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), sSourceVersion, sSourcePeriod );
+
+    endif;    
+
+    i=i+1;
+end;
+
+#endregion

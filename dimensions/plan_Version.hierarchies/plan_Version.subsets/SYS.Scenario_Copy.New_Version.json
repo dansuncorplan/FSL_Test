@@ -1,0 +1,11 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.Scenario_Copy.New_Version",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget 002')"
+		}
+	]
+}

@@ -1,0 +1,38 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Alias":"rpt_Period",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('TOTAL_PLAN_PERIOD')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year -1')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +2')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +3')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +4')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Rolling 12 Months')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Future Rolling 12 Months')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Previous Rolling 12 Months')"
+		}
+	]
+}
