@@ -1,0 +1,105 @@
+#region Prolog
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Description
+## Creates an Account in the Account Balance Sheet Dimension
+
+
+
+## Hardcoded Variables
+
+sTargetDim = 'Account_BS' ;
+
+sCons = pAccountCons ;
+
+
+
+## Check if Version Already Exists
+
+IF( DIMIX( sTargetDim, pAccountNumber ) <> 0 ) ;
+	ITEMREJECT( pAccountNumber | ' already exists in the Account Balance Sheet dimension' ) ;
+	PROCESSQUIT ;
+ENDIF ;
+
+
+
+## Create Branch
+
+DIMENSIONELEMENTINSERT( sTargetDim, '', pAccountNumber, 'N' ) ;
+DIMENSIONELEMENTCOMPONENTADD( sTargetDim, sCons, pAccountNumber, 1 ) ;
+
+
+
+
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+## Update Description Alias
+
+ATTRPUTS( pAccountName, sTargetDim, pAccountNumber, 'Description' ) ;
+
+
+
+## Update Code and Description Alias
+
+sCodeDesc = pAccountNumber | ' - ' | pAccountName ;
+ATTRPUTS( sCodeDesc, sTargetDim, pAccountNumber, 'Code & Description' ) ;
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

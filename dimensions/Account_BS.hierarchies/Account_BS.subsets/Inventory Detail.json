@@ -1,0 +1,26 @@
+{
+	"@type":"Subset",
+	"Name":"Inventory Detail",
+	"Alias":"Code & Description",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Inventory Detail')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Inv_Stock Analysis')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Inv_Gross Stock')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Inv_Total Stock')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Inv_Cost of Goods Sold - Rolling 12 Months')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Inventory Days')"
+		}
+	]
+}

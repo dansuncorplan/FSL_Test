@@ -1,0 +1,277 @@
+{
+	"@type":"NativeView",
+	"Name":"Dimond customer discount input format 2020",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 12')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Customer Discounts %25')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('24')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Branch')/Hierarchies('Branch')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('04')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('05')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('15')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('25')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('30')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('35')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('50')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('65')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('80')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('83')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('85')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('95')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('DI_EXTERNAL')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('DI_STEEL GROUP')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('DI_OTHER DIVISIONS')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('Dimond & CSR Products')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_ACCESSORIES OTHER')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_CLADDING PROFILES')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_COLORFLO')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_DIMOND COIL')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_DIMOND DOWNGRADE')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_FLASHGUARD/ALI EDGE')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_FLASHINGS')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_FLOORING')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_HIGH RIB ROOFING')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_LOW RIB ROOFING')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_NATURAL LIGHTING')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_PURLIN SYSTEMS')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_RIDGING')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_DIMOND CONTRACTS')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('AUD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('EUR')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('USD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD Converted')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":""
+}

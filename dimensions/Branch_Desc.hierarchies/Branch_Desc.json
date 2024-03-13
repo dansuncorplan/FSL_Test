@@ -1,0 +1,294 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Branch_Desc",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL_BRANCH_DESC",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"FSL WHANGAREI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL AUCKLAND",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL HAMILTON",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL TAURANGA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL ROTORUA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL NEW PLYMOUTH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL NAPIER",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL PALMERSTON NORTH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL WELLINGTON",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL NELSON",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL CHRISTCHURCH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL DUNEDIN",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL INVERCARGILL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL CYCLONE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL NORTHERN PLATE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL SOUTHERN PLATE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM SUPPORT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM MOBILE PLANT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM WHANGAREI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM AUCKLAND",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM HAMILTON",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM TAURANGA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM ROTORUA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM NEW PLYMOUTH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM HASTINGS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM PALMERSTON NORTH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM WELLINGTON",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM CHRISTCHURCH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM DUNEDIN",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM STRUCTURAL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DIM INVERCARGILL",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL WHANGAREI",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL AUCKLAND",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL HAMILTON",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL TAURANGA",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL ROTORUA",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL NEW PLYMOUTH",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL NAPIER",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL PALMERSTON NORTH",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL WELLINGTON",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL NELSON",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL CHRISTCHURCH",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL DUNEDIN",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL INVERCARGILL",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL CYCLONE",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL NORTHERN PLATE",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"FSL SOUTHERN PLATE",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM SUPPORT",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM MOBILE PLANT",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM WHANGAREI",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM AUCKLAND",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM HAMILTON",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM TAURANGA",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM ROTORUA",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM NEW PLYMOUTH",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM HASTINGS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM PALMERSTON NORTH",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM WELLINGTON",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM CHRISTCHURCH",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM DUNEDIN",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM STRUCTURAL",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_BRANCH_DESC",
+			"ComponentName":"DIM INVERCARGILL",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

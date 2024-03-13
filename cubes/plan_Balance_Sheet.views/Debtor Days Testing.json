@@ -1,0 +1,255 @@
+{
+	"@type":"NativeView",
+	"Name":"Debtor Days Testing",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 1 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 2 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 3 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 4 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 5 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 6 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 7 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 8 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 9 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 10 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 11 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 12 YTD')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Debtor Days Detail')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Debtor Days Outstanding')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Gross Debtors')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('61000')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('61100')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('61500')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Other Adjustment - Intracompany')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Other Adjustment - Other')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Total Credit Sales')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Credit Sales')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Credit Sales - Adjustment')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Credit Sales - GST')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Credit Sales - Intracompany')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency')/Hierarchies('Currency')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')/Elements('Value')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')/Elements('Value')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('TOTAL_BRANCH')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel Exc CSP')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Easysteel')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('10')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('11')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('12')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('14')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('16')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('17')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('18')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('19')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Dimond Consolidation')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('PCC')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Reinforcing')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('SD Support')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('NZSD Divisional')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('CSP Pacific')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Easysteel')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

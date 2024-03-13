@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.level0",
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {{TM1FILTERBYLEVEL(TM1SUBSETALL([plan_Version].[plan_Version]) , 0)}}"
+}

@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Payroll_Pay_Interval",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Staff_Type')"
+		},
+		{
+			"@id":"Dimensions('Staff_Role')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Pay_Interval')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"plan_Payroll_Pay_Interval.views/Default.json"
+	]
+}

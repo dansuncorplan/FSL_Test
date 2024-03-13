@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_plan_Payroll_Current_Actuals",
+	"Hierarchies@Code.links":
+	[
+		"m_plan_Payroll_Current_Actuals.hierarchies/m_plan_Payroll_Current_Actuals.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')"
+	}
+}

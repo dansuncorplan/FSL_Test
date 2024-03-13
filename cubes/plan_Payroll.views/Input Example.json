@@ -1,0 +1,285 @@
+{
+	"@type":"NativeView",
+	"Name":"Input Example",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 0')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 12')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +2')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('Production Staff')"
+					},
+					{
+						"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('Administrative Staff')"
+					},
+					{
+						"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('Sales and Marketing')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Admin General')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Admin Specialised')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('CSR')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('CSR Mgmt')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Detailing')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('EC Mgmt')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('EHS')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('EHS L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('EstContracts')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Finance')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Finance L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Marketing')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops General')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops General M')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops L2 M')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops Mgmt')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('P&P')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Sales General')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Sales L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Sales Mgmt')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('SCM General')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('SCM L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('SLT')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('WHD General')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Headcount')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Headcount Calc')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Annual Amount $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Annual Amount $ Calc')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Amount Increase $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Allowance Amount $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Allowance Amount $ Calc')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY SALARY $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY WAGES $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Incentive Amount $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Incentive Amount $ Calc')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY INCENTIVE $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Overtime %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY OVERTIME $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY KIWISAVER $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY ACC $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('LEAVE ACCRUAL $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('LEAVE TAKEN $')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Expression":"TM1SubsetAll([plan_Version])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Subsets('Picklist_Sub_Unit')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('10')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Picklist_Branch')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('15')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":true,
+	"SuppressEmptyRows":true,
+	"FormatString":"0.#########"
+}

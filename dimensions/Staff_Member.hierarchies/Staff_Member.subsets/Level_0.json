@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Level_0",
+	"Alias":"Code_and_Name",
+	"Expression":"{TM1FILTERBYLEVEL( {TM1SORT( {TM1SUBSETALL( [Staff_Member] )}, ASC)}, 0)}"
+}

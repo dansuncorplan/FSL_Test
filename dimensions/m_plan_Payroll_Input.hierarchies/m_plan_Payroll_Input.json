@@ -1,0 +1,229 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_plan_Payroll_Input",
+	"Elements":
+	[
+		{
+			"Name":"Display Flag",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Joined",
+			"Type":"String"
+		},
+		{
+			"Name":"Position",
+			"Type":"String"
+		},
+		{
+			"Name":"Position Start",
+			"Type":"String"
+		},
+		{
+			"Name":"Position Start Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Position Start Period Number",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Position End",
+			"Type":"String"
+		},
+		{
+			"Name":"Position End Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Position End Period Number",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Headcount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Employment Status",
+			"Type":"String"
+		},
+		{
+			"Name":"Pay Interval",
+			"Type":"String"
+		},
+		{
+			"Name":"Annual Amount $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hourly Rate $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Allowances Code",
+			"Type":"String"
+		},
+		{
+			"Name":"Allowances Annual Amount $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kiwi Save Employer Rate %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hours per Week",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cost Group Desc",
+			"Type":"String"
+		},
+		{
+			"Name":"Staff Type",
+			"Type":"String"
+		},
+		{
+			"Name":"Exec Staff Wages",
+			"Type":"String"
+		},
+		{
+			"Name":"Total Remuneration",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Salary Increase %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SALARY INCREASE $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Wage Increase %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WAGES INCREASE $/hr",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WAGES INCREASE $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Incentive type",
+			"Type":"String"
+		},
+		{
+			"Name":"Incentive Amount $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Incentive Amount %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL INCENTIVE $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly Amount $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Overtime %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Overtime $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shift Allowance Qty",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"H&S Allowance Qty",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Meal Allowance Qty",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IC Allowance Qty",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2IC Allowance Qty",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Night Shift Allowance Qty",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"First Aid Allowance $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Motor Vehicle Allowance $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shift Allowance $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"H&S Allowance $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Meal Allowance $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IC Allowance $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2IC Allowance $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Night Shift Allowance $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kiwisaver $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ACC $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Holiday Pay Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Holiday Pay $",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Remuneration",
+			"ComponentName":"Annual Amount $",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Remuneration",
+			"ComponentName":"Motor Vehicle Allowance $",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

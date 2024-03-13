@@ -1,0 +1,33 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Capex_Asset_Flag",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL_CAPEX_ASSET_FLAG",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Production",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Support",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOTAL_CAPEX_ASSET_FLAG",
+			"ComponentName":"Production",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CAPEX_ASSET_FLAG",
+			"ComponentName":"Support",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

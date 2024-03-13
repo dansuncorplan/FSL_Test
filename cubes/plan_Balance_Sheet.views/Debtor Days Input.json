@@ -1,0 +1,206 @@
+{
+	"@type":"NativeView",
+	"Name":"Debtor Days Input",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('TOTAL_PLAN_PERIOD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 12')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 1 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 2 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 3 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 4 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 5 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 6 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 7 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 8 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 9 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 10 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 11 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 12 YTD')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Subsets('Picklist_Sub_Unit')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')"
+				},
+				"ExpandAbove":true,
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Other Adjustment - Intracompany')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Other Adjustment - Other')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Actual')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency')/Hierarchies('Currency')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')/Elements('Value')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')/Elements('Value')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('01')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

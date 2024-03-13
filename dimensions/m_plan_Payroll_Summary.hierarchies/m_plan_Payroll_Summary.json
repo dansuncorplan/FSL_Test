@@ -1,0 +1,294 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_plan_Payroll_Summary",
+	"Elements":
+	[
+		{
+			"Name":"Valid",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Headcount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Annual Amount $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Salary Increase %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Salary Increase $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MONTHLY SALARY $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hourly Rate $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Wage Increase %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MONTHLY WAGES $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Overtime %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVERTIME $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SHIFT ALLOWANCE $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NIGHT SHIFT ALLOWANCE $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FIRST AID ALLOWANCE $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MEAL ALLOWANCE $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IC ALLOWANCE $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2IC ALLOWANCE $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ACC $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KIWISAVER $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Incentive Amount $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Incentive Amount %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL INCENTIVE $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ACC Rate %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kiwi Saver %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Holiday Pay Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Holiday Pay $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Holiday Pay Salary $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Holiday Pay Staff Wages $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Staff Wages",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL_FEEDER_CONSOLIDATION",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Staff Wages",
+			"ComponentName":"SHIFT ALLOWANCE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Wages",
+			"ComponentName":"NIGHT SHIFT ALLOWANCE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Wages",
+			"ComponentName":"FIRST AID ALLOWANCE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Wages",
+			"ComponentName":"MEAL ALLOWANCE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Wages",
+			"ComponentName":"IC ALLOWANCE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Wages",
+			"ComponentName":"2IC ALLOWANCE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Wages",
+			"ComponentName":"MONTHLY WAGES $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"Salary Increase %",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"Salary Increase $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"MONTHLY SALARY $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"Wage Increase %",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"MONTHLY WAGES $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"Overtime %",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"OVERTIME $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"SHIFT ALLOWANCE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"NIGHT SHIFT ALLOWANCE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"FIRST AID ALLOWANCE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"MEAL ALLOWANCE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"IC ALLOWANCE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"2IC ALLOWANCE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"ACC $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"KIWISAVER $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"ACC Rate %",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"Kiwi Saver %",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"Annual Amount $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"Hourly Rate $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"Incentive Amount $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"Incentive Amount %",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"TOTAL INCENTIVE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"Headcount",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"Holiday Pay $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_FEEDER_CONSOLIDATION",
+			"ComponentName":"Holiday Pay Rate",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_plan_Payroll_Summary.subsets/Default.json"
+	]
+}

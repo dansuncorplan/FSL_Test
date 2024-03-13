@@ -1,0 +1,32 @@
+{
+	"@type":"Process",
+	"Name":"int_Dim_Account_BS_Create",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"int_Dim_Account_BS_Create.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pAccountNumber",
+			"Prompt":"Account BS Number",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAccountName",
+			"Prompt":"Account BS Name",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAccountCons",
+			"Prompt":"Account Consolidation Parent",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

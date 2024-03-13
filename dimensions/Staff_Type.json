@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Staff_Type",
+	"Hierarchies@Code.links":
+	[
+		"Staff_Type.hierarchies/Staff_Type.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')"
+	}
+}

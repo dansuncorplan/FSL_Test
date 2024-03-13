@@ -1,0 +1,114 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 0')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 12')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +2')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('m_plan_Payroll_Assumptions')/Hierarchies('m_plan_Payroll_Assumptions')/Subsets('Default')"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Expression":"TM1SubsetAll([plan_Version])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Subsets('Picklist_Sub_Unit')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('10')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Picklist_Branch')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('01')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":true,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

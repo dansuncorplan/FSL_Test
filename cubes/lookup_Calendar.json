@@ -1,0 +1,25 @@
+{
+	"@type":"Cube",
+	"Name":"lookup_Calendar",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('rpt_Year')"
+		},
+		{
+			"@id":"Dimensions('rpt_Month')"
+		},
+		{
+			"@id":"Dimensions('m_lookup_Calendar')"
+		}
+	],
+	"Rules@Code.link":"lookup_Calendar.rules",
+	"MeasuresDimension":
+	{
+		"@id":"Dimensions('m_lookup_Calendar')"
+	},
+	"Views@Code.links":
+	[
+		"lookup_Calendar.views/Default.json"
+	]
+}

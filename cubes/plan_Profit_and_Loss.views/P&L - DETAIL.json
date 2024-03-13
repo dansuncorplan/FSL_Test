@@ -1,0 +1,42 @@
+{
+	"@type":"MDXView",
+	"Name":"P&L - DETAIL",
+	"MDX@Code.link":"P&L - DETAIL.mdx",
+	"Meta": {
+		"Aliases": {
+			"[Business_Unit].[Business_Unit]": "Code & Description",
+			"[plan_Period].[plan_Period]": "rpt_Period",
+			"[plan_Version].[plan_Version]": "MEMBER_NAME",
+			"[Branch].[Branch]": "Code & Description",
+			"[Account_PL].[Account_PL]": "Code & Description"
+		},
+		"ExpandAboves": {
+			"[Business_Unit].[Business_Unit]": false,
+			"[plan_Period].[plan_Period]": false,
+			"[m_plan_Profit_and_Loss].[m_plan_Profit_and_Loss]": false,
+			"[plan_Version].[plan_Version]": false,
+			"[Branch].[Branch]": false,
+			"[Account_PL].[Account_PL]": true,
+			"[Currency].[Currency]": false
+		},
+		"ContextSets": {
+			"[Business_Unit].[Business_Unit]": {
+				"SubsetName": "Default",
+				"IsPublic": true
+			},
+			"[m_plan_Profit_and_Loss].[m_plan_Profit_and_Loss]": {
+				"Expression": "{[m_plan_Profit_and_Loss].[m_plan_Profit_and_Loss].[Value]}"
+			},
+			"[plan_Version].[plan_Version]": {
+				"Expression": "{EXCEPT(TM1SubsetToSet([plan_Version].[plan_Version] , \"sys.version\" , \"public\") , {[plan_Version].[plan_Version].[Variance - Act v Bud^Actual]})}"
+			},
+			"[Branch].[Branch]": {
+				"SubsetName": "Default",
+				"IsPublic": true
+			},
+			"[Currency].[Currency]": {
+				"Expression": "{[Currency].[Currency].[LCY]}"
+			}
+		}
+	}
+}

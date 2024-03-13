@@ -1,0 +1,40 @@
+{
+	"@type":"Cube",
+	"Name":"rpt_Payroll",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('rpt_Version')"
+		},
+		{
+			"@id":"Dimensions('rpt_Month')"
+		},
+		{
+			"@id":"Dimensions('rpt_Year')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Staff_Role')"
+		},
+		{
+			"@id":"Dimensions('Staff_Type')"
+		},
+		{
+			"@id":"Dimensions('m_rpt_Payroll')"
+		}
+	],
+	"Rules@Code.link":"rpt_Payroll.rules",
+	"Views@Code.links":
+	[
+		"rpt_Payroll.views/Default.json",
+		"rpt_Payroll.views/Payroll - FY23 Budget R1 11Apr22.json",
+		"rpt_Payroll.views/Payroll - FY23 Budget R3 19Apr22.json",
+		"rpt_Payroll.views/Payroll - FY23 Budget R4 Final 12May22.json",
+		"rpt_Payroll.views/Payroll - Sep21 Rebudget 2022 V1.json"
+	]
+}

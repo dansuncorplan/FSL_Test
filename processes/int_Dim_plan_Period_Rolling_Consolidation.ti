@@ -1,0 +1,288 @@
+#region Prolog
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+## Description
+## Creates & Updates the Rolling Period Consolidation in plan_Period dimension
+
+
+## Hardcoded Variables
+
+sTargetDim = 'plan_Period' ;
+sCapexDim = 'm_plan_Capex_Input' ;
+
+sRollingCons = 'Rolling 12 Months' ;
+sFutureCons = 'Future Rolling 12 Months' ;
+sPreviousCons = 'Previous Rolling 12 Months' ;
+sFutureSpendCons = 'Future Rolling 12 Months Spend' ;
+nCount = 1 ;
+
+
+
+## Delete Consolidations
+
+IF( DIMIX( sTargetDim, sRollingCons ) <> 0 ) ;
+
+	DIMENSIONELEMENTDELETE( sTargetDim, sRollingCons ) ;
+
+ENDIF ;
+
+IF( DIMIX( sTargetDim, sFutureCons ) <> 0 ) ;
+
+	DIMENSIONELEMENTDELETE( sTargetDim, sFutureCons ) ;
+
+ENDIF ;
+
+IF( DIMIX( sTargetDim, sPreviousCons ) <> 0 ) ;
+
+	DIMENSIONELEMENTDELETE( sTargetDim, sPreviousCons ) ;
+
+ENDIF ;
+
+IF( DIMIX( sCapexDim, sFutureSpendCons ) <> 0 ) ;
+
+	DIMENSIONELEMENTDELETE( sCapexDim, sFutureSpendCons ) ;
+
+ENDIF ;
+
+
+
+## Create Consolidations
+
+DIMENSIONELEMENTINSERT( sTargetDim, '', sRollingCons, 'C' ) ;
+DIMENSIONELEMENTINSERT( sTargetDim, '', sFutureCons, 'C' ) ;
+DIMENSIONELEMENTINSERT( sTargetDim, '', sPreviousCons, 'C' ) ;
+DIMENSIONELEMENTINSERT( sCapexDim, '', sFutureSpendCons, 'C' ) ;
+
+
+
+
+
+
+
+
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+## Skip if Period is Consolidated
+
+IF( DTYPE( sTargetDim, vPeriod ) @= 'C' ) ;
+
+	ITEMSKIP ;
+
+ENDIF ;
+
+
+
+## Set Offset Range - Rolling 12 Months
+
+nOffsetStart = -6 ;
+nOffsetEnd = 5 ;
+sCons = sRollingCons ;
+
+
+
+## Get Period Offset
+
+sAttr = 'Period_Offset' ;
+nOffsetPeriod = STRINGTONUMBER( ATTRS( sTargetDim, vPeriod, sAttr ) ) ;
+
+
+
+## If Period is withing range, add to consolidation
+
+IF( nOffsetPeriod >= nOffsetStart & nOffsetPeriod <= nOffsetEnd ) ;
+
+	DIMENSIONELEMENTCOMPONENTADD( sTargetDim, sCons, vPeriod, 1 ) ;
+
+	nCount = nCount + 1 ;
+
+ENDIF ;
+
+
+
+## Set Offset Range - Future
+
+nOffsetStart = 0 ;
+nOffsetEnd = 11 ;
+sCons = sFutureCons ;
+
+
+
+## Get Period Offset
+
+sAttr = 'Period_Offset' ;
+nOffsetPeriod = STRINGTONUMBER( ATTRS( sTargetDim, vPeriod, sAttr ) ) ;
+
+
+
+## If Period is withing range, add to consolidation
+
+IF( nOffsetPeriod >= nOffsetStart & nOffsetPeriod <= nOffsetEnd ) ;
+
+	IF( nOffsetPeriod = -1 ) ;
+		sPeriod = vPeriod | ' YTD' ;
+	ELSE ;
+		sPeriod = vPeriod ;
+	ENDIF ;
+
+
+	DIMENSIONELEMENTCOMPONENTADD( sTargetDim, sCons, sPeriod, 1 ) ;
+
+	nCount = nCount + 1 ;
+
+ENDIF ;
+
+
+
+
+## Set Offset Range - Rolling 12 Months
+
+nOffsetStart = -12 ;
+nOffsetEnd = -1 ;
+sCons = sPreviousCons ;
+
+
+
+## Get Period Offset
+
+sAttr = 'Period_Offset' ;
+nOffsetPeriod = STRINGTONUMBER( ATTRS( sTargetDim, vPeriod, sAttr ) ) ;
+
+
+
+## If Period is withing range, add to consolidation
+
+IF( nOffsetPeriod >= nOffsetStart & nOffsetPeriod <= nOffsetEnd ) ;
+
+	DIMENSIONELEMENTCOMPONENTADD( sTargetDim, sCons, vPeriod, 1 ) ;
+
+	nCount = nCount + 1 ;
+
+ENDIF ;
+
+
+## Set Offset Range - Future
+
+nOffsetStart = 0 ;
+nOffsetEnd = 11 ;
+sCons = sFutureSpendCons ;
+
+
+
+## Get Period Offset
+
+sAttr = 'Period_Offset' ;
+nOffsetPeriod = STRINGTONUMBER( ATTRS( sTargetDim, vPeriod, sAttr ) ) ;
+
+
+
+## If Period is withing range, add to consolidation
+
+IF( nOffsetPeriod >= nOffsetStart & nOffsetPeriod <= nOffsetEnd ) ;
+
+	sPeriod = vPeriod | ' Spend' ;
+
+	DIMENSIONELEMENTCOMPONENTADD( sCapexDim, sCons, sPeriod, 1 ) ;
+
+	nCount = nCount + 1 ;
+
+ENDIF ;
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+countRecords = countRecords + 1;
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+## Update Subset in plan_Period
+
+sSubset = 'Future Rolling 12 Months' ;
+sCurrentYear = ATTRS( sTargetDim, 'Year 0', 'rpt_Period' ) ;
+
+SUBSETDELETEALLELEMENTS( sTargetDim, sSubset ) ;
+
+SUBSETELEMENTINSERT( sTargetDim, sSubset, sCurrentYear, 1 ) ;
+SUBSETELEMENTINSERT( sTargetDim, sSubset, sFutureCons, 2 ) ;
+
+nLoopCount = 1 ;
+nLoopMax = 12 ;
+nInsert = 3 ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sChild = ELCOMP( sTargetDim, sFutureCons, nLoopCount ) ;
+
+	SUBSETELEMENTINSERT( sTargetDim, sSubset, sChild, nInsert ) ;
+
+	nInsert = nInsert + 1 ;
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

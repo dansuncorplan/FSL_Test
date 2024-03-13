@@ -1,0 +1,44 @@
+{
+	"@type":"Process",
+	"Name":"exe_Load_Payroll",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"exe_Load_Payroll.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersion",
+			"Prompt":"Load Version",
+			"Value":"Forecast",
+			"Type":"String"
+		},
+		{
+			"Name":"pFileNameSalary",
+			"Prompt":"Load Salary File",
+			"Value":"Payroll Salary Nov 17.csv",
+			"Type":"String"
+		},
+		{
+			"Name":"pFileNameKiwisaver",
+			"Prompt":"Load Kiwisaver File",
+			"Value":"KIWI Steel Nov 17.csv",
+			"Type":"String"
+		},
+		{
+			"Name":"pFileNamePosition",
+			"Prompt":"Load Position File",
+			"Value":"Position Report Steel Nov 17.csv",
+			"Type":"String"
+		},
+		{
+			"Name":"pFileNameAllowance",
+			"Prompt":"Load Allowance File",
+			"Value":"Steel Allowances Nov 17.csv",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

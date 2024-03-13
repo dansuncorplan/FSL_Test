@@ -1,0 +1,228 @@
+{
+	"@type":"NativeView",
+	"Name":"DPO Testing",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"ExpandAbove":true,
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 0')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 12')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 12 YTD')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('DPO Detail')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Days Purchases Outstanding')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Adjusted Creditors')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70000')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70100')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70200')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Creditors Other Adjustment (note required)')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Total Purchases incl GST/VAT')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Inventory Purchases')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Add Closing Inventory')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('COGS (exc GST/VAT)')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Less Opening Inventory')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Total Purchases')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Add Administration Expenses')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Add Sales & Marketing Expenses')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Add Warehouse & Distribution')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Less Depreciation & Amortisation')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Less Employee Costs')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Purchases Other Adj')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('GST/VAT on Purchases')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Other Adj to GST/VAT')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency')/Hierarchies('Currency')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')/Elements('Value')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')/Elements('Value')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('TOTAL_BRANCH')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Easysteel')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

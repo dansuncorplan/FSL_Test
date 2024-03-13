@@ -1,0 +1,355 @@
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+
+
+## Display Flag
+
+[ 'Display Flag' ] = N:
+IF( ELISANC( 'Staff_Member', 'PLAN_TOTAL_STAFF_MEMBER', !Staff_Member ) = 1 ,
+# THEN
+	1 ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Display Flag' ] = N:
+IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position Start') @<> '' ,
+# THEN
+	1 ,
+# ELSE
+	CONTINUE ) ;
+
+
+## Headcount
+
+[ 'Headcount' ] = N:
+IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position Start') @<> '' & DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position End') @= '' ,
+# THEN
+	1 ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Position Start Period
+
+['Position Start Period'] = S:
+IF( LONG( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position Start') ) = 9 ,
+# THEN
+	SUBST( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position Start'), 6, 4 ) | ' ' |
+	ATTRS( 'rpt_Month', 'cal_' | SUBST( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position Start'), 3, 2 ), 'Month_Short' ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+['Position Start Period'] = S:
+IF( LONG( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position Start') ) = 10 ,
+# THEN
+	SUBST( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position Start'), 7, 4 ) | ' ' |
+	ATTRS( 'rpt_Month', 'cal_' |  SUBST( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position Start'), 4, 2 ), 'Month_Short' ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Position Start Period Number
+
+['Position Start Period Number'] = N:
+ATTRN( 'plan_Period', DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position Start Period'), 'Period_Number' ) ;
+
+
+
+
+## Position End Period
+
+['Position End Period'] = S:
+IF( LONG( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position End') ) = 9 ,
+# THEN
+	SUBST( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position End'), 6, 4 ) | ' ' |
+	ATTRS( 'rpt_Month', 'cal_' |  SUBST( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position End'), 3, 2 ), 'Month_Short' ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+['Position End Period'] = S:
+IF( LONG( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position End') ) = 10 ,
+# THEN
+	SUBST( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position End'), 7, 4 ) | ' ' |
+	ATTRS( 'rpt_Month', 'cal_' |  SUBST( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position End'), 4, 2 ), 'Month_Short' ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Position End Period Number
+
+['Position End Period Number'] = N:
+ATTRN( 'plan_Period', DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position End Period'), 'Period_Number' ) ;
+
+
+
+## Salary Increase %
+
+[ 'Salary Increase %' ] = N:
+IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Pay Interval') @= 'M' ,
+# THEN
+	DB('lookup_Payroll_Assumptions',!plan_Version,'Salary Increase %') ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Salary Increase $
+
+[ 'Salary Increase $' ] = N:
+IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Pay Interval') @= 'M' ,
+# THEN
+	['Annual Amount $'] * [ 'Salary Increase %' ] ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Wage	 Increase %
+
+[ 'Wage Increase %' ] = N:
+IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Pay Interval') @= 'W' ,
+# THEN
+	DB('lookup_Payroll_Assumptions',!plan_Version,'Wage Increase %') ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Wage	 Increase $/hr
+
+[ 'Wages Increase $/hr' ] = N:
+IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Pay Interval') @= 'W' ,
+# THEN
+	['Hourly Rate $'] * ( 1+ [ 'Wage Increase %' ] ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Wages Increase $
+
+[ 'Wages increase $' ] = N:
+IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Pay Interval') @= 'W' ,
+# THEN
+	['Annual Amount $'] * [ 'Wage Increase %' ] ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Incentive Amount $
+
+[ 'Incentive Amount $' ] = N:
+IF( ATTRS( 'm_lookup_Payroll_Assumptions', DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Incentive type'), 'Type' ) @= '$' ,
+# THEN
+	DB('lookup_Payroll_Assumptions',!plan_Version, DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Incentive type' ) ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Incentive Amount %
+
+[ 'Incentive Amount %' ] = N:
+IF( ATTRS( 'm_lookup_Payroll_Assumptions', DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Incentive type'), 'Type' ) @= '%' ,
+# THEN
+	DB('lookup_Payroll_Assumptions',!plan_Version, DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Incentive type' ) ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## TOTAL INCENTIVE $
+
+[ 'TOTAL INCENTIVE $' ] = N:
+IF( ATTRS( 'm_lookup_Payroll_Assumptions', DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Incentive type'), 'Type' ) @= '$' ,
+# THEN
+	[ 'Incentive Amount $' ] ,
+# ELSE
+	[ 'Incentive Amount %' ] * ['Annual Amount $'] ) ;
+
+
+
+
+## Monthly Amount $ - Monthly
+
+[ 'Monthly Amount $' ] = N:
+IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Pay Interval') @= 'M' ,
+# THEN
+	( [ 'Annual Amount $' ] * (1 + [ 'Salary Increase %' ] ) ) \ 12 ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Monthly Amount $ - Wage
+
+[ 'Monthly Amount $' ] = N:
+IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Pay Interval') @= 'W' ,
+# THEN
+	[ 'Wages increase $/hr' ] * [ 'Hours per Week' ] * DB('lookup_Payroll_Assumptions',!plan_Version,'Avg. weeks per month') ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Overtime $ per Month
+
+[ 'Overtime $' ] = N:
+[ 'Monthly Amount $' ] * [ 'Overtime %' ] ;
+
+
+
+## Shift Allowance $
+
+[ 'Shift Allowance $' ] = N:
+[ 'Shift Allowance Qty' ] * DB('lookup_Payroll_Assumptions',!plan_Version,'Shift Allowance') ;
+
+
+
+## H&S Allowance $
+
+[ 'H&S Allowance $' ] = N:
+[ 'H&S Allowance Qty' ] * DB('lookup_Payroll_Assumptions',!plan_Version,'H&S Allowance') ;
+
+
+
+## Meal Allowance $
+
+[ 'Meal Allowance $' ] = N:
+[ 'Meal Allowance Qty' ] * DB('lookup_Payroll_Assumptions',!plan_Version,'Meal Allowance') ;
+
+
+
+## IC Allowance $
+
+[ 'IC Allowance $' ] = N:
+[ 'IC Allowance Qty' ] * DB('lookup_Payroll_Assumptions',!plan_Version,'IC Allowance') ;
+
+
+
+## 2IC Allowance $
+
+[ '2IC Allowance $' ] = N:
+[ '2IC Allowance Qty' ] * DB('lookup_Payroll_Assumptions',!plan_Version,'2IC Allowance') ;
+
+
+
+## Night Shift Allowance $
+
+[ 'Night Shift Allowance $' ] = N:
+[ 'Night Shift Allowance Qty' ] * DB('lookup_Payroll_Assumptions',!plan_Version,'Night Shift Allowance') ;
+
+
+
+## Kiwisaver $
+
+[ 'Kiwisaver $' ] = N:
+[ 'Monthly Amount $' ] * ( ['Kiwi Save Employer Rate %'] \ 100 ) ;
+
+
+
+## Employer Rate
+
+[ 'Kiwi Save Employer Rate %' ] = N:
+IF( ELISANC( 'Staff_Member', 'PLAN_TOTAL_STAFF_MEMBER', !Staff_Member ) = 1 ,
+# THEN
+	IF( [ 'Monthly Amount $' ] <> 0 ,
+	# THEN
+		DB('lookup_Payroll_Assumptions',!plan_Version,'Employer Kiwisaver Contrib') * 100 ,
+	# ELSE
+		STET ) ,
+# ELSE
+	STET ) ;
+
+
+
+## ACC $
+
+[ 'ACC $' ] = N:
+[ 'Monthly Amount $' ] * DB('lookup_Payroll_Assumptions',!plan_Version,'ACC Rate') ;
+
+
+
+## Motor Vehicle Allowance $
+
+[ 'Motor Vehicle Allowance $' ] = N:
+IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Allowances Code') @= 'Motor Vehicle Benefit NP' ,
+# THEN
+	[ 'Allowances Annual Amount $' ] \ 12 ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## First Aid Allowance $
+
+[ 'First Aid Allowance $' ] = N:
+IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Allowances Code') @= '1st Aid' ,
+# THEN
+	[ 'Allowances Annual Amount $' ] \ 12 ,
+# ELSE
+	CONTINUE ) ;
+
+
+## Holiday Pay $
+
+[ 'Holiday Pay $' ] = N:
+( [ 'Annual Amount $' ] + [ 'Salary Increase $' ] + [ 'Wages Increase $' ] ) * ( [ 'Holiday Pay Rate' ] \ 100 ) ;
+
+
+
+FEEDERS ;
+
+[ 'Position Start' ] => [ 'Position Start Period' ] , [ 'Position Start Period Number' ] , [ 'Display Flag' ] , [ 'Headcount' ] ;
+
+[ 'Position End' ] => [ 'Position End Period' ] , [ 'Position End Period Number' ] ;
+
+['ACTUAL_TOTAL_STAFF_MEMBER','Display Flag'] => ['PLAN_TOTAL_STAFF_MEMBER','Display Flag'] ;
+
+[ 'Total Remuneration' ] => [ 'Salary Increase %' ] , [ 'Salary Increase $' ] , [ 'Monthly Amount $' ] ;
+
+[ 'Hourly Rate $' ] => [ 'Wage Increase %' ] , [ 'Wages Increase $/hr' ] , [ 'Monthly Amount $' ], [ 'Wages Increase $' ] ;
+
+[ 'Incentive Type' ] => [ 'Incentive Amount $' ] , [ 'Incentive Amount %' ] , [ 'TOTAL INCENTIVE $' ] ;
+
+[ 'Overtime %' ] => [ 'Overtime $' ] ;
+
+
+[ 'Shift Allowance Qty' ] => [ 'Shift Allowance $' ] ;
+
+[ 'Shift Allowance Qty' ] => [ 'Shift Allowance $' ] ;
+
+[ 'H&S Allowance Qty' ] => [ 'H&S Allowance $' ] ;
+
+[ 'Meal Allowance Qty' ] => [ 'Meal Allowance $' ] ;
+
+[ 'IC Allowance Qty' ] => [ 'IC Allowance $' ] ;
+
+[ '2IC Allowance Qty' ] => [ '2IC Allowance $' ] ;
+
+[ 'Night Shift Allowance Qty' ] => [ 'Night Shift Allowance $' ] ;
+
+[ 'Monthly Amount $' ] => [ 'Kiwisaver $' ] , [ 'ACC $' ] , [ 'Kiwi Save Employer Rate %' ] ;
+
+[ 'Allowances Annual Amount $' ] => [ 'Motor Vehicle Allowance $' ] , [ 'First Aid Allowance $' ] ;
+
+[ 'Holiday Pay Rate' ] => [ 'Holiday Pay $' ] ;
+
+
+
+['Monthly Amount $'] => DB('plan_Payroll_Summary',!plan_Version,'TOTAL_PLAN_PERIOD',!Business_Unit,!Branch,
+DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Staff Type'),!Staff_Member,'Valid' ) ;
+
+
+[ 'Staff Type' ] => DB('plan_Payroll_Summary',!plan_Version,'TOTAL_PLAN_PERIOD',!Business_Unit,!Branch,
+DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Staff Type'),!Staff_Member,'Valid' ) ;
+
+
+

@@ -1,0 +1,26 @@
+{
+	"@type":"Process",
+	"Name":"z_View_Zero_Out",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"z_View_Zero_Out.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pCube",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pView",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

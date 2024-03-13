@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_map_Branch_Business_Unit",
+	"Hierarchies@Code.links":
+	[
+		"m_map_Branch_Business_Unit.hierarchies/m_map_Branch_Business_Unit.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_map_Branch_Business_Unit')/Hierarchies('m_map_Branch_Business_Unit')"
+	}
+}

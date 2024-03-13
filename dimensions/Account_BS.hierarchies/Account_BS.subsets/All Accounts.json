@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"All Accounts",
+	"ExpandAbove":true,
+	"Alias":"Code & Description",
+	"Expression":"{TM1DRILLDOWNMEMBER( {TM1SubsetBasis()}, ALL, RECURSIVE )}"
+}

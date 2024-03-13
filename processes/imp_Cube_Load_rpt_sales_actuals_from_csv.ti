@@ -1,0 +1,199 @@
+#region Prolog
+
+#----------------------------------------------------
+# Define constant
+#----------------------------------------------------
+
+cTargetCube = 'rpt_Sales';
+cTargetCube2 = 'plan_Sales';
+cProcessName = GetProcessName();
+
+sErr = '' ;
+# ----------------------------------------------------
+# Random number to be used in temp objects
+# ----------------------------------------------------
+cTimeStamp = TIMST( NOW() , '\Y\m\d\h\i\s' ) | NumberToString( RAND * 1000000000 );
+cTempObjName = Expand('%cProcessName%_%cTimeStamp%');
+cTargetRandObjName = 'Zero'|cProcessName|cTimeStamp;
+cTarget2RandObjName = 'Zero2'|cProcessName|cTimeStamp;
+cTemp = 1 ;
+
+# ----------------------------------------------------
+# CreateTarget view
+# ----------------------------------------------------
+
+ViewCreate( cTargetCube , cTargetRandObjName , cTemp );
+# This only chooses 'actual' version
+SubsetCreatebyMDX( cTargetRandObjName , '{[rpt_Version].[Actual]}' , cTemp );
+
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([rpt_Business_Unit].[rpt_Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL({{DISTINCT({DESCENDANTS([Customer_Sales].[Customer_Sales].[Customer_by_Business_Unit])})}}, 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL({{DISTINCT({DESCENDANTS([Product_Group].[Product_Group].[Product_by_Business_Unit])})}}, 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{[Currency_Sales].[Currency_Sales].[NZD]}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{[rpt_Year].[rpt_Year].['|pYear|']}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{[rpt_Month].[rpt_Month].['|pMonth|']}' , cTemp );
+# SubsetCreatebyMDX( cTargetRandObjName , '{DISTINCT({DESCENDANTS([rpt_Month].[rpt_Month].[TOTAL_RPT_MONTH])})}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1SubsetToSet([m_rpt_Sales].[m_rpt_Sales] , "sys.rpt_sales_measures" , "public")}' , cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( cTargetCube , nDimCount )@<> '' );
+	sDim = TABDIM( cTargetCube , nDimCount );
+	IF( SUBSETEXISTS( sDim , cTargetRandObjName ) = 1 );
+		VIEWSUBSETASSIGN( cTargetCube , cTargetRandObjName , sDim , cTargetRandObjName );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+#----------------------------------------------------
+# Clean Target view
+#----------------------------------------------------
+ViewSuppressZeroesSet( cTargetCube , cTargetRandObjName , 1 );
+ViewExtractSkipZeroesSet(cTargetCube, cTargetRandObjName , 1 );
+ViewZeroOut(cTargetCube, cTargetRandObjName);
+
+# ----------------------------------------------------
+# CreateTarget 2 view
+# ----------------------------------------------------
+
+ViewCreate( cTargetCube2 , cTarget2RandObjName , cTemp );
+
+SubsetCreatebyMDX( cTarget2RandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTarget2RandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTarget2RandObjName , '{TM1FILTERBYLEVEL({{DISTINCT({DESCENDANTS([Customer_Sales].[Customer_Sales].[Customer_by_Business_Unit])})}}, 0)}' , cTemp );
+SubsetCreatebyMDX( cTarget2RandObjName , '{TM1FILTERBYLEVEL({{DISTINCT({DESCENDANTS([Product_Group].[Product_Group].[Product_by_Business_Unit])})}}, 0)}' , cTemp );
+#Clears only the month and year of the file 
+# SubsetCreatebyMDX( cTarget2RandObjName , '{[plan_Period].[plan_Period].['|pYear|']}' , cTemp );
+SubsetCreatebyMDX( cTarget2RandObjName , '{[plan_Period].[plan_Period].['|pYear|''|pMonth|']}' , cTemp );
+# Clears only Actuals 
+SubsetCreatebyMDX( cTarget2RandObjName , '{[plan_Version].[Actual]}' , cTemp );
+SubsetCreatebyMDX( cTarget2RandObjName , '{[Currency_Sales].[Currency_Sales].[NZD]}' , cTemp );
+SubsetCreatebyMDX( cTarget2RandObjName , '{TM1SubsetToSet([m_plan_Sales].[m_plan_Sales],"SYS.Measures_for_TI","public")}' , cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( cTargetCube2 , nDimCount )@<> '' );
+	sDim = TABDIM( cTargetCube2 , nDimCount );
+	IF( SUBSETEXISTS( sDim , cTarget2RandObjName ) = 1 );
+		VIEWSUBSETASSIGN( cTargetCube2 , cTarget2RandObjName , sDim , cTarget2RandObjName );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+# Clean Source view
+#----------------------------------------------------
+ViewSuppressZeroesSet( cTargetCube2 , cTarget2RandObjName , 1 );
+ViewExtractSkipZeroesSet(cTargetCube2, cTarget2RandObjName , 1 );
+ViewZeroOut(cTargetCube2, cTarget2RandObjName);
+
+#----------------------------------------------------
+# Set DataSource File 
+#----------------------------------------------------
+
+sFileFolder='./';
+sDatasource = sFileFolder | pFileName ;
+
+DATASOURCENAMEFORSERVER = sDatasource ;
+
+sFile = pFilename;
+IF( FileExists( sFile ) = 0 );
+	sErr = 'ERROR:The file "' | sFile | '" does not exist. Check the file parameter and ensure the file is stored in the correct directory.';
+	ProcessBreak;
+ENDIF;
+
+
+
+#endregion
+#region Data
+
+# 1. Ignore year and month does not match ; if year <> pyear and month <> pmonth, itemskip; Accumulate 
+# 2. Replace Cellputn with cell increment. 
+#---Load rpt_sales Cube 
+IF  (vSelling_PriceUnit @=' 0'% vCost_priceUnit @= '0' %  vCost_priceUnit @= '#DIV/0!'  %  vSelling_PriceUnit @= '#DIV/0!' % vMajor_PG @='' %vCustomer_Sales @= 'PCC_Customer' %vBusiness_Unit@='PCC_Products'); 
+ItemSkip;
+ENDIF;
+
+ sMonth = ATTRS( 'rpt_Month', vMonth, 'Month_Short' );
+ if (vFin_Year@=pYear& sMonth @=pMonth);
+# if (vFin_Year@=pYear);
+ if (vSell_UOM@='EA');
+  CellIncrementN(vSales_Volume, 'rpt_Sales', 'Actual','NZD', sMonth , vFin_Year, vBranch, vBusiness_Unit, vCustomer_Sales, vMajor_PG, 'Sales Volume - EA');
+ endif;
+ endif;
+
+sMonth = ATTRS( 'rpt_Month', vMonth, 'Month_Short' );
+if (vFin_Year@=pYear& sMonth @=pMonth);
+# if (vFin_Year@=pYear);
+ if (vSell_UOM@='LM' );
+  CellIncrementN(vSales_Volume, 'rpt_Sales', 'Actual','NZD', sMonth , vFin_Year, vBranch, vBusiness_Unit, vCustomer_Sales, vMajor_PG, 'Sales Volume - LM');
+ endif;
+endif;
+
+
+sMonth = ATTRS( 'rpt_Month', vMonth, 'Month_Short' );
+if (vFin_Year@=pYear& sMonth @=pMonth);
+# if (vFin_Year@=pYear);
+ if (vSell_UOM@='TN' );
+  CellIncrementN(vSales_Volume, 'rpt_Sales', 'Actual','NZD', sMonth , vFin_Year, vBranch, vBusiness_Unit, vCustomer_Sales, vMajor_PG, 'Sales Volume - TN');
+ endif;
+endif;
+
+sMonth = ATTRS( 'rpt_Month', vMonth, 'Month_Short' );
+nRevenue=vSales_Volume * StringToNumber( vSelling_PriceUnit );
+if (vFin_Year@=pYear& sMonth @=pMonth);
+# if (vFin_Year@=pYear);
+ CellIncrementN(nRevenue, 'rpt_Sales', 'Actual','NZD', sMonth , vFin_Year, vBranch, vBusiness_Unit, vCustomer_Sales, vMajor_PG, 'TOTAL SALES $');
+ endif;
+
+sMonth = ATTRS( 'rpt_Month', vMonth, 'Month_Short' );
+nCost=vSales_Volume*StringToNumber (vCost_priceUnit);
+if (vFin_Year@=pYear& sMonth @=pMonth);
+# if (vFin_Year@=pYear);
+ CellIncrementN(nCost, 'rpt_Sales', 'Actual','NZD', sMonth , vFin_Year, vBranch, vBusiness_Unit, vCustomer_Sales, vMajor_PG, 'COST OF SALES STANDARD $');
+ endif;
+
+#---Load plan_sales Cube
+
+sMonth = ATTRS( 'rpt_Month', vMonth, 'Month_Short' );
+splanperiod = pYear|''|sMonth;
+ if (vFin_Year@=pYear& sMonth @=pMonth);
+# if (vFin_Year@=pYear);
+ if (vSell_UOM@='EA');
+  CellIncrementN(vSales_Volume, 'plan_Sales', 'Actual', 'NZD', splanperiod, vBranch, vBusiness_Unit, vCustomer_Sales, vMajor_PG, 'Sales Volume - EA');
+ endif;
+ endif;
+
+sMonth = ATTRS( 'rpt_Month', vMonth, 'Month_Short' );
+splanperiod = pYear|''|sMonth;
+ if (vFin_Year@=pYear& sMonth @=pMonth);
+# if (vFin_Year@=pYear);
+ if (vSell_UOM@='TN');
+  CellIncrementN(vSales_Volume, 'plan_Sales', 'Actual', 'NZD', splanperiod, vBranch, vBusiness_Unit, vCustomer_Sales, vMajor_PG, 'Sales Volume - TN');
+ endif;
+ endif;
+
+sMonth = ATTRS( 'rpt_Month', vMonth, 'Month_Short' );
+splanperiod = pYear|''|sMonth;
+ if (vFin_Year@=pYear& sMonth @=pMonth);
+# if (vFin_Year@=pYear);
+ if (vSell_UOM@='LM');
+  CellIncrementN(vSales_Volume, 'plan_Sales', 'Actual', 'NZD', splanperiod, vBranch, vBusiness_Unit, vCustomer_Sales, vMajor_PG, 'Sales Volume - LM');
+ endif;
+ endif;
+
+sMonth = ATTRS( 'rpt_Month', vMonth, 'Month_Short' );
+nRevenue=vSales_Volume * StringToNumber( vSelling_PriceUnit );
+if (vFin_Year@=pYear& sMonth @=pMonth);
+# if (vFin_Year@=pYear);
+ CellIncrementN(nRevenue, 'plan_Sales', 'Actual', 'NZD', splanperiod, vBranch, vBusiness_Unit, vCustomer_Sales, vMajor_PG, 'TOTAL SALES $');
+ endif;
+
+sMonth = ATTRS( 'rpt_Month', vMonth, 'Month_Short' );
+nCost=vSales_Volume*StringToNumber (vCost_priceUnit);
+if (vFin_Year@=pYear& sMonth @=pMonth);
+# if (vFin_Year@=pYear);
+ CellIncrementN(nCost, 'plan_Sales', 'Actual', 'NZD', splanperiod, vBranch, vBusiness_Unit, vCustomer_Sales, vMajor_PG, 'COST OF SALES STANDARD $');
+ endif;
+
+
+
+#endregion

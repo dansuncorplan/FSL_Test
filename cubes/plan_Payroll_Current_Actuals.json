@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Payroll_Current_Actuals",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Staff_Member')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Current_Actuals')"
+		}
+	],
+	"Rules@Code.link":"plan_Payroll_Current_Actuals.rules",
+	"Views@Code.links":
+	[
+		"plan_Payroll_Current_Actuals.views/Default.json"
+	]
+}

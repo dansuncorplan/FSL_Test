@@ -1,0 +1,367 @@
+{
+	"@type":"NativeView",
+	"Name":"01 Creditors Budget Input",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 12 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 0')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 1 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 2 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 3 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 4 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 5 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 6 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 7 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 8 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 9 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 10 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 11 YTD')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 12')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 12 YTD')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')"
+				},
+				"ExpandAbove":true,
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70000')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70100')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70200')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70300')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70400')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70410')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70500')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70510')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70600')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70610')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70640')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70650')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70700')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70750')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70800')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70850')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70870')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70900')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('70950')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('71050')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('71100')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('71250')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('71300')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('71350')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('71500')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('71550')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('71600')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('71700')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73040')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73080')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73120')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73160')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73200')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73240')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73280')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73320')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73560')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73600')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73640')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73720')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73760')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73800')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73840')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73880')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73890')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('73950')"
+					},
+					{
+						"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Creditors')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency')/Hierarchies('Currency')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')/Elements('Value')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')/Elements('Value')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('TOTAL_BRANCH')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Easysteel')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Dimond Consolidation')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('PCC')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Reinforcing')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('SD Support')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('NZSD Divisional')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

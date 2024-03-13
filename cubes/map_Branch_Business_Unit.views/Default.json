@@ -1,0 +1,137 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_map_Branch_Business_Unit')/Hierarchies('m_map_Branch_Business_Unit')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_map_Branch_Business_Unit')/Hierarchies('m_map_Branch_Business_Unit')/Elements('Business_Unit_Mapping')"
+					},
+					{
+						"@id":"Dimensions('m_map_Branch_Business_Unit')/Hierarchies('m_map_Branch_Business_Unit')/Elements('Branch_Mapping')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('TOTAL_BRANCH_DESC')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL WHANGAREI')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL AUCKLAND')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL HAMILTON')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL TAURANGA')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL ROTORUA')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL NEW PLYMOUTH')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL NAPIER')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL PALMERSTON NORTH')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL WELLINGTON')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL NELSON')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL CHRISTCHURCH')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL DUNEDIN')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL INVERCARGILL')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL CYCLONE')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL NORTHERN PLATE')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('FSL SOUTHERN PLATE')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM SUPPORT')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM MOBILE PLANT')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM WHANGAREI')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM AUCKLAND')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM HAMILTON')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM TAURANGA')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM ROTORUA')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM NEW PLYMOUTH')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM HASTINGS')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM PALMERSTON NORTH')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM WELLINGTON')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM CHRISTCHURCH')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM DUNEDIN')"
+					},
+					{
+						"@id":"Dimensions('Branch_Desc')/Hierarchies('Branch_Desc')/Elements('DIM STRUCTURAL')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":[],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

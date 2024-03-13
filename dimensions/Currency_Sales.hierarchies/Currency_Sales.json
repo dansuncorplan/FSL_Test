@@ -1,0 +1,28 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Currency_Sales",
+	"Elements":
+	[
+		{
+			"Name":"NZD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AUD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EUR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"USD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NZD Converted",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

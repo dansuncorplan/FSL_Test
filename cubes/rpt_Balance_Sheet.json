@@ -1,0 +1,56 @@
+{
+	"@type":"Cube",
+	"Name":"rpt_Balance_Sheet",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('rpt_Version')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('rpt_Month')"
+		},
+		{
+			"@id":"Dimensions('rpt_Year')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('rpt_Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')"
+		},
+		{
+			"@id":"Dimensions('m_rpt_Balance_Sheet')"
+		}
+	],
+	"Rules@Code.link":"rpt_Balance_Sheet.rules",
+	"MeasuresDimension":
+	{
+		"@id":"Dimensions('m_rpt_Balance_Sheet')"
+	},
+	"Views@Code.links":
+	[
+		"rpt_Balance_Sheet.views/B.S. - BUDGET 2021 FINAL REPORT.json",
+		"rpt_Balance_Sheet.views/B.S. - BUDGET 2022 SUBMITTED.json",
+		"rpt_Balance_Sheet.views/B.S. - FY23 Budget R1 11Apr22.json",
+		"rpt_Balance_Sheet.views/B.S. - FY23 Budget R3 19Apr22.json",
+		"rpt_Balance_Sheet.views/B.S. - FY23 Budget R4 Final 12May22.json",
+		"rpt_Balance_Sheet.views/B.S. - FY24 Budget Feb23 EOM.json",
+		"rpt_Balance_Sheet.views/B.S. - FY24 Budget Jun23 EOM.json",
+		"rpt_Balance_Sheet.views/B.S. - FY24 Budget Jun23 EOM FINAL.json",
+		"rpt_Balance_Sheet.views/B.S. - FY24 Budget Mar23 EOM.json",
+		"rpt_Balance_Sheet.views/B.S. - FY24 Budget Mar23 EOM FINAL.json",
+		"rpt_Balance_Sheet.views/B.S. - Sep21 Rebudget 2022 V1.json",
+		"rpt_Balance_Sheet.views/Balance Sheet Actual Reporting Example.json",
+		"rpt_Balance_Sheet.views/BS - BUDGET 2022 FINAL.json",
+		"rpt_Balance_Sheet.views/BS - FES Oct 21 Rebudget 2022 V1.json",
+		"rpt_Balance_Sheet.views/BS – Sep21 Rebudget 2022 Submitted HFM.json",
+		"rpt_Balance_Sheet.views/Debtor Days Testing.json",
+		"rpt_Balance_Sheet.views/Default.json"
+	]
+}

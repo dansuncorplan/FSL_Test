@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Currency_Rate",
+	"Elements":
+	[
+		{
+			"Name":"NZD_Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AUD_Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"USD_Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EUR_Rate",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

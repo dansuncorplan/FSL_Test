@@ -1,0 +1,18 @@
+{
+	"@type":"Cube",
+	"Name":"lookup_Payroll_Assumptions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('m_lookup_Payroll_Assumptions')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"lookup_Payroll_Assumptions.views/Default.json",
+		"lookup_Payroll_Assumptions.views/ZeroOut.json"
+	]
+}

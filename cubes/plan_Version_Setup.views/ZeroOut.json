@@ -1,0 +1,16 @@
+{
+	"@type":"MDXView",
+	"Name":"ZeroOut",
+	"MDX@Code.link":"ZeroOut.mdx",
+	"Meta": {
+		"Aliases": {
+			"[plan_Period].[plan_Period]": "rpt_Period"
+		},
+		"ExpandAboves": {
+			"[plan_Period].[plan_Period]": false,
+			"[plan_Version].[plan_Version]": false,
+			"[m_plan_Version_Setup].[m_plan_Version_Setup]": false
+		},
+		"ContextSets": {}
+	}
+}

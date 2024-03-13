@@ -1,0 +1,65 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Sales",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('Currency_Sales')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales')"
+		}
+	],
+	"Rules@Code.link":"plan_Sales.rules",
+	"Views@Code.links":
+	[
+		"plan_Sales.views/01 Sales Input - CSR.json",
+		"plan_Sales.views/01 Sales Input - Dimond Roofing.json",
+		"plan_Sales.views/01 Sales Input - Dimond Structural.json",
+		"plan_Sales.views/01 Sales Input - Easysteel.json",
+		"plan_Sales.views/01 Sales Input - Easysteel FCST.json",
+		"plan_Sales.views/01 Sales Input - Easysteel FSL Internal.json",
+		"plan_Sales.views/01 Sales Input - PCC.json",
+		"plan_Sales.views/01 Sales Input - REO.json",
+		"plan_Sales.views/01 Sales Input - WIRE.json",
+		"plan_Sales.views/02 Sales Input - Dimond FCST.json",
+		"plan_Sales.views/02 Sales Input - Dimond FSL Internal.json",
+		"plan_Sales.views/03 Sales Input - REO FCST.json",
+		"plan_Sales.views/03 Sales Input - REO FSL Internal.json",
+		"plan_Sales.views/04 Sales Input - PCC FCST.json",
+		"plan_Sales.views/04 Sales Input - PCC FSL Internal.json",
+		"plan_Sales.views/Default.json",
+		"plan_Sales.views/Dimond customer discount input format 2020.json",
+		"plan_Sales.views/Dimond sales input format 2020.json",
+		"plan_Sales.views/Dimond supplier rebates input format 2020.json",
+		"plan_Sales.views/Easysteel Sales Input.json",
+		"plan_Sales.views/Freight Input.json",
+		"plan_Sales.views/Freight Input - Dimond Budget 2020.json",
+		"plan_Sales.views/Freight Input FCST.json",
+		"plan_Sales.views/Freight Input FSL Internal.json",
+		"plan_Sales.views/ZeroOut.json",
+		"plan_Sales.views/_Sales Input - New Version.json",
+		"plan_Sales.views/_TestSales Input.json",
+		"plan_Sales.views/Freight Input_WIP.json",
+		"plan_Sales.views/Sales Input - Prev Rolling 3 Months.json",
+		"plan_Sales.views/ZeroOut2.json"
+	]
+}

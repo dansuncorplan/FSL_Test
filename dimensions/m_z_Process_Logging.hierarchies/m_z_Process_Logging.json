@@ -1,0 +1,32 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_z_Process_Logging",
+	"Elements":
+	[
+		{
+			"Name":"ProcessName",
+			"Type":"String"
+		},
+		{
+			"Name":"Status",
+			"Type":"String"
+		},
+		{
+			"Name":"StartTime",
+			"Type":"String"
+		},
+		{
+			"Name":"FinishTime",
+			"Type":"String"
+		},
+		{
+			"Name":"ElapsedTime",
+			"Type":"String"
+		},
+		{
+			"Name":"Records",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

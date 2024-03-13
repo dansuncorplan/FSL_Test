@@ -1,0 +1,187 @@
+#region Prolog
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+## Description
+## Loops through all cubes and copies the forecast to fsl_internal where flagged
+
+
+
+
+
+
+
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+## Check for Flag
+
+sDim = '}Cubes' ;
+sPeriodDim = 'plan_Period' ;
+sAttr = 'FSL_Internal_Copy_Flag' ;
+
+sYear = DIMENSIONELEMENTPRINCIPALNAME( sPeriodDim, pYear ) ;
+
+sFlag = ATTRS( sDim, vCube, sAttr ) ;
+
+IF( sFlag @= '' ) ;
+	ITEMSKIP ;
+
+ENDIF ;
+
+
+
+## Check if cube has plan_Period
+
+sPeriodFlag = CELLGETS( 'z_Dim_Cubes', sPeriodDim, vCube, 'Used' ) ;
+
+textoutput( 'testing.txt', vCube, sFlag, sPeriodFlag, sPeriodDim, sYear ) ;
+
+
+## Process Variables
+
+sSourceVersion = 'Forecast' ;
+sTargetVersion = 'FSL_Internal' ;
+
+sProcess = 'z_Cube_Data_Copy' ;
+sSView = 'S_copy_fsl_internal' ;
+sTView = 'T_copy_fsl_internal' ;
+pVersionDim = 'plan_Version' ;
+sBlank = '' ;
+
+
+
+IF( sPeriodFlag @= '' ) ;
+
+## Run Copy Process - No Period
+
+	EXECUTEPROCESS( sProcess,
+	'pCube', vCube,
+	'pViewSource', sSView,
+	'pViewTarget', sTView,
+	'pDimension', pVersionDim, 
+	'pSourceElement', sSourceVersion, 
+	'pTargetElement', sTargetVersion, 
+	'pDimension2', sBlank, 
+	'pSourceElement2', sBlank, 
+	'pTargetElement2', sBlank, 
+	'pDimension3', sBlank, 
+	'pSourceElement3', sBlank, 
+	'pTargetElement3', sBlank, 
+	'pSkipRules', 0,
+	'pZeroTarget', 1, 
+	'pZeroSource', 0,
+	'pDestroyTempObj', 1,
+	'pDebug', 0 ) ;
+
+	
+ELSE ;
+
+## Run Copy Process - Period
+
+	EXECUTEPROCESS( sProcess,
+	'pCube', vCube,
+	'pViewSource', sSView,
+	'pViewTarget', sTView,
+	'pDimension', pVersionDim, 
+	'pSourceElement', sSourceVersion, 
+	'pTargetElement', sTargetVersion, 
+	'pDimension2', sPeriodDim, 
+	'pSourceElement2', sYear, 
+	'pTargetElement2', sYear, 
+	'pDimension3', sBlank, 
+	'pSourceElement3', sBlank, 
+	'pTargetElement3', sBlank, 
+	'pSkipRules', 0,
+	'pZeroTarget', 1, 
+	'pZeroSource', 0,
+	'pDestroyTempObj', 1,
+	'pDebug', 0 ) ;
+
+
+ENDIF ;
+
+
+
+
+
+
+
+
+
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

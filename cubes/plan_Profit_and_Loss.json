@@ -1,0 +1,63 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Profit_and_Loss",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Profit_and_Loss')"
+		}
+	],
+	"Rules@Code.link":"plan_Profit_and_Loss.rules",
+	"Views@Code.links":
+	[
+		"plan_Profit_and_Loss.views/26088 Budget.json",
+		"plan_Profit_and_Loss.views/Budget 2020 Detail P&L.json",
+		"plan_Profit_and_Loss.views/BUDGET FY2020 P&L.json",
+		"plan_Profit_and_Loss.views/BUDGET FY2021 - SUBR MUSE P&L.json",
+		"plan_Profit_and_Loss.views/BUDGET FY2021 DETAIL P&L.json",
+		"plan_Profit_and_Loss.views/BUDGET FY2021 P&L.json",
+		"plan_Profit_and_Loss.views/BUDGET FY2021 P&L - DETAIL.json",
+		"plan_Profit_and_Loss.views/BUDGET P&L - DETAIL.json",
+		"plan_Profit_and_Loss.views/BUDGET SUMMARY.json",
+		"plan_Profit_and_Loss.views/DIMOND BUDGET 2020 P&L.json",
+		"plan_Profit_and_Loss.views/FCST FY2021 P&L.json",
+		"plan_Profit_and_Loss.views/FCST FY2021 P&L - DETAIL.json",
+		"plan_Profit_and_Loss.views/Forecast FY19 P&L.json",
+		"plan_Profit_and_Loss.views/FORECAST FY21 DETAIL P&L Muse Upload.json",
+		"plan_Profit_and_Loss.views/Forecast vs Budget P&L.json",
+		"plan_Profit_and_Loss.views/FORECAST YTD P&L FY24 UPLOAD HFM.json",
+		"plan_Profit_and_Loss.views/FSL INTERNAL P&L.json",
+		"plan_Profit_and_Loss.views/FSL INTERNAL P&L - DETAIL.json",
+		"plan_Profit_and_Loss.views/Holiday Pay Example.json",
+		"plan_Profit_and_Loss.views/Just Need this.json",
+		"plan_Profit_and_Loss.views/MUSE P&L INPUT BUDGET 2020.json",
+		"plan_Profit_and_Loss.views/Payroll Example.json",
+		"plan_Profit_and_Loss.views/Payroll PL.json",
+		"plan_Profit_and_Loss.views/Sandbox Check FY24 PL.json",
+		"plan_Profit_and_Loss.views/View1.json",
+		"plan_Profit_and_Loss.views/Wages Salary P&L Example.json",
+		"plan_Profit_and_Loss.views/_TempBudget.json",
+		"plan_Profit_and_Loss.views/Default.json",
+		"plan_Profit_and_Loss.views/P&L - DETAIL.json",
+		"plan_Profit_and_Loss.views/P&L SUMMARY.json",
+		"plan_Profit_and_Loss.views/ZeroOut.json"
+	]
+}

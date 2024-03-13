@@ -1,0 +1,444 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Customer_Sales",
+	"Elements":
+	[
+		{
+			"Name":"Customer_by_Business_Unit",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"PCC Customer",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Reinforcing Customer",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Easysteel Customer",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Dimond & CSR Customer",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL_CUSTOMER_SALES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"300045",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"300156",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"300019",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"300262",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"300057",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"308360",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PCC_NZ OTHER",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PCC_PACIFIC",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RC_PLACEMAKERS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RC_NZ OTHER",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ES_NZ OTHER",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ES_EXTERNAL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ES_STEEL GROUP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ES_OTHER DIVISIONS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_PLACEMAKERS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_EXTERNAL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_STEEL GROUP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_OTHER DIVISIONS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_NZ OTHER",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Customer_Freight",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TEST CUSTOMER",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Test 2 customer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"No Customer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RC_BPC",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RC_COM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RC_FLC",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RC_PLA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RC_PRO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RC_SME",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Customer_by_Business_Unit",
+			"ComponentName":"PCC Customer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Customer_by_Business_Unit",
+			"ComponentName":"Reinforcing Customer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Customer_by_Business_Unit",
+			"ComponentName":"Easysteel Customer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Customer_by_Business_Unit",
+			"ComponentName":"Dimond & CSR Customer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Customer_by_Business_Unit",
+			"ComponentName":"Customer_Freight",
+			"Weight":1
+		},
+		{
+			"ParentName":"PCC Customer",
+			"ComponentName":"300045",
+			"Weight":1
+		},
+		{
+			"ParentName":"PCC Customer",
+			"ComponentName":"300156",
+			"Weight":1
+		},
+		{
+			"ParentName":"PCC Customer",
+			"ComponentName":"300019",
+			"Weight":1
+		},
+		{
+			"ParentName":"PCC Customer",
+			"ComponentName":"300262",
+			"Weight":1
+		},
+		{
+			"ParentName":"PCC Customer",
+			"ComponentName":"300057",
+			"Weight":1
+		},
+		{
+			"ParentName":"PCC Customer",
+			"ComponentName":"308360",
+			"Weight":1
+		},
+		{
+			"ParentName":"PCC Customer",
+			"ComponentName":"PCC_NZ OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"PCC Customer",
+			"ComponentName":"PCC_PACIFIC",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Customer",
+			"ComponentName":"RC_PLACEMAKERS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Customer",
+			"ComponentName":"RC_NZ OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Customer",
+			"ComponentName":"RC_BPC",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Customer",
+			"ComponentName":"RC_COM",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Customer",
+			"ComponentName":"RC_FLC",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Customer",
+			"ComponentName":"RC_PLA",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Customer",
+			"ComponentName":"RC_PRO",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Customer",
+			"ComponentName":"RC_SME",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Customer",
+			"ComponentName":"ES_NZ OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Customer",
+			"ComponentName":"ES_EXTERNAL",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Customer",
+			"ComponentName":"ES_STEEL GROUP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Customer",
+			"ComponentName":"ES_OTHER DIVISIONS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Customer",
+			"ComponentName":"TEST CUSTOMER",
+			"Weight":0
+		},
+		{
+			"ParentName":"Easysteel Customer",
+			"ComponentName":"Test 2 customer",
+			"Weight":0
+		},
+		{
+			"ParentName":"Dimond & CSR Customer",
+			"ComponentName":"DI_NZ OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Customer",
+			"ComponentName":"DI_PLACEMAKERS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Customer",
+			"ComponentName":"DI_EXTERNAL",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Customer",
+			"ComponentName":"DI_STEEL GROUP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Customer",
+			"ComponentName":"DI_OTHER DIVISIONS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"300045",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"300156",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"300019",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"300262",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"300057",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"308360",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"PCC_NZ OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"PCC_PACIFIC",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"RC_PLACEMAKERS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"RC_NZ OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"ES_NZ OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"DI_PLACEMAKERS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"DI_NZ OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"Customer_Freight",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"ES_EXTERNAL",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"ES_STEEL GROUP",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"ES_OTHER DIVISIONS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"DI_EXTERNAL",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"DI_STEEL GROUP",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"DI_OTHER DIVISIONS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"RC_PLA",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"RC_BPC",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"RC_COM",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"RC_FLC",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"RC_PRO",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CUSTOMER_SALES",
+			"ComponentName":"RC_SME",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Customer_Sales.subsets/Default.json"
+	]
+}

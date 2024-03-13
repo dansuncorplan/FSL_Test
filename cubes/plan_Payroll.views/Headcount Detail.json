@@ -1,0 +1,225 @@
+{
+	"@type":"NativeView",
+	"Name":"Headcount Detail",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Headcount')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Headcount Calc')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"ExpandAbove":true,
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 12')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Subsets('Picklist_Sub_Unit')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Picklist_Branch')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')"
+				},
+				"ExpandAbove":true,
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('Production Staff')"
+					},
+					{
+						"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('Administrative Staff')"
+					},
+					{
+						"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('Sales and Marketing')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')"
+				},
+				"ExpandAbove":true,
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Admin General')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Admin Specialised')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('CSR')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('CSR Mgmt')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('EHS')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('EHS L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Finance')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Finance L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Marketing')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops General')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops Mgmt')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('P&P')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Sales General')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Sales L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Sales Mgmt')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('SCM General')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('SCM L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('SLT')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Variance - Act v Bud')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Actual')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Variance - Act v Fct')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Actual')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":true,
+	"FormatString":"0.#########"
+}

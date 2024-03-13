@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"rpt_Capex_Item",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('rpt_Version')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Capex_Item_List')"
+		},
+		{
+			"@id":"Dimensions('m_rpt_Capex_Input')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"rpt_Capex_Item.views/Capex - FY23 Budget R1 11Apr22.json",
+		"rpt_Capex_Item.views/Capex - FY23 Budget R3 19Apr22.json",
+		"rpt_Capex_Item.views/Capex - FY23 Budget R4 Final 12May22.json",
+		"rpt_Capex_Item.views/Capex - Sep21 Rebudget 2022 V1.json",
+		"rpt_Capex_Item.views/Default.json"
+	]
+}

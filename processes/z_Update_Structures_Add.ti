@@ -1,0 +1,61 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+vDim = pDim;
+
+DIMENSIONELEMENTINSERT(vDim,'',pNewCode, 'n');
+IF(pNewParent @<> '');
+	DIMENSIONELEMENTCOMPONENTADD(vDim, pNewParent, pNewCode, NUMBR(pWeight));
+ENDIF;
+
+
+
+## Set Hierarchy Structure to Alphabetical
+
+#DIMENSIONSORTORDER( vDim, 'ByName', 'Ascending', 'ByHierarchy', 'Ascending' ) ;
+
+
+
+textoutput( 'test.txt', vDim, pNewparent, pNewCode, pWeight, pNewDesc ) ;
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+## Update Attributes if they exist
+
+sAttr = 'Code & Description' ;
+sAttrDim = '}ElementAttributes_' | vDim ;
+
+IF( DIMIX( sAttrDim, sAttr ) <> 0 ) ;
+	ATTRPUTS( pNewCode | ' - ' | pNewDesc, vDim, pNewCode, sAttr ) ;
+
+ENDIF ;
+
+
+sAttr = 'Description' ;
+sAttrDim = '}ElementAttributes_' | vDim ;
+
+IF( DIMIX( sAttrDim, sAttr ) <> 0 ) ;
+	ATTRPUTS( pNewDesc, vDim, pNewCode, sAttr ) ;
+
+ENDIF ;
+
+
+
+
+#endregion

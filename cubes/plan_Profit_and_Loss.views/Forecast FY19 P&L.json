@@ -1,0 +1,265 @@
+{
+	"@type":"NativeView",
+	"Name":"Forecast FY19 P&L",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 12')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')"
+				},
+				"ExpandAbove":true,
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Other Revenue')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('TOTAL REVENUE')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Labour')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Freight')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('R & M')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Other Production Variable Costs')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Warranty''s')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Other Fixed Production Costs')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Contribution %25')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Communications')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Debtors')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Depreciation')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Financial')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('General Office')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('IT Expenses')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Marketing')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Management Fees')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Property Costs')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Risk Management')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Staff Costs')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Services')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Travel & Entertainment')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Vehicle')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Unusual Items')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Significant Items')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Total Overheads %25')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Significant Items')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Below EBIT Items')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBIT %25')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency')/Hierarchies('Currency')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Profit_and_Loss')/Hierarchies('m_plan_Profit_and_Loss')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Profit_and_Loss')/Hierarchies('m_plan_Profit_and_Loss')/Elements('Value')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('m_plan_Profit_and_Loss')/Hierarchies('m_plan_Profit_and_Loss')/Elements('Value')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('TOTAL_BRANCH')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Dimond Consolidation')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('SD Support')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

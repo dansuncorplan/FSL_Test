@@ -1,0 +1,147 @@
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+#Region - control calculated months
+[]=N:
+  If(ELISANC( 'plan_Version', 'Calculated Versions', !plan_Version)=1,
+    CONTINUE,
+  STET);
+  
+[]=N:
+  If(DB( 'plan_Version_Setup', !plan_Version, !plan_Period, 'Calculated Flag'  )=1,
+    CONTINUE,
+  STET);
+#EndRegion
+
+## Match to Asset Type
+## Skip if no match
+[ ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Type') @<> !Capex_Asset_Type ,
+# THEN
+	STET ,
+# ELSE
+	CONTINUE ) ;
+
+## Match to Asset Driver
+## Skip if no match
+[ ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Driver') @<> !Capex_Asset_Driver ,
+# THEN
+	STET ,
+# ELSE
+	CONTINUE ) ;
+
+## Match to Asset Flag
+## Skip if no match
+[ ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Flag') @<> !Capex_Asset_Flag ,
+# THEN
+	STET ,
+# ELSE
+	CONTINUE ) ;
+
+## Skip if Opening Balance
+[ ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ) @= 'Opening Balance' ,
+# THEN
+	STET ,
+# ELSE
+	CONTINUE ) ;
+
+## Spend
+[ 'Spend' ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'plan_Year' ) @= 'Year +2' %
+ATTRS( 'plan_Period', !plan_Period, 'plan_Year' ) @= 'Year +3' %
+ATTRS( 'plan_Period', !plan_Period, 'plan_Year' ) @= 'Year +4' ,
+# THEN
+	DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,ATTRS( 'plan_Period', !plan_Period, 'plan_Year' )  | 'Full Year Spend' )  \ 12,
+# ELSE
+	DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,!plan_Period | ' Spend' ) ) ;
+
+## Depreciation
+[ 'Depreciation' ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'plan_Year' ) @= 'Year +2' %
+ATTRS( 'plan_Period', !plan_Period, 'plan_Year' ) @= 'Year +3' %
+ATTRS( 'plan_Period', !plan_Period, 'plan_Year' ) @= 'Year +4' ,
+# THEN
+	DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,ATTRS( 'plan_Period', !plan_Period, 'plan_Year' )  | 'Full Year Depn' ) \ 12 ,
+# ELSE
+	DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,!plan_Period | ' Depn' ) ) ;
+
+FEEDERS ;
+
+#Region - P&L Depreciation Production Land
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Production','Land','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'29010','Value') ;
+
+## P&L Depreciation Support Land
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Support','Land','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'41510','Value') ;
+
+## P&L Depreciation Production Buildings
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Production','Buildings','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'29011','Value') ;
+
+## P&L Depreciation Support Buildings
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Support','Buildings','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'41511','Value') ;
+
+## P&L Depreciation Production LH Improvements
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_CAPEX_ITEM_LIST','Production','Leasehold Improvements','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'29012','Value') ;
+
+## P&L Depreciation Support LH Improvements
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Support','Leasehold Improvements','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'41512','Value') ;
+
+## P&L Depreciation Production Plant & Mach
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Production','Plant_Equipment','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'29013','Value') ;
+
+## P&L Depreciation Support Plant & Mach
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Support','Plant_Equipment','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'41513','Value') ;
+
+## P&L Depreciation Production Plant & Mach
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Production','Motor Vehicles_Mobile Plant','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'29013','Value') ;
+
+## P&L Depreciation Support Plant & Mach
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Support','Motor Vehicles_Mobile Plant','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'41513','Value') ;
+
+## P&L Depreciation Production Fixtures Equip
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Production','Furniture_Fittings','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'29014','Value') ;
+
+## P&L Depreciation Support Fixtures Equip
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_CAPEX_ITEM_LIST','Support','Furniture_Fittings','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'41514','Value') ;
+
+## P&L Depreciation Production Computer Hardware
+[ { 'Budget', 'Forecast', 'FSL_Internal' }, 'TOTAL_CAPEX_ITEM_LIST','Production','Computer_Equipment','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'29015','Value') ;
+
+## P&L Depreciation Support Computer Hardware
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Support','Computer_Equipment','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'41515','Value') ;
+
+## P&L Depreciation Production Computer Software
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Production','Software','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'29016','Value') ;
+
+## P&L Depreciation Support Computer Software
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','Support','Software','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB( 'plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'41516','Value') ;
+
+#EndRegion
+
+#Region - Balance Sheet CWIP
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_CAPEX_ITEM_LIST','TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Spend' ] =>
+DB('plan_Balance_Sheet',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'81000','Value') ;
+
+## Balance Sheet Depreciation
+['plan_Version':'plan_Version':'Calculated Versions', 'TOTAL_CAPEX_ITEM_LIST','TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Depreciation' ] =>
+DB('plan_Balance_Sheet',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'80100','Value') ;
+
+#EndRegion

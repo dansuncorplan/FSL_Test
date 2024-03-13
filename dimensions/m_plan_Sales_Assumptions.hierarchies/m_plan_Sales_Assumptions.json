@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_plan_Sales_Assumptions",
+	"Elements":
+	[
+		{
+			"Name":"Volume Phasing",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Trading Days",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

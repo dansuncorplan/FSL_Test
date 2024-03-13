@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Capex_Asset_Type",
+	"Hierarchies@Code.links":
+	[
+		"Capex_Asset_Type.hierarchies/Capex_Asset_Type.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Capex_Asset_Type')/Hierarchies('Capex_Asset_Type')"
+	}
+}

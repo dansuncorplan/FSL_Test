@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Business_Unit",
+	"Hierarchies@Code.links":
+	[
+		"Business_Unit.hierarchies/Business_Unit.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')"
+	}
+}

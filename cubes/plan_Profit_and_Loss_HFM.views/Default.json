@@ -1,0 +1,187 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year -3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year -2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year -1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +2')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Accounts_HFM')/Hierarchies('Accounts_HFM')/Subsets('Default')"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Variance - Act v Bud')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Actual')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Variance - Act v Fct')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Actual')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Actual')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Branch')/Hierarchies('Branch')"
+				},
+				"Alias":"Code & Description",
+				"Expression":"TM1SubsetAll([Branch])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('TOTAL_BRANCH')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('TOTAL_BUSINESS_UNIT')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Easysteel')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Dimond Consolidation')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('PCC')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Reinforcing')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('SD Support')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('NZSD Divisional')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Total_Manufacturing')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Total_Non_Manufacturing')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency')/Hierarchies('Currency')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Profit_and_Loss')/Hierarchies('m_plan_Profit_and_Loss')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Profit_and_Loss')/Hierarchies('m_plan_Profit_and_Loss')/Elements('Value')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('m_plan_Profit_and_Loss')/Hierarchies('m_plan_Profit_and_Loss')/Elements('Value')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":true,
+	"FormatString":""
+}

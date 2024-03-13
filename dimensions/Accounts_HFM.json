@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Accounts_HFM",
+	"Hierarchies@Code.links":
+	[
+		"Accounts_HFM.hierarchies/Accounts_HFM.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Accounts_HFM')/Hierarchies('Accounts_HFM')"
+	}
+}

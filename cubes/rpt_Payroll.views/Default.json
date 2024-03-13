@@ -1,0 +1,364 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Subsets('Default')"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Headcount')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Headcount Calc')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Total Annual Amount')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Avg Annual Amount $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Avg Annual Amount $ Calc')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Avg Amount Increase $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Total Allowance Amount')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Avg Allowance Amount $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Avg Allowance Amount $ Calc')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('MONTHLY SALARY $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('MONTHLY WAGES $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Total Incentive Amount')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Avg Incentive Amount $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Avg Incentive Amount $ Calc')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('MONTHLY INCENTIVE $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('Avg Overtime %25')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('MONTHLY OVERTIME $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('MONTHLY KIWISAVER $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('MONTHLY ACC $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('LEAVE ACCRUAL $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Payroll')/Hierarchies('m_rpt_Payroll')/Elements('LEAVE TAKEN $')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Actual')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY18')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('TEST VERSION')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Sep 17')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Oct 17')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Nov 17')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Dec 17')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Jan 18')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Feb 18')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Mar 18')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY19 V1')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Apr 18')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast May 18')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY19 V2')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY19')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY19 Jun18 CBAL')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY19 FINAL')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Aug 18')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('=pCreateVersion')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('BUDGET 2021')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Test Budget 21')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('BUDGET 2021 TEST REPORT')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('BUDGET 2021 FINAL - REPORT')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('FORECAST JUL 2020')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Sep 20 ME')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Feb 21')"
+					},
+					{
+						"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY22 Final May')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY22 Final May')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('TOTAL_STAFF_TYPE')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('TOTAL_RPT_YEAR')"
+					},
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2015')"
+					},
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2016')"
+					},
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2017')"
+					},
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2018')"
+					},
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2019')"
+					},
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2020')"
+					},
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2021')"
+					},
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2022')"
+					},
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2023')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2022')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('TOTAL_BRANCH')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('TOTAL_STAFF_ROLE')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Admin General')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Admin Specialised')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('CSR')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('CSR Mgmt')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Detailing')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('EC Mgmt')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('EHS')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('EHS L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('EstContracts')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Finance')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Finance L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Marketing')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops General')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops General M')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops L2 M')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Ops Mgmt')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('P&P')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Sales General')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Sales L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('Sales Mgmt')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('SCM General')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('SCM L2')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('SLT')"
+					},
+					{
+						"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('WHD General')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')/Elements('TOTAL_STAFF_ROLE')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

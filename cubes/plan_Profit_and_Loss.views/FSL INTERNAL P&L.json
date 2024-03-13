@@ -1,0 +1,540 @@
+{
+	"@type":"NativeView",
+	"Name":"FSL INTERNAL P&L",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 12')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 12')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')"
+				},
+				"ExpandAbove":true,
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Sales')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Discounts and Accruals')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Rebate Expenses and Price Support')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('14010')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('14570')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('22020')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('27030')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('31100')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('31200')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('31300')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('31500')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('31600')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('31700')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('42070')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Other Revenue')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('TOTAL REVENUE')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21010')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21015')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21020')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21030')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21035')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21040')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21045')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21050')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21060')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21070')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21080')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21085')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('21090')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26099')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28120')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28130')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28160')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('29060')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Cost of Sales')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('22010')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('22015')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('23010')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Rebate & Price Support Rec''d')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('24010')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('24012')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('24015')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('24020')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('24030')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('24040')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('24099')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Materials')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26005')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26010')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26012')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26020')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26025')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26040')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26045')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26050')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26051')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26074')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26086')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26087')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26088')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26089')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26090')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26095')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26052')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26060')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26070')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26075')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26078')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26080')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('26085')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Labour')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Freight')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('R & M')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28005')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28010')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28020')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28025')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28030')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28040')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28050')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28055')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28060')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28125')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28140')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28150')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28170')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28180')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('28190')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Other Production Variable Costs')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Warranty''s')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Other Fixed Production Costs')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('COST OF GOODS SOLD')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Margin')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Margin %25')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('WAREHOUSING AND DISTRIBUTION EXPENSES')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Profit')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Profit %25')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('OVERHEADS (Excl Management Fees)')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Total Overheads %25')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('OTHER INCOME/EXPENSES')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBIT Before Management Fees')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBIT Before Management Fees %25')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Management Fees')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBIT')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBIT %25')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('42075')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('31400')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('42110')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('48540')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('48900')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('48910')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Below EBIT Items')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('TOTAL DEPRECIATION')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBITDA')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Overheads (Incl Management Fees)')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('FSL_Internal')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('FSL_Internal')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency')/Hierarchies('Currency')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Profit_and_Loss')/Hierarchies('m_plan_Profit_and_Loss')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Profit_and_Loss')/Hierarchies('m_plan_Profit_and_Loss')/Elements('Value')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('m_plan_Profit_and_Loss')/Hierarchies('m_plan_Profit_and_Loss')/Elements('Value')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('TOTAL_BRANCH')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

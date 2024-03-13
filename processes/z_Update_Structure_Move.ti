@@ -1,0 +1,35 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+vDim = pDim;
+
+IF(pOldParent@<>'');
+
+DIMENSIONELEMENTCOMPONENTDELETE(vDim, DIMENSIONELEMENTPRINCIPALNAME(vDim, pOldParent), DIMENSIONELEMENTPRINCIPALNAME(vDim, pCode));
+
+ENDIF;
+
+IF(pNewParent@<>'');
+
+DIMENSIONELEMENTCOMPONENTADD(vDim, DIMENSIONELEMENTPRINCIPALNAME(vDim, pNewParent), DIMENSIONELEMENTPRINCIPALNAME(vDim, pCode), pWeighting);
+
+ENDIF;
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

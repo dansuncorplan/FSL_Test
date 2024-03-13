@@ -1,0 +1,37 @@
+{
+	"@type":"MDXView",
+	"Name":"_Sales Input - New Version",
+	"MDX@Code.link":"_Sales Input - New Version.mdx",
+	"Meta": {
+		"Aliases": {
+			"[Business_Unit].[Business_Unit]": "Code & Description",
+			"[plan_Period].[plan_Period]": "rpt_Period",
+			"[Branch].[Branch]": "Code & Description",
+			"[plan_Version].[plan_Version]": "MEMBER_NAME",
+			"[Customer_Sales].[Customer_Sales]": "Code & Description",
+			"[m_plan_Sales].[m_plan_Sales]": "MEMBER_NAME"
+		},
+		"ExpandAboves": {
+			"[Business_Unit].[Business_Unit]": false,
+			"[Product_Group].[Product_Group]": false,
+			"[plan_Period].[plan_Period]": false,
+			"[Branch].[Branch]": false,
+			"[plan_Version].[plan_Version]": false,
+			"[Customer_Sales].[Customer_Sales]": false,
+			"[m_plan_Sales].[m_plan_Sales]": false,
+			"[Currency_Sales].[Currency_Sales]": false
+		},
+		"ContextSets": {
+			"[plan_Version].[plan_Version]": {
+				"Expression": "{DRILLDOWNMEMBER({[plan_Version].[plan_Version].[Budget 002]} , {[plan_Version].[plan_Version].[Budget 002]}),[plan_Version].[plan_Version].[Budget 001],[plan_Version].[plan_Version].[Budget]}"
+			},
+			"[m_plan_Sales].[m_plan_Sales]": {
+				"SubsetName": "SYS.Measures_for_Inputs",
+				"IsPublic": true
+			},
+			"[Currency_Sales].[Currency_Sales]": {
+				"Expression": "{[Currency_Sales].[Currency_Sales].[NZD], [Currency_Sales].[Currency_Sales].[AUD], [Currency_Sales].[Currency_Sales].[EUR], [Currency_Sales].[Currency_Sales].[USD], [Currency_Sales].[Currency_Sales].[NZD Converted]}"
+			}
+		}
+	}
+}

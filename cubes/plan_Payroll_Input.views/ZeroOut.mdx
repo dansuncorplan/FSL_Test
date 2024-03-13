@@ -1,0 +1,1 @@
+SELECT {} ON 0, {{TM1FILTERBYLEVEL(TM1SUBSETALL([plan_Version].[plan_Version]) , 0)}}*{{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}}*{{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}}*{{TM1FILTERBYLEVEL(TM1SUBSETALL([Staff_Member].[Staff_Member]) , 0)}}*{TM1SUBSETALL([m_plan_Payroll_Input])} ON 1 FROM [plan_Payroll_Input]

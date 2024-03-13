@@ -1,0 +1,16 @@
+#region Prolog
+
+sFileFolder='./';
+sDatasource = sFileFolder | pFileName ;
+
+DATASOURCENAMEFORSERVER = sDatasource ;
+
+
+
+#endregion
+#region Data
+
+
+ASCIIOutput( './Import_Files/Temp.Testing.txt', pFileName, vAccount,vAnalysis,vBook,vDescription,vFYEAR,vPeriod,vBr);
+
+#endregion

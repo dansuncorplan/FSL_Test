@@ -1,0 +1,32 @@
+{
+	"@type":"Process",
+	"Name":"int_Dim_Account_PL_Create",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"int_Dim_Account_PL_Create.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pAccountNumber",
+			"Prompt":"Account P&L Number",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAccountName",
+			"Prompt":"Account P&L Name",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAccountCons",
+			"Prompt":"Account Consolidation Parent",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

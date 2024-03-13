@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Capex_Asset_Driver",
+	"Hierarchies@Code.links":
+	[
+		"Capex_Asset_Driver.hierarchies/Capex_Asset_Driver.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Capex_Asset_Driver')/Hierarchies('Capex_Asset_Driver')"
+	}
+}

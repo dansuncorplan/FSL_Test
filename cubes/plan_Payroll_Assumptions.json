@@ -1,0 +1,28 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Payroll_Assumptions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Assumptions')"
+		}
+	],
+	"Rules@Code.link":"plan_Payroll_Assumptions.rules",
+	"Views@Code.links":
+	[
+		"plan_Payroll_Assumptions.views/Default.json",
+		"plan_Payroll_Assumptions.views/ZeroOut.json"
+	]
+}

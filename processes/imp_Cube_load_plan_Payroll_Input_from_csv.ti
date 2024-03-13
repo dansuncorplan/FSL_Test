@@ -1,0 +1,523 @@
+#region Prolog
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+## Description
+## Loads Payroll Information from csv
+
+
+
+## Hardcoded Variables
+
+sTargetCube = 'plan_Payroll_Input' ;
+
+sParameterCube = 'z_System_Parameters' ;
+
+sVersionDim = 'plan_Version' ;
+sBranchDim = 'Branch' ;
+sBusUnitDim = 'Business_Unit' ;
+sStaffMemberDim = 'Staff_Member' ;
+
+sPositionDim = 'Staff_Position' ;
+
+sTargetMeasureDim = 'm_plan_Payroll_Input' ;
+
+sView = processName ;
+sSubset = sView ;
+
+
+
+## Set Source File
+
+sFileFolder = CELLGETS( sParameterCube, 'Import_Directory', 'String' ) | '\' | processName | '\' ;
+
+sDatasource = sFileFolder | pFileName ;
+
+DATASOURCENAMEFORSERVER = sDatasource ;
+
+
+
+
+## Create Target View
+
+sCube = sTargetCube ;
+
+IF( VIEWEXISTS( sCube, sView ) = 1 ) ;
+	VIEWDESTROY( sCube, sView ) ;
+ENDIF ;
+
+VIEWCREATE( sCube, sView ) ;
+
+
+
+
+## Subset - Version
+
+sDim = sVersionDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= pVersion ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Business Unit
+
+sDim = sBusUnitDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+
+
+## Subset - Branch
+
+sDim = sBranchDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Staff Member
+
+sDim = sStaffMemberDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Measure
+
+sDim = sTargetMeasureDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+
+## Zero Out Target View
+
+VIEWZEROOUT( sCube, sView ) ;
+
+
+
+## Destroy Target View & Subsets
+
+VIEWDESTROY( sCube, sView ) ;
+
+SUBSETDESTROY( sVersionDim, sSubset ) ;
+SUBSETDESTROY( sBusUnitDim, sSubset ) ;
+SUBSETDESTROY( sBranchDim, sSubset ) ;
+SUBSETDESTROY( sStaffMemberDim, sSubset ) ;
+SUBSETDESTROY( sTargetMeasureDim, sSubset ) ;
+
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+## Skip if Staff Member is Blank
+
+IF( vStaffMember @= '' ) ;
+	ITEMSKIP ;
+
+ENDIF ;
+
+
+
+## Add New Staff Members
+
+sDim = sStaffMemberDim ;
+sCons = 'ACTUAL_TOTAL_STAFF_MEMBER' ;
+sElement = vStaffMember ;
+
+IF( DIMIX( sDim, sElement ) = 0 ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+ENDIF ;
+
+
+
+
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Skip if Staff Member is Blank
+
+IF( vStaffMember @= '' ) ;
+	ITEMSKIP ;
+
+ENDIF ;
+
+
+
+
+## Set Dimension Elements
+
+sVersion = pVersion ;
+sBusinessUnit = SUBST( vCostCentre, 1, 2 ) ;
+sStaffMember = vStaffMember ;
+sBranch = SUBST( vGL, 1, 2 ) ;
+
+IF( LONG( sBranch ) = 1 ) ;
+	sBranch = '0' | sBranch ;
+ENDIF ;
+
+
+
+
+
+
+## Set Name Alias
+
+sDim = sStaffMemberDim ;
+sAttr = 'Code_and_Name' ;
+sElement = vStaffMember ;
+sValue = vStaffMember | ' - ' | vFirstName | ' ' | vSurname ;
+
+ATTRPUTS( sValue, sDim, sElement, sAttr ) ;
+
+
+
+## Load - Joined
+
+sMeasure = 'Joined' ;
+sValue = vJoined ;
+
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Position 
+
+sMeasure = 'Position' ;
+sValue = vPositionDesc ;
+
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Position Start
+
+sMeasure = 'Position Start' ;
+sValue = vPositionStart ;
+
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Position End
+
+sMeasure = 'Position End' ;
+sValue = vPositionEnd ;
+
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Employment Status
+
+sMeasure = 'Employment Status' ;
+sValue = vEmploymentStatus ;
+
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Pay Interval
+
+sMeasure = 'Pay Interval' ;
+sValue = vPayInterval ;
+
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Annual Amount
+
+sMeasure = 'Annual Amount $' ;
+nValue = vAnnualAmount ;
+
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Monthly Amount
+
+sMeasure = 'Monthly Amount $' ;
+nValue = vMonthlyAmount ;
+
+IF( CELLISUPDATEABLE( sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) = 1 ) ;
+	CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+ENDIF ;
+
+
+
+## Load - Hour Rate
+
+sMeasure = 'Hourly Rate $' ;
+nValue = vHourlyRate ;
+
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Allowances Code
+
+sMeasure = 'Allowances Code' ;
+sValue = vAllowanceCode ;
+
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Allowance Amount
+
+sMeasure = 'Allowances Annual Amount $' ;
+nValue = vAllowanceAmount ;
+
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Kiwi Save
+
+sMeasure = 'Kiwi Save Employer Rate %' ;
+nValue = vKiwiSaver ;
+
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Hours Week
+
+sMeasure = 'Hours per Week' ;
+nValue = vHoursWeek ;
+
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Cost Group Desc
+
+sMeasure = 'Cost Group Desc' ;
+sValue = vCostGroupDesc ;
+
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Staff Type
+## If cost group starts with 2, then production staff, otherwise administrative staff
+
+sMeasure = 'Staff Type' ;
+
+IF( SUBST( vCostGroupDesc, 1, 1 ) @= '2' ) ;
+	sValue = 'Production Staff' ;
+ELSEIF(SUBST( vCostGroupDesc, 5,1) @= '6');
+	sValue = 'Sales and Marketing';
+ELSE ;
+	sValue = 'Administrative Staff' ;
+ENDIF ;
+
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+## Load - Exec Staff Wages
+
+sMeasure = 'Exec Staff Wages' ;
+sValue = vExecStaffWages ;
+
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+## Load - Incentive type
+
+sMeasure = 'Incentive type';
+sValue = vIncentiveType;
+
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+## Load - Holiday Pay Rate
+
+sMeasure = 'Holiday Pay Rate';
+nValue = vHolidayRate;
+
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sStaffMember, sMeasure ) ;
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+countRecords = countRecords + 1;
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

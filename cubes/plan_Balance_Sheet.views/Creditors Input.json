@@ -1,0 +1,40 @@
+{
+	"@type":"MDXView",
+	"Name":"Creditors Input",
+	"MDX@Code.link":"Creditors Input.mdx",
+	"Meta": {
+		"Aliases": {
+			"[Account_BS].[Account_BS]": "Code & Description",
+			"[Branch].[Branch]": "Code & Description",
+			"[Business_Unit].[Business_Unit]": "Code & Description",
+			"[plan_Period].[plan_Period]": "rpt_Period"
+		},
+		"ContextSets": {
+			"[Branch].[Branch]": {
+				"IsPublic": true,
+				"SubsetName": "Default"
+			},
+			"[Business_Unit].[Business_Unit]": {
+				"Expression": "{[Business_Unit].[Business_Unit].[Easysteel]}"
+			},
+			"[Currency].[Currency]": {
+				"Expression": "{[Currency].[Currency].[LCY]}"
+			},
+			"[m_plan_Balance_Sheet].[m_plan_Balance_Sheet]": {
+				"Expression": "{[m_plan_Balance_Sheet].[m_plan_Balance_Sheet].[Value]}"
+			},
+			"[plan_Version].[plan_Version]": {
+				"Expression": "{[plan_Version].[plan_Version].[Actual], [plan_Version].[plan_Version].[Budget], [plan_Version].[plan_Version].[Forecast]}"
+			}
+		},
+		"ExpandAboves": {
+			"[Account_BS].[Account_BS]": true,
+			"[Branch].[Branch]": false,
+			"[Business_Unit].[Business_Unit]": false,
+			"[Currency].[Currency]": false,
+			"[m_plan_Balance_Sheet].[m_plan_Balance_Sheet]": false,
+			"[plan_Period].[plan_Period]": false,
+			"[plan_Version].[plan_Version]": false
+		}
+	}
+}

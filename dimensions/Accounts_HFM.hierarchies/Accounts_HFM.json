@@ -1,0 +1,791 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Accounts_HFM",
+	"Elements":
+	[
+		{
+			"Name":"EBITDA (incl Sig Items)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Below EBIT Items",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"8937D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8822D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"14400D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBIT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"GROSS PROFIT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"GROSS MARGIN",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL REVENUE",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"REVENUE",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"4000C",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Revenue",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"8862D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8783C",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL COGS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL COST OF SALES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"11030D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Cost of Sales Adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Warehousing and Distribution",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6100D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Warehousing and Distribution Adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVERHEADS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Marketing",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"7000D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Administration expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"8000D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8793C",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Category Level Accounts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"11025D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6850D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6250D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6210D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6230D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6810D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"11055D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"7380D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6410D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"7300D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8700D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8310D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"7310D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8400D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8450D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8380D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"12150D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8420D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8520D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"7080D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"7250D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"7200D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8550D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8350D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8210D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"7210D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8230D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"7230D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8250D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"7005D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8360D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"14410D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8950D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"11035D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"5210D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"5230D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"5250D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"5410D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"5500D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"5600D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"5700D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"5800D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BALANCE SHEET ACCOUNTS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"21010C",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"22000C",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"45010D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"33010C",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"43000D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"44000D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"44005D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32015C",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32025C",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32010C",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"58100C",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"58200C",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"41100D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"41200D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"41505D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"41030D",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"42000D",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"EBITDA (incl Sig Items)",
+			"ComponentName":"EBIT",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITDA (incl Sig Items)",
+			"ComponentName":"Below EBIT Items",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Below EBIT Items",
+			"ComponentName":"8937D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Below EBIT Items",
+			"ComponentName":"8822D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Below EBIT Items",
+			"ComponentName":"14400D",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBIT",
+			"ComponentName":"GROSS PROFIT",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBIT",
+			"ComponentName":"OVERHEADS",
+			"Weight":-1
+		},
+		{
+			"ParentName":"GROSS PROFIT",
+			"ComponentName":"GROSS MARGIN",
+			"Weight":1
+		},
+		{
+			"ParentName":"GROSS PROFIT",
+			"ComponentName":"Warehousing and Distribution",
+			"Weight":-1
+		},
+		{
+			"ParentName":"GROSS MARGIN",
+			"ComponentName":"TOTAL REVENUE",
+			"Weight":1
+		},
+		{
+			"ParentName":"GROSS MARGIN",
+			"ComponentName":"TOTAL COGS",
+			"Weight":-1
+		},
+		{
+			"ParentName":"TOTAL REVENUE",
+			"ComponentName":"REVENUE",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL REVENUE",
+			"ComponentName":"Other Revenue",
+			"Weight":1
+		},
+		{
+			"ParentName":"REVENUE",
+			"ComponentName":"4000C",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Revenue",
+			"ComponentName":"8862D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Revenue",
+			"ComponentName":"8783C",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL COGS",
+			"ComponentName":"TOTAL COST OF SALES",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL COST OF SALES",
+			"ComponentName":"11030D",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL COST OF SALES",
+			"ComponentName":"Total Cost of Sales Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Warehousing and Distribution",
+			"ComponentName":"6100D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Warehousing and Distribution",
+			"ComponentName":"Warehousing and Distribution Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"OVERHEADS",
+			"ComponentName":"Marketing",
+			"Weight":1
+		},
+		{
+			"ParentName":"OVERHEADS",
+			"ComponentName":"Administration expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"7000D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Administration expenses",
+			"ComponentName":"8000D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Administration expenses",
+			"ComponentName":"8793C",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"11025D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"6850D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"6250D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"6210D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"6230D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"6810D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"11055D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"7380D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"6410D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"7300D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8700D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8310D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"7310D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8400D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8450D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8380D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"12150D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8420D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8520D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"7080D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"7250D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"7200D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8550D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8350D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8210D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"7210D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8230D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"7230D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8250D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"7005D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8360D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"14410D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"8950D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"11035D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"5210D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"5230D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"5250D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"5410D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"5500D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"5600D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"5700D",
+			"Weight":1
+		},
+		{
+			"ParentName":"Category Level Accounts",
+			"ComponentName":"5800D",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"21010C",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"22000C",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"45010D",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"33010C",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"43000D",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"44000D",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"44005D",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"32015C",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"32025C",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"32010C",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"58100C",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"58200C",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"41100D",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"41200D",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"41505D",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"41030D",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET ACCOUNTS",
+			"ComponentName":"42000D",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Accounts_HFM.subsets/Default.json"
+	]
+}

@@ -1,0 +1,74 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Balance_Sheet",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Balance_Sheet')"
+		}
+	],
+	"Rules@Code.link":"plan_Balance_Sheet.rules",
+	"Views@Code.links":
+	[
+		"plan_Balance_Sheet.views/01 Creditors Budget Input.json",
+		"plan_Balance_Sheet.views/02 Provisions Budget Input.json",
+		"plan_Balance_Sheet.views/03 Inventory Budget Input.json",
+		"plan_Balance_Sheet.views/04 Trade Debtors Budget Input.json",
+		"plan_Balance_Sheet.views/05 Other Debtors Budget Input.json",
+		"plan_Balance_Sheet.views/06 InterCo Debtors & Credits Sales Budget Input.json",
+		"plan_Balance_Sheet.views/07 Fixed Assets Budget Input.json",
+		"plan_Balance_Sheet.views/08 DSO DIO & Cashflow Budget Check.json",
+		"plan_Balance_Sheet.views/BS FY2022 Upload YTD.json",
+		"plan_Balance_Sheet.views/Budget FY22 Opening Balance Test.json",
+		"plan_Balance_Sheet.views/Budget FY24 Opening Balance Test.json",
+		"plan_Balance_Sheet.views/Budget v Forecast Check.json",
+		"plan_Balance_Sheet.views/CWIP - Budgeted CAPEX.json",
+		"plan_Balance_Sheet.views/Debtor Days Input.json",
+		"plan_Balance_Sheet.views/Debtor Days Testing.json",
+		"plan_Balance_Sheet.views/Default.json",
+		"plan_Balance_Sheet.views/DPO Testing.json",
+		"plan_Balance_Sheet.views/DSO DIO & Cashflow Check.json",
+		"plan_Balance_Sheet.views/FA ROU BGT FY24 90000 90160 Adj.json",
+		"plan_Balance_Sheet.views/Fixed Assets Input.json",
+		"plan_Balance_Sheet.views/Forecast - DSO DIO & Cashflow Check.json",
+		"plan_Balance_Sheet.views/Forecast - InterCo Debtors & Credit Sales Input.json",
+		"plan_Balance_Sheet.views/FORECAST BALANCE SHEET FORMAT for CF.json",
+		"plan_Balance_Sheet.views/Forecast vs Budget BS.json",
+		"plan_Balance_Sheet.views/NET WORKING CAPITAL.json",
+		"plan_Balance_Sheet.views/NET WORKING CAPITAL - FCST.json",
+		"plan_Balance_Sheet.views/NET WORKING CAPITAL - FSL INTERNAL.json",
+		"plan_Balance_Sheet.views/Net Working Capital Opening Balance.json",
+		"plan_Balance_Sheet.views/SSV BALANCE SHEET.json",
+		"plan_Balance_Sheet.views/Creditors Input.json",
+		"plan_Balance_Sheet.views/Debtors Input.json",
+		"plan_Balance_Sheet.views/Forecast - Creditors Input.json",
+		"plan_Balance_Sheet.views/Forecast - Fixed Assets Input.json",
+		"plan_Balance_Sheet.views/Forecast - Inventory Input.json",
+		"plan_Balance_Sheet.views/Forecast - Other Debtors Input.json",
+		"plan_Balance_Sheet.views/Forecast - Provisions Input.json",
+		"plan_Balance_Sheet.views/Forecast - Trade Debtors Input.json",
+		"plan_Balance_Sheet.views/Inventory Input.json",
+		"plan_Balance_Sheet.views/Other Debtors Input.json",
+		"plan_Balance_Sheet.views/Provisions Input.json",
+		"plan_Balance_Sheet.views/ZeroOut.json",
+		"plan_Balance_Sheet.views/ZeroOut2.json"
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"@type":"Process",
+	"Name":"int_Dim_plan_Period_Rolling_Consolidation",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"int_Dim_plan_Period_Rolling_Consolidation.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"plan_Period",
+		"dataSourceNameForClient":"plan_Period",
+		"subset":"All"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vPeriod",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

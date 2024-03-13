@@ -1,0 +1,20 @@
+{
+	"@type":"Process",
+	"Name":"z_Zero_Out_Cube",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"z_Zero_Out_Cube.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pCube",
+			"Prompt":"Zero Out Cube:",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Sys.PAW.Year_Selection",
+	"Alias":"rpt_Period",
+	"Expression":"{EXCEPT(DRILLDOWNMEMBER({[plan_Period].[plan_Period].[TOTAL_PLAN_PERIOD]} , {[plan_Period].[plan_Period].[TOTAL_PLAN_PERIOD]} , RECURSIVE) , {[plan_Period].[plan_Period].[TOTAL_PLAN_PERIOD]})}"
+}

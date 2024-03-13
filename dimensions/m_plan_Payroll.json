@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_plan_Payroll",
+	"Hierarchies@Code.links":
+	[
+		"m_plan_Payroll.hierarchies/m_plan_Payroll.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')"
+	}
+}

@@ -1,0 +1,18 @@
+#Region system_settings
+SKIPCHECK;
+FEEDSTRINGS;
+#EndRegion
+
+
+#Bring in data from plan_Profit_and_Loss
+
+[] = N: IF(ATTRS('Account_PL', !Account_PL, IF(ATTRS('Business_Unit', !Business_Unit, 'Type') @= 'MFG', 'HFM_Mfg_GROUP', 'HFM_NonMfg_GROUP')) @= !Accounts_HFM, Continue, STET);
+
+[] = N: DB('plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,!Account_PL,!m_plan_Profit_and_Loss)*
+	IF(ATTRN('Account_PL', !Account_PL, 'HFM_SignChange') = 0, 1, ATTRN('Account_PL', !Account_PL, 'HFM_SignChange'));
+
+
+
+FEEDERS;
+
+['TOTAL_ACCOUNT_PL'] => DB('plan_Profit_and_Loss_HFM',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,!Accounts_HFM,!m_plan_Profit_and_Loss);

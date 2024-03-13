@@ -1,0 +1,35 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Capex_Item",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Capex_Item_List')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')"
+		}
+	],
+	"Rules@Code.link":"plan_Capex_Item.rules",
+	"Views@Code.links":
+	[
+		"plan_Capex_Item.views/Budget Capex.json",
+		"plan_Capex_Item.views/Default.json",
+		"plan_Capex_Item.views/FCST Capex.json",
+		"plan_Capex_Item.views/Forecast.json",
+		"plan_Capex_Item.views/Forecast_Example.json",
+		"plan_Capex_Item.views/Forecast Existing Assets Load.json",
+		"plan_Capex_Item.views/FSL Internal Capex.json",
+		"plan_Capex_Item.views/Support Example.json",
+		"plan_Capex_Item.views/ZEROOUT.json"
+	]
+}

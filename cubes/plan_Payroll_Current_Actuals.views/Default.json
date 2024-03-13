@@ -1,0 +1,224 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Joined')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Position')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Position Start')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Position End')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Headcount')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Employment Status')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Pay Interval')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Hourly Rate $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Allowances Code')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Allowances Annual Amount $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Allowances Amount $ Calc')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Kiwi Save Employer Rate %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Hours per Week')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Cost Group Desc')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Staff Type')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Exec Staff Wages')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Annual Amount $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Motor Vehicle Allowance $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Salary Increase %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('SALARY INCREASE $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Wage Increase %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('WAGES INCREASE $/hr')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('WAGES INCREASE $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Incentive type')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Incentive Amount $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Incentive Amount %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('TOTAL INCENTIVE $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Monthly Amount $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Overtime %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Overtime $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Shift Allowance Qty')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('H&S Allowance Qty')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Meal Allowance Qty')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('IC Allowance Qty')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('2IC Allowance Qty')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Night Shift Allowance Qty')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('First Aid Allowance $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Shift Allowance $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('H&S Allowance $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Meal Allowance $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('IC Allowance $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('2IC Allowance $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Night Shift Allowance $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Kiwisaver $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('ACC $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Holiday Pay Rate')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Holiday Pay $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Payroll_Current_Actuals')/Hierarchies('m_plan_Payroll_Current_Actuals')/Elements('Staff Role')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Staff_Member')/Hierarchies('Staff_Member')/Subsets('Level_0')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Subsets('Picklist_Sub_Unit')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Picklist_Branch')"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Variance - Act v Bud')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Actual')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Variance - Act v Fct')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Actual')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Actual')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":true,
+	"SuppressEmptyRows":true,
+	"FormatString":"0.#########"
+}

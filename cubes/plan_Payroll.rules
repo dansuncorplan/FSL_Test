@@ -1,0 +1,332 @@
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+## Consolidated Averages
+[ 'Headcount Calc' ] =
+IF( ELLEV( 'Branch', !Branch ) > 0 ,
+# THEN
+	CONSOLIDATECHILDREN( 'Branch' ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Headcount Calc' ] =
+IF( ELLEV( 'Business_Unit', !Business_Unit ) > 0 ,
+# THEN
+	CONSOLIDATECHILDREN( 'Business_Unit' ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Headcount Calc' ] =
+IF( ELLEV( 'Staff_Type', !Staff_Type ) > 0 ,
+# THEN
+	CONSOLIDATECHILDREN( 'Staff_Type' ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Headcount Calc' ] =
+IF( ELLEV( 'Staff_Role', !Staff_Role ) > 0 ,
+# THEN
+	CONSOLIDATECHILDREN( 'Staff_Role' ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Headcount Calc' ] =
+IF( DTYPE( 'plan_Period', !plan_Period ) @= 'C' ,
+# THEN
+		CONSOLIDATEDAVG( 2, 'plan_Payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,!Staff_Role,!Staff_Type,!m_plan_Payroll ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Avg Annual Amount $ Calc' ] =
+IF( DTYPE( 'plan_Period', !plan_Period ) @= 'C' ,
+# THEN
+	CONSOLIDATEDAVG( 2, 'plan_Payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,!Staff_Role,!Staff_Type,!m_plan_Payroll ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+## Populate Overtime % for display purposes
+
+[ 'Avg Overtime %' ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ) @= 'Opening Balance' ,
+# THEN
+	IF( DB('plan_Payroll',!plan_Version,ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ),!Business_Unit,!Branch,!Staff_Role,!Staff_Type,'Headcount Calc') <> 0 ,
+	# THEN
+		.00001 ,
+	#ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+## Opening Balance
+
+[ ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ) @= 'Opening Balance' ,
+# THEN
+	0 ,
+# ELSE
+	CONTINUE ) ;
+
+#Region - control calculated months
+[]=N:
+  If(ELISANC( 'plan_Version', 'Calculated Versions', !plan_Version)=1,
+    CONTINUE,
+  STET);
+  
+[]=N:
+  If(DB( 'plan_Version_Setup', !plan_Version, !plan_Period, 'Calculated Flag'  )=1,
+    CONTINUE,
+  STET);
+#EndRegion
+
+## Headcount Calc
+[ 'Year -4 1', 'Headcount Calc' ] = N: [ 'Headcount' ] ;
+
+[ 'Headcount Calc' ] = N:
+[ 'Headcount' ] +
+DB( 'plan_Payroll',!plan_Version,ATTRS( 'plan_Period', !plan_Period, 'Prev_Period' ),!Business_Unit,!Branch,!Staff_Role,!Staff_Type,'Headcount Calc' ) ;
+
+## Avg Annual Amount $ Calc
+[ 'Year -4 1', 'Avg Annual Amount $ Calc' ] = N: [ 'Avg Annual Amount $' ] ;
+
+[ 'Avg Annual Amount $ Calc' ] = N:
+[ 'Avg Annual Amount $' ] +
+DB( 'plan_Payroll',!plan_Version,ATTRS( 'plan_Period', !plan_Period, 'Prev_Period' ),!Business_Unit,!Branch,!Staff_Role,!Staff_Type,'Avg Annual Amount $ Calc' ) ;
+
+## Avg Annual Amount $ Calc
+[ 'Year -4 1', 'Avg Allowance Amount $ Calc' ] = N: [ 'Avg Allowance Amount $' ] ;
+
+[ 'Avg Allowance Amount $ Calc' ] = N:
+[ 'Avg Allowance Amount $' ] +
+DB( 'plan_Payroll',!plan_Version,ATTRS( 'plan_Period', !plan_Period, 'Prev_Period' ),!Business_Unit,!Branch,!Staff_Role,!Staff_Type,'Avg Allowance Amount $ Calc' ) ;
+
+## Avg Annual Incentive $ Calc
+[ 'Year -4 1', 'Avg Incentive Amount $ Calc' ] = N: [ 'Avg Incentive Amount $' ] ;
+
+[ 'Avg Incentive Amount $ Calc' ] = N:
+[ 'Avg Incentive Amount $' ] +
+DB( 'plan_Payroll',!plan_Version,ATTRS( 'plan_Period', !plan_Period, 'Prev_Period' ),!Business_Unit,!Branch,!Staff_Role,!Staff_Type,'Avg Incentive Amount $ Calc' ) ;
+
+## Average Amount Increase $
+[ 'Avg Amount Increase $' ] = N:
+IF( DB( 'plan_Payroll_Assumptions',!plan_Version,!plan_Period,!Business_Unit,!Branch,'Avg Amount Increase %' ) <> 0 ,
+# THEN
+	[ 'Avg Annual Amount $ Calc' ] * DB( 'plan_Payroll_Assumptions',!plan_Version,!plan_Period,!Business_Unit,!Branch,'Avg Amount Increase %' ) ,
+# ELSE
+	CONTINUE ) ;
+
+## MONTHLY WAGES $
+ [ 'MONTHLY WAGES $' ] = N:
+IF( DB( 'plan_Payroll_Pay_Interval',!Staff_Type,!Staff_Role,'Pay Interval' ) @= 'W' ,
+# THEN
+	( ( [ 'Avg Annual Amount $ Calc' ] + [ 'Avg Amount Increase $' ]  ) *
+	DB( 'plan_Payroll_Assumptions',!plan_Version,!plan_Period,!Business_Unit,!Branch,'Paid Days %' )
+	+ [ 'Avg Allowance Amount $ Calc' ] ) * [ 'Headcount Calc' ] ,
+# ELSE
+	0 ) ;
+
+## MONTHLY SALARY $
+ [ 'MONTHLY SALARY $' ] = N:
+IF( DB( 'plan_Payroll_Pay_Interval',!Staff_Type,!Staff_Role,'Pay Interval' ) @= 'M' ,
+# THEN
+	( ( [ 'Avg Annual Amount $ Calc' ] + [ 'Avg Amount Increase $' ] ) \ 12
+	+ [ 'Avg Allowance Amount $ Calc' ] ) * [ 'Headcount Calc' ] ,
+# ELSE
+	0 ) ;
+
+## MONTHLY INCENTIVE $
+[ 'MONTHLY INCENTIVE $' ] = N:
+( [ 'Avg Incentive Amount $ Calc' ]  \ 12 ) * [ 'Headcount Calc' ] ;
+
+## MONTHLY OVERTIME $
+[ 'MONTHLY OVERTIME $' ] = N:
+( [ 'MONTHLY SALARY $' ] + [ 'MONTHLY WAGES $' ] ) * [ 'Avg Overtime %' ] ;
+
+## MONTHLY KIWISAVER $
+[ 'MONTHLY KIWISAVER $' ] = N:
+IF( DB( 'plan_Payroll_Pay_Interval',!Staff_Type,!Staff_Role,'Pay Interval' ) @= 'W' ,
+# THEN
+	[ 'MONTHLY WAGES $' ] * DB( 'plan_Payroll_Assumptions',!plan_Version,!plan_Period,!Business_Unit,!Branch,'Avg Kiwisaver %' ) ,
+# ELSE
+	[ 'MONTHLY SALARY $' ] * DB( 'plan_Payroll_Assumptions',!plan_Version,!plan_Period,!Business_Unit,!Branch,'Avg Kiwisaver %' ) ) ;
+
+## MONTHLY ACC $
+[ 'MONTHLY ACC $' ] = N:
+( [ 'MONTHLY SALARY $' ] + [ 'MONTHLY WAGES $' ] + [ 'MONTHLY OVERTIME $' ] ) * DB( 'lookup_Payroll_Assumptions',!plan_Version,'ACC Rate' ) ;
+
+## LEAVE ACCRUAL $
+[ 'LEAVE ACCRUAL $' ] = N:
+( [ 'Avg Annual Amount $ Calc' ] * DB( 'plan_Payroll_Assumptions',!plan_Version,!plan_Period,!Business_Unit,!Branch,'Leave Accrual %' ) \ 12 ) * [ 'Headcount Calc' ] ;
+
+## LEAVE TAKEN $
+[ 'LEAVE TAKEN $' ] = N:
+IF( [ 'Avg Annual Amount $ Calc' ] <> 0 ,
+# THEN
+	( DB( 'plan_Payroll',!plan_Version,ATTRS( 'plan_Period', !plan_Period, 'plan_Year' ),!Business_Unit,!Branch,!Staff_Role,!Staff_Type,'LEAVE ACCRUAL $' ) * -1 ) *
+	DB( 'plan_Payroll_Assumptions',!plan_Version,!plan_Period,!Business_Unit,!Branch,'Leave Taken %' ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+FEEDERS ;
+
+## Feed Headcount Calc
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_PLAN_PERIOD', 'Headcount' ] => [ 'TOTAL_PLAN_PERIOD', 'Headcount Calc' ] ;
+
+## Feed Avg Annual Amount $ Calc
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_PLAN_PERIOD', 'Avg Annual Amount $' ] => [ 'TOTAL_PLAN_PERIOD', 'Avg Annual Amount $ Calc' ] ;
+
+## Feed Avg Allowance Amount $ Calc
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_PLAN_PERIOD', 'Avg Allowance Amount $' ] => [ 'TOTAL_PLAN_PERIOD', 'Avg Allowance Amount $ Calc' ] ;
+
+## Feed Avg Incentive Amount $ Calc
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_PLAN_PERIOD', 'Avg Incentive Amount $' ] => [ 'TOTAL_PLAN_PERIOD', 'Avg Incentive Amount $ Calc' ] ;
+
+## Feed Amount Increase $
+['plan_Version':'plan_Version':'Calculated Versions','Avg Annual Amount $ Calc' ] => [ 'Avg Amount Increase $' ] ;
+
+## Feed Amount Increase $
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_PLAN_PERIOD', 'Headcount' ] =>DB('plan_Payroll',!plan_Version,'TOTAL_PLAN_PERIOD',!Business_Unit,!Branch,!Staff_Role,!Staff_Type,'Avg Overtime %') ;
+
+## Feed Wage Amount
+['plan_Version':'plan_Version':'Calculated Versions','Avg Annual Amount $ Calc' ] => [ 'MONTHLY WAGES $' ] ;
+
+## Feed Salary Amount
+['plan_Version':'plan_Version':'Calculated Versions','Avg Annual Amount $ Calc' ]  => [ 'MONTHLY SALARY $' ] ;
+
+## Feed Incentive Amount
+['plan_Version':'plan_Version':'Calculated Versions','Avg Incentive Amount $ Calc' ]  => [ 'MONTHLY INCENTIVE $' ] ;
+
+## Feed Overtime $
+['plan_Version':'plan_Version':'Calculated Versions','Avg Overtime %' ] => [ 'MONTHLY OVERTIME $' ] ;
+
+## Feed Kiwisaver
+['plan_Version':'plan_Version':'Calculated Versions','Avg Annual Amount $ Calc' ] => [ 'MONTHLY KIWISAVER $' ] ;
+
+## Feed Kiwisaver
+['plan_Version':'plan_Version':'Calculated Versions','Avg Annual Amount $ Calc' ] => [ 'MONTHLY ACC $' ] ;
+
+## Leave Accrual $
+['plan_Version':'plan_Version':'Calculated Versions','Avg Annual Amount $ Calc' ] => [ 'LEAVE ACCRUAL $' ] ;
+
+## Leave Taken $
+['plan_Version':'plan_Version':'Calculated Versions','Avg Annual Amount $ Calc' ] => [ 'LEAVE TAKEN $' ] ;
+
+#Region - Plan Profit and Loss
+## Monthly Salary - Production
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE', 'Production Staff', 'MONTHLY SALARY $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'26075','Value') ;
+
+## Plan Profit and Loss
+## Monthly Salary - Administrative
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Administrative Staff', 'MONTHLY SALARY $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46075','Value') ;
+
+## Plan Profit and Loss
+## Monthly Salary - Sales & Marketing
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Sales and Marketing', 'MONTHLY SALARY $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46076','Value') ;
+
+## Plan Profit and Loss
+## Monthly Wages - Production
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Production Staff', 'MONTHLY WAGES $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'26085','Value') ;
+
+## Plan Profit and Loss
+## Monthly Wages - Administrative
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Administrative Staff', 'MONTHLY WAGES $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46085','Value') ;
+
+## Plan Profit and Loss
+## Monthly Wages - Sales and Marketing
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Sales and Marketing', 'MONTHLY WAGES $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46086','Value');
+
+## Plan Profit and Loss
+## ACC
+#[ 'TOTAL_STAFF_ROLE',  'Production Staff', 'ACC $' ] =>
+#DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'26010','Value') ;
+
+#[ 'TOTAL_STAFF_ROLE',  'Administrative Staff', 'ACC $' ] =>
+#DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46010','Value') ;
+
+#[ 'TOTAL_STAFF_ROLE',  'Sales and Marketing', 'ACC $' ] =>
+#DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46011','Value') ;
+
+## Plan Profit and Loss
+## Kiwisaver - Production
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Production Staff', 'MONTHLY KIWISAVER $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'26052','Value') ;
+
+## Plan Profit and Loss
+## Kiwisaver - Administrative
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Administrative Staff', 'MONTHLY KIWISAVER $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46052','Value') ;
+
+## Plan Profit and Loss
+## Kiwisaver - Sales and Marketing
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Sales and Marketing', 'MONTHLY KIWISAVER $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46048','Value') ;
+
+## Plan Profit and Loss
+## ACC - Production
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Production Staff', 'MONTHLY ACC $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'26010','Value') ;
+
+## Plan Profit and Loss
+## ACC - Administrative
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Administrative Staff', 'MONTHLY ACC $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46010','Value') ;
+
+## Plan Profit and Loss
+## ACC - Sales and Marketing
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Sales and Marketing', 'MONTHLY ACC $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46011','Value') ;
+
+## Plan Profit and Loss
+## Staff Bonus - Production
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Production Staff', 'MONTHLY INCENTIVE $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'26020','Value') ;
+
+## Plan Profit and Loss
+## Staff Bonus - Administrative
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Administrative Staff', 'MONTHLY INCENTIVE $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46020','Value') ;
+
+## Plan Profit and Loss
+## Staff Bonus - Sales and Marketing
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Sales and Marketing', 'MONTHLY INCENTIVE $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46021','Value') ;
+
+## Plan Profit and Loss
+## Overtime - Production
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Production Staff', 'MONTHLY OVERTIME $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'26086','Value') ;
+
+## Plan Profit and Loss
+## Overtime - Administrative
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Administrative Staff', 'MONTHLY OVERTIME $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46087','Value') ;
+
+
+## Plan Profit and Loss
+## Overtime - Sales and Marketing
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Sales and Marketing', 'MONTHLY OVERTIME $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46088','Value') ;
+
+## Plan Profit and Loss
+## Holiday Pay - Production
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Production Staff', 'Holiday Pay $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'26087','Value') ;
+
+## Plan Profit and Loss
+## Holiday Pay - Administrative
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Administrative Staff', 'Holiday Pay $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46089','Value') ;
+
+## Plan Profit and Loss
+## Holiday Pay - Sales and Marketing
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL_STAFF_ROLE',  'Sales and Marketing', 'Holiday Pay $' ] =>
+DB('plan_Profit_and_Loss',!plan_Version,'LCY',!plan_Period,!Branch,!Business_Unit,'46090','Value') ;
+
+#EndRegion

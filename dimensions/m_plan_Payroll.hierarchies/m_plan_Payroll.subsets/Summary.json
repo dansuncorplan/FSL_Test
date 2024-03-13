@@ -1,0 +1,31 @@
+{
+	"@type":"Subset",
+	"Name":"Summary",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Headcount Calc')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY SALARY $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY WAGES $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY INCENTIVE $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY OVERTIME $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY KIWISAVER $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('LEAVE ACCRUAL $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('LEAVE TAKEN $')"
+		}
+	]
+}

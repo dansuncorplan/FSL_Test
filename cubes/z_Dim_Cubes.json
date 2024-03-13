@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"z_Dim_Cubes",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Dimensions')"
+		},
+		{
+			"@id":"Dimensions('}Cubes')"
+		},
+		{
+			"@id":"Dimensions('m_z_Dim_Cubes')"
+		}
+	],
+	"MeasuresDimension":
+	{
+		"@id":"Dimensions('m_z_Dim_Cubes')"
+	},
+	"Views@Code.links":[]
+}

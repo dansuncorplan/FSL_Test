@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_z_Dim_Cubes",
+	"Hierarchies@Code.links":
+	[
+		"m_z_Dim_Cubes.hierarchies/m_z_Dim_Cubes.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_z_Dim_Cubes')/Hierarchies('m_z_Dim_Cubes')"
+	}
+}

@@ -1,0 +1,73 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('Annual Amount $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('Salary Increase %25')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('Salary Increase $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('MONTHLY SALARY $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('Hourly Rate $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('Wage Increase %25')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('MONTHLY WAGES $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('Overtime %25')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('OVERTIME $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('SHIFT ALLOWANCE $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('NIGHT SHIFT ALLOWANCE $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('FIRST AID ALLOWANCE $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('MEAL ALLOWANCE $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('IC ALLOWANCE $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('2IC ALLOWANCE $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('ACC $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('KIWISAVER $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('Incentive Amount $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('Incentive Amount %25')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('TOTAL INCENTIVE $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('ACC Rate %25')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')/Hierarchies('m_plan_Payroll_Summary')/Elements('Kiwi Saver %25')"
+		}
+	]
+}

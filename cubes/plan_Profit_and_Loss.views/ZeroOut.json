@@ -1,0 +1,23 @@
+{
+	"@type":"MDXView",
+	"Name":"ZeroOut",
+	"MDX@Code.link":"ZeroOut.mdx",
+	"Meta": {
+		"Aliases": {
+			"[Business_Unit].[Business_Unit]": "Code & Description",
+			"[plan_Period].[plan_Period]": "rpt_Period",
+			"[Branch].[Branch]": "Code & Description",
+			"[Account_PL].[Account_PL]": "Code & Description"
+		},
+		"ExpandAboves": {
+			"[Business_Unit].[Business_Unit]": false,
+			"[plan_Period].[plan_Period]": false,
+			"[m_plan_Profit_and_Loss].[m_plan_Profit_and_Loss]": false,
+			"[plan_Version].[plan_Version]": false,
+			"[Branch].[Branch]": false,
+			"[Currency].[Currency]": false,
+			"[Account_PL].[Account_PL]": true
+		},
+		"ContextSets": {}
+	}
+}

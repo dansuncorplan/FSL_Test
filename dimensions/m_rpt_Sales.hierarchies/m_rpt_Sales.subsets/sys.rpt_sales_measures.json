@@ -1,0 +1,29 @@
+{
+	"@type":"Subset",
+	"Name":"sys.rpt_sales_measures",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Sales Volume - LM')"
+		},
+		{
+			"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Sales Volume - EA')"
+		},
+		{
+			"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Sales Volume - TN')"
+		},
+		{
+			"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Cost Price per UOM Base')"
+		},
+		{
+			"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Base Selling Price')"
+		},
+		{
+			"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('COST OF SALES STANDARD $')"
+		},
+		{
+			"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('TOTAL SALES $')"
+		}
+	]
+}

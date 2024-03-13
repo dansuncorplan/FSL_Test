@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"z_Backup_Automatic",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"z_Backup_Automatic.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

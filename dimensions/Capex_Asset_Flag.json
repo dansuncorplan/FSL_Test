@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Capex_Asset_Flag",
+	"Hierarchies@Code.links":
+	[
+		"Capex_Asset_Flag.hierarchies/Capex_Asset_Flag.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Capex_Asset_Flag')/Hierarchies('Capex_Asset_Flag')"
+	}
+}

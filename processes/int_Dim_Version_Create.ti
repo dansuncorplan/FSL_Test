@@ -1,0 +1,57 @@
+#region Prolog
+
+#----------------------------------------------------
+# Define variables
+#----------------------------------------------------
+cDimName = 'plan_Version' ;
+sErr = '' ;
+
+#----------------------------------------------------
+# Validate Inputs
+#----------------------------------------------------
+IF( DIMIX( cDimName , pVersion ) <> 0 );
+	sErr = 'ERROR: "' | pVersion | '" is already a valid Scenario element' ;
+	ProcessBreak;
+ENDIF;
+IF( pVersion @= '' );
+	sErr = 'ERROR: pVersion cannot be an empty string.' ;
+	ProcessBreak;
+ENDIF;
+
+#----------------------------------------------------
+# Delete Subset for New Version
+#----------------------------------------------------
+
+if( SubsetExists( 'plan_Version', 'sys.Scenario_Copy.New_Version' )=1);
+ SubsetDeleteAllElements(  'plan_Version', 'sys.Scenario_Copy.New_Version'  );
+endif;
+
+#endregion
+#region Data
+
+#----------------------------------------------------
+# Insert Scenario Element
+#----------------------------------------------------
+IF( pVersionType @= 'Calculated Forecasts' );
+	sParent = 'Calculated Forecasts' ;
+ELSEIF( pVersionType @= 'Calculated Budgets' );
+	sParent = 'Calculated Budgets';
+ELSEIF( pVersionType @= 'Static Versions' );
+	sParent = 'Static Versions';
+ENDIF;
+
+DimensionElementInsertDirect( cDimName , '' , pVersion , 'N' );
+DimensionElementComponentAddDirect( cDimName , sParent , pVersion , 1 );
+
+#----------------------------------------------------
+# Update Subset Elements
+#----------------------------------------------------
+
+sNewVersion =  pVersion ;
+
+if (SubsetElementExists( 'plan_Version', ' sys.Scenario_Copy.New_Version' , sNewVersion)=0);
+     SubsetElementInsert('plan_Version',  ' sys.Scenario_Copy.New_Version' , sNewVersion,1);
+endif;
+
+
+#endregion

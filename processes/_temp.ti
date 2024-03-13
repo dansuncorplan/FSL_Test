@@ -1,0 +1,21 @@
+#region Prolog
+#---Target Year based on the Base Year Input 
+sTargetYear = CellGetS('plan_Version_Setup', pVersionTo,'Annual Input', 'Base Year' ); 
+# sTargetYear = pYearTo; 
+
+#---Target Opening Balance concatenate with the Target Base Year 
+sPeriodOB = sTargetYear|' '|'Opening Balance';
+
+#---Source Year based on the Source Period Input using the Opening Balance of the New Version 
+sSourcePeriodYear = CellGetS('plan_Version_Setup', pVersionTo, sPeriodOB, 'Source Period' );
+# sSourcePeriodYear = pYear;
+
+#--Source Version  based on the Source Period Input using the Opening Balance of the New Version 
+sSourcePeriodVersion =  CellGetS('plan_Version_Setup', pVersionTo, sPeriodOB, 'Source Version' );
+
+#---Get the Value of the Total Source Period Year and the Source Version
+ vValue = CellGetN( 'plan_Balance_Sheet', sSourcePeriodVersion, 'LCY',sSourcePeriodYear, '15','10', '60901', 'Value' );
+
+ASCIIOutput( 'Opening Balance.txt', sPeriodOB,sSourcePeriodVersion,sSourcePeriodYear,sTargetYear,  NumberToString( vValue ));
+CellPutN( vValue, 'plan_Balance_Sheet',pVersionTo, 'LCY',sPeriodOB, '15', '10', '60901', 'Value'  );
+#endregion

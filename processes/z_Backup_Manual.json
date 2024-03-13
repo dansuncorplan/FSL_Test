@@ -1,0 +1,20 @@
+{
+	"@type":"Process",
+	"Name":"z_Backup_Manual",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"z_Backup_Manual.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pBackupName",
+			"Prompt":"Backup Name (No Spaces)",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

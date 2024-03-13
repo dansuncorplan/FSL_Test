@@ -1,0 +1,37 @@
+## Calculate Previous Year
+
+
+[ 'Opening Balance' ] = S:
+IF( SCAN( 'Year', !m_lookup_Calendar ) <> 0 ,
+	# THEN
+	STR( NUMBR( !rpt_Year ) - 1 , 4, 0 ) ,
+	# ELSE
+	CONTINUE ) ;
+
+
+
+[  ] = S:
+IF( SCAN( 'YTD', !rpt_Month ) <> 0 ,
+# THEN
+	IF( SCAN( 'Year', !m_lookup_Calendar ) <> 0 ,
+	# THEN
+		DB('lookup_Calendar',!rpt_Year,SUBST( !rpt_Month,1, 3 ), !m_lookup_Calendar) ,
+	# ELSE
+		DB('lookup_Calendar',!rpt_Year,SUBST( !rpt_Month,1, 3 ), !m_lookup_Calendar) | '_YTD' ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+[  ] = S:
+IF( SCAN( 'Year', !m_lookup_Calendar ) <> 0 ,
+	# THEN
+	IF( DIMIX( 'rpt_Month', !rpt_Month ) <= DIMIX( 'rpt_Month', DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Month_' | SUBST( !m_lookup_Calendar, 15, 2 ) ) ) ,
+		# THEN
+		STR( NUMBR( !rpt_Year ) - 1 , 4, 0 ) ,
+		# ELSE
+		!rpt_Year ) ,
+	# ELSE
+	CONTINUE ) ;
+
+

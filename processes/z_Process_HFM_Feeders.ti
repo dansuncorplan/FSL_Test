@@ -1,0 +1,23 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+CUBEPROCESSFEEDERS('plan_Profit_and_Loss');
+CUBEPROCESSFEEDERS('z_Plan_Profit_Loss_Account_Mapping');
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

@@ -1,0 +1,469 @@
+#region Prolog
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Description
+## Copies data from one version to another in the plan_CAPEX_Item cube
+
+
+
+## Hardcoded Variables
+
+sSourceCube = 'plan_CAPEX_Item' ;
+sTargetCube = 'plan_CAPEX_Item' ;
+
+sVersionDim = 'plan_Version' ;
+sBusinessUnitDim = 'Business_Unit' ;
+sBranchDim = 'Branch' ;
+sCapexItemDim = 'Capex_Item_List' ;
+sMeasureDim = 'm_plan_Capex_Input' ;
+
+sView = processName ;
+sSubset = sView ;
+
+
+
+
+## Create Target View
+
+sCube = sTargetCube ;
+
+IF( VIEWEXISTS( sCube, sView ) = 1 ) ;
+	VIEWDESTROY( sCube, sView ) ;
+ENDIF ;
+
+VIEWCREATE( sCube, sView ) ;
+
+
+
+## Subset - Version
+
+sDim = sVersionDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= pTargetVersion ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Business Unit
+
+sDim = sBusinessUnitDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Branch
+
+sDim = sBranchDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Capex Item List
+
+sDim = sCapexItemDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Measure
+
+sDim = sMeasureDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Zero Out Target View
+
+VIEWZEROOUT( sCube, sView ) ;
+
+
+## Destroy Target View and Subsets
+
+VIEWDESTROY( sCube, sView ) ;
+
+SUBSETDESTROY( sVersionDim, sSubset ) ;
+SUBSETDESTROY( sBusinessUnitDim, sSubset ) ;
+SUBSETDESTROY( sBranchDim, sSubset ) ;
+SUBSETDESTROY( sCapexItemDim, sSubset ) ;
+SUBSETDESTROY( sMeasureDim, sSubset ) ;
+
+
+
+
+## Create Source View
+
+sCube = sSourceCube ;
+
+IF( VIEWEXISTS( sCube, sView ) = 1 ) ;
+	VIEWDESTROY( sCube, sView ) ;
+ENDIF ;
+
+VIEWCREATE( sCube, sView ) ;
+
+
+
+## Subset - Version
+
+sDim = sVersionDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= pSourceVersion ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Business Unit
+
+sDim = sBusinessUnitDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Branch
+
+sDim = sBranchDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Capex Item List
+
+sDim = sCapexItemDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Measure
+
+sDim = sMeasureDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Set Source View
+
+DATASOURCECUBEVIEW = sView ;
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Skip if Cell is not updateable
+
+IF( CELLISUPDATEABLE( sTargetCube, pTargetVersion, vBusiness_Unit, vBranch, vCapex_Item_List, vMeasure ) = 0 ) ;
+
+	ITEMSKIP ;
+
+ENDIF ;
+
+
+
+## Enter Value to Target Version
+
+IF( DTYPE( sMeasureDim, vMeasure ) @= 'S' ) ;
+
+	CELLPUTS( vValue, sTargetCube, pTargetVersion, vBusiness_Unit, vBranch, vCapex_Item_List, vMeasure ) ;
+
+ELSE ;
+
+	nValue = STRINGTONUMBER( vValue ) ;
+
+	CELLPUTN( nValue, sTargetCube, pTargetVersion, vBusiness_Unit, vBranch, vCapex_Item_List, vMeasure ) ;
+
+ENDIF ;
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+countRecords = countRecords + 1;
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Destroy Target View and Subsets
+
+VIEWDESTROY( sCube, sView ) ;
+
+SUBSETDESTROY( sVersionDim, sSubset ) ;
+SUBSETDESTROY( sBusinessUnitDim, sSubset ) ;
+SUBSETDESTROY( sBranchDim, sSubset ) ;
+SUBSETDESTROY( sCapexItemDim, sSubset ) ;
+SUBSETDESTROY( sMeasureDim, sSubset ) ;
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

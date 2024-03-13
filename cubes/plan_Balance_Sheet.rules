@@ -1,0 +1,602 @@
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+## EBITDA OPENING BALANCE
+['EBITDA'] = N: IF(ATTRS('plan_Period', !plan_Period, 'rpt_Month') @= 'Opening Balance', 0, CONTINUE);
+
+
+## DPO Calcs
+## Days Purchases Outstanding
+[ 'Days Purchases Outstanding', 'Value' ] =
+( ( ( [ 'Adjusted Creditors' ] - [ 'Total Purchases incl GST/VAT' ] ) \
+DB('plan_Balance_Sheet',!plan_Version,!Currency,ATTRS( 'plan_Period',!plan_Period,'Prev_Period'),!Branch,!Business_Unit,'Total Purchases incl GST/VAT','Value') ) + 1 ) * 30 ;
+
+
+## Debtor Calcs
+## Debtor Days
+## Update to Debtor Days calcs - requested from Kajal & Joseph 20/04/2021
+#[ 'Debtor Days Outstanding', 'Value' ] =
+#[ 'Gross Debtors' ] \ ( [ 'Average Credit Sales (excl Intercompany)' ] \ 30 ) ;
+
+[ 'Debtor Days Outstanding', 'Value' ] =
+( ( ( [ 'Gross Debtors' ] - [ 'Total Credit Sales' ] ) \
+DB('plan_Balance_Sheet',!plan_Version,!Currency,ATTRS( 'plan_Period',!plan_Period,'Prev_Period'),!Branch,!Business_Unit,'Total Credit Sales','Value') ) + 1 ) * 30 ;
+
+## Debtor Days Calcs
+## Gross Debtors per BS
+[ 'Gross Debtors per BS', 'Value' ] = N:
+DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'61000','Value') +
+DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'67000','Value') ;
+
+## Debtor Calcs
+## Less Rebates Provision
+[ 'Less Rebates Provision with Gross Debtors', 'Value' ] = N:
+DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'61500','Value') ;
+
+## Debtor Calcs
+## Other Adjustment - Intracompany
+## Manually entered until calculations are ready from Joseph
+#[ 'Other Adjustment - Intracompany', 'Value' ] = N:
+#DB('plan_Balance_Sheet',!plan_Version,!Currency,ATTRS( 'rpt_Month', !rpt_Month, 'Month_Short' ) | '_YTD',!rpt_Year,!Branch,!Business_Unit,'61100','Value') ;
+
+
+## Debtor Calcs
+## Credit Sales
+[ 'Credit Sales', 'Value' ] = N:
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit, '11010','Value') +
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit, '11015','Value') ;
+
+## Debtor Calcs
+## Credit Sales - Intracompany
+[ 'Credit Sales - Intracompany', 'Value' ] = N:
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit, '11020','Value') +
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit, '11030','Value') +
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit, '11025','Value') +
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit, '11035','Value') ;
+
+## Cost of Goods Sold - P&L Rolling 12 Months * -1
+## Cost of Goods Sold
+## Budget - Only calculate for Year +1
+[ 'Budget', 'Year +1', 'Inv_Cost of Goods Sold - Rolling 12 Months', 'Value' ] =
+DB('plan_Balance_Sheet',!plan_Version,!Currency,'Year +1 12',!Branch,!Business_Unit,!Account_BS,!m_plan_Balance_Sheet) ;
+
+#[ 'Budget', 'Inv_Cost of Goods Sold - Rolling 12 Months', 'Value' ] = N:
+#IF( ELISANC( 'plan_Period', 'Year +1', !plan_Period ) <> 1,
+# THEN
+#	STET ,
+# ELSE
+#	CONTINUE ) ;
+
+## Cost of Goods Sold
+## YTD equals latest period for display sake
+[ 'Inv_Cost of Goods Sold - Rolling 12 Months', 'Value' ] =
+IF( SCAN( 'YTD', !plan_Period ) <> 0 ,
+## THEN
+	DB('plan_Balance_Sheet',!plan_Version,!Currency,ATTRS( 'plan_Period', !plan_Period, 'plan_Year' ) | ' ' | ATTRS( 'plan_Period', !plan_Period, 'plan_Month' ),!Branch,!Business_Unit,!Account_BS,!m_plan_Balance_Sheet) ,
+## ELSE
+	CONTINUE ) ;
+
+## Cost of Goods Sold
+## If Previous Year = Year 0, use archived forecast
+## Else use budget
+[ 'Budget', 'Inv_Cost of Goods Sold - Rolling 12 Months', 'Value' ] = N:
+#IF( SCAN( 'Planned', !Business_Unit ) <> 0 ,
+# THEN
+	( DB( 'plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value' ) +
+
+	IF( DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_1' ) @= ATTRS( 'plan_Period', 'Year 0', 'rpt_Year' ) ,
+
+	# THEN
+		DB('rpt_Profit_and_Loss',
+		DB('z_System_Parameters','Current_Forecast_Version','String'),
+		!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_1' ) ,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_1' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ,
+	# ELSE
+		DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_1' ) | ' ' |
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_1' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ) +
+
+	IF( DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_2' ) @= ATTRS( 'plan_Period', 'Year 0', 'rpt_Year' ) ,
+	# THEN
+		DB('rpt_Profit_and_Loss',
+		DB('z_System_Parameters','Current_Forecast_Version','String'),
+		!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_2' ) ,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_2' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ,
+	# ELSE
+		DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_2' ) | ' ' |
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_2' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ) +
+
+
+	IF( DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_3' ) @= ATTRS( 'plan_Period', 'Year 0', 'rpt_Year' ) ,
+	# THEN
+		DB('rpt_Profit_and_Loss',
+		DB('z_System_Parameters','Current_Forecast_Version','String'),
+		!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_3' ) ,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_3' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ,
+	# ELSE
+		DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_3' ) | ' ' |
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_3' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ) +
+
+
+	IF( DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_4' ) @= ATTRS( 'plan_Period', 'Year 0', 'rpt_Year' ) ,
+	# THEN
+		DB('rpt_Profit_and_Loss',
+		DB('z_System_Parameters','Current_Forecast_Version','String'),
+		!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_4' ) ,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_4' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ,
+	# ELSE
+		DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_4' ) | ' ' |
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_4' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ) +
+
+
+	IF( DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_5' ) @= ATTRS( 'plan_Period', 'Year 0', 'rpt_Year' ) ,
+	# THEN
+		DB('rpt_Profit_and_Loss',
+		DB('z_System_Parameters','Current_Forecast_Version','String'),
+		!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_5' ) ,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_5' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ,
+	# ELSE
+		DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_5' ) | ' ' |
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_5' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ) +
+
+
+	IF( DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_6' ) @= ATTRS( 'plan_Period', 'Year 0', 'rpt_Year' ) ,
+	# THEN
+		DB('rpt_Profit_and_Loss',
+		DB('z_System_Parameters','Current_Forecast_Version','String'),
+		!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_6' ) ,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_6' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ,
+	# ELSE
+		DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_6' ) | ' ' |
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_6' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ) +
+
+
+	IF( DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_7' ) @= ATTRS( 'plan_Period', 'Year 0', 'rpt_Year' ) ,
+	# THEN
+		DB('rpt_Profit_and_Loss',
+		DB('z_System_Parameters','Current_Forecast_Version','String'),
+		!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_7' ) ,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_7' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ,
+	# ELSE
+		DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_7' ) | ' ' |
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_7' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ) +
+
+
+	IF( DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_8' ) @= ATTRS( 'plan_Period', 'Year 0', 'rpt_Year' ) ,
+	# THEN
+		DB('rpt_Profit_and_Loss',
+		DB('z_System_Parameters','Current_Forecast_Version','String'),
+		!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_8' ) ,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_8' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ,
+	# ELSE
+		DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_8' ) | ' ' |
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_8' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ) +
+
+
+	IF( DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_9' ) @= ATTRS( 'plan_Period', 'Year 0', 'rpt_Year' ) ,
+	# THEN
+		DB('rpt_Profit_and_Loss',
+		DB('z_System_Parameters','Current_Forecast_Version','String'),
+		!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_9' ) ,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_9' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ,
+	# ELSE
+		DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_9' ) | ' ' |
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_9' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ) +
+
+
+	IF( DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_10' ) @= ATTRS( 'plan_Period', 'Year 0', 'rpt_Year' ) ,
+	# THEN
+		DB('rpt_Profit_and_Loss',
+		DB('z_System_Parameters','Current_Forecast_Version','String'),
+		!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_10' ) ,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_10' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ,
+	# ELSE
+		DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_10' ) | ' ' |
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_10' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ) +
+
+
+	IF( DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_11' ) @= ATTRS( 'plan_Period', 'Year 0', 'rpt_Year' ) ,
+	# THEN
+		DB('rpt_Profit_and_Loss',
+		DB('z_System_Parameters','Current_Forecast_Version','String'),
+		!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_11' ) ,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_11' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') ,
+	# ELSE
+		DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_11' ) | ' ' |
+		DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_11' ) ,
+		!Branch,ATTRS( 'Business_Unit', !Business_Unit, 'Business_Unit' ),'Cost of Goods Sold','Value') )
+
+	) * -1 ;
+# ELSE
+#	STET ) ;
+
+
+[ 'Budget', 'Inv_Cost of Goods Sold - Rolling 12 Months', 'Value' ] = N: STET ;
+
+[ 'Inv_Cost of Goods Sold - Rolling 12 Months', 'Value' ] = N:
+( DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+!plan_Period,
+!Branch,!Business_Unit,'Cost of Goods Sold','Value') +
+
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_1' ) | ' ' |
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_1' ) ,
+!Branch,!Business_Unit,'Cost of Goods Sold','Value') +
+
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_2' ) | ' ' |
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_2' ) ,
+!Branch,!Business_Unit,'Cost of Goods Sold','Value') +
+
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_3' ) | ' ' |
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_3' ) ,
+!Branch,!Business_Unit,'Cost of Goods Sold','Value') +
+
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_4' ) | ' ' |
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_4' ) ,
+!Branch,!Business_Unit,'Cost of Goods Sold','Value') +
+
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_5' ) | ' ' |
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_5' ) ,
+!Branch,!Business_Unit,'Cost of Goods Sold','Value') +
+
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_6' ) | ' ' |
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_6' ) ,
+!Branch,!Business_Unit,'Cost of Goods Sold','Value') +
+
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_7' ) | ' ' |
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_7' ) ,
+!Branch,!Business_Unit,'Cost of Goods Sold','Value') +
+
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_8' ) | ' ' |
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_8' ) ,
+!Branch,!Business_Unit,'Cost of Goods Sold','Value') +
+
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_9' ) | ' ' |
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_9' ) ,
+!Branch,!Business_Unit,'Cost of Goods Sold','Value') +
+
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_10' ) | ' ' |
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_10' ) ,
+!Branch,!Business_Unit,'Cost of Goods Sold','Value') +
+
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_11' ) | ' ' |
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_11' ) ,
+!Branch,!Business_Unit,'Cost of Goods Sold','Value')  ) * -1 ;
+
+
+## Inventory Days - Total Stock \ Cost of Goods Sold * Number of Days in the Year
+[ 'Inventory Days', 'Value' ] =
+IF( ELISPAR( 'plan_Period', 'TOTAL_PLAN_PERIOD', !plan_Period ) = 1 ,
+# THEN
+	DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period | ' 12 YTD',!Branch,!Business_Unit,!Account_BS,!m_plan_Balance_Sheet) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Inventory Days', 'Value' ] =
+IF( SCAN( 'YTD', !plan_Period ) <> 0 ,
+# THEN
+	( DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Inv_Total Stock','Value') \
+	DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Inv_Cost of Goods Sold - Rolling 12 Months','Value') ) *
+	ATTRN( 'rpt_Year', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), 'Total_Days' ) * -1 ,
+# ELSE
+	( DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period | ' YTD' ,!Branch,!Business_Unit,'Inv_Total Stock','Value') \
+	DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Inv_Cost of Goods Sold - Rolling 12 Months','Value') ) *
+	ATTRN( 'rpt_Year', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), 'Total_Days' ) * -1 ) ;
+
+## Trading Cashflow
+[ 'Trading Cashflow', 'Value' ] =
+IF( ELISPAR( 'plan_Period', 'TOTAL_PLAN_PERIOD', !plan_Period ) = 1 ,
+# THEN
+	DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'EBITDA','Value') +
+	( DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Net Working Capital','Value') * -1 ) +
+	DB('plan_Balance_Sheet',!plan_Version,!Currency,ATTRS( 'plan_Period', !plan_Period, 'plan_Year' ) | ' 0',!Branch,!Business_Unit,'Net Working Capital','Value') +
+	DB('plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Other Depreciation','Value') ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Trading Cashflow', 'Value' ] =
+IF( SCAN( 'YTD', !plan_Period ) <> 0 ,
+# THEN
+	DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'EBITDA','Value') +
+	( DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Net Working Capital','Value') * -1 ) +
+	DB('plan_Balance_Sheet',!plan_Version,!Currency,ATTRS( 'plan_Period', !plan_Period, 'plan_Year' ) | ' 0',!Branch,!Business_Unit,'Net Working Capital','Value')  +
+	DB('plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Other Depreciation','Value') ,
+# ELSE
+	CONTINUE ) ;
+
+
+[ 'Trading Cashflow', 'Value' ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'plan_Month' ) @<> '0' ,
+# THEN
+	DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'EBITDA','Value') +
+	( DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Net Working Capital','Value') * -1 ) +
+	DB('plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Other Depreciation','Value') ,
+# ELSE
+	CONTINUE ) ;
+
+
+## Actual from rpt_Balance_Sheet
+[ 'Actual', 'Value' ] = N:
+IF( NUMBR( ATTRS( 'plan_Period', !plan_Period, 'Period_Offset' ) ) < 0 ,
+# THEN
+	DB( 'rpt_Balance_Sheet','Actual',!Currency,
+	ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ),
+	ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ),
+	!Branch, !Business_Unit,!Account_BS,'Value' ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+## Forecast equals Actual where Offset is less than 0
+[ { 'Forecast', 'FSL_Internal' } , 'Value' ] = N:
+IF( NUMBR( ATTRS( 'plan_Period', !plan_Period, 'Period_Offset' ) ) < 0 ,
+# THEN
+	[ 'Actual' ] ,
+# ELSE
+	CONTINUE ) ;
+
+## Opening Balance for Year -1 Opening Balance
+[ { 'Forecast', 'FSL_Internal' }, 'Year -1 0', 'Value' ] = N:
+DB('plan_Balance_Sheet','Actual',!Currency,!plan_Period,!Branch,!Business_Unit,!Account_BS,!m_plan_Balance_Sheet) ;
+
+## Opening Balance for Year -1 Opening Balance
+[ { 'Forecast', 'FSL_Internal' }, 'Year 0 0', 'Value' ] = N:
+DB('plan_Balance_Sheet','Actual',!Currency,!plan_Period,!Branch,!Business_Unit,!Account_BS,!m_plan_Balance_Sheet) ;
+
+
+## Opening Balance - Actuals
+#[ 'Actual' ] = N:
+#IF( ATTRS( 'plan_Period', !plan_Period, 'plan_Month' ) @= '0' ,
+# THEN
+#	STET ,
+# ELSE
+#	CONTINUE ) ;
+
+
+## Opening Balance - Year -1
+
+#[ 'Year -1 0', 'Value' ] = N: STET ;
+
+## Cashflow Accounts
+
+[ 'Cashflow Accounts', 'Value' ] = N: STET ;
+
+## EBITDA - P&L
+## Updated to exclude Other Depreciation per Joseph Chin email 28/7/18
+
+[ 'EBITDA', 'Value' ] = N:
+DB('plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'EBITDA (incl sig items)','Value') ;
+# +DB('plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Other Depreciation','Value') ;
+
+## Inventory Detail
+
+[ 'Inventory Detail', 'Value' ] = N: STET ;
+
+## DPO Calcs
+## GST/VAT
+[ 'GST/VAT on Purchases', 'Value' ] = N:
+[ 'Total Purchases' ] * 0.15 ;
+
+
+## DPO Calcs
+## COGS
+[ 'COGS (exc GST/VAT)', 'Value' ] = N:
+DB( 'plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Cost of Goods Sold','Value' ) ;
+
+## DPO Calcs
+## Add Closing Inventory
+
+[ 'Add Closing Inventory', 'Value' ] = N:
+DB('plan_Balance_Sheet',!plan_Version,!Currency,
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Year_1' ) | ' ' |
+DB( 'lookup_Calendar', ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ), 'Previous_Month_1' ) ,
+!Branch,!Business_Unit,'Inv_Total Stock','Value' ) ;
+
+## DPO Calcs
+## Less Opening Inventory
+[ 'Less Opening Inventory', 'Value' ] = N:
+DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Inv_Total Stock','Value' ) ;
+
+
+## DPO Calcs
+## Add Warehouse & Distribution
+[ 'Add Warehouse & Distribution', 'Value' ] = N:
+DB( 'plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'WAREHOUSING AND DISTRIBUTION EXPENSES','Value' ) ;
+
+
+## DPO Calcs
+## Add Sales & Marketing Expenses
+#[ 'Add Sales & Marketing Expenses', 'Value' ] = N:
+#DB( 'plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'WAREHOUSING AND DISTRIBUTION EXPENSES','Value' ) ;
+
+
+## DPO Calcs
+## Add Administration Expenses
+
+#[ 'Add Administration Expenses', 'Value' ] = N:
+#DB( 'plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'WAREHOUSING AND DISTRIBUTION EXPENSES','Value' ) ;
+
+
+## DPO Calcs
+## Less Depreciation & Amortisation
+[ 'Less Depreciation & Amortisation', 'Value' ] = N:
+DB( 'plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'TOTAL DEPRECIATION','Value' ) ;
+
+## DPO Calcs
+## Less Employee Costs
+[ 'Less Employee Costs', 'Value' ] = N:
+DB( 'plan_Profit_and_Loss',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Employee Costs','Value' ) ;
+
+
+
+## Budgeted CAPEX
+## CWIP
+[ 'Budget', '81000', 'Value' ] = N:
+IF( ELISANC( 'plan_Period', 'Year -1', !plan_Period ) = 1 % ELISANC( 'plan_Period', 'Year 0', !plan_Period ) = 1 ,
+# THEN
+	STET ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Budget', '81000', 'Value' ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'plan_Month' ) @<> '0' ,
+# THEN
+	DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,
+	'TOTAL_CAPEX_ITEM_LIST','TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Spend') ,
+# ELSE
+	CONTINUE ) ;
+
+## Budgeted CAPEX
+## Accumulated Depreciation
+[ 'Budget', '80100', 'Value' ] = N:
+IF( ELISANC( 'plan_Period', 'Year -1', !plan_Period ) = 1 % ELISANC( 'plan_Period', 'Year 0', !plan_Period ) = 1 ,
+# THEN
+	STET ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Budget', '80100', 'Value' ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'plan_Month' ) @<> '0' ,
+# THEN
+	DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,
+	'TOTAL_CAPEX_ITEM_LIST','TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') * -1 ,
+# ELSE
+	CONTINUE ) ;
+
+## Forecasted CAPEX
+## CWIP
+[ { 'Forecast', 'FSL_Internal' }, '81000', 'Value' ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'plan_Month' ) @<> '0' ,
+# THEN
+	DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,
+	'TOTAL_CAPEX_ITEM_LIST','TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Spend') ,
+# ELSE
+	CONTINUE ) ;
+
+## Forecasted CAPEX
+## Accumulated Depreciation
+[ { 'Forecast', 'FSL_Internal' }, '80100', 'Value' ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'plan_Month' ) @<> '0' ,
+# THEN
+	DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,
+	'TOTAL_CAPEX_ITEM_LIST','TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') * -1 ,
+# ELSE
+	CONTINUE ) ;
+
+## Opening Balance - Previous Jun YTD
+[ 'Year 0 0','Value' ] = N: 
+If(elisanc('plan_Version','Calculated Budgets',!plan_Version)=1,STET,continue);
+## To allow budget to be manually updated - 31/07/2020
+[ 'Year +1 0','Value' ] = N: 
+If(elisanc('plan_Version','Calculated Budgets',!plan_Version)=1,STET,continue) ;
+
+[ 'Actual', { 'Year -1 0', 'Year 0 0' }, 'Value' ] = N:
+	DB( 'rpt_Balance_Sheet','Actual',!Currency,
+	ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ),
+	ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ),
+	!Branch, !Business_Unit,!Account_BS,'Value' ) ;
+
+[ 'Value' ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'plan_Month' ) @= '0' ,
+# THEN
+	DB('plan_Balance_Sheet',!plan_Version,!Currency, DB('lookup_Calendar',ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ), ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ),'Previous_Year_1') ,
+	!Branch,!Business_Unit,!Account_BS,!m_plan_Balance_Sheet) ,
+# ELSE
+	CONTINUE ) ;
+
+FEEDERS ;
+
+[ 'Actual', 'Value' ] =>
+DB( 'plan_Balance_Sheet' ,'Forecast',!Currency,!plan_Period,!Branch,!Business_Unit,!Account_BS,'Value' ) ,
+DB( 'plan_Balance_Sheet' ,'FSL_Internal',!Currency,!plan_Period,!Branch,!Business_Unit,!Account_BS,'Value' );
+
+[ 'Actual', 'Value' ] =>
+DB('plan_Balance_Sheet','Forecast',!Currency,!plan_Period,!Branch,
+ATTRS( 'Business_Unit',!Business_Unit,'Business_Unit' ),!Account_BS,!m_plan_Balance_Sheet) ,
+DB('plan_Balance_Sheet','FSL_Internal',!Currency,!plan_Period,!Branch,
+ATTRS( 'Business_Unit',!Business_Unit,'Business_Unit' ),!Account_BS,!m_plan_Balance_Sheet) ;
+
+## Feed Opening Balance
+
+['Value'] =>
+DB('plan_Balance_Sheet',!plan_Version,!Currency,STR( NUMBR( ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ) ) + 1, 4, 0 )  | ' Opening Balance' ,
+!Branch,!Business_Unit,!Account_BS,!m_plan_Balance_Sheet) ;
+
+## Feed Trading Cashflow
+[ 'Net Working Capital', 'Value' ] => [ 'Trading Cashflow' ] ;
+[ 'EBITDA', 'Value' ] => [ 'Trading Cashflow' ] ;
+
+## Feed Inventory Days
+[ 'Inv_Total Stock', 'Value' ] => [ 'Inventory Days' ] ;
+
+## Feed P&L Gross Debtors
+[ '61000', 'Value' ] => DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Gross Debtors per BS','Value') ;
+
+## Feed P&L Rebates Provision
+[ '61500', 'Value' ] => DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Less Rebates Provision with Gross Debtors','Value') ;
+[ '61700', 'Value' ] => DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Less Rebates Provision with Gross Debtors','Value') ;
+
+## Feed P&L Other Adjustment iNTRACOMPANY
+[ '61100', 'Value' ] => DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Other Adjustment - Intracompany','Value') ;
+
+## Feed Gross Debtors
+[ 'Gross Debtors', 'Value' ] => [ 'Debtor Days Outstanding' ] ;
+
+## Feed Days Purchases Outstanding
+[ 'Adjusted Creditors', 'Value' ] => [ 'Days Purchases Outstanding' ] ;
+
+[ 'Total Purchases', 'Value' ] => [ 'GST/VAT on Purchases' ] ;
+[ 'Inv_Total Stock', 'Value' ] => [ 'Add Closing Inventory' ] , [ 'Less Opening Inventory' ] ;
+

@@ -1,0 +1,14 @@
+{
+	"@type":"Subset",
+	"Name":"sys.version",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+		},
+		{
+			"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+		}
+	]
+}

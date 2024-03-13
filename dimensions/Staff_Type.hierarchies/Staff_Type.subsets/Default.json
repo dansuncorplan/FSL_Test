@@ -1,0 +1,19 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('TOTAL_STAFF_TYPE')"
+		},
+		{
+			"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('Production Staff')"
+		},
+		{
+			"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('Administrative Staff')"
+		},
+		{
+			"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('Sales and Marketing')"
+		}
+	]
+}

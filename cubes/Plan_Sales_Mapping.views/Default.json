@@ -1,0 +1,27 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta": {
+		"Aliases": {
+			"[Business_Unit].[Business_Unit]": "Code & Description",
+			"[Branch].[Branch]": "Code & Description",
+			"[Customer_Sales].[Customer_Sales]": "Code & Description"
+		},
+		"ExpandAboves": {
+			"[Business_Unit].[Business_Unit]": false,
+			"[Product_Group].[Product_Group]": false,
+			"[Branch].[Branch]": false,
+			"[Customer_Sales].[Customer_Sales]": false,
+			"[m_plan_BU_Branch_Mapping].[m_plan_BU_Branch_Mapping]": false
+		},
+		"ContextSets": {
+			"[Product_Group].[Product_Group]": {
+				"Expression": "{TM1FILTERBYPATTERN(TM1SUBSETALL([Product_Group].[Product_Group]) , \"*no*\")}"
+			},
+			"[Customer_Sales].[Customer_Sales]": {
+				"Expression": "{TM1FILTERBYPATTERN(TM1SUBSETALL([Customer_Sales].[Customer_Sales]) , \"*no*\" , \"Code & Description\")}"
+			}
+		}
+	}
+}

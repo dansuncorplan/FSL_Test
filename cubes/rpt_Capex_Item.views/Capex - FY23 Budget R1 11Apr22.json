@@ -1,0 +1,2121 @@
+{
+	"@type":"NativeView",
+	"Name":"Capex - FY23 Budget R1 11Apr22",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Asset ID')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Business Unit')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Branch')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Initiative Name')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Description')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Tfr to FA')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Asset Type')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Asset Driver')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Asset Flag')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Amount Remaining')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Asset Total')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Approved Rejected')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Revised Allocation')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Approved Amount')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Approved Amount Remaining')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Asset Life')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Spend Start Period')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Depn Start Period')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('Monthly Depn Amount')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Opening Balance Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Jul Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Aug Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Sep Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Oct Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Nov Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Dec Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Jan Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Feb Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Mar Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Apr Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 May Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Jun Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2018 Full Year Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Opening Balance Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Jul Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Aug Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Sep Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Oct Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Nov Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Dec Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Jan Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Feb Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Mar Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Apr Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 May Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2019 Jun Spend')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2020 Full Year Depn')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2021 Full Year Depn')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2022 Full Year Depn')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')/Elements('2023 Full Year Depn')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('TOTAL_CAPEX_ITEM_LIST')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capex_Items')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('001')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('002')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('003')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('004')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('005')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('006')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('007')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('008')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('009')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('010')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('011')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('012')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('013')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('014')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('015')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('016')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('017')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('018')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('019')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('020')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('021')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('022')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('023')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('024')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('025')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('026')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('027')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('028')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('029')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('030')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('031')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('032')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('033')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('034')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('035')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('036')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('037')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('038')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('039')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('040')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('041')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('042')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('043')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('044')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('045')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('046')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('047')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('048')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('049')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('050')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('051')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('052')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('053')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('054')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('055')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('056')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('057')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('058')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('059')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('060')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing_Assets')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 001')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 002')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 003')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 004')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 005')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 006')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 007')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 008')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 009')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 010')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 011')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 012')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 013')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 014')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 015')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 016')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 017')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 018')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 019')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing Assets 020')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital_WIP')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 001')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 002')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 003')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 004')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 005')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 006')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 007')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 008')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 009')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 010')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 011')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 012')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 013')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 014')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 015')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 016')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 017')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 018')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 019')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 020')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 021')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 022')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 023')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 024')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 025')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 026')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 027')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 028')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 029')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 030')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 031')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 032')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 033')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 034')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 035')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 036')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 037')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 038')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 039')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 040')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 041')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 042')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 043')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 044')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 045')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 046')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 047')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 048')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 049')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 050')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 051')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 052')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 053')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 054')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 055')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 056')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 057')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 058')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 059')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 060')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 061')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 062')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 063')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 064')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 065')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 066')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 067')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 068')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 069')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 070')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 071')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 072')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 073')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 074')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 075')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 076')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 077')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 078')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 079')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 080')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 081')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 082')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 083')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 084')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 085')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 086')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 087')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 088')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 089')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 090')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 091')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 092')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 093')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 094')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 095')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 096')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 097')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 098')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 099')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 100')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 101')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 102')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 103')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 104')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 105')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 106')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 107')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 108')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 109')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 110')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 111')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 112')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 113')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 114')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 115')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 116')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 117')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 118')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 119')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 120')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 121')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 122')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 123')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 124')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 125')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 126')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 127')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 128')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 129')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 130')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 131')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 132')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 133')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 134')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 135')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 136')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 137')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 138')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 139')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 140')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 141')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 142')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 143')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 144')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 145')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 146')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 147')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 148')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 149')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 150')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 151')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 152')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 153')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 154')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 155')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 156')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 157')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 158')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 159')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 160')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 161')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 162')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 163')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 164')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 165')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 166')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 167')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 168')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 169')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 170')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 171')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 172')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 173')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 174')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 175')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 176')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 177')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 178')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 179')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 180')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 181')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 182')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 183')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 184')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 185')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 186')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 187')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 188')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 189')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 190')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 191')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 192')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 193')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 194')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 195')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 196')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 197')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 198')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 199')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 200')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 201')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 202')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 203')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 204')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 205')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 206')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 207')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 208')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 209')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 210')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 211')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 212')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 213')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 214')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 215')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 216')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 217')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 218')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 219')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 220')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 221')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 222')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 223')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 224')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 225')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 226')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 227')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 228')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 229')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 230')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 231')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 232')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 233')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 234')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 235')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 236')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 237')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 238')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 239')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 240')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 241')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 242')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 243')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 244')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 245')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 246')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 247')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 248')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 249')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 250')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 251')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 252')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 253')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 254')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 255')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 256')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 257')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 258')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 259')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 260')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 261')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 262')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 263')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 264')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 265')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 266')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 267')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 268')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 269')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 270')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 271')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 272')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 273')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 274')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 275')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 276')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 277')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 278')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 279')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 280')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 281')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 282')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 283')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 284')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 285')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 286')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 287')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 288')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 289')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 290')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 291')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 292')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 293')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 294')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 295')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 296')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 297')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 298')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 299')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 300')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 301')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 302')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 303')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 304')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 305')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 306')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 307')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 308')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 309')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 310')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 311')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 312')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 313')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 314')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 315')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 316')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 317')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 318')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 319')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 320')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 321')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 322')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 323')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 324')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 325')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 326')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 327')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 328')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 329')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 330')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 331')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 332')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 333')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 334')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 335')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 336')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 337')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 338')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 339')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 340')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 341')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 342')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 343')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 344')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 345')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 346')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 347')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 348')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 349')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 350')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 351')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 352')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 353')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 354')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 355')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 356')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 357')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 358')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 359')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 360')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 361')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 362')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 363')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 364')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 365')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 366')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 367')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 368')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 369')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 370')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 371')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 372')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 373')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 374')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 375')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 376')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 377')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 378')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 379')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 380')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 381')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 382')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 383')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 384')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 385')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 386')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 387')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 388')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 389')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 390')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 391')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 392')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 393')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 394')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 395')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 396')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 397')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 398')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 399')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 400')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 401')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 402')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 403')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 404')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 405')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 406')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 407')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 408')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 409')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 410')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 411')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 412')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 413')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 414')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 415')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 416')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 417')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 418')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 419')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 420')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 421')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 422')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 423')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 424')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 425')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 426')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 427')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 428')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 429')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 430')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 431')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 432')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 433')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 434')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 435')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 436')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 437')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 438')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 439')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 440')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 441')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 442')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 443')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 444')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 445')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 446')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 447')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 448')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 449')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 450')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 451')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 452')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 453')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 454')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 455')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 456')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 457')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 458')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 459')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 460')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 461')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 462')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 463')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 464')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 465')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 466')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 467')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 468')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 469')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 470')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 471')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 472')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 473')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 474')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 475')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 476')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 477')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 478')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 479')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 480')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 481')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 482')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 483')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 484')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 485')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 486')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 487')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 488')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 489')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 490')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 491')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 492')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 493')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 494')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 495')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 496')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 497')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 498')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 499')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital WIP 500')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')"
+				},
+				"Expression":"TM1SubsetAll([rpt_Version])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('FY23 Budget R1 11Apr22')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel Exc CSP')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Easysteel')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('10')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('11')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('12')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('14')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('16')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('17')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('18')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('19')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Dimond Consolidation')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('20')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('21')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('23')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('24')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('25')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('26')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('27')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('28')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('22')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('76')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('29')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('PCC')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('30')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('41')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('42')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('43')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('44')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Reinforcing')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('50')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('51')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('52')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('53')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('59')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('SD Support')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('97')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('98')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('99')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('94')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('NZSD Divisional')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('70')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('CSP Pacific')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('34')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('11')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('15')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

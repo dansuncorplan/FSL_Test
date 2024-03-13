@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_plan_Balance_Sheet",
+	"Elements":
+	[
+		{
+			"Name":"Value",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}
