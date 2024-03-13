@@ -1,0 +1,131 @@
+#region Prolog
+
+
+#----------------------------------------------------
+# Delete Subset for Copy Version
+#----------------------------------------------------
+
+if( SubsetExists( 'plan_Version', 'sys.Scenario_Copy.Version_Compare' )=1);
+ SubsetDeleteAllElements(  'plan_Version', 'sys.Scenario_Copy.Version_Compare'  );
+endif;
+
+#----------------------------------------------------
+# Start of Copy Version
+#----------------------------------------------------
+sTargetStartMonth = CellGetS('plan_Version_Setup', pVersionTo,'Annual Input', 'Plan Start Month' ); 
+sTargetEndMonth = CellGetS('plan_Version_Setup', pVersionTo,'Annual Input', 'Plan End Month' ); 
+
+
+i=DIMIX( 'plan_Period', sTargetStartMonth );
+while (i<=DIMIX( 'plan_Period', sTargetEndMonth )); 
+    sPeriod=DIMNM( 'plan_Period', i );
+    if(ELLEV( 'plan_Period', sPeriod )=0);
+
+        sSourcePeriod = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Period' );
+        sSourceVersion = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Version' );
+        sSourceVersionCapex  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );
+        
+ # Sales Cube
+        ExecuteProcess( 'cub.plan_Sales.Copy_Calculated_Version_by_Period', 
+                       'pVersionTo', pVersionTo, 
+                       'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+                       'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+
+# Profit and Loss Cube 
+           ExecuteProcess( ' cub.plan_ProfitandLoss.Copy_Calculated_Version_by_Period', 
+                       'pVersionTo', pVersionTo, 
+                       'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+                       'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+
+# Payroll Assumptions
+          ExecuteProcess( ' cub.plan_Payroll_Assumptions.Copy_Calculated_Version_by_Period', 
+                       'pVersionTo', pVersionTo, 
+                       'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+                       'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+# Payroll 
+           ExecuteProcess( ' cub.plan_Payroll.Copy_Calculated_Version_by_Period', 
+                       'pVersionTo', pVersionTo, 
+                       'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+                       'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+        
+# Balance Sheet Cube 
+             ExecuteProcess( ' cub.plan_Balance_Sheet.Copy_Calculated_Version_by_Period', 
+                       'pVersionTo', pVersionTo, 
+                       'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+                       'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+        
+        # ASCIIOutput( 'temp.scenarion_copy.txt', sTargetStartMonth, sTargetEndMonth, pVersionTo ,ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), sSourceVersion, sSourcePeriod );
+
+    endif;    
+
+    i=i+1;
+end;
+
+# Payroll Assumptions 
+sSourceVersionPayroll  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );
+              ExecuteProcess( '  cub.lookup_Payroll_Assumptions.Copy_Calculated_Version', 
+                       'pVersionTo', pVersionTo, 
+                       'pVersionFrom', sSourceVersionPayroll);
+
+# Capex Assumptions
+sSourceVersionCapex  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );
+              ExecuteProcess( '  cub.lookup_Capex_Assumptions.Copy_Calculated_Version', 
+                       'pVersionTo', pVersionTo, 
+                       'pVersionFrom', sSourceVersionCapex);
+
+# Capex Item no Period 
+sSourceVersionCapex  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );
+              ExecuteProcess( '  cub.plan_Capex_Item.Copy_Calculated_Version_by_Period', 
+                       'pVersionTo', pVersionTo, 
+                       'pVersionFrom', sSourceVersionCapex);
+
+
+# plan_Payroll_Input no Period 
+# sSourceVersionPayroll  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );
+#               ExecuteProcess( '   cub.plan_Payroll_Input.Copy_Calculated_Version', 
+#                        'pVersionTo', pVersionTo, 
+#                        'pVersionFrom', sSourceVersionPayroll);
+
+# Balance Sheet Opening Balance
+#---Target Year based on the Base Year Input 
+sTargetYear = CellGetS('plan_Version_Setup', pVersionTo,'Annual Input', 'Base Year' ); 
+
+#---Target Opening Balance concatenate with the Target Base Year 
+sPeriodOB = sTargetYear|' '|'Opening Balance';
+
+#---Source Year based on the Source Period Input using the Opening Balance of the New Version 
+sSourcePeriodYear = CellGetS('plan_Version_Setup', pVersionTo, sPeriodOB, 'Source Period' );
+
+#--Source Version  based on the Source Period Input using the Opening Balance of the New Version 
+sSourcePeriodVersion =  CellGetS('plan_Version_Setup', pVersionTo, sPeriodOB, 'Source Version' );
+
+#---Get the Value of the Total Source Period Year and the Source Version
+              ExecuteProcess( '   cub.plan_Balance_Sheet_Opening_Balance', 
+                       'pVersionTo', pVersionTo, 
+                       'pPeriodTo', sTargetYear, 
+                       'pVersionFrom', sSourcePeriodVersion, 'pPeriodFrom', sSourcePeriodYear);
+
+# Populate Calculated Flag Based on the Target Start and Target End Month
+            ExecuteProcess( '  cub.plan_Version_Setup.Calculated_Flag_by_Period', 
+                       'pVersionTo', pVersionTo);
+#------------------------------------------------------------
+# Update Subset Elements Copy.Version_Compare
+#-----------------------------------------------------------
+
+sPeriodVersion = CellGetS( 'plan_Version_Setup', pVersionTo, 'Annual Input', 'Plan End Month');
+sNewVersion =  pVersionTo ;
+SourceVersion = CellGetS( 'plan_Version_Setup', sNewVersion, sPeriodVersion, 'Source Version' )   ;
+
+if (SubsetElementExists( 'plan_Version',  'sys.Scenario_Copy.Version_Compare' , sNewVersion )=0);
+       SubsetElementInsert('plan_Version',  'sys.Scenario_Copy.Version_Compare' , sNewVersion,1);
+endif;
+
+if (SubsetElementExists( 'plan_Version',  'sys.Scenario_Copy.Version_Compare' , SourceVersion )=0);
+       SubsetElementInsert('plan_Version',  'sys.Scenario_Copy.Version_Compare' , SourceVersion,2);
+endif; 
+
+#------------------------------------------------------------
+# Update Calculated Flag 
+#-----------------------------------------------------------
+
+#endregion

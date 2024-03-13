@@ -1,0 +1,766 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+# This TI is designed to copy all data in a given cube from one element to another, typically this would be within a
+# version dimension but could equally well be used to copy data from one product to another or one week to another or on monthly basis.
+
+# Note:
+# - As this TI has a view as a data source it requires the implicit variables NValue, SValue and Value_is_String
+#   source to ASCII and manually edit the TI in notepad after saving to add back the required implicit view variables
+
+
+#~~~~~~~~~~ Constants ~~~~~~~~~~~~~~~~~~~~
+
+cProcess = GetProcessName( );
+cTimeStamp = TimSt( Now, '\Y\m\d\h\i\s' );
+sRandomInt = NumberToString( INT( RAND( ) * 100000 ));
+cDebugFile = GetProcessErrorFileDirectory | cProcess | '.' | cTimeStamp | '.' | sRandomInt ;
+cDefaultView = cProcess | '_' | cTimeStamp | '_' | sRandomInt ;
+
+
+#~~~~~~~~~~ Initialise Debug ~~~~~~~~~~~~~~~~~~~~
+
+If( pDebug >= 1 );
+
+  # Set debug file name
+  sDebugFile = cDebugFile | 'Prolog.debug';
+
+  # Log start time
+  AsciiOutput( sDebugFile, 'Process Started: ' | TimSt( Now, '\d-\m-\Y \h:\i:\s' ) );
+
+  # Log parameters
+  AsciiOutput( sDebugFile, 'Parameters: pCube          : ' | pCube );
+  AsciiOutput( sDebugFile, '            pViewSource    : ' | pViewSource );
+  AsciiOutput( sDebugFile, '            pViewTarget    : ' | pViewTarget );
+
+  AsciiOutput( sDebugFile, '            pDimension     : ' | pDimension );
+  AsciiOutput( sDebugFile, '            pSourceElement : ' | pSourceElement );
+  AsciiOutput( sDebugFile, '            pTargetElement : ' | pTargetElement );
+  AsciiOutput( sDebugFile, '            pDimension2     : ' | pDimension2 );
+  AsciiOutput( sDebugFile, '            pSourceElement2 : ' | pSourceElement2 );
+  AsciiOutput( sDebugFile, '            pTargetElement2 : ' | pTargetElement2 );
+  AsciiOutput( sDebugFile, '            pDimension3     : ' | pDimension3 );
+  AsciiOutput( sDebugFile, '            pSourceElement3 : ' | pSourceElement3 );
+  AsciiOutput( sDebugFile, '            pTargetElement3 : ' | pTargetElement3 );
+
+  AsciiOutput( sDebugFile, '            pSkipRules     : ' | NumberToString( pSkipRules ) );
+  AsciiOutput( sDebugFile, '            pZeroTarget    : ' | NumberToString( pZeroTarget ) );
+  AsciiOutput( sDebugFile, '            pZeroSource    : ' | NumberToString( pZeroSource ) );
+  AsciiOutput( sDebugFile, '            Temp View Name : ' | cDefaultView );
+
+EndIf;
+
+
+#~~~~~~~~~~ Validate Parameters ~~~~~~~~~~~~~~~~~~~~
+
+nErrors = 0;
+
+# If a valid cube has not been specified then terminate process
+If( CubeExists( pCube ) = 0 );
+  nErrors = 1;
+  sMessage = 'Invalid source cube specified: ' | pCube;
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  DataSourceType = 'NULL';
+  ItemReject( sMessage );
+EndIf;
+
+## Validate the View parameter
+If( TRIM(pViewSource) @<> '' & ( TRIM(pViewSource) @= TRIM(pViewTarget)));
+  nErrors = 1;
+  sMessage = 'Source and Target Views can not be the same: ' | pViewSource | ' ' | pViewTarget ;
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  DataSourceType = 'NULL';
+  ItemReject( sMessage );
+EndIf;
+
+## Validate the View parameter
+If( TRIM(pViewSource) @= '' );
+  sMessage = 'Using default source view: ' | cDefaultView | 'S';
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  cViewSource = cDefaultView | 'S' ;
+Else ;
+  sMessage = 'Using source view: ' | pViewSource;
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  cViewSource = pViewSource ;
+EndIf;
+
+## Validate the View parameter
+If( TRIM(pViewTarget) @= '' );
+  sMessage = 'Using default target view: ' | cDefaultView| 'T' ;
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  cViewTarget = cDefaultView | 'T' ;
+Else ;
+  sMessage = 'Using target view: ' | pViewSource | 'T' ;
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  cViewTarget = pViewTarget ;
+EndIf;
+
+# If a valid source dimenion has not been specified then terminate process
+If( DimensionExists( pDimension ) = 0 );
+  nErrors = 1;
+  sMessage = 'Invalid dimension specified: ' | pDimension;
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  DataSourceType = 'NULL';
+  ItemReject( sMessage );
+EndIf;
+
+# If a valid source dimenion element has not been specified then terminate process
+If( DimIx( pDimension, pSourceElement ) = 0 );
+  nErrors = 1;
+  sMessage = 'Invalid source element specified: ' | pSourceElement;
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  DataSourceType = 'NULL';
+  ItemReject( sMessage );
+EndIf;
+
+# If a valid target dimenion element has not been specified then terminate process
+If( DimIx( pDimension, pTargetElement ) = 0 );
+  nErrors = 1;
+  sMessage = 'Invalid target element specified: ' | pTargetElement;
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  DataSourceType = 'NULL';
+  ItemReject( sMessage );
+EndIf;
+
+# If Dimension2 is not null, perform checks on dimension and element existance
+If( Trim( pDimension2 ) @<> '' );
+
+  # If a valid source dimenion has not been specified then terminate process
+  If( DimensionExists( pDimension2 ) = 0 );
+    nErrors = 1;
+    sMessage = 'Invalid dimension 2 specified: ' | pDimension2;
+    If( pDebug >= 1 );      AsciiOutput( sDebugFile, sMessage );      EndIf;
+    DataSourceType = 'NULL';
+    ItemReject( sMessage );
+  EndIf;
+
+  # If a valid source dimenion element 2 has not been specified then terminate process
+  If( DimIx( pDimension2, pSourceElement2 ) = 0 );
+    nErrors = 1;
+    sMessage = 'Invalid source element 2 specified: ' | pSourceElement2;
+    If( pDebug >= 1 );      AsciiOutput( sDebugFile, sMessage );      EndIf;
+    DataSourceType = 'NULL';
+    ItemReject( sMessage );
+  EndIf;
+
+  # If a valid target dimenion element 2 has not been specified then terminate process
+  If( DimIx( pDimension2, pTargetElement2 ) = 0 );
+    nErrors = 1;
+    sMessage = 'Invalid target element 2 specified: ' | pTargetElement2;
+    If( pDebug >= 1 );      AsciiOutput( sDebugFile, sMessage );      EndIf;
+    DataSourceType = 'NULL';
+    ItemReject( sMessage );
+  EndIf;
+EndIf;
+
+# If Dimension3 is not null, perform checks on dimension and element existance
+If( Trim( pDimension3 ) @<> '' );
+
+  # If a valid source dimenion has not been specified then terminate process
+  If( DimensionExists( pDimension3 ) = 0 );
+    nErrors = 1;
+    sMessage = 'Invalid dimension 3 specified: ' | pDimension3;
+    If( pDebug >= 1 );      AsciiOutput( sDebugFile, sMessage );      EndIf;
+    DataSourceType = 'NULL';
+    ItemReject( sMessage );
+  EndIf;
+
+  # If a valid source dimenion element 3 has not been specified then terminate process
+  If( DimIx( pDimension3, pSourceElement3 ) = 0 );
+    nErrors = 1;
+    sMessage = 'Invalid source element 3 specified: ' | pSourceElement3;
+    If( pDebug >= 1 );      AsciiOutput( sDebugFile, sMessage );      EndIf;
+    DataSourceType = 'NULL';
+    ItemReject( sMessage );
+  EndIf;
+
+  # If a valid target dimenion element 3 has not been specified then terminate process
+  If( DimIx( pDimension3, pTargetElement3 ) = 0 );
+    nErrors = 1;
+    sMessage = 'Invalid target element 3 specified: ' | pTargetElement3;
+    If( pDebug >= 1 );      AsciiOutput( sDebugFile, sMessage );      EndIf;
+    DataSourceType = 'NULL';
+    ItemReject( sMessage );
+  EndIf;
+EndIf;
+
+
+# If source and target elements are the same then terminate process.
+IF( pSourceElement @= pTargetElement 
+    & ( Trim( pDimension2 ) @<> '' & pSourceElement2 @= pTargetElement2 ) 
+    & ( Trim( pDimension3 ) @<> '' & pSourceElement3 @= pTargetElement3 ) );
+
+  nErrors = 1;
+  sMessage = 'Source and target elements are the same: ' | pSourceElement;
+  IF ( Trim( pSourceElement2 ) @<> '' );    sMessage = sMessage | ', ' | pSourceElement2;    EndIf;
+  IF ( Trim( pSourceElement3 ) @<> '' );    sMessage = sMessage | ', ' | pSourceElement3;    EndIf;
+
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  DataSourceType = 'NULL';
+  ItemReject( sMessage );
+EndIf;
+
+
+#~~~~~~~~~~ Determine number of dims in source cube ~~~~~~~~~~~~~~~~~~~~
+#  Determine number of dims in source cube & check that specified dimension exists in cube 
+
+nDimensionCount = 0;
+sDimension = TabDim( pCube, nDimensionCount + 1 );
+nDimensionIndex = 0;
+nDimensionIndex2 = 0;
+nDimensionIndex3 = 0;
+
+While( sDimension @<> '' );
+  nDimensionCount = nDimensionCount + 1;
+  If( sDimension @= pDimension );
+    nDimensionIndex = nDimensionCount;
+  ElseIf( sDimension @= pDimension2 );  
+    nDimensionIndex2 = nDimensionCount;
+  ElseIf( sDimension @= pDimension3 );
+    nDimensionIndex3 = nDimensionCount;  
+  EndIf;
+  sDimension = TabDim( pCube, nDimensionCount + 1 );
+End;
+
+# If specified dim does not exist in cube then terminate process
+If( nDimensionIndex = 0 );
+  nErrors = 1;
+  sMessage = 'Specified dimension: ' | pDimension | ' is not a component of the cube: ' | pCube;
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  DataSourceType = 'NULL';
+  ItemReject( sMessage );
+EndIf;
+
+# If specified dim does not exist in cube then terminate process
+If( nDimensionIndex2 = 0 & Trim( pDimension2 ) @<> '' );
+  nErrors = 1;
+  sMessage = 'Specified dimension(2): ' | pDimension2 | ' is not a component of the cube: ' | pCube;
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  DataSourceType = 'NULL';
+  ItemReject( sMessage );
+EndIf;
+
+# If specified dim does not exist in cube then terminate process
+If( nDimensionIndex3 = 0 & Trim( pDimension3 ) @<> '' );
+  nErrors = 1;
+  sMessage = 'Specified dimension(3): ' | pDimension3 | ' is not a component of the cube: ' | pCube;
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  DataSourceType = 'NULL';
+  ItemReject( sMessage );
+EndIf;
+
+# If dimension count exceeds the current maximum then terminate process
+If( nDimensionCount > 27 );
+  nErrors = 1;
+  sMessage = 'Cube has too many dimensions: ' | pCube | '. Max 27 dims catered for, TI must be altered to accomodate.';
+  If( pDebug >= 1 );    AsciiOutput( sDebugFile, sMessage );    EndIf;
+  DataSourceType = 'NULL';
+  ItemReject( sMessage );
+EndIf;
+
+
+
+#~~~~~~~~~~ Debug ~~~~~~~~~~~~~~~~~~~~
+
+If( pDebug >= 1 );
+  AsciiOutput( sDebugFile, 'Dimension "' | pDimension | '" index: ' | NumberToString( nDimensionIndex ) );
+  AsciiOutput( sDebugFile, 'Dimension2 "' | pDimension2 | '" index: ' | NumberToString( nDimensionIndex2 ) );
+  AsciiOutput( sDebugFile, 'Dimension3 "' | pDimension3 | '" index: ' | NumberToString( nDimensionIndex3 ) );
+  AsciiOutput( sDebugFile, 'Number of dimensions in ' | pCube | ' cube: ' | NumberToString( nDimensionCount ) );
+  AsciiOutput( sDebugFile, 'Source element: ' | pSourceElement );
+  AsciiOutput( sDebugFile, 'Target element: ' | pTargetElement );
+  AsciiOutput( sDebugFile, 'Source element2: ' | pSourceElement2 );
+  AsciiOutput( sDebugFile, 'Target element2: ' | pTargetElement2 );
+  AsciiOutput( sDebugFile, 'Source element3: ' | pSourceElement3 );
+  AsciiOutput( sDebugFile, 'Target element3: ' | pTargetElement3 );
+EndIf;
+
+
+#~~~~~~~~~~ Determine dimension in source cube ~~~~~~~~~~~~~~~~~~~~
+
+sDim1 = TabDim( pCube, 1 );
+sDim2 = TabDim( pCube, 2 );
+sDim3 = TabDim( pCube, 3 );
+sDim4 = TabDim( pCube, 4 );
+sDim5 = TabDim( pCube, 5 );
+sDim6 = TabDim( pCube, 6 );
+sDim7 = TabDim( pCube, 7 );
+sDim8 = TabDim( pCube, 8 );
+sDim9 = TabDim( pCube, 9 );
+sDim10 = TabDim( pCube, 10 );
+sDim11 = TabDim( pCube, 11 );
+sDim12 = TabDim( pCube, 12 );
+sDim13 = TabDim( pCube, 13 );
+sDim14 = TabDim( pCube, 14 );
+sDim15 = TabDim( pCube, 15 );
+sDim16 = TabDim( pCube, 16 );
+sDim17 = TabDim( pCube, 17 );
+sDim18 = TabDim( pCube, 18 );
+sDim19 = TabDim( pCube, 19 );
+sDim20 = TabDim( pCube, 20 );
+sDim21 = TabDim( pCube, 21 );
+sDim22 = TabDim( pCube, 22 );
+sDim23 = TabDim( pCube, 23 );
+sDim24 = TabDim( pCube, 24 );
+sDim25 = TabDim( pCube, 25 );
+sDim26 = TabDim( pCube, 26 );
+sDim27 = TabDim( pCube, 27 );
+
+
+If( pDebug <= 1 );
+
+  ### Zero Out target version ###
+
+  If( pZeroTarget = 1 );
+
+    cTempViewTo = cViewTarget;
+    cTempSubTo = cTempViewTo;
+
+    # It is highly unlikely that the view already exists as the view/subset name contains a random number.
+    # However it is included in case two seperate calls generate the same random number.
+
+    If( ViewExists( pCube, cTempViewTo ) = 1 );
+      ViewDestroy( pCube, cTempViewTo );
+    EndIf;
+    ViewCreate( pCube, cTempViewTo );
+
+    If( SubsetExists( pDimension, cTempSubTo ) = 1 );
+      SubsetDeleteAllElements( pDimension, cTempSubTo );
+    Else;
+      SubsetCreate( pDimension, cTempSubTo );
+    EndIf;
+    SubsetElementInsert( pDimension, cTempSubTo, pTargetElement, 1 );
+    ViewSubsetAssign( pCube, cTempViewTo, pDimension, cTempSubTo );
+
+    If( Trim( pDimension2 ) @<> '' );
+      If( SubsetExists( pDimension2, cTempSubTo ) = 1 );
+        SubsetDeleteAllElements( pDimension2, cTempSubTo );
+      Else;
+        SubsetCreate( pDimension2, cTempSubTo );
+      EndIf;
+      SubsetElementInsert( pDimension2, cTempSubTo, pTargetElement2, 1 );
+      ViewSubsetAssign( pCube, cTempViewTo, pDimension2, cTempSubTo );
+    EndIf;
+
+    If( Trim( pDimension3 ) @<> '' );
+      If( SubsetExists( pDimension3, cTempSubTo ) = 1 );
+        SubsetDeleteAllElements( pDimension3, cTempSubTo );
+      Else;
+        SubsetCreate( pDimension3, cTempSubTo );
+      EndIf;
+      SubsetElementInsert( pDimension3, cTempSubTo, pTargetElement3, 1 );
+      ViewSubsetAssign( pCube, cTempViewTo, pDimension3, cTempSubTo );
+    EndIf;
+
+    ViewExtractSkipCalcsSet( pCube, cTempViewTo, 1 );
+    ViewExtractSkipRuleValuesSet( pCube, cTempViewTo, 1 );
+    ViewExtractSkipZeroesSet( pCube, cTempViewTo, 1 );
+
+    ViewZeroOut( pCube, cTempViewTo );
+
+  EndIf;
+
+EndIf;
+
+
+#~~~~~~~~~~ Create Processing View for source version ~~~~~~~~~~~~~~~~~~~~
+
+cTempViewFrom = cViewSource;
+cTempSubFrom = cTempViewFrom;
+
+If( ViewExists( pCube, cTempViewFrom ) = 1 );
+  # It is highly unlikely that the view already exists as the view name contains a random number.
+  # However it is included in case two seperate calls generate the same random number.
+  ViewDestroy( pCube, cTempViewFrom );
+EndIf;
+ViewCreate( pCube, cTempViewFrom );
+
+If( SubsetExists( pDimension, cTempSubFrom ) = 1 );
+  SubsetDeleteAllElements( pDimension, cTempSubFrom );
+Else;
+  SubsetCreate( pDimension, cTempSubFrom );
+EndIf;
+SubsetElementInsert( pDimension, cTempSubFrom, pSourceElement, 1 );
+ViewSubsetAssign( pCube, cTempViewFrom, pDimension, cTempSubFrom );
+
+If( Trim( pDimension2 ) @<> '' );
+  If( SubsetExists( pDimension2, cTempSubFrom ) = 1 );
+    SubsetDeleteAllElements( pDimension2, cTempSubFrom );
+  Else;
+    SubsetCreate( pDimension2, cTempSubFrom );
+  EndIf;
+  SubsetElementInsert( pDimension2, cTempSubFrom, pSourceElement2, 1 );
+  ViewSubsetAssign( pCube, cTempViewFrom, pDimension2, cTempSubFrom );
+EndIf;
+
+If( Trim( pDimension3 ) @<> '' );
+  If( SubsetExists( pDimension3, cTempSubFrom ) = 1 );
+    SubsetDeleteAllElements( pDimension3, cTempSubFrom );
+  Else;
+    SubsetCreate( pDimension3, cTempSubFrom );
+  EndIf;
+  SubsetElementInsert( pDimension3, cTempSubFrom, pSourceElement3, 1 );
+  ViewSubsetAssign( pCube, cTempViewFrom, pDimension3, cTempSubFrom );
+EndIf;
+
+# If skip rules not 0 or 1 then set to 1 (skip)
+If( pSkipRules <> 0);
+  pSkipRules = 1;
+EndIf;
+
+ViewExtractSkipCalcsSet( pCube, cTempViewFrom, 1 );
+ViewExtractSkipRuleValuesSet( pCube, cTempViewFrom, pSkipRules );
+ViewExtractSkipZeroesSet( pCube, cTempViewFrom, 1 );
+
+
+#~~~~~~~~~~ Assign Datasource ~~~~~~~~~~~~~~~~~~~~
+
+DataSourceType = 'VIEW';
+DatasourceNameForServer = pCube;
+DatasourceNameForClient = pCube;
+DatasourceCubeView = cTempViewFrom;
+
+
+### End Prolog ###
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+#~~~~~~~~~~ Check for error in prolog ~~~~~~~~~~~~~~~~~~~~
+
+If( nErrors > 0 );    ProcessBreak;    EndIf;
+
+
+#~~~~~~~~~~ Determine version dimension substitution ~~~~~~~~~~~~~~~~~~~~
+
+# Slot in first dimension
+If( nDimensionIndex = 1 );        v1 = pTargetElement;
+ElseIf( nDimensionIndex = 2 );    v2 = pTargetElement;
+ElseIf( nDimensionIndex = 3 );    v3 = pTargetElement;
+ElseIf( nDimensionIndex = 4 );    v4 = pTargetElement;
+ElseIf( nDimensionIndex = 5 );    v5 = pTargetElement;
+ElseIf( nDimensionIndex = 6 );    v6 = pTargetElement;
+ElseIf( nDimensionIndex = 7 );    v7 = pTargetElement;
+ElseIf( nDimensionIndex = 8 );    v8 = pTargetElement;
+ElseIf( nDimensionIndex = 9 );    v9 = pTargetElement;
+ElseIf( nDimensionIndex = 10 );  v10 = pTargetElement;
+ElseIf( nDimensionIndex = 11 );  v11 = pTargetElement;
+ElseIf( nDimensionIndex = 12 );  v12 = pTargetElement;
+ElseIf( nDimensionIndex = 13 );  v13 = pTargetElement;
+ElseIf( nDimensionIndex = 14 );  v14 = pTargetElement;
+ElseIf( nDimensionIndex = 15 );  v15 = pTargetElement;
+ElseIf( nDimensionIndex = 16 );  v16 = pTargetElement;
+ElseIf( nDimensionIndex = 17 );  v17 = pTargetElement;
+ElseIf( nDimensionIndex = 18 );  v18 = pTargetElement;
+ElseIf( nDimensionIndex = 19 );  v19 = pTargetElement;
+ElseIf( nDimensionIndex = 20 );  v20 = pTargetElement;
+ElseIf( nDimensionIndex = 21 );  v21 = pTargetElement;
+ElseIf( nDimensionIndex = 22 );  v22 = pTargetElement;
+ElseIf( nDimensionIndex = 23 );  v23 = pTargetElement;
+ElseIf( nDimensionIndex = 24 );  v24 = pTargetElement;
+ElseIf( nDimensionIndex = 25 );  v25 = pTargetElement;
+ElseIf( nDimensionIndex = 26 );  v26 = pTargetElement;
+ElseIf( nDimensionIndex = 27 );  v27 = pTargetElement;    EndIf;
+
+# Slot in second dimension
+If( nDimensionIndex2 = 1 );           v1 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 2 );    v2 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 3 );    v3 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 4 );    v4 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 5 );    v5 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 6 );    v6 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 7 );    v7 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 8 );    v8 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 9 );    v9 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 10 );  v10 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 11 );  v11 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 12 );  v12 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 13 );  v13 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 14 );  v14 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 15 );  v15 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 16 );  v16 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 17 );  v17 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 18 );  v18 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 19 );  v19 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 20 );  v20 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 21 );  v21 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 22 );  v22 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 23 );  v23 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 24 );  v24 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 25 );  v25 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 26 );  v26 = pTargetElement2;
+ElseIf( nDimensionIndex2 = 27 );  v27 = pTargetElement2;    EndIf;
+
+# Slot in third dimension
+If( nDimensionIndex3 = 1 );           v1 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 2 );    v2 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 3 );    v3 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 4 );    v4 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 5 );    v5 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 6 );    v6 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 7 );    v7 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 8 );    v8 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 9 );    v9 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 10 );  v10 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 11 );  v11 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 12 );  v12 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 13 );  v13 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 14 );  v14 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 15 );  v15 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 16 );  v16 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 17 );  v17 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 18 );  v18 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 19 );  v19 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 20 );  v20 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 21 );  v21 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 22 );  v22 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 23 );  v23 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 24 );  v24 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 25 );  v25 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 26 );  v26 = pTargetElement3;
+ElseIf( nDimensionIndex3 = 27 );  v27 = pTargetElement3;    EndIf;
+
+
+#~~~~~~~~~~ Write data from source version to target version ~~~~~~~~~~~~~~~~~~~~
+
+# Selects the correct CellPut formula depending upon the number of dimensions in the cube 
+# and whether the value is numeric or string ( max 27 dims catered for in this code )
+# value type determined by element type of last dimension in cube
+# could have used Value_is_String = 1 and NValue/SValue but this works just as well
+
+If( pDebug <= 1 );
+  If( nDimensionCount = 2 );
+    If( CellIsUpdateable( pCube, v1, v2 ) = 1 );
+      sElType = DType( sDim2, v2 );
+      IF( sElType @= 'AS' % sElType @= 'AA');
+        ATTRPUTS( v3, pCube, v1, v2 );
+      ELSEIF( sElType @= 'AN' );
+        ATTRPUTN( Numbr( v3), pCube, v1, v2 );
+      ElseIf( sElType @= 'S' );
+        CellPutS( v3, pCube, v1, v2 );
+      Else;
+         CellPutN( Numbr( v3 ), pCube, v1, v2 );
+      ENDIF;
+    ENDIF;
+  ElseIf( nDimensionCount = 3 );
+    If( CellIsUpdateable( pCube, v1, v2, v3 ) = 1 );
+      sElType = DType( sDim3, v3 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v4 ), pCube, v1, v2, v3 );
+      Else;
+        CellPutS( v4, pCube, v1, v2, v3 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 4 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4 ) = 1 );
+      sElType = DType( sDim4, v4 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v5 ), pCube, v1, v2, v3, v4 );
+      Else;
+        CellPutS( v5, pCube, v1, v2, v3, v4 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 5 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5 ) = 1 );
+      sElType = DType( sDim5, v5 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v6 ), pCube, v1, v2, v3, v4, v5 );
+      Else;
+        CellPutS( v6, pCube, v1, v2, v3, v4, v5 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 6 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5, v6 ) = 1 );
+      sElType = DType( sDim6, v6 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v7 ), pCube, v1, v2, v3, v4, v5, v6 );
+      Else;
+        CellPutS( v7, pCube, v1, v2, v3, v4, v5, v6 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 7 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5, v6, v7 ) = 1 );
+      sElType = DType( sDim7, v7 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v8 ), pCube, v1, v2, v3, v4, v5, v6, v7 );
+      Else;
+        CellPutS( v8, pCube, v1, v2, v3, v4, v5, v6, v7 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 8 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5, v6, v7, v8 ) = 1 );
+      sElType = DType( sDim8, v8 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v9 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8 );
+      Else;
+        CellPutS( v9, pCube, v1, v2, v3, v4, v5, v6, v7, v8 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 9 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9 ) = 1 );
+      sElType = DType( sDim9, v9 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v10 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9 );
+      Else;
+        CellPutS( v10, pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 10 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10 ) = 1 );
+      sElType = DType( sDim10, v10 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v11 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10 );
+      Else;
+        CellPutS( v11, pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 11 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11 ) = 1 );
+      sElType = DType( sDim11, v11 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v12 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11 );
+      Else;
+        CellPutS( v12, pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 12 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12 ) = 1 );
+      sElType = DType( sDim12, v12 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v13 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12 );
+      Else;
+        CellPutS( v13, pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 13 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13 ) = 1 );
+      sElType = DType( sDim13, v13 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v14 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13 );
+      Else;
+        CellPutS( v14, pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 14 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14 ) = 1 );
+      sElType = DType( sDim14, v14 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v15 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14 );
+      Else;
+        CellPutS( v15, pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 15 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15 ) = 1 );
+      sElType = DType( sDim15, v15 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v16 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15 );
+      Else;
+        CellPutS( v16, pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 16 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16 ) = 1 );
+      sElType = DType( sDim16, v16 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v17 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16 );
+      Else;
+        CellPutS( v17, pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16 );
+      EndIf;
+    EndIf;
+  ElseIf( nDimensionCount = 17 );
+    If( CellIsUpdateable( pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17 ) = 1 );
+      sElType = DType( sDim17, v17 );
+      If( sElType @<> 'S' );
+        CellPutN( Numbr( v18 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17 );
+      Else;
+        CellPutS( v18, pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17 );
+      EndIf;
+    EndIf;
+
+  EndIf;
+EndIf;
+
+### End Data ###
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+# countRecords = countRecords + 1;
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+#~~~~~~~~~~ Initialise Debug ~~~~~~~~~~~~~~~~~~~~
+
+# Set debug file name
+If( pDebug >= 1 );    sDebugFile = cDebugFile | 'Epilog.debug';    EndIf;
+
+
+If( nErrors = 0 & pDebug <= 1 );
+
+  ### Zero out source data ###
+  If( pZeroSource = 1 );    ViewZeroOut( pCube, cTempViewFrom );    EndIf;
+
+EndIf;
+
+
+#~~~~~~~~~~ Finalise Debug ~~~~~~~~~~~~~~~~~~~~
+
+If( pDebug >= 1 );
+
+  # Log errors
+  If( nErrors <> 0 );    AsciiOutput( sDebugFile, 'Errors Occurred' );    EndIf;
+
+  # Log finish time
+  AsciiOutput( sDebugFile, 'Process Finished: ' | TimSt( Now, '\d-\m-\Y \h:\i:\s' ) );
+
+EndIf;
+
+
+#~~~~~~~~~~ Destroy temporary views and susbsets ~~~~~~~~~~~~~~~~~~~~
+
+If( pDebug <= 1 );
+ViewDestroy( pCube, cTempViewTo);
+vNb=1; vNbCubeDim = CubeDimensionCountGet(pCube);
+While(vNb <= vNbCubeDim);
+	SubsetDestroy(TabDim(pCube, vNb), cTempSubTo);
+	vNb=vNb+1;
+End;
+ENDIF;
+
+If( pDebug <= 1 );
+ViewDestroy( pCube, cTempViewFrom);
+vNb=1; vNbCubeDim = CubeDimensionCountGet(pCube);
+While(vNb <= vNbCubeDim);
+	SubsetDestroy(TabDim(pCube, vNb), cTempSubFrom);
+	vNb=vNb+1;
+End;
+ENDIF;
+
+
+
+#~~~~~~~~~~ If errors occurred terminate process with a major error status ~~~~~~~~~~~~~~~~~~~~
+
+If( nErrors <> 0 );    ProcessQuit;   EndIf;
+
+
+### End Epilog ###
+#endregion

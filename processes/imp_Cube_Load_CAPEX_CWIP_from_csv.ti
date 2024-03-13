@@ -1,0 +1,424 @@
+#region Prolog
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Description
+## Load csv file to plan_CAPEX_Item for CWIP Items
+
+
+
+## Hardcoded Variables
+
+sTargetCube = 'plan_CAPEX_Item' ;
+
+sParameterCube = 'z_System_Parameters' ;
+
+sVersionDim = 'plan_Version' ;
+sBusinessUnitDim = 'Business_Unit' ;
+sBranchDim = 'Branch' ;
+sCAPEXListDim = 'Capex_Item_List' ;
+sMeasureDim = 'm_plan_Capex_Input' ;
+
+
+sView = processName ;
+sSubset = sView ;
+
+
+
+## Set Source File
+
+# sFileFolder = CELLGETS( sParameterCube, 'Import_Directory', 'String' ) | '\' | processName | '\' ;
+# sDatasource = sFileFolder | pFileName ;
+
+sFileFolder='./';
+sDatasource = sFileFolder | pFileName ;
+
+DATASOURCENAMEFORSERVER = sDatasource ;
+
+## Create Zero Out Target View - Profit and Loss
+
+sCube = sTargetCube ;
+
+IF( VIEWEXISTS( sCube, sView ) = 1 ) ;
+	VIEWDESTROY( sCube, sView ) ;
+ENDIF ;
+
+VIEWCREATE( sCube, sView ) ;
+
+
+
+## Subset - Version
+
+sDim = sVersionDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= pVersion ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Business Unit
+
+sDim = sBusinessUnitDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+
+## Subset - Branch
+
+sDim = sBranchDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+
+## Subset - Capex Item List
+
+sDim = sCapexListDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELISANC( sDim, 'Capital_WIP', sElement ) = 1 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Measure
+
+sDim = sMeasureDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Zero Out Target View
+
+VIEWZEROOUT( sCube, sView ) ;
+
+
+
+## Destroy Target View & Subsets
+
+VIEWDESTROY( sCube, sView ) ;
+
+SUBSETDESTROY( sVersionDim, sSubset ) ;
+SUBSETDESTROY( sBranchDim, sSubset ) ;
+SUBSETDESTROY( sBusinessUnitDim, sSubset ) ;
+SUBSETDESTROY( sCapexListDim, sSubset ) ;
+SUBSETDESTROY( sMeasureDim, sSubset ) ;
+
+
+
+
+
+
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Variables
+
+sVersion = pVersion ;
+sBusinessUnit = SUBST( vCostCentre, 1, 2 ) ;
+sBranch = SUBST( vCostCentre, 3, 2 ) ;
+
+
+## Set Asset Flag
+
+IF( subst(vAccount, 1,2) @= '29' ) ;
+	sAssetFlag = 'Production' ;
+
+ELSEIF( subst(vAccount, 1,2) @= '41' ) ;
+	sAssetFlag = 'Support' ;
+
+ENDIF ;	
+
+
+
+## Loop Through Existing CWIP ID's and check if one equals the source CWIP ID
+
+nLoopCount = 1 ;
+nLoopMax = 200 ;
+sIDMeasure = 'Asset Type' ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sCount = NUMBERTOSTRING( nLoopCount ) ;
+
+	IF( LONG( sCount ) = 1 ) ;
+		sCapexItemList = 'Capital WIP 00' | sCount ;
+	ELSEIF( LONG( sCount ) = 2 ) ;
+		sCapexItemList = 'Capital WIP 0' | sCount ;
+	ELSE ;
+		sCapexItemList = 'Capital WIP ' | sCount ;
+	ENDIF ;
+
+	sLoopAssetType = CELLGETS( sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sIDMeasure ) ;
+
+	IF( sLoopAssetType @<> '' ) ;
+		nLoopCount = nLoopCount + 1 ;
+	ELSE ;
+		nLoopCount = nLoopMax + 1 ;
+	ENDIF ;
+
+END ;
+
+
+
+
+
+
+
+## Enter Depn to Correct Capex Item List and Measure
+
+
+sValue = vAssetType ;
+sMeasure = 'Asset Type' ;
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+sValue = vAssetDriver ;
+sMeasure = 'Asset Driver' ;
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+sValue = sAssetFlag;
+sMeasure = 'Asset Flag - Overwrite' ;
+CELLPUTS( sValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+nValue = vJul ;
+sMeasure = pYear | ' ' | 'Jul' | ' Depn' ;
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+nValue = vAug ;
+sMeasure = pYear | ' ' | 'Aug' | ' Depn' ;
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+nValue = vSep ;
+sMeasure = pYear | ' ' | 'Sep' | ' Depn' ;
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+nValue = vOct ;
+sMeasure = pYear | ' ' | 'Oct' | ' Depn' ;
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+nValue = vNov ;
+sMeasure = pYear | ' ' | 'Nov' | ' Depn' ;
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+nValue = vDec ;
+sMeasure = pYear | ' ' | 'Dec' | ' Depn' ;
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+nValue = vJan ;
+sMeasure = pYear | ' ' | 'Jan' | ' Depn' ;
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+nValue = vFeb ;
+sMeasure = pYear | ' ' | 'Feb' | ' Depn' ;
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+nValue = vMar ;
+sMeasure = pYear | ' ' | 'Mar' | ' Depn' ;
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+nValue = vApr ;
+sMeasure = pYear | ' ' | 'Apr' | ' Depn' ;
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+nValue = vMay ;
+sMeasure = pYear | ' ' | 'May' | ' Depn' ;
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+nValue = vJun ;
+sMeasure = pYear | ' ' | 'Jun' | ' Depn' ;
+CELLPUTN( nValue, sTargetCube, sVersion, sBusinessUnit, sBranch, sCapexItemList, sMeasure ) ;
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+countRecords = countRecords + 1;
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion
+#region Epilog
+
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

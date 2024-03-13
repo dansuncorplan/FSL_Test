@@ -1,0 +1,29 @@
+{
+	"@type":"Subset",
+	"Name":"Debtor Days Detail",
+	"Alias":"Code & Description",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Debtor Days Detail')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Gross Debtors')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('61000')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('61500')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Other Adjustment - Intracompany')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Other Adjustment - Other')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Debtor Days Outstanding')"
+		}
+	]
+}

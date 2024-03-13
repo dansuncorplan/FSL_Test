@@ -1,0 +1,168 @@
+#region Prolog
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+## Description
+## Runs Processes to Copy a Version across the planning cubes
+
+sMonthFrom = 'Opening Balance' ;
+sMonthTo = 'Jun' ;
+
+
+
+
+## Profit and Loss
+
+sProcess = 'trf_Cube_Profit_and_Loss_Planning_Copy' ;
+
+EXECUTEPROCESS( sProcess,
+			'pSourceVersion', pSourceVersion,
+			'pTargetVersion', pTargetVersion,
+			'pYear', pYear,
+			'pMonthFrom', sMonthFrom,
+			'pMonthTo', sMonthTo ) ;
+
+
+## Balance Sheet
+
+sProcess = 'trf_Cube_Balance_Sheet_Planning_Copy' ;
+
+EXECUTEPROCESS( sProcess,
+			'pSourceVersion', pSourceVersion,
+			'pTargetVersion', pTargetVersion,
+			'pYear', pYear,
+			'pMonthFrom', sMonthFrom,
+			'pMonthTo', sMonthTo ) ;
+
+
+## Sales
+
+sProcess = 'trf_Cube_Sales_Planning_Copy_Version' ;
+
+EXECUTEPROCESS( sProcess,
+			'pSourceVersion', pSourceVersion,
+			'pTargetVersion', pTargetVersion,
+			'pYear', pYear,
+			'pMonthFrom', sMonthFrom,
+			'pMonthTo', sMonthTo ) ;
+
+
+## CAPEX
+
+sProcess = 'trf_Cube_CAPEX_Input_Copy_Version' ;
+
+EXECUTEPROCESS( sProcess,
+			'pSourceVersion', pSourceVersion,
+			'pTargetVersion', pTargetVersion ) ;
+
+
+
+## Payroll
+
+sProcess = 'trf_Cube_Payroll_Planning_Copy_Version' ;
+
+EXECUTEPROCESS( sProcess,
+			'pSourceVersion', pSourceVersion,
+			'pTargetVersion', pTargetVersion,
+			'pYear', pYear,
+			'pMonthFrom', sMonthFrom,
+			'pMonthTo', sMonthTo ) ;
+
+
+
+
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

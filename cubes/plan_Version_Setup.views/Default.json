@@ -1,0 +1,20 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta": {
+		"Aliases": {
+			"[plan_Period].[plan_Period]": "rpt_Period"
+		},
+		"ExpandAboves": {
+			"[plan_Period].[plan_Period]": false,
+			"[plan_Version].[plan_Version]": false,
+			"[m_plan_Version_Setup].[m_plan_Version_Setup]": false
+		},
+		"ContextSets": {
+			"[plan_Version].[plan_Version]": {
+				"Expression": "{EXCEPT(DISTINCT({[plan_Version].[plan_Version].[Calculated Versions],DESCENDANTS([plan_Version].[plan_Version].[Calculated Versions] , 99 , LEAVES)}) , {[plan_Version].[plan_Version].[Calculated Versions]})}"
+			}
+		}
+	}
+}

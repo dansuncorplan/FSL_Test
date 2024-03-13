@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_rpt_Profit_and_Loss",
+	"Hierarchies@Code.links":
+	[
+		"m_rpt_Profit_and_Loss.hierarchies/m_rpt_Profit_and_Loss.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_rpt_Profit_and_Loss')/Hierarchies('m_rpt_Profit_and_Loss')"
+	}
+}

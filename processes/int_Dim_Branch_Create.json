@@ -1,0 +1,26 @@
+{
+	"@type":"Process",
+	"Name":"int_Dim_Branch_Create",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"int_Dim_Branch_Create.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pBranchNumber",
+			"Prompt":"Branch Number",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pBranchName",
+			"Prompt":"Branch Name",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

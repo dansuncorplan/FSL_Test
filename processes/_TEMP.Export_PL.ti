@@ -1,0 +1,70 @@
+#region Prolog
+
+#--------------------------------------
+# constant variables
+#--------------------------------------
+cThisProcName  = GetProcessName();
+cUserName = TM1User();
+cTimeStamp  = TimSt( Now, '\Y\m\d\h\i\s' );
+cRandomInt = NumberToString( INT( RAND( ) * 1000 ));
+cTempObjName = Expand('%cThisProcName%_%cTimeStamp%_%cRandomInt%');
+cSourceObj='source_'|cTempObjName;
+cTargetObj='target_'|cTempObjName;
+
+cError = '';
+
+cLogInfo = 'Process:%cThisProcName% run with parameters - pMonth %pVersionToPopulate% and Temp obj name is %cTempObjName %';
+
+nTimeNow = NOW();
+ServerTime = NewDateFormatter('' , 'Etc/UTC' , 'serial' , 'full' , 'datetime' );
+NZTime = NewDateFormatter( '' , 'Pacific/Auckland' , 'serial' , 'full' , 'datetime' );
+sTimeNowNZ = FormatDate( nTimeNow , 'yyyyMMddHHmmss' , NZTime );
+nTimeNowNZ = ParseDate( sTimeNowNZ , 'yyyyMMddHHmmss' , ServerTime );
+sTodayDate = FormatDate( nTimeNowNZ , 'yyyy-MM-dd' ) ;
+
+#-----------------
+# Set source view
+#-----------------
+ViewCreate( 'plan_Profit_and_Loss' , cSourceObj , 1 );
+
+SubsetCreatebyMDX( cSourceObj , '{[plan_Version].[plan_Version].[Forecast]}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{[Currency_Sales].[Currency_Sales].[NZD]}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{EXCEPT(DRILLDOWNMEMBER({[plan_Period].[plan_Period].[Year 0]} , {[plan_Period].[plan_Period].[Year 0]} , RECURSIVE) , {[plan_Period].[plan_Period].[Year 0]})}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SubsetAll([Branch].[Branch]), 0)}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SubsetAll([Business_Unit].[Business_Unit]), 0)}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Account_PL].[Account_PL]) , 0)}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{[m_plan_Profit_and_Loss].[m_plan_Profit_and_Loss].MEMBERS}', 1 );
+
+nDimCount = 1;
+WHILE( TABDIM( 'plan_Profit_and_Loss' , nDimCount )@<> '' );
+	sDim = TABDIM( 'plan_Profit_and_Loss' , nDimCount );
+	IF( SUBSETEXISTS( sDim , cSourceObj ) = 1 );
+		VIEWSUBSETASSIGN( 'plan_Profit_and_Loss' , cSourceObj , sDim , cSourceObj );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+ViewSuppressZeroesSet( 'plan_Profit_and_Loss' , cSourceObj , 1 );
+ViewExtractSkipCalcsSet( 'plan_Profit_and_Loss' , cSourceObj , 1 );
+ViewExtractSkipZeroesSet( 'plan_Profit_and_Loss' , cSourceObj , 1 );
+ViewExtractSkipRuleValuesSet( 'plan_Profit_and_Loss' , cSourceObj , 0 );
+
+DataSourceType = 'VIEW' ;
+DataSourceNameForServer = 'plan_Profit_and_Loss' ;
+DataSourceCubeView = cSourceObj ;
+
+
+
+#endregion
+#region Data
+
+sTargeMonthName=ATTRS( 'plan_Period', vPeriod, 'rpt_Period');
+sTargetMonth=NumberToString(StringToNumber(SUBST( sTargeMonthName, 1, 4 ))+1) | ' ' | SUBST( sTargeMonthName, 6, 3 );
+
+ASCIIOutput( 'TEMP.VersionSetup.PL.txt',  vVersion, vCurrency, ATTRS( 'plan_Period', vPeriod, 'rpt_Period'), sTargetMonth, vBranch, vBusiness_Unit, vAccount_PL,  vMeasure, NumberToString( vValue ) );
+
+if(CellIsUpdateable( 'plan_Profit_and_Loss', 'Budget', vCurrency, sTargetMonth, vBranch, vBusiness_Unit, vAccount_PL, vMeasure )=1);
+CellPutN( vValue, 'plan_Profit_and_Loss', 'Budget', vCurrency, sTargetMonth, vBranch, vBusiness_Unit, vAccount_PL, vMeasure );
+endif;
+
+#endregion

@@ -1,0 +1,50 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Alias":"Code & Description",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('Customer_by_Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('PCC Customer')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('300045')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('300156')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('300019')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('300262')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('300057')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('308360')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('PCC_NZ OTHER')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('PCC_PACIFIC')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('Reinforcing Customer')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('Easysteel Customer')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('Dimond & CSR Customer')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('Customer_Freight')"
+		}
+	]
+}

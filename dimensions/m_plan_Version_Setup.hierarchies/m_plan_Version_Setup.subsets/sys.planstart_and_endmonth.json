@@ -1,0 +1,14 @@
+{
+	"@type":"Subset",
+	"Name":"sys.planstart_and_endmonth",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('m_plan_Version_Setup')/Hierarchies('m_plan_Version_Setup')/Elements('Plan Start Month')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Version_Setup')/Hierarchies('m_plan_Version_Setup')/Elements('Plan End Month')"
+		}
+	]
+}

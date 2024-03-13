@@ -1,0 +1,252 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Staff_Role",
+	"ElementsSortType":"ByHierarchy",
+	"ComponentsSortType":"ByName",
+	"ComponentsSortSense":"Ascending",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL_STAFF_ROLE",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Admin General",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Admin Specialised",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Amin General",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CSR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CSR Mgmt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Detailing",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EC Mgmt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EHS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EHS L2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EstContracts",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Finance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Finance L2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Marketing",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ops General",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ops General M",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ops L2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ops L2 M",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ops Mgmt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P&P",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales General",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales L2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales Mgmt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SCM General",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SCM L2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SLT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WHD General",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Admin General",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Admin Specialised",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Amin General",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"CSR",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"CSR Mgmt",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Detailing",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"EC Mgmt",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"EHS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"EHS L2",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"EstContracts",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Finance",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Finance L2",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Marketing",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Ops General",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Ops General M",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Ops L2",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Ops L2 M",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Ops Mgmt",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"P&P",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Sales General",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Sales L2",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"Sales Mgmt",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"SCM General",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"SCM L2",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"SLT",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_ROLE",
+			"ComponentName":"WHD General",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

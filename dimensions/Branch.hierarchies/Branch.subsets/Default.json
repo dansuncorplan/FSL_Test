@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Alias":"Code & Description",
+	"Expression":"TM1SubsetAll([Branch])"
+}

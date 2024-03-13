@@ -1,0 +1,207 @@
+#region Prolog
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Description
+## Update Branch dimension from csv file
+
+
+
+## Hardcoded Variables
+
+sTargetDim = 'Branch' ;
+
+sParameterCube = 'z_System_Parameters' ;
+
+sTotalCons = 'TOTAL_BRANCH' ;
+sPlanElement = 'Branch - Planned' ;
+
+sDescAttr = 'Description' ;
+sCodeDescAttr = 'Code & Description' ;
+
+
+
+## Set Source View
+
+sFileFolder = CELLGETS( sParameterCube, 'Import_Directory', 'String' ) | '\' | processName | '\' ;
+
+sDatasource = sFileFolder | pFileName ;
+
+DATASOURCENAMEFORSERVER = sDatasource ;
+
+
+
+## Delete All Elements
+
+DIMENSIONDELETEALLELEMENTS( sTargetDim ) ;
+
+
+
+## Add Total Consolidation
+
+DIMENSIONELEMENTINSERT( sTargetDim, '', sTotalCons, 'C' ) ;
+
+
+
+## Add Planning Element
+
+DIMENSIONELEMENTINSERT( sTargetDim, '', sPlanElement, 'N' ) ;
+DIMENSIONELEMENTCOMPONENTADD( sTargetDim, sTotalCons, sPlanElement, 1 ) ;
+
+
+
+## Create Attribute - Description
+
+sDim = sTargetDim ;
+sAttr = sDescAttr ;
+
+ATTRINSERT( sTargetDim, '', sAttr, 'A' ) ;
+
+
+
+## Create Attribute - Code & Description
+
+sDim = sTargetDim ;
+sAttr = sCodeDescAttr ;
+
+ATTRINSERT( sTargetDim, '', sAttr, 'A' ) ;
+
+
+
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Add Branch
+
+sDim = sTargetDim ;
+sElement = vBranch ;
+sCons = sTotalCons ;
+
+IF( DIMIX( sDim, sElement ) = 0 ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+ENDIF ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+countRecords = countRecords + 1;
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Update Attribute - Description
+
+sDim = sTargetDim ;
+sElement = vBranch ;
+sAttr = sDescAttr ;
+sAttrValue = vDescription ;
+
+ATTRPUTS( sAttrValue, sDim, sElement, sAttr ) ;
+
+
+
+## Update Attribute - Code & Description
+
+sDim = sTargetDim ;
+sElement = vBranch ;
+sAttr = sCodeDescAttr ;
+sAttrValue = vBranch | ' - ' | vDescription ;
+
+ATTRPUTS( sAttrValue, sDim, sElement, sAttr ) ;
+
+#endregion
+#region Epilog
+
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

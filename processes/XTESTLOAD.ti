@@ -1,0 +1,49 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+sCube = 'plan_Capex_Item' ;
+
+
+IF( DIMIX( 'm_plan_Capex_Input', V6 ) = 0 ) ;
+	itemskip ;
+ENDIF ;
+
+
+IF( CELLISUPDATEABLE( sCube, V2, V3, V4, V5, V6 ) = 0 ) ;
+	itemskip ;
+ENDIF ;
+
+
+
+IF( DTYPE( 'm_plan_Capex_Input', V6 ) @= 'S' ) ;
+
+	CELLPUTS( V7, sCube, V2, V3, V4, V5, V6 ) ;
+
+ELSE ;
+
+	nV7 = STRINGTONUMBER( V7 ) ;
+
+	CELLPUTN( nV7, sCube, V2, V3, V4, V5, V6 ) ;
+
+ENDIF ;
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

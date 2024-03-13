@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"rpt_Year",
+	"Hierarchies@Code.links":
+	[
+		"rpt_Year.hierarchies/rpt_Year.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')"
+	}
+}

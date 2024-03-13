@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"SYS.SaveDataAll",
+	"HasSecurityAccess":false,
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[],
+	"UIData": "_ParameterConstraints=e30=\f"
+}

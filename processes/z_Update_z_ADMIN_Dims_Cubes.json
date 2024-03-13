@@ -1,0 +1,24 @@
+{
+	"@type":"Process",
+	"Name":"z_Update_z_ADMIN_Dims_Cubes",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"z_Update_z_ADMIN_Dims_Cubes.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"}Dimensions",
+		"dataSourceNameForClient":"}Dimensions",
+		"subset":"All"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vDimName",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

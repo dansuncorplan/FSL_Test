@@ -1,0 +1,24 @@
+{
+	"@type":"Process",
+	"Name":"z_zBlank_Process_w_Logging",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"z_zBlank_Process_w_Logging.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"}Dimensions",
+		"dataSourceNameForClient":"}Dimensions",
+		"subset":"All"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vDimName",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

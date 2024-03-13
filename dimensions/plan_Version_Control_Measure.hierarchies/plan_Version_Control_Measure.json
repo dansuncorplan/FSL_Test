@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"plan_Version_Control_Measure",
+	"Elements":
+	[
+		{
+			"Name":"Plan Year",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

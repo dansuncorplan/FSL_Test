@@ -1,0 +1,21 @@
+#region Prolog
+ #----------------------------------------------------
+#  Define constant
+# #----------------------------------------------------
+
+cProcessName = GetProcessName();
+sDim = 'plan_Version';
+sErr = '' ;
+cTargetCube = 'plan_Version_Setup';
+cTimeStamp = TIMST( NOW() , '\Y\m\d\h\i\s' ) | NumberToString( RAND * 1000000000 );
+cTempObjName = Expand('%cProcessName%_%cTimeStamp%');
+cSourceObj='source_'|cTempObjName;
+cTargetRandObjName = 'Test';
+cTemp = 0 ;
+
+SubsetCreatebyMDX( 'sys.planversion' , '{[plan_Version].[plan_Version].['|pVersionTo |']}' , cTemp ); 
+	IF( SUBSETEXISTS( sDim , cTargetRandObjName ) = 0 );
+		VIEWSUBSETASSIGN( cTargetCube , cTargetRandObjName , sDim , 'sys.planversion'  );
+	ENDIF;
+
+#endregion

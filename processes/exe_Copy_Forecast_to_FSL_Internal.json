@@ -1,0 +1,32 @@
+{
+	"@type":"Process",
+	"Name":"exe_Copy_Forecast_to_FSL_Internal",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"exe_Copy_Forecast_to_FSL_Internal.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"}Cubes",
+		"dataSourceNameForClient":"}Cubes",
+		"subset":"All"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pYear",
+			"Prompt":"",
+			"Value":"2023",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vCube",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

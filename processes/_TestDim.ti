@@ -1,0 +1,35 @@
+#region Prolog
+
+if( SubsetExists( 'plan_Version', 'sys.Scenario_Copy.Version_Compare' )=1);
+ SubsetDeleteAllElements(  'plan_Version', 'sys.Scenario_Copy.Version_Compare'  );
+endif;
+
+#----------------------------------------------------
+# Delete Subset for New Version
+#----------------------------------------------------
+
+if( SubsetExists( 'plan_Version', 'sys.Scenario_Copy.New_Version' )=1);
+ SubsetDeleteAllElements(  'plan_Version', 'sys.Scenario_Copy.New_Version'  );
+endif;
+#----------------------------------------------------
+# Update Subset Elements
+#----------------------------------------------------
+
+sPeriodVersion = CellGetS( 'plan_Version_Setup', pVersionTo, 'Annual Input', 'Plan End Month');
+sNewVersion =  pVersionTo ;
+SourceVersion = CellGetS( 'plan_Version_Setup', sNewVersion, sPeriodVersion, 'Source Version' )   ;
+
+if  (DimensionElementExists ('plan_Version', pVersionTo )=1);
+       SubsetElementInsert('plan_Version',  'sys.Scenario_Copy.Version_Compare' , SourceVersion,1);
+       SubsetElementInsert('plan_Version',  'sys.Scenario_Copy.Version_Compare' , sNewVersion,1); 
+endif;
+      SubsetElementInsert('plan_Version',  ' sys.Scenario_Copy.New_Version' , sNewVersion,1);
+
+
+#endregion
+#region Data
+
+# if (SubsetElementExists( 'plan_Version',  'sys.Scenario_Copy.Version_Compare' , SourceVersion )=0);
+#        SubsetElementInsert('plan_Version',  'sys.Scenario_Copy.Version_Compare' , SourceVersion,2);
+# endif;
+#endregion

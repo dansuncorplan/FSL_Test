@@ -1,0 +1,132 @@
+{
+	"@type":"Hierarchy",
+	"Name":"plan_Version",
+	"Elements":
+	[
+		{
+			"Name":"Actual",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FSL_Internal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variance - Act v Bud",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Variance - Act v Fct",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Calculated Versions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Calculated Forecasts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Calculated Budgets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Static Versions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Forecast snapshot Jan-24",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget R2 Feb24 8+4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Feb24 8+4",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Variance - Act v Bud",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Variance - Act v Bud",
+			"ComponentName":"Budget",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Variance - Act v Fct",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Variance - Act v Fct",
+			"ComponentName":"Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Calculated Versions",
+			"ComponentName":"Calculated Forecasts",
+			"Weight":1
+		},
+		{
+			"ParentName":"Calculated Versions",
+			"ComponentName":"Calculated Budgets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Calculated Forecasts",
+			"ComponentName":"FSL_Internal",
+			"Weight":1
+		},
+		{
+			"ParentName":"Calculated Forecasts",
+			"ComponentName":"Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"Calculated Forecasts",
+			"ComponentName":"Forecast Feb24 8+4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Calculated Budgets",
+			"ComponentName":"Budget",
+			"Weight":1
+		},
+		{
+			"ParentName":"Calculated Budgets",
+			"ComponentName":"Budget R2 Feb24 8+4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Static Versions",
+			"ComponentName":"Forecast snapshot Jan-24",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"plan_Version.subsets/Budget.json",
+		"plan_Version.subsets/SYS.level0.json",
+		"plan_Version.subsets/sys.planversion.json",
+		"plan_Version.subsets/SYS.Scenario_Copy.New_Version.json",
+		"plan_Version.subsets/SYS.Scenario_Copy.Version_Compare.json",
+		"plan_Version.subsets/sys.secanariotype.json",
+		"plan_Version.subsets/sys.version.json"
+	]
+}

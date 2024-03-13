@@ -1,0 +1,20 @@
+{
+	"@type":"Process",
+	"Name":"int_Dim_rpt_Version_Create",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"int_Dim_rpt_Version_Create.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersion",
+			"Prompt":"Create Version:",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

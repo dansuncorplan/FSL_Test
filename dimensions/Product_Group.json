@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Product_Group",
+	"Hierarchies@Code.links":
+	[
+		"Product_Group.hierarchies/Product_Group.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')"
+	}
+}

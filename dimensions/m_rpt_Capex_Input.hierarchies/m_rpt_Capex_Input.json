@@ -1,0 +1,2529 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_rpt_Capex_Input",
+	"Elements":
+	[
+		{
+			"Name":"Asset ID",
+			"Type":"String"
+		},
+		{
+			"Name":"Initiative Name",
+			"Type":"String"
+		},
+		{
+			"Name":"Business Unit",
+			"Type":"String"
+		},
+		{
+			"Name":"Branch",
+			"Type":"String"
+		},
+		{
+			"Name":"Tfr to FA",
+			"Type":"String"
+		},
+		{
+			"Name":"Description",
+			"Type":"String"
+		},
+		{
+			"Name":"Asset Type",
+			"Type":"String"
+		},
+		{
+			"Name":"Asset Driver",
+			"Type":"String"
+		},
+		{
+			"Name":"Asset Flag",
+			"Type":"String"
+		},
+		{
+			"Name":"Asset Flag - Overwrite",
+			"Type":"String"
+		},
+		{
+			"Name":"Amount Remaining",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Asset Total",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Approved Rejected",
+			"Type":"String"
+		},
+		{
+			"Name":"Revised Allocation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Approved Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Approved Amount Remaining",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Asset Life",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Spend Start Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Depn Start Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Monthly Depn Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Spend by Period",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2016 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2016 Opening Balance Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Jul Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Aug Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Sep Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Oct Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Nov Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Dec Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Jan Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Feb Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Mar Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Apr Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 May Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Jun Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2017 Opening Balance Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Jul Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Aug Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Sep Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Oct Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Nov Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Dec Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Jan Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Feb Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Mar Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Apr Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 May Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Jun Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2018 Opening Balance Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Jul Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Aug Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Sep Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Oct Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Nov Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Dec Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Jan Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Feb Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Mar Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Apr Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 May Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Jun Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2019 Opening Balance Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Jul Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Aug Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Sep Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Oct Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Nov Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Dec Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Jan Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Feb Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Mar Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Apr Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 May Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Jun Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2020 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Opening Balance Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Oct Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Nov Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Dec Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Jan Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Feb Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Mar Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Apr Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 May Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Jun Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Jul Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Aug Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Sep Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2021 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Opening Balance Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Oct Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Nov Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Dec Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Jan Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Feb Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Mar Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Apr Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 May Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Jun Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Jul Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Aug Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Sep Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2022 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Opening Balance Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Oct Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Nov Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Dec Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Jan Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Feb Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Mar Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Apr Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 May Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Jun Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Jul Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Aug Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Sep Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2024 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2024 Opening Balance Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Oct Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Nov Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Dec Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Jan Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Feb Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Mar Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Apr Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 May Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Jun Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Jul Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Aug Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Sep Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Opening Balance Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Oct Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Nov Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Dec Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Jan Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Feb Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Mar Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Apr Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 May Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Jun Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Jul Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Aug Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Sep Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Depreciation by Period",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2016 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2016 Opening Balance Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Jul Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Aug Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Sep Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Oct Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Nov Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Dec Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Jan Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Feb Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Mar Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Apr Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 May Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Jun Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2016 Full Year Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2017 Opening Balance Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Jul Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Aug Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Sep Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Oct Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Nov Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Dec Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Jan Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Feb Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Mar Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Apr Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 May Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Jun Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2017 Full Year Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2018 Opening Balance Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Jul Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Aug Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Sep Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Oct Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Nov Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Dec Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Jan Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Feb Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Mar Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Apr Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 May Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Jun Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2018 Full Year Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2019 Opening Balance Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Jul Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Aug Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Sep Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Oct Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Nov Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Dec Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Jan Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Feb Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Mar Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Apr Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 May Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Jun Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2019 Full Year Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2020 Full Year Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Opening Balance Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Oct Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Nov Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Dec Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Jan Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Feb Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Mar Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Apr Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 May Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Jun Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Jul Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Aug Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2020 Sep Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2021 Full Year Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Opening Balance Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Oct Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Nov Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Dec Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Jan Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Feb Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Mar Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Apr Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 May Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Jun Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Jul Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Aug Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2021 Sep Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2022 Full Year Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Opening Balance Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Oct Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Nov Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Dec Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Jan Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Feb Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Mar Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Apr Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 May Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Jun Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Jul Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Aug Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2022 Sep Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2023 Full Year Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Opening Balance Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Oct Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Nov Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Dec Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Jan Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Feb Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Mar Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Apr Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 May Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Jun Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Jul Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Aug Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023 Sep Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2024 Opening Balance Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Oct Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Nov Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Dec Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Jan Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Feb Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Mar Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Apr Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 May Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Jun Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Jul Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Aug Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Sep Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024 Full Year Depn",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"2016 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"2017 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"2018 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"2019 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"2020 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"2021 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"2022 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"2023 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"2024 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Opening Balance Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Jul Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Aug Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Sep Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Oct Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Nov Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Dec Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Jan Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Feb Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Mar Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Apr Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 May Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Jun Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Spend",
+			"ComponentName":"2016 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Opening Balance Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Jul Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Aug Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Sep Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Oct Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Nov Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Dec Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Jan Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Feb Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Mar Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Apr Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 May Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Jun Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Spend",
+			"ComponentName":"2017 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Opening Balance Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Jul Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Aug Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Sep Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Oct Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Nov Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Dec Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Jan Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Feb Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Mar Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Apr Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 May Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Jun Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Spend",
+			"ComponentName":"2018 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Opening Balance Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Jul Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Aug Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Sep Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Oct Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Nov Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Dec Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Jan Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Feb Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Mar Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Apr Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 May Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Jun Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Spend",
+			"ComponentName":"2019 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Opening Balance Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Oct Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Nov Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Dec Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Jan Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Feb Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Mar Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Apr Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 May Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Jun Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Jul Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Aug Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Spend",
+			"ComponentName":"2020 Sep Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Opening Balance Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Oct Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Nov Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Dec Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Jan Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Feb Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Mar Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Apr Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 May Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Jun Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Jul Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Aug Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Spend",
+			"ComponentName":"2021 Sep Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Opening Balance Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Oct Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Nov Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Dec Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Jan Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Feb Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Mar Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Apr Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 May Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Jun Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Jul Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Aug Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Spend",
+			"ComponentName":"2022 Sep Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Opening Balance Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Oct Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Nov Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Dec Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Jan Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Feb Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Mar Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Apr Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 May Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Jun Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Jul Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Aug Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Spend",
+			"ComponentName":"2023 Sep Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Opening Balance Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Oct Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Nov Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Dec Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Jan Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Feb Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Mar Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Apr Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 May Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Jun Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Jul Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Aug Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Sep Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Spend",
+			"ComponentName":"2024 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"2016 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"2017 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"2018 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"2019 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"2020 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"2021 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"2022 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"2023 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"2024 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Opening Balance Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Jul Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Aug Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Sep Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Oct Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Nov Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Dec Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Jan Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Feb Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Mar Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Apr Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 May Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Jun Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2016 Depn",
+			"ComponentName":"2016 Full Year Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Opening Balance Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Jul Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Aug Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Sep Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Oct Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Nov Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Dec Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Jan Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Feb Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Mar Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Apr Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 May Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Jun Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2017 Depn",
+			"ComponentName":"2017 Full Year Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Opening Balance Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Jul Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Aug Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Sep Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Oct Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Nov Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Dec Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Jan Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Feb Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Mar Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Apr Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 May Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Jun Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2018 Depn",
+			"ComponentName":"2018 Full Year Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Opening Balance Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Jul Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Aug Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Sep Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Oct Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Nov Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Dec Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Jan Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Feb Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Mar Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Apr Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 May Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Jun Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2019 Depn",
+			"ComponentName":"2019 Full Year Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Full Year Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Opening Balance Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Oct Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Nov Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Dec Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Jan Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Feb Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Mar Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Apr Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 May Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Jun Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Jul Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Aug Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2020 Depn",
+			"ComponentName":"2020 Sep Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Full Year Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Opening Balance Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Oct Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Nov Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Dec Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Jan Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Feb Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Mar Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Apr Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 May Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Jun Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Jul Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Aug Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2021 Depn",
+			"ComponentName":"2021 Sep Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Full Year Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Opening Balance Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Oct Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Nov Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Dec Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Jan Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Feb Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Mar Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Apr Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 May Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Jun Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Jul Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Aug Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2022 Depn",
+			"ComponentName":"2022 Sep Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Full Year Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Opening Balance Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Oct Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Nov Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Dec Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Jan Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Feb Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Mar Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Apr Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 May Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Jun Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Jul Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Aug Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023 Depn",
+			"ComponentName":"2023 Sep Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Opening Balance Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Oct Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Nov Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Dec Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Jan Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Feb Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Mar Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Apr Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 May Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Jun Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Jul Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Aug Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Sep Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024 Depn",
+			"ComponentName":"2024 Full Year Depn",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"z_Process_HFM_Feeders",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"z_Process_HFM_Feeders.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

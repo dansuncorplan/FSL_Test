@@ -1,0 +1,32 @@
+{
+	"@type":"Process",
+	"Name":"exe_Copy_Planning_to_Reporting",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"exe_Copy_Planning_to_Reporting.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pSourceVersion",
+			"Prompt":"",
+			"Value":"Budget",
+			"Type":"String"
+		},
+		{
+			"Name":"pTargetVersion",
+			"Prompt":"",
+			"Value":"FY24 Budget Jun23 EOM FINAL",
+			"Type":"String"
+		},
+		{
+			"Name":"pYear",
+			"Prompt":"",
+			"Value":"2024",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

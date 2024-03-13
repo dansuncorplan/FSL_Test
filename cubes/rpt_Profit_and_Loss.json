@@ -1,0 +1,54 @@
+{
+	"@type":"Cube",
+	"Name":"rpt_Profit_and_Loss",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('rpt_Version')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('rpt_Month')"
+		},
+		{
+			"@id":"Dimensions('rpt_Year')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('rpt_Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')"
+		},
+		{
+			"@id":"Dimensions('m_rpt_Profit_and_Loss')"
+		}
+	],
+	"Rules@Code.link":"rpt_Profit_and_Loss.rules",
+	"MeasuresDimension":
+	{
+		"@id":"Dimensions('m_rpt_Profit_and_Loss')"
+	},
+	"Views@Code.links":
+	[
+		"rpt_Profit_and_Loss.views/P&L - BUDGET 2021 FINAL REPORT.json",
+		"rpt_Profit_and_Loss.views/P&L - BUDGET 2022 FINAL.json",
+		"rpt_Profit_and_Loss.views/P&L - BUDGET 2022 SUBMITTED.json",
+		"rpt_Profit_and_Loss.views/P&L - BUFY23 Budget R1 11Apr22.json",
+		"rpt_Profit_and_Loss.views/P&L - FES Oct 21 Rebudget 2022 V1.json",
+		"rpt_Profit_and_Loss.views/P&L - FY23 Budget R3 19Apr22.json",
+		"rpt_Profit_and_Loss.views/P&L - FY23 Budget R4 Final 12May22.json",
+		"rpt_Profit_and_Loss.views/P&L - FY24 Budget Feb23 EOM.json",
+		"rpt_Profit_and_Loss.views/P&L - FY24 Budget Jun23 EOM.json",
+		"rpt_Profit_and_Loss.views/P&L - FY24 Budget Jun23 EOM FINAL.json",
+		"rpt_Profit_and_Loss.views/P&L - FY24 Budget Mar23 EOM.json",
+		"rpt_Profit_and_Loss.views/P&L - FY24 Budget Mar23 EOM FINAL.json",
+		"rpt_Profit_and_Loss.views/P&L - Sep21 Rebudget 2022 V1.json",
+		"rpt_Profit_and_Loss.views/P&L – Sep21 Rebudget 2022 Submitted HFM.json",
+		"rpt_Profit_and_Loss.views/Default.json"
+	]
+}

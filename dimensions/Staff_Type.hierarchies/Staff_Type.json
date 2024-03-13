@@ -1,0 +1,45 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Staff_Type",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL_STAFF_TYPE",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Production Staff",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Administrative Staff",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales and Marketing",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOTAL_STAFF_TYPE",
+			"ComponentName":"Production Staff",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_TYPE",
+			"ComponentName":"Administrative Staff",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_STAFF_TYPE",
+			"ComponentName":"Sales and Marketing",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Staff_Type.subsets/Default.json"
+	]
+}

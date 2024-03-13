@@ -1,0 +1,865 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Product_Group",
+	"ElementsSortType":"ByHierarchy",
+	"ComponentsSortType":"ByName",
+	"ComponentsSortSense":"Ascending",
+	"Elements":
+	[
+		{
+			"Name":"Product_by_Business_Unit",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Dimond & CSR Products",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"DI_ACCESSORIES OTHER",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_CLADDING PROFILES",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_COLORFLO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_CONCEALED ROOFING",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_DIMOND COIL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_DIMOND CONTRACTS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_DIMOND DOWNGRADE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_DIMONDEK 630",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_DIMOND LABOUR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_FASTENERS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_FLASHGUARD/ALI EDGE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_FLASHINGS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_FLOORING",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_FREIGHT RELATED",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_HIGH RIB ROOFING",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_INSULATED SYSTEM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_INSULATED SYSTEMS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_LOW RIB ROOFING",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_NATURAL LIGHTING",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_NETTING",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_PURLIN SYSTEMS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_RAINWATER",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_RIDGING",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_SOLAR RIB ROOFING",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_STRUCTURAL OTHER",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_THERMAL INSULATION",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_TRAY ROOFING",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_UNDERLAYS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DI_VENTILATED PRODUCTS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Easysteel Products",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"01 MERCHBAR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"02 PIPE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"03 HOLLOWS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"04 PLATE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"04 PROFILE PLATE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"05 SECTIONS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"06 FLAT ROLL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"07 SPECPUR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"08 REINFORCING",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"09 CYCLONE PUR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"10 CYCLONE MAN",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"11 PIPE FITTS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"12 WELDING",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13 MFG PRODS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"14 TOLL ITEMS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"15 STAINLESS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"16 ALUMINIUM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17 FASTENERS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"18 FREIGHT/CUT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FLETCHER REINFORCING ITEMS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PCC Products",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"PCC_PALM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PCC_PHDG",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PCC_PZAL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PCC_PZAM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Product_Freight",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Reinforcing Products",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"RI_ACCESSORIES OTHER",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RI_MESH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RI_PLACING",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RI_PREFAB",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RI_SCB",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RI_STOCK BAR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL_PRODUCT_GROUP",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"No Product_Group",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Product_by_Business_Unit",
+			"ComponentName":"Dimond & CSR Products",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product_by_Business_Unit",
+			"ComponentName":"Easysteel Products",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product_by_Business_Unit",
+			"ComponentName":"PCC Products",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product_by_Business_Unit",
+			"ComponentName":"Product_Freight",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product_by_Business_Unit",
+			"ComponentName":"Reinforcing Products",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_ACCESSORIES OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_CLADDING PROFILES",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_COLORFLO",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_CONCEALED ROOFING",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_DIMOND COIL",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_DIMOND CONTRACTS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_DIMOND DOWNGRADE",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_DIMONDEK 630",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_DIMOND LABOUR",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_FASTENERS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_FLASHGUARD/ALI EDGE",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_FLASHINGS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_FLOORING",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_FREIGHT RELATED",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_HIGH RIB ROOFING",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_INSULATED SYSTEM",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_INSULATED SYSTEMS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_LOW RIB ROOFING",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_NATURAL LIGHTING",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_NETTING",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_PURLIN SYSTEMS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_RAINWATER",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_RIDGING",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_SOLAR RIB ROOFING",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_STRUCTURAL OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_THERMAL INSULATION",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_TRAY ROOFING",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_UNDERLAYS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimond & CSR Products",
+			"ComponentName":"DI_VENTILATED PRODUCTS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"01 MERCHBAR",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"02 PIPE",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"03 HOLLOWS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"04 PLATE",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"04 PROFILE PLATE",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"05 SECTIONS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"06 FLAT ROLL",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"07 SPECPUR",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"08 REINFORCING",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"09 CYCLONE PUR",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"10 CYCLONE MAN",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"11 PIPE FITTS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"12 WELDING",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"13 MFG PRODS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"14 TOLL ITEMS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"15 STAINLESS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"16 ALUMINIUM",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"17 FASTENERS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"18 FREIGHT/CUT",
+			"Weight":1
+		},
+		{
+			"ParentName":"Easysteel Products",
+			"ComponentName":"FLETCHER REINFORCING ITEMS",
+			"Weight":1
+		},
+		{
+			"ParentName":"PCC Products",
+			"ComponentName":"PCC_PALM",
+			"Weight":1
+		},
+		{
+			"ParentName":"PCC Products",
+			"ComponentName":"PCC_PHDG",
+			"Weight":1
+		},
+		{
+			"ParentName":"PCC Products",
+			"ComponentName":"PCC_PZAL",
+			"Weight":1
+		},
+		{
+			"ParentName":"PCC Products",
+			"ComponentName":"PCC_PZAM",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Products",
+			"ComponentName":"RI_ACCESSORIES OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Products",
+			"ComponentName":"RI_MESH",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Products",
+			"ComponentName":"RI_PLACING",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Products",
+			"ComponentName":"RI_PREFAB",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Products",
+			"ComponentName":"RI_SCB",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reinforcing Products",
+			"ComponentName":"RI_STOCK BAR",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"01 MERCHBAR",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"02 PIPE",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"03 HOLLOWS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"04 PLATE",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"04 PROFILE PLATE",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"05 SECTIONS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"06 FLAT ROLL",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"07 SPECPUR",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"08 REINFORCING",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"09 CYCLONE PUR",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"10 CYCLONE MAN",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"11 PIPE FITTS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"12 WELDING",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"13 MFG PRODS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"14 TOLL ITEMS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"15 STAINLESS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"16 ALUMINIUM",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"17 FASTENERS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"18 FREIGHT/CUT",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_ACCESSORIES OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_CLADDING PROFILES",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_COLORFLO",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_CONCEALED ROOFING",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_DIMOND COIL",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_DIMONDEK 630",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_FASTENERS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_FLASHINGS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_FLOORING",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_HIGH RIB ROOFING",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_INSULATED SYSTEMS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_LOW RIB ROOFING",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_NATURAL LIGHTING",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_NETTING",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_PURLIN SYSTEMS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_RIDGING",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_SOLAR RIB ROOFING",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_THERMAL INSULATION",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_TRAY ROOFING",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_UNDERLAYS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"DI_VENTILATED PRODUCTS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"FLETCHER REINFORCING ITEMS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"PCC_PALM",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"PCC_PHDG",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"PCC_PZAL",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"PCC_PZAM",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"Product_Freight",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"RI_ACCESSORIES OTHER",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"RI_MESH",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"RI_PLACING",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"RI_PREFAB",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"RI_SCB",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_PRODUCT_GROUP",
+			"ComponentName":"RI_STOCK BAR",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Product_Group.subsets/Default.json"
+	]
+}

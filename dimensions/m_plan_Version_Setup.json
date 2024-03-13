@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_plan_Version_Setup",
+	"Hierarchies@Code.links":
+	[
+		"m_plan_Version_Setup.hierarchies/m_plan_Version_Setup.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_plan_Version_Setup')/Hierarchies('m_plan_Version_Setup')"
+	}
+}

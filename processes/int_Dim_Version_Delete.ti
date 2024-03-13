@@ -1,0 +1,56 @@
+#region Prolog
+
+#----------------------------------------------------
+# Set contants (cXxxx) and parameters (pXxxx)
+#----------------------------------------------------
+cDim = 'plan_Version' ;
+sErr = '' ;
+#----------------------------------------------------
+# Validate Input
+#----------------------------------------------------
+IF( DIMIX( cDim , pVersion ) = 0 );
+	sErr = 'ERROR: "' | pVersion | '" is not a valid Scenario.' ;
+	ProcessBreak;
+ELSEIF( pVersion @= 'Actual' % pVersion @= 'Budget' % pVersion @= 'Forecast' ) ;
+	sErr = 'ERROR: "' | pVersion | '" may not be deleted.' ;
+	ProcessBreak;
+ELSEIF( ELLEV( cDim , pVersion ) <> 0 );
+	sErr = 'ERROR: "' | pVersion | '" is not a level 0 element.' ;
+	ProcessBreak;
+ENDIF;
+
+
+
+
+#endregion
+#region Data
+#----------------------------------------------------
+# Insert Scenario Element
+#----------------------------------------------------
+# IF( pVersionType @= 'Calculated Forecasts' );
+# 	sParent = 'Calculated Forecasts' ;
+# ELSEIF( pVersionType @= 'Calculated Budgets' );
+# 	sParent = 'Calculated Budgets';
+# ELSEIF( pVersionType @= 'Static Versions' );
+# 	sParent = 'Static Versions';
+# ENDIF;
+
+# DimensionElementComponentDeleteDirect( cDim, sParent, pVersion );
+
+#----------------------------------------------------
+# Delete Version
+#----------------------------------------------------
+IF( DIMIX( cDim , pVersion ) <> 0 );
+DimensionElementDeleteDirect( cDim , pVersion );
+endif;
+
+#endregion
+#region Epilog
+
+#----------------------------------------------------
+# Error handling
+#----------------------------------------------------
+IF( sErr @<> '' );
+	ItemReject( sErr );
+ENDIF;
+#endregion

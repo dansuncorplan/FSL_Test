@@ -1,0 +1,35 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Accounts_HFM')/Hierarchies('Accounts_HFM')/Elements('TOTAL REVENUE')"
+		},
+		{
+			"@id":"Dimensions('Accounts_HFM')/Hierarchies('Accounts_HFM')/Elements('TOTAL COGS')"
+		},
+		{
+			"@id":"Dimensions('Accounts_HFM')/Hierarchies('Accounts_HFM')/Elements('GROSS MARGIN')"
+		},
+		{
+			"@id":"Dimensions('Accounts_HFM')/Hierarchies('Accounts_HFM')/Elements('Warehousing and Distribution')"
+		},
+		{
+			"@id":"Dimensions('Accounts_HFM')/Hierarchies('Accounts_HFM')/Elements('GROSS PROFIT')"
+		},
+		{
+			"@id":"Dimensions('Accounts_HFM')/Hierarchies('Accounts_HFM')/Elements('Marketing')"
+		},
+		{
+			"@id":"Dimensions('Accounts_HFM')/Hierarchies('Accounts_HFM')/Elements('Administration expenses')"
+		},
+		{
+			"@id":"Dimensions('Accounts_HFM')/Hierarchies('Accounts_HFM')/Elements('OVERHEADS')"
+		},
+		{
+			"@id":"Dimensions('Accounts_HFM')/Hierarchies('Accounts_HFM')/Elements('EBIT')"
+		}
+	]
+}

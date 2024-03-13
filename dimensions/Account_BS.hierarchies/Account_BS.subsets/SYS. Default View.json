@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"SYS. Default View",
+	"Alias":"Code & Description",
+	"Expression":"{DRILLUPMEMBER({DISTINCT(DESCENDANTS([Account_BS].[Account_BS].[Creditors])),DISTINCT(DESCENDANTS([Account_BS].[Account_BS].[Provisions])),DISTINCT(DESCENDANTS([Account_BS].[Account_BS].[Inventory])),DISTINCT(DESCENDANTS([Account_BS].[Account_BS].[Trade Debtors])),DISTINCT(DESCENDANTS([Account_BS].[Account_BS].[Other Debtors])),DISTINCT(DESCENDANTS([Account_BS].[Account_BS].[Net Working Capital])),DISTINCT(DESCENDANTS([Account_BS].[Account_BS].[Fixed Assets, Intangibles & Investments])),DISTINCT(DESCENDANTS([Account_BS].[Account_BS].[Balance]))} , {[Account_BS].[Account_BS].[Creditors],[Account_BS].[Account_BS].[Provisions],[Account_BS].[Account_BS].[Inventory],[Account_BS].[Account_BS].[Trade Debtors],[Account_BS].[Account_BS].[Other Debtors],[Account_BS].[Account_BS].[Fixed Assets, Intangibles & Investments],[Account_BS].[Account_BS].[Cash and Bank Balances],[Account_BS].[Account_BS].[Intercompany Advances],[Account_BS].[Account_BS].[Reserves]})}"
+}
