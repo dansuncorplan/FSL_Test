@@ -1,0 +1,102 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Alias":"Code & Description",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Sales')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Discounts and Accruals')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Rebate Expenses and Price Support')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Other Revenue')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('TOTAL REVENUE')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Cost of Sales')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Rebate & Price Support Rec''d')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Materials')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Labour')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Freight')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('R & M')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Other Production Variable Costs')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Warranty''s')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Other Fixed Production Costs')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('COST OF GOODS SOLD')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Margin')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Margin %25')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('WAREHOUSING AND DISTRIBUTION EXPENSES')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Profit')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Profit %25')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('OVERHEADS (Excl Management Fees)')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Total Overheads %25')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('OTHER INCOME/EXPENSES')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBIT Before Management Fees')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBIT Before Management Fees %25')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Management Fees')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBIT')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBIT %25')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Below EBIT Items')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('TOTAL DEPRECIATION')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBITDA')"
+		}
+	]
+}

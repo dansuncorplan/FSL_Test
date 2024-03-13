@@ -1,0 +1,51 @@
+{
+	"@type":"Subset",
+	"Name":"Production P&L",
+	"ExpandAbove":true,
+	"Alias":"Code & Description",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Communications')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Debtors')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Depreciation')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Financial')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('General Office')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('IT Expenses')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Management Fees')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Property Costs')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Risk Management')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Staff Costs')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Services')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Travel & Entertainment')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Vehicle')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Unusual Items')"
+		}
+	]
+}

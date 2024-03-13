@@ -1,0 +1,33 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Alias":"Code & Description",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Creditors')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Provisions')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Inventory')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Trade Debtors')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Other Debtors')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Net Working Capital')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Fixed Assets, Intangibles & Investments')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Balance')"
+		}
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Currency",
+	"Elements":
+	[
+		{
+			"Name":"LCY",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

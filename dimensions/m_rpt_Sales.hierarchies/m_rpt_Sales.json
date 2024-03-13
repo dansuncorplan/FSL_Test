@@ -1,0 +1,293 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_rpt_Sales",
+	"Elements":
+	[
+		{
+			"Name":"Total Sales Volume",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Sales Volume - UOM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales Volume - LM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales Volume - EA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales Volume - TN",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales Volume Phasing Adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Final Selling Price",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Base Selling Price",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Selling Price Adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales revenue $ Non Tonne",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Customer Rebates %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Customer Discounts %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Freight Recoveries %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL SALES REVENUE $",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL Sales $ After Phasing Adjustment",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Sales Revenue  $ Phasing Adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL SALES $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL CUSTOMER REBATES $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL CUSTOMER DISCOUNTS $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Freight Recoveries $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Final Cost Price",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cost Price per UOM Base",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cost Price per UOM Adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cost of Sales $ Non Tonnes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Supplier Rebates %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL COST OF SALES After Rebates",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL COST OF SALES $ After Adjustment",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"COST OF SALES STANDARD $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS Manual Adjustment $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL SUPPLIER REBATES $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interbranch Freight %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Freight In %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Freight Out %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Freight $",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Interbranch Freight $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Freight In $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Freight Out $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RAW MARGIN $",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"RAW MARGIN %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MAF Margin $",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MAF Margin %",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Sales Volume",
+			"ComponentName":"Sales Volume Phasing Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Sales Volume",
+			"ComponentName":"Sales Volume - UOM",
+			"Weight":1
+		},
+		{
+			"ParentName":"Final Selling Price",
+			"ComponentName":"Base Selling Price",
+			"Weight":1
+		},
+		{
+			"ParentName":"Final Selling Price",
+			"ComponentName":"Selling Price Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL SALES REVENUE $",
+			"ComponentName":"TOTAL Sales $ After Phasing Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL SALES REVENUE $",
+			"ComponentName":"TOTAL CUSTOMER REBATES $",
+			"Weight":-1
+		},
+		{
+			"ParentName":"TOTAL SALES REVENUE $",
+			"ComponentName":"TOTAL CUSTOMER DISCOUNTS $",
+			"Weight":-1
+		},
+		{
+			"ParentName":"TOTAL SALES REVENUE $",
+			"ComponentName":"Freight Recoveries $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL Sales $ After Phasing Adjustment",
+			"ComponentName":"Sales Revenue  $ Phasing Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL Sales $ After Phasing Adjustment",
+			"ComponentName":"TOTAL SALES $",
+			"Weight":1
+		},
+		{
+			"ParentName":"Final Cost Price",
+			"ComponentName":"Cost Price per UOM Base",
+			"Weight":1
+		},
+		{
+			"ParentName":"Final Cost Price",
+			"ComponentName":"Cost Price per UOM Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL COST OF SALES After Rebates",
+			"ComponentName":"TOTAL COST OF SALES $ After Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL COST OF SALES After Rebates",
+			"ComponentName":"TOTAL SUPPLIER REBATES $",
+			"Weight":-1
+		},
+		{
+			"ParentName":"TOTAL COST OF SALES $ After Adjustment",
+			"ComponentName":"COST OF SALES STANDARD $",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL COST OF SALES $ After Adjustment",
+			"ComponentName":"COS Manual Adjustment $",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Freight $",
+			"ComponentName":"Interbranch Freight $",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Freight $",
+			"ComponentName":"Freight In $",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Freight $",
+			"ComponentName":"Freight Out $",
+			"Weight":1
+		},
+		{
+			"ParentName":"RAW MARGIN $",
+			"ComponentName":"TOTAL SALES REVENUE $",
+			"Weight":1
+		},
+		{
+			"ParentName":"RAW MARGIN $",
+			"ComponentName":"TOTAL COST OF SALES $ After Adjustment",
+			"Weight":-1
+		},
+		{
+			"ParentName":"MAF Margin $",
+			"ComponentName":"RAW MARGIN $",
+			"Weight":1
+		},
+		{
+			"ParentName":"MAF Margin $",
+			"ComponentName":"Total Freight $",
+			"Weight":-1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_rpt_Sales.subsets/sys.rpt_sales_measures.json"
+	]
+}

@@ -1,0 +1,37 @@
+{
+	"@type":"Subset",
+	"Name":"Forecast_Versions",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Sep 17')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Oct 17')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Nov 17')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Dec 17')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Jan 18')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Feb 18')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Mar 18')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Apr 18')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast May 18')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Forecast Aug 18')"
+		}
+	]
+}

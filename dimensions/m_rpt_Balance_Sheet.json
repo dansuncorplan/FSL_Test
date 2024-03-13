@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_rpt_Balance_Sheet",
+	"Hierarchies@Code.links":
+	[
+		"m_rpt_Balance_Sheet.hierarchies/m_rpt_Balance_Sheet.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_rpt_Balance_Sheet')/Hierarchies('m_rpt_Balance_Sheet')"
+	}
+}

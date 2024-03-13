@@ -1,0 +1,43 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta": {
+		"Aliases": {
+			"[Branch].[Branch]": "Code & Description",
+			"[Account_PL].[Account_PL]": "Code & Description",
+			"[rpt_Month].[rpt_Month]": "Month_Short",
+			"[rpt_Business_Unit].[rpt_Business_Unit]": "Code & Description"
+		},
+		"ExpandAboves": {
+			"[m_rpt_Profit_and_Loss].[m_rpt_Profit_and_Loss]": false,
+			"[rpt_Version].[rpt_Version]": false,
+			"[Branch].[Branch]": false,
+			"[Account_PL].[Account_PL]": true,
+			"[rpt_Month].[rpt_Month]": true,
+			"[Currency].[Currency]": false,
+			"[rpt_Year].[rpt_Year]": false,
+			"[rpt_Business_Unit].[rpt_Business_Unit]": false
+		},
+		"ContextSets": {
+			"[m_rpt_Profit_and_Loss].[m_rpt_Profit_and_Loss]": {
+				"Expression": "{[m_rpt_Profit_and_Loss].[m_rpt_Profit_and_Loss].[Value]}"
+			},
+			"[rpt_Version].[rpt_Version]": {
+				"Expression": "{[rpt_Version].[rpt_Version].[BUDGET 2021 FINAL - REPORT]}"
+			},
+			"[Branch].[Branch]": {
+				"Expression": "{[Branch].[Branch].[TOTAL_BRANCH]}"
+			},
+			"[Currency].[Currency]": {
+				"Expression": "{[Currency].[Currency].[LCY]}"
+			},
+			"[rpt_Year].[rpt_Year]": {
+				"Expression": "{[rpt_Year].[rpt_Year].[2016], [rpt_Year].[rpt_Year].[2017], [rpt_Year].[rpt_Year].[2018], [rpt_Year].[rpt_Year].[2019], [rpt_Year].[rpt_Year].[2020], [rpt_Year].[rpt_Year].[2021]}"
+			},
+			"[rpt_Business_Unit].[rpt_Business_Unit]": {
+				"Expression": "{[rpt_Business_Unit].[rpt_Business_Unit].[Fletcher Steel], [rpt_Business_Unit].[rpt_Business_Unit].[Fletcher Steel Exc CSP], [rpt_Business_Unit].[rpt_Business_Unit].[Easysteel], [rpt_Business_Unit].[rpt_Business_Unit].[Dimond Consolidation], [rpt_Business_Unit].[rpt_Business_Unit].[PCC], [rpt_Business_Unit].[rpt_Business_Unit].[Reinforcing], [rpt_Business_Unit].[rpt_Business_Unit].[SD Support], [rpt_Business_Unit].[rpt_Business_Unit].[NZSD Divisional], [rpt_Business_Unit].[rpt_Business_Unit].[CSP Pacific]}"
+			}
+		}
+	}
+}

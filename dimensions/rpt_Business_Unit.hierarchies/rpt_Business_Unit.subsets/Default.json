@@ -1,0 +1,38 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Alias":"Code & Description",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Fletcher Steel')"
+		},
+		{
+			"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Easysteel')"
+		},
+		{
+			"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Dimond Consolidation')"
+		},
+		{
+			"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('PCC')"
+		},
+		{
+			"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Reinforcing')"
+		},
+		{
+			"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('SD Support')"
+		},
+		{
+			"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('NZSD Divisional')"
+		},
+		{
+			"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('old.Fletcher Steel')"
+		},
+		{
+			"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Total_Manufacturing')"
+		},
+		{
+			"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Total_Non_Manufacturing')"
+		}
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"rpt_Business_Unit",
+	"Hierarchies@Code.links":
+	[
+		"rpt_Business_Unit.hierarchies/rpt_Business_Unit.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')"
+	}
+}

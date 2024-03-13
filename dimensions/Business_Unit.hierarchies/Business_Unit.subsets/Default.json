@@ -1,0 +1,35 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Alias":"Code & Description",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel Exc CSP')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Easysteel')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Dimond Consolidation')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('PCC')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Reinforcing')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('SD Support')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('NZSD Divisional')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('CSP Pacific')"
+		}
+	]
+}

@@ -1,0 +1,35 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_plan_Version_Setup",
+	"Elements":
+	[
+		{
+			"Name":"Source Version",
+			"Type":"String"
+		},
+		{
+			"Name":"Source Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Base Year",
+			"Type":"String"
+		},
+		{
+			"Name":"Plan Start Month",
+			"Type":"String"
+		},
+		{
+			"Name":"Plan End Month",
+			"Type":"String"
+		},
+		{
+			"Name":"Calculated Flag",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_plan_Version_Setup.subsets/sys.planstart_and_endmonth.json"
+	]
+}

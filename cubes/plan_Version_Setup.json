@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Version_Setup",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Version_Setup')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"plan_Version_Setup.views/calculation flag by month and version.json",
+		"plan_Version_Setup.views/Default.json",
+		"plan_Version_Setup.views/Version Base Year and Plan Months.json",
+		"plan_Version_Setup.views/ZeroOut.json"
+	]
+}

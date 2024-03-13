@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Picklist_Branch",
+	"Alias":"Code & Description",
+	"Expression":"{TM1SORT( {TM1FILTERBYLEVEL( {TM1SUBSETALL( [Branch] )}, 0)}, ASC)}"
+}

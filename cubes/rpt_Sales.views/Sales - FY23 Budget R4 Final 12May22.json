@@ -1,0 +1,313 @@
+{
+	"@type":"NativeView",
+	"Name":"Sales - FY23 Budget R4 Final 12May22",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2023')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')"
+				},
+				"ExpandAbove":true,
+				"Alias":"Month_Short",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('1')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('2')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('3')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('4')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('5')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('6')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('7')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('8')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('9')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('10')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('11')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('12')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('TOTAL_RPT_MONTH')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Total Sales Volume')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Sales Volume Phasing Adjustment')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Sales Volume - UOM')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Sales Volume - LM')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Sales Volume - EA')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Sales Volume - TN')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Final Selling Price')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Base Selling Price')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Selling Price Adjustment')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Sales revenue $ Non Tonne')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Customer Rebates %25')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Customer Discounts %25')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Freight Recoveries %25')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Final Cost Price')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Cost Price per UOM Base')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Cost Price per UOM Adjustment')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Cost of Sales $ Non Tonnes')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Supplier Rebates %25')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('TOTAL COST OF SALES After Rebates')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('TOTAL COST OF SALES $ After Adjustment')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('COST OF SALES STANDARD $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('COS Manual Adjustment $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('TOTAL SUPPLIER REBATES $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Interbranch Freight %25')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Freight In %25')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Freight Out %25')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('RAW MARGIN %25')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('MAF Margin $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('RAW MARGIN $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('TOTAL SALES REVENUE $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('TOTAL Sales $ After Phasing Adjustment')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Sales Revenue  $ Phasing Adjustment')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('TOTAL SALES $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('TOTAL CUSTOMER REBATES $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('TOTAL CUSTOMER DISCOUNTS $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Freight Recoveries $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('TOTAL COST OF SALES $ After Adjustment')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('COST OF SALES STANDARD $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('COS Manual Adjustment $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Total Freight $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Interbranch Freight $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Freight In $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('Freight Out $')"
+					},
+					{
+						"@id":"Dimensions('m_rpt_Sales')/Hierarchies('m_rpt_Sales')/Elements('MAF Margin %25')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')"
+				},
+				"Expression":"TM1SubsetAll([rpt_Version])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('FY23 Budget R4 Final 12May22')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('AUD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('EUR')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('USD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD Converted')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('TOTAL_BRANCH')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Fletcher Steel')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('Customer_by_Business_Unit')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Subsets('Default')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('Product_by_Business_Unit')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

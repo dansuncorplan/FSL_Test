@@ -1,0 +1,20 @@
+{
+	"@type":"MDXView",
+	"Name":"calculation flag by month and version",
+	"MDX@Code.link":"calculation flag by month and version.mdx",
+	"Meta": {
+		"Aliases": {
+			"[plan_Period].[plan_Period]": "rpt_Period"
+		},
+		"ExpandAboves": {
+			"[plan_Period].[plan_Period]": false,
+			"[plan_Version].[plan_Version]": false,
+			"[m_plan_Version_Setup].[m_plan_Version_Setup]": false
+		},
+		"ContextSets": {
+			"[m_plan_Version_Setup].[m_plan_Version_Setup]": {
+				"Expression": "{[m_plan_Version_Setup].[m_plan_Version_Setup].[Source Version],[m_plan_Version_Setup].[m_plan_Version_Setup].[Source Period],[m_plan_Version_Setup].[m_plan_Version_Setup].[Calculated Flag]}"
+			}
+		}
+	}
+}
