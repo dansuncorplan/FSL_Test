@@ -1,0 +1,633 @@
+#region Prolog
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Description
+## Calculate Payroll data by role, type and period
+
+
+
+## Hardcoded Variables
+
+sSourceCube = 'plan_Payroll_Current_Actuals' ;
+sTargetCube = 'plan_Payroll' ;
+
+sParameterCube = 'z_System_Parameters' ;
+
+sVersionDim = 'plan_Version' ;
+sPeriodDim = 'plan_Period' ;
+sBUDim = 'Business_Unit' ;
+sBranchDim = 'Branch' ;
+sRoleDim = 'Staff_Role' ;
+sTypeDim = 'Staff_Type' ;
+sMemberDim = 'Staff_Member' ;
+
+sSourceMeasureDim = 'm_' | sSourceCube ;
+sTargetMeasureDim = 'm_' | sTargetCube ;
+
+sSourceMeasure = 'Position Start' ;
+sActualVersion = 'Actual' ;
+
+sView = processName ;
+sSubset = sView ;
+
+
+
+
+
+## Create Target View
+
+sCube = sTargetCube ;
+
+IF( VIEWEXISTS( sCube, sView ) = 1 ) ;
+	VIEWDESTROY( sCube, sView ) ;
+ENDIF ;
+
+VIEWCREATE( sCube, sView ) ;
+
+
+
+## Subset - Version
+
+sDim = sVersionDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= pTargetVersion ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Period
+
+sDim = sPeriodDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+
+
+
+
+## Subset - Branch
+
+sDim = sBranchDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Business Unit
+
+sDim = sBUDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Staff Role
+
+sDim = sRoleDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Staff Type
+
+sDim = sTypeDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Target Measure
+
+sDim = sTargetMeasureDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Zero Out Target View
+
+VIEWZEROOUT( sCube, sView ) ;
+
+
+
+## Destroy Target View & Subsets
+
+VIEWDESTROY( sCube, sView ) ;
+
+SUBSETDESTROY( sVersionDim, sSubset ) ;
+SUBSETDESTROY( sPeriodDim, sSubset ) ;
+SUBSETDESTROY( sBranchDim, sSubset ) ;
+SUBSETDESTROY( sBUDim, sSubset ) ;
+SUBSETDESTROY( sRoleDim, sSubset ) ;
+SUBSETDESTROY( sTypeDim, sSubset ) ;
+SUBSETDESTROY( sTargetMeasureDim, sSubset ) ;
+
+
+
+
+
+## Create Source View
+
+sCube = sSourceCube ;
+
+IF( VIEWEXISTS( sCube, sView ) = 1 ) ;
+	VIEWDESTROY( sCube, sView ) ;
+ENDIF ;
+
+VIEWCREATE( sCube, sView ) ;
+
+
+
+## Subset - Version
+
+sDim = sVersionDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= sActualVersion ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+
+## Subset - Branch
+
+sDim = sBranchDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Plan Business Unit
+
+sDim = sBUDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Staff Member
+
+sDim = sMemberDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Source Measure
+
+sDim = sSourceMeasureDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= sSourceMeasure ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Set Source View
+
+DATASOURCECUBEVIEW = sView ;
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Add Staff Roles
+
+sDim = sRoleDim ;
+sElement = CELLGETS( sSourceCube, sActualVersion, vBusiness_Unit, vBranch, vMember, 'Staff Role' ) ;
+sCons = 'TOTAL_STAFF_ROLE' ;
+
+IF( sElement @<> '' ) ;
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+ENDIF ;
+
+DIMENSIONSORTORDER( sDim, 'ByName', 'Ascending', 'ByHierarchy', 'Descending' ) ;
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Get Variables
+
+sRole = CELLGETS( sSourceCube, sActualVersion, vBusiness_Unit, vBranch, vMember, 'Staff Role' ) ;
+sType = CELLGETS( sSourceCube, sActualVersion, vBusiness_Unit, vBranch, vMember, 'Staff Type' ) ;
+sPayInterval = CELLGETS( sSourceCube, sActualVersion, vBusiness_Unit, vBranch, vMember, 'Pay Interval' ) ;
+nAnnualAmount = CELLGETN( sSourceCube, sActualVersion, vBusiness_Unit, vBranch, vMember, 'Annual Amount $' ) ;
+nAllowanceAmount = CELLGETN( sSourceCube, sActualVersion, vBusiness_Unit, vBranch, vMember, 'Allowances Amount $ Calc' ) ;
+nIncentiveAmount = CELLGETN( sSourceCube, sActualVersion, vBusiness_Unit, vBranch, vMember, 'TOTAL INCENTIVE $' ) ;
+
+
+
+## Skip if Role or Type is Blank
+
+IF( DIMIX( sRoleDim, sRole ) = 0 % DIMIX( sTypeDim, sType ) = 0 ) ;
+	ITEMSKIP ;
+
+ENDIF ;
+
+
+# Headcount
+sMeasure = 'Headcount' ;
+nHeadcount = 1 + CELLGETN( sTargetCube, pTargetVersion, pStartingPeriod, vBusiness_Unit, vBranch, sRole, sType, sMeasure ) ;
+
+CELLPUTN( nHeadcount, sTargetCube, pTargetVersion, pStartingPeriod, vBusiness_Unit, vBranch, sRole, sType, sMeasure ) ;
+
+
+
+
+
+
+## Enter Total Annual Amount
+sMeasure = 'Total Annual Amount' ;
+nTotal = nAnnualAmount + CELLGETN( sTargetCube, pTargetVersion, pStartingPeriod, vBusiness_Unit, vBranch, sRole, sType, sMeasure ) ;
+
+CELLPUTN( nTotal, sTargetCube, pTargetVersion, pStartingPeriod, vBusiness_Unit, vBranch, sRole, sType, sMeasure ) ;
+
+
+
+## Calculate and Enter Avg Annual $
+
+sMeasure = 'Avg Annual Amount $' ;
+nAvg = nTotal \ nHeadcount ;
+
+CELLPUTN( nAvg, sTargetCube, pTargetVersion, pStartingPeriod, vBusiness_Unit, vBranch, sRole, sType, sMeasure ) ;
+
+
+
+
+## Enter Total Allowance Amount
+sMeasure = 'Total Allowance Amount' ;
+nTotal = nAllowanceAmount + CELLGETN( sTargetCube, pTargetVersion, pStartingPeriod, vBusiness_Unit, vBranch, sRole, sType, sMeasure ) ;
+
+CELLPUTN( nTotal, sTargetCube, pTargetVersion, pStartingPeriod, vBusiness_Unit, vBranch, sRole, sType, sMeasure ) ;
+
+
+## Calculate and Enter Avg Allowance $
+
+sMeasure = 'Avg Allowance Amount $' ;
+nAvg = nTotal \ nHeadcount ;
+
+CELLPUTN( nAvg, sTargetCube, pTargetVersion, pStartingPeriod, vBusiness_Unit, vBranch, sRole, sType, sMeasure ) ;
+
+
+
+
+## Enter Total Incentive Amount
+sMeasure = 'Total Incentive Amount' ;
+nTotal = nIncentiveAmount + CELLGETN( sTargetCube, pTargetVersion, pStartingPeriod, vBusiness_Unit, vBranch, sRole, sType, sMeasure ) ;
+
+CELLPUTN( nTotal, sTargetCube, pTargetVersion, pStartingPeriod, vBusiness_Unit, vBranch, sRole, sType, sMeasure ) ;
+
+
+## Calculate and Enter Avg Incentive $
+
+sMeasure = 'Avg Incentive Amount $' ;
+nAvg = nTotal \ nHeadcount ;
+
+CELLPUTN( nAvg, sTargetCube, pTargetVersion, pStartingPeriod, vBusiness_Unit, vBranch, sRole, sType, sMeasure ) ;
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+countRecords = countRecords + 1;
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion
+#region Epilog
+
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+## Destroy Source View & Subsets
+
+VIEWDESTROY( sCube, sView ) ;
+
+SUBSETDESTROY( sVersionDim, sSubset ) ;
+SUBSETDESTROY( sBranchDim, sSubset ) ;
+SUBSETDESTROY( sBUDim, sSubset ) ;
+SUBSETDESTROY( sMemberDim, sSubset ) ;
+SUBSETDESTROY( sSourceMeasureDim, sSubset ) ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

@@ -1,0 +1,245 @@
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+
+## Sales Volume UOM
+[ 'Sales Volume - UOM' ] = N:
+IF( ATTRS( 'Product_Group', !Product_Group, 'UOM' ) @= 'EA' ,
+# THEN
+	[ 'Sales Volume - EA' ] ,
+# ELSE
+	CONTINUE ) ;
+[ 'Sales Volume - UOM' ] = N:
+IF( ATTRS( 'Product_Group', !Product_Group, 'UOM' ) @= 'LM' ,
+# THEN
+	[ 'Sales Volume - LM' ] ,
+# ELSE
+	CONTINUE ) ;
+[ 'Sales Volume - UOM' ] = N:
+  [ 'Sales Volume - TN' ] ;
+
+
+
+#Region - calculate eighted average selling and costprice
+['Actual','Base Selling Price']=N:
+  If(['Sales Volume - EA']<>0,['TOTAL SALES $']\['Sales Volume - EA'],CONTINUE);
+['Actual','Base Selling Price']=N:
+  If(['Sales Volume - TN']<>0,['TOTAL SALES $']\['Sales Volume - TN'],CONTINUE);
+['Actual','Base Selling Price']=N:
+  If(['Sales Volume - LM']<>0,['TOTAL SALES $']\['Sales Volume - LM'],CONTINUE);
+
+['Actual','Cost Price per UOM Base']=N:
+  If(['Sales Volume - EA']<>0,['COST OF SALES STANDARD $']\['Sales Volume - EA'],CONTINUE);
+['Actual','Base Selling Price']=N:
+  If(['Sales Volume - TN']<>0,['COST OF SALES STANDARD $']\['Sales Volume - TN'],CONTINUE);
+['Actual','Base Selling Price']=N:
+  If(['Sales Volume - LM']<>0,['COST OF SALES STANDARD $']\['Sales Volume - LM'],CONTINUE);
+
+['Base Selling Price']=C:
+  ['TOTAL SALES $']\['Sales Volume - UOM'];
+
+['Cost Price per UOM Base']=C:
+  ['COST OF SALES STANDARD $']\['Sales Volume - UOM'];
+
+#EndRegion
+
+[ 'Actual' ] =N: STET ;
+
+## Total Sales $
+## ( Final Sales Price x Final Selling Price ) + Sales revenue $ Non Tonne
+
+[ 'Total Sales $' ] = N:
+( ['Total Sales Volume'] * ['Final Selling Price'] ) + ['Sales revenue $ Non Tonne'] ;
+
+
+
+## Total Customer Rebates $
+## Total Sales $ After Phasing Adjustment * Customer Rebates %
+
+[ 'Total Customer Rebates $' ] = N:
+['TOTAL Sales $ After Phasing Adjustment'] * ['Customer Rebates %']	 ;
+
+
+
+## Total Customer Discounts $
+## Total Sales $ After Phasing Adjustment * Customer Discounts %
+
+[ 'Total Customer Discounts $' ] = N:
+['TOTAL Sales $ After Phasing Adjustment'] * ['Customer Discounts %'] ;
+
+
+
+## Freight Recoveries $
+## Total Sales $ After Phasing Adjustment * Freight Recoveries %
+
+[ 'Freight Recoveries $' ] = N:
+IF( ATTRN( 'Business_Unit', !rpt_Business_Unit, 'Freight_Manual_Calc_Flag' ) = 0 ,
+# THEN
+	['TOTAL Sales $ After Phasing Adjustment'] * ['Freight Recoveries %'] ,
+# ELSE
+	STET ) ;
+
+
+
+## Cost of Sales Standard $
+## ( Final Sales Price x Final Cost Price ) + Cost of Sales $ Non Tonne
+
+[ 'Cost of Sales Standard $' ] = N:
+( ['Total Sales Volume'] * ['Final Cost Price'] ) + ['Cost of Sales $ Non Tonnes'] ;
+
+
+
+## Supplier Rebates $
+## Total Sales $ After Phasing Adjustment * Supplier Rebates %
+
+[ 'Total Supplier Rebates $' ] = N:
+[ 'TOTAL Cost of Sales $ After Adjustment' ] * [ 'Supplier Rebates %' ] ;
+
+
+
+## Interbranch Freight $
+## Total Sales $ After Phasing Adjustment * Interbranch Freight %
+
+[ 'Interbranch Freight $' ] = N:
+IF( ATTRN( 'Business_Unit', !rpt_Business_Unit, 'Freight_Manual_Calc_Flag' ) = 0 ,
+# THEN
+	[ 'TOTAL Sales Revenue $' ] * [ 'Interbranch Freight %' ] ,
+# ELSE
+	STET ) ;
+
+
+
+## Freight In $
+## Total Sales Revenue $ * Freight In %
+
+[ 'Freight In $' ] = N:
+IF( ATTRN( 'Business_Unit', !rpt_Business_Unit, 'Freight_Manual_Calc_Flag' ) = 0 ,
+# THEN
+	[ 'TOTAL Sales Revenue $' ] * [ 'Freight In %' ] ,
+# ELSE
+	STET ) ;
+
+
+
+## Freight Out $
+## Total Sales Revenue $ * Freight Out %
+
+[ 'Freight Out $' ] = N:
+IF( ATTRN( 'Business_Unit', !rpt_Business_Unit, 'Freight_Manual_Calc_Flag' ) = 0 ,
+# THEN
+	[ 'TOTAL Sales Revenue $' ] * [ 'Freight Out %' ] ,
+# ELSE
+	STET ) ;
+
+
+
+## Raw Margin %
+## Total Cost of Sales after Phasing Adjustment / Totals Sales Revenue $
+
+[ 'Raw Margin %' ] =
+[ 'RAW Margin $' ]  \ [ 'TOTAL Sales Revenue $' ] ;
+
+
+
+## MAF Margin %
+## Total Freight $ / Total Cost of Sales after Phasing Adjustment
+
+[ 'MAF Margin %' ] =
+[ 'MAF Margin $' ] \[ 'TOTAL Sales Revenue $' ]  ;
+
+
+
+
+## Customer Rebates %
+## Consolidated Avg
+
+[ ] = C:
+IF( SCAN( '%', !m_rpt_Sales ) <> 0 ,
+# THEN
+	CONSOLIDATEDAVG( 2, 'rpt_Sales',!rpt_Version,!Currency_Sales,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,!Customer_Sales,!Product_Group,!m_rpt_Sales),
+# ELSE
+	CONTINUE ) ;
+
+# ['Base Selling Price'] = C: 
+# CONSOLIDATEDAVG( 1, 'rpt_Sales','Actual,NZD','TOTAL_RPT_MONTH','2022','15','24','DI_EXTERNAL','DI_RIDGING','Base Selling Price'),
+# ;
+FEEDERS ;
+
+## Feed Actuals to plan_Profit_and_Loss
+
+# [ 'Actual', 'Fletcher Steel' ] =>
+# DB( 'plan_Sales','Actual',!Currency_Sales,
+# !rpt_Year | ' ' | ATTRS( 'rpt_Month', !rpt_Month, 'Month_Short' ) ,
+# !Branch,'Fletcher Steel',!Customer_Sales, !Product_Group, !m_rpt_Sales ) ;
+
+
+
+## Feed Total Sales $
+
+[ 'Total Sales Volume' ] => [ 'Total Sales $' ] ;
+[ 'Sales revenue $ Non Tonne' ] => [ 'Total Sales $' ] ;
+
+
+## Feed Customer Rebates
+
+[ 'Customer Rebates %' ] => [ 'Total Customer Rebates $' ] ;
+
+
+## Feed Customer Discounts
+
+[ 'Customer Discounts %' ] => [ 'Total Customer Discounts $' ] ;
+
+
+## Feed Freight Recoveries
+
+[ 'Freight Recoveries %' ] => [ 'Freight Recoveries $' ] ;
+
+
+## Feed Cost of Sales Standard $
+
+[ 'Total Sales Volume' ] => [ 'Cost of Sales Standard $' ] ;
+[ 'Cost of Sales $ Non Tonnes' ] => [ 'Cost of Sales Standard $' ] ;
+
+
+## Feed Supplier Rebates
+
+[ 'Supplier Rebates %' ] => [ 'Total Supplier Rebates $' ] ;
+
+
+## Feed Interbranch Freight $
+
+[ 'Interbranch Freight %' ] => [ 'Interbranch Freight $' ] ;
+
+
+## Feed Freight In $
+
+[ 'Freight In %' ] => [ 'Freight In $' ] ;
+
+
+## Feed Freight Out $
+
+[ 'Freight Out %' ] => [ 'Freight Out $' ] ;
+
+
+## Feed Raw Margin %
+
+[ 'Total Sales Revenue $' ] => [ 'Raw Margin %' ] ;
+
+
+## Feed MAF Margin %
+
+[ 'Total Sales Revenue $' ] => [ 'MAF Margin %' ] ;
+
+
+
+## Sales Volume - UOM
+
+[ 'Sales Volume - TN' ] => [ 'Sales Volume - UOM' ] ;
+[ 'Sales Volume - LM' ] => [ 'Sales Volume - UOM' ] ;
+[ 'Sales Volume - EA' ] => [ 'Sales Volume - UOM' ] ;
+
+## Total Sales and Base Selling 
+['Actual', 'TOTAL SALES $'] => ['Base Selling Price'];
+
+## Total Sales and Base Selling 
+['Actual','COST OF SALES STANDARD $'] => ['Cost Price per UOM Base'];

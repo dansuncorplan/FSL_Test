@@ -1,0 +1,37 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_plan_BU_Branch_Mapping",
+	"Elements":
+	[
+		{
+			"Name":"Is Linked",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Removed",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Final",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Mapped",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Final",
+			"ComponentName":"Is Linked",
+			"Weight":1
+		},
+		{
+			"ParentName":"Final",
+			"ComponentName":"Removed",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

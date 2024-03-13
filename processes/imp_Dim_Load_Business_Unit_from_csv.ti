@@ -1,0 +1,379 @@
+#region Prolog
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Description
+## Update Business Unit dimension from csv file
+
+
+
+## Hardcoded Variables
+
+sRptBUDim = 'rpt_Business_Unit' ;
+sPlanBUDim = 'plan_Business_Unit' ;
+
+sParameterCube = 'z_System_Parameters' ;
+
+sDescAttr = 'Description' ;
+sCodeDescAttr = 'Code & Description' ;
+
+DIMENSIONDELETEALLELEMENTS( sRptBUDim ) ;
+
+DIMENSIONELEMENTINSERT( sRptBUDim, '', 'TOTAL_RPT_BUSINESS_UNIT', 'C' ) ;
+
+
+DIMENSIONDELETEALLELEMENTS( sPlanBUDim ) ;
+
+
+
+## Set Source View
+
+sFileFolder = CELLGETS( sParameterCube, 'Import_Directory', 'String' ) | '\' | processName | '\' ;
+
+sDatasource = sFileFolder | pFileName ;
+
+DATASOURCENAMEFORSERVER = sDatasource ;
+
+
+
+## Create Attribute - Description
+
+sDim = sRptBUDim ;
+sAttr = sDescAttr ;
+
+ATTRINSERT( sDim, '', sAttr, 'A' ) ;
+
+
+
+## Create Attribute - Code & Description
+
+sDim = sRptBUDim ;
+sAttr = sCodeDescAttr ;
+
+ATTRINSERT( sDim, '', sAttr, 'A' ) ;
+
+
+
+## Create Attribute - Description
+
+sDim = sPlanBUDim ;
+sAttr = sDescAttr ;
+
+ATTRINSERT( sDim, '', sAttr, 'A' ) ;
+
+
+
+## Create Attribute - Code & Description
+
+sDim = sPlanBUDim ;
+sAttr = sCodeDescAttr ;
+
+ATTRINSERT( sDim, '', sAttr, 'A' ) ;
+
+
+
+
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+## Set Target to Reporting
+
+sTargetDim = sRptBUDim ; 
+
+
+
+## Add Sub Unit
+
+sDim = sTargetDim ;
+sElement = vSubUnit ;
+sCons = 'TOTAL_RPT_BUSINESS_UNIT' ;
+
+IF( DIMIX( sDim, sElement ) = 0 & sElement @<> '' ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+ENDIF ;
+
+
+
+## Add Parent
+
+sDim = sTargetDim ;
+sElement = vParent ;
+
+IF( DIMIX( sDim, sElement ) = 0 & sElement @<> '' ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+
+ENDIF ;
+
+
+
+## Add Rollup 1
+
+sDim = sTargetDim ;
+sElement = vRollup1 ;
+sElementPlan = vRollup1 | ' - Planned' ;
+sCons = vParent ;
+
+IF( DIMIX( sDim, sElement ) = 0 & sElement @<> '' ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElementPlan, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sElement, sElementPlan, 1 ) ;
+
+ENDIF ;
+
+
+
+## Add Rollup 2
+
+sDim = sTargetDim ;
+sElement = vRollup2 ;
+sElementPlan = vRollup2 | ' - Planned' ;
+sCons = vRollup1 ;
+
+IF( DIMIX( sDim, sElement ) = 0 & sElement @<> '' ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElementPlan, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sElement, sElementPlan, 1 ) ;
+
+ENDIF ;
+
+
+
+## Add Business Unit
+
+sDim = sTargetDim ;
+sElement = vBusinessUnit ;
+sElementPlan = vBusinessUnit | ' - Planned' ;
+sCons = vRollup2 ;
+
+IF( DIMIX( sDim, sElement ) = 0 & sElement @<> '' ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElementPlan, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sElement, sElementPlan, 1 ) ;
+
+ENDIF ;
+
+
+
+## Add Sub Unit to Business Unit
+
+sDim = sTargetDim ;
+sElement = vSubUnit ;
+
+IF( DIMIX( sDim, vBusinessUnit ) <> 0 ) ;
+	sCons = vBusinessUnit ;
+ELSE ;
+	sCons = vRollup2 ;
+ENDIF ;
+
+
+DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+
+
+## Set Target to Reporting
+
+sTargetDim = sPlanBUDim ; 
+
+
+
+## Add Parent
+
+sDim = sTargetDim ;
+sElement = vParent ;
+
+IF( DIMIX( sDim, sElement ) = 0 & sElement @<> '' ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+
+ENDIF ;
+
+
+
+## Add Rollup 1
+
+sDim = sTargetDim ;
+sElement = vRollup1 ;
+sCons = vParent ;
+
+IF( DIMIX( sDim, sElement ) = 0 & sElement @<> '' ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+ENDIF ;
+
+
+
+## Add Rollup 2
+
+sDim = sTargetDim ;
+sElement = vRollup2 ;
+sCons = vRollup1 ;
+
+IF( DIMIX( sDim, sElement ) = 0 & sElement @<> '' ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+ENDIF ;
+
+
+
+## Add Business Unit
+
+sDim = sTargetDim ;
+sElement = vBusinessUnit ;
+sCons = vRollup2 ;
+
+IF( DIMIX( sDim, sElement ) = 0 & sElement @<> '' ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+ENDIF ;
+
+
+
+## Add Easysteel Planning
+
+sDim = sTargetDim ;
+sElement = 'Easysteel - Planning' ;
+sCons = 'Easysteel' ;
+
+IF( vRollup2 @= sCons ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+ENDIF ;
+
+
+
+## Add Roofing Planning
+
+sDim = sTargetDim ;
+sElement = 'Roofing - Planning' ;
+sCons = 'Roofing' ;
+
+IF( vRollup2 @= sCons ) ;
+
+	DIMENSIONELEMENTINSERT( sDim, '', sElement, 'N' ) ;
+	DIMENSIONELEMENTCOMPONENTADD( sDim, sCons, sElement, 1 ) ;
+
+ENDIF ;
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+countRecords = countRecords + 1;
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Update Attribute - Description
+
+sDim = sRptBUDim ;
+sElement = vSubUnit ;
+sAttr = sDescAttr ;
+sAttrValue = vDescription ;
+
+ATTRPUTS( sAttrValue, sDim, sElement, sAttr ) ;
+
+
+
+## Update Attribute - Code & Description
+
+sDim = sRptBUDim ;
+sElement = vSubUnit ;
+sAttr = sCodeDescAttr ;
+sAttrValue = vSubUnit | ' - ' | vDescription ;
+
+ATTRPUTS( sAttrValue, sDim, sElement, sAttr ) ;
+
+#endregion
+#region Epilog
+
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

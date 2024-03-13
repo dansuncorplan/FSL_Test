@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_rpt_Profit_and_Loss",
+	"Elements":
+	[
+		{
+			"Name":"Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% of Sales",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

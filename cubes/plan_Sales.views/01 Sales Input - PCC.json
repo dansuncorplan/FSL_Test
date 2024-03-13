@@ -1,0 +1,205 @@
+{
+	"@type":"NativeView",
+	"Name":"01 Sales Input - PCC",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Subsets('Current Budget Periods')"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('PCC Products')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('PCC_PALM')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('PCC_PHDG')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('PCC_PZAM')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('PCC_PZAL')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('PCC Customer')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('300045')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('300156')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('300019')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('300262')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('300057')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('PCC_NZ OTHER')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('308360')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('PCC_PACIFIC')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('AUD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('EUR')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('USD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD Converted')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - TN')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Base Selling Price')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Selling Price Adjustment')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales revenue $ Non Tonne')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Customer Rebates %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Customer Discounts %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Cost Price per UOM Base')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Cost Price per UOM Adjustment')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Cost of Sales $ Non Tonnes')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Supplier Rebates %25')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - TN')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Subsets('Picklist_Sub_Unit')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('10')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Subsets('Picklist_Branch')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('01')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":""
+}

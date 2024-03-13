@@ -1,0 +1,13 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta": {
+		"Aliases": {},
+		"ExpandAboves": {
+			"[plan_Version].[plan_Version]": false,
+			"[plan_Version_Control_Measure].[plan_Version_Control_Measure]": false
+		},
+		"ContextSets": {}
+	}
+}

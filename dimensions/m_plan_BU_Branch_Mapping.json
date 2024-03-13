@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_plan_BU_Branch_Mapping",
+	"Hierarchies@Code.links":
+	[
+		"m_plan_BU_Branch_Mapping.hierarchies/m_plan_BU_Branch_Mapping.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_plan_BU_Branch_Mapping')/Hierarchies('m_plan_BU_Branch_Mapping')"
+	}
+}

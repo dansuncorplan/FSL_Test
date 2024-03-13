@@ -1,0 +1,286 @@
+{
+	"@type":"NativeView",
+	"Name":"01 Sales Input - CSR",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year +1 12')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('Dimond & CSR Customer')"
+					},
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('DI_NZ OTHER')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('Dimond & CSR Products')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_ACCESSORIES OTHER')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_CLADDING PROFILES')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_COLORFLO')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_DIMOND COIL')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_DIMOND DOWNGRADE')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_FLASHGUARD/ALI EDGE')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_FLASHINGS')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_HIGH RIB ROOFING')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_LOW RIB ROOFING')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_SOLAR RIB ROOFING')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_NATURAL LIGHTING')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_RIDGING')"
+					},
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_DIMOND CONTRACTS')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('AUD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('EUR')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('USD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD Converted')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - LM')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - EA')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - TN')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Base Selling Price')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Selling Price Adjustment')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales revenue $ Non Tonne')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Customer Rebates %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Customer Discounts %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Cost Price per UOM Base')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Cost Price per UOM Adjustment')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Cost of Sales $ Non Tonnes')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Supplier Rebates %25')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Sales Volume - LM')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('76')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('76')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Branch')/Hierarchies('Branch')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('80')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('95')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('80')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":""
+}

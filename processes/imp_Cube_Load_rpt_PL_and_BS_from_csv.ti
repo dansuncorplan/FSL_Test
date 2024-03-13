@@ -1,0 +1,783 @@
+#region Prolog
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Description
+## Load csv file to rpt_Profit_and_Loss and rpt_Balance_Sheet cube
+
+
+
+## Hardcoded Variables
+
+sPLCube = 'rpt_Profit_and_Loss' ;
+sBSCube = 'rpt_Balance_Sheet' ;
+
+sParameterCube = 'z_System_Parameters' ;
+
+sVersionDim = 'rpt_Version' ;
+sCurrencyDim = 'Currency' ;
+sMonthDim = 'rpt_Month' ;
+sYearDim = 'rpt_Year' ;
+sBranchDim = 'Branch' ;
+sBusinessUnitDim = 'rpt_Business_Unit' ;
+
+sPLAccountDim = 'Account_PL' ;
+sBSAccountDim = 'Account_BS' ;
+
+sPLMeasureDim = 'm_rpt_Profit_and_Loss' ;
+sBSMeasureDim = 'm_rpt_Balance_Sheet' ;
+
+sCurrency = 'LCY' ;
+sMeasure = 'Value ' ;
+
+sManualEntryFlagAttr = 'Manual_Entry_Flag' ;
+
+sView = processName ;
+sSubset = sView ;
+
+
+
+## Set Source File
+
+# sFileFolder = CELLGETS( sParameterCube, 'Import_Directory', 'String' ) | '\' | processName | '\' ;
+
+# sDatasource = sFileFolder | pFileName ;
+
+sFileFolder='./';
+sDatasource = sFileFolder | pFileName ;
+
+DATASOURCENAMEFORSERVER = sDatasource ;
+
+
+
+## Create Zero Out Target View - Profit and Loss
+
+sCube = sPLCube ;
+
+IF( VIEWEXISTS( sCube, sView ) = 1 ) ;
+	VIEWDESTROY( sCube, sView ) ;
+ENDIF ;
+
+VIEWCREATE( sCube, sView ) ;
+
+
+
+## Subset - Version
+
+sDim = sVersionDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= pVersion ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Currency
+
+sDim = sCurrencyDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= sCurrency ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Month
+
+sDim = sMonthDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Year
+
+sDim = sYearDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+	
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		nElement = STRINGTONUMBER( sElement ) ;
+		IF( nElement >= StringToNumber(pYearRangeFrom) & nElement <= StringToNumber(pYearRangeTo) ) ;
+			SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+		ENDIF ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Branch
+
+sDim = sBranchDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Business Unit
+
+sDim = sBusinessUnitDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Account PL
+
+sDim = sPLAccountDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+	nManualFlag = ATTRN( sDim, sElement, sManualEntryFlagAttr ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 & nManualFlag = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Measure
+
+sDim = sPLMeasureDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= sMeasure ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Zero Out Target View
+
+VIEWZEROOUT( sCube, sView ) ;
+
+
+
+## Destroy Target View & Subsets
+
+VIEWDESTROY( sCube, sView ) ;
+
+SUBSETDESTROY( sVersionDim, sSubset ) ;
+SUBSETDESTROY( sCurrencyDim, sSubset ) ;
+SUBSETDESTROY( sMonthDim, sSubset ) ;
+SUBSETDESTROY( sYearDim, sSubset ) ;
+SUBSETDESTROY( sBranchDim, sSubset ) ;
+SUBSETDESTROY( sBusinessUnitDim, sSubset ) ;
+SUBSETDESTROY( sPLAccountDim, sSubset ) ;
+SUBSETDESTROY( sPLMeasureDim, sSubset ) ;
+
+
+
+
+
+## Create Zero Out Target View - Balance Sheet
+
+sCube = sBSCube ;
+
+IF( VIEWEXISTS( sCube, sView ) = 1 ) ;
+	VIEWDESTROY( sCube, sView ) ;
+ENDIF ;
+
+VIEWCREATE( sCube, sView ) ;
+
+
+
+## Subset - Version
+
+sDim = sVersionDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= pVersion ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Currency
+
+sDim = sCurrencyDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= sCurrency ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Month
+
+sDim = sMonthDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+# Subset - Year
+
+sDim = sYearDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+	
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		nElement = STRINGTONUMBER( sElement ) ;
+
+		IF( nElement >= StringToNumber(pYearRangeFrom) & nElement <= StringToNumber(pYearRangeTo) ) ;
+			SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+		ENDIF ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Branch
+
+sDim = sBranchDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Business Unit
+
+sDim = sBusinessUnitDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Account BS
+
+sDim = sBSAccountDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+	nManualFlag = ATTRN( sDim, sElement, sManualEntryFlagAttr ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 & nManualFlag = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - BS Measure
+
+sDim = sBSMeasureDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= sMeasure ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Zero Out Target View
+
+VIEWZEROOUT( sCube, sView ) ;
+
+
+
+## Destroy Target View & Subsets
+
+VIEWDESTROY( sCube, sView ) ;
+
+SUBSETDESTROY( sVersionDim, sSubset ) ;
+SUBSETDESTROY( sCurrencyDim, sSubset ) ;
+SUBSETDESTROY( sMonthDim, sSubset ) ;
+SUBSETDESTROY( sYearDim, sSubset ) ;
+SUBSETDESTROY( sBranchDim, sSubset ) ;
+SUBSETDESTROY( sBusinessUnitDim, sSubset ) ;
+SUBSETDESTROY( sBSAccountDim, sSubset ) ;
+SUBSETDESTROY( sBSMeasureDim, sSubset ) ;
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Variables
+
+sVersion = pVersion ;
+sLCYCurrency = 'LCY' ;
+sMonth = vMonth ;
+sYear = vYear ;
+sBranch = vBR ;
+sBusinessUnit = vSU ;
+sAccount = vAccount ;
+sValueMeasure = 'Value' ;
+
+nValue = vBalance ;
+
+
+
+## Skip if Year in file doesn't match Parameters
+
+nYear = STRINGTONUMBER( vYear ) ;
+
+IF( nYear < StringToNumber(pYearRangeFrom) % nYear > StringToNumber(pYearRangeTo) ) ;
+	ITEMSKIP ;
+ENDIF ;
+
+
+
+## Add a 0 to Branch if Source File formatting is incorrect
+
+IF( LONG( sBranch ) = 1 ) ;
+	sBranch = '0' | sBranch ;
+ENDIF ;
+
+
+
+## Reverse Revenue - Total Revenue
+
+sCons = 'TOTAL REVENUE' ;
+
+IF( ELISANC( sPLAccountDim, sCons, sAccount ) = 1 ) ;
+	nValue = nValue * -1 ;
+ENDIF ;
+
+
+## Reverse Revenue - OTHER INCOME/EXPENSES
+## Added 26/08/2020 
+
+sCons = 'OTHER INCOME/EXPENSES' ;
+
+IF( ELISANC( sPLAccountDim, sCons, sAccount ) = 1 ) ;
+	nValue = nValue * -1 ;
+ENDIF ;
+
+
+
+
+
+## Skip Business Unit 32
+## Requested by Suzanne 27/3/2018
+
+IF( sBusinessUnit @= '32' ) ;
+	ITEMSKIP ;
+ENDIF ;
+
+
+
+## Set Target Cube
+
+IF( DIMIX( sPLAccountDim, sAccount ) <> 0 ) ;
+	sTargetCube = sPLCube ;
+
+ELSEIF( DIMIX( sBSAccountDim, sAccount ) <> 0 ) ;
+	sTargetCube = sBSCube ;
+
+ELSE ;
+	ITEMREJECT( 'Account ' | sAccount | ' does not exist in either P&L or Balance Sheet account dimension. Please update' ) ;
+
+ENDIF ;
+
+
+
+## Get Current TM1 Value & Accumulate with Balance
+
+nAccValue =  CELLGETN( sTargetCube, sVersion, sLCYCurrency, sMonth, sYear, 
+		sBranch, sBusinessUnit, sAccount, sValueMeasure ) ;
+
+nValue = nValue + nAccValue ;
+
+
+
+## Load Data from csv
+
+CELLPUTN( nValue, sTargetCube, sVersion, sLCYCurrency, sMonth, sYear, 
+		sBranch, sBusinessUnit, sAccount, sValueMeasure ) ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+countRecords = countRecords + 1;
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion
+#region Epilog
+
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+
+
+## Refresh Feeders to Planning Cubes
+
+CUBEPROCESSFEEDERS ( 'rpt_Profit_and_Loss' ) ;
+CUBEPROCESSFEEDERS ( 'rpt_Balance_Sheet' ) ;
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

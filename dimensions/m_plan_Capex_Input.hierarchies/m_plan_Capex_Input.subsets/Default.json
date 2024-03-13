@@ -1,0 +1,62 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Alias":"rpt_Period",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Asset ID')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Initiative Name')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Description')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Asset Type')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Asset Driver')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Amount Remaining')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Asset Total')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Approved Rejected')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Revised Allocation')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Approved Amount')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Approved Amount Remaining')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Asset Life')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Spend Start Period')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Depn Start Period')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Monthly Depn Amount')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Spend by Period')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Depreciation by Period')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Future Rolling 12 Months Spend')"
+		}
+	]
+}

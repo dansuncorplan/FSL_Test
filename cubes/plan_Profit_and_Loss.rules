@@ -1,0 +1,479 @@
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+## Total Overheads %
+[ 'Total Overheads %' ] =
+[ 'OVERHEADS (Excl Management Fees)' ] \ [ 'Total Revenue' ] ;
+
+## EBIT %
+[ 'EBIT %' ] =
+[ 'EBIT' ] \ [ 'Total Revenue' ] ;
+
+## EBIT Before Management Fees %
+[ 'EBIT Before Management Fees %' ] =
+[ 'EBIT Before Management Fees' ] \ [ 'Total Revenue' ] ;
+
+## Gross Profit %
+[ 'Gross Profit %' ] =
+[ 'Gross Profit' ] \ [ 'Total Revenue' ] ;
+
+## Gross Margin %
+[ 'Gross Margin %' ] =
+[ 'Gross Margin' ] \ [ 'Total Revenue' ] ;
+
+## Calculations
+[ 'Calculations' ] = 0 ;
+
+## Zero Out Opening Balance Periods
+[ ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ) @= 'Opening Balance' ,
+	0 ,
+	CONTINUE ) ;
+
+## Actual from rpt_Profit_and_Loss
+[ 'Actual', 'Value' ] = N:
+IF( NUMBR( ATTRS( 'plan_Period', !plan_Period, 'Period_Offset' ) ) < 0 ,
+# THEN
+	DB( 'rpt_Profit_and_Loss','Actual',!Currency,
+	ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ),
+	ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ),
+	!Branch,!Business_Unit,!Account_PL,'Value' ) ,
+# ELSE
+	STET ) ;
+
+#Region - control calculated months
+[]=N:
+  If(ELISANC( 'plan_Version', 'Calculated Versions', !plan_Version)=1,
+    CONTINUE,
+  STET);
+  
+# []=N:
+#   If(DB( 'plan_Version_Setup', !plan_Version, !plan_Period, 'Calculated Flag'  )=1,
+#     CONTINUE,
+#   STET);
+#EndRegion
+
+#Regeion - Forecast equals Actual where Offset is less than 0
+['Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Forecasts', !plan_Version)=1 & DB( 'plan_Version_Setup', !plan_Version, !plan_Period, 'Calculated Flag'  )=0,
+      DB('plan_Profit_and_Loss','Actual',!Currency,!plan_Period,!Branch,!Business_Unit,!Account_PL,!m_plan_Profit_and_Loss) ,
+	CONTINUE ) ;
+
+#EndRegion
+
+#Regeion - Budget versions with calc flag off do not have rules
+['Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1 & DB( 'plan_Version_Setup', !plan_Version, !plan_Period, 'Calculated Flag'  )=0,
+	STET ,
+  CONTINUE ) ;
+
+## STET sals, payroll and CAPEX rules for CSP to allow direct data entry to accounts
+## Added 8th June 2022 - RE
+[ '34', 'Value' ] = N: STET ;
+
+#Region - Sales
+## 11010 ES_NZ_External
+[{ '10', '11', '12', '14', '16', '18', '19'}, '11010', 'Value'] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'ES_External','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment');
+
+## Budgeted Sales
+## 11020 ES_STEEL GROUP
+[{ '10', '11', '12', '14', '16', '18', '19'}, '11020', 'Value'] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'ES_Steel Group','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment');
+
+## Budgeted Sales
+## 11030 ES OTHER
+[{ '10', '11', '12', '14', '16', '18', '19'}, '11030', 'Value'] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'ES_NZ_Other','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment')+
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'ES_Other Divisions','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment');
+
+## Budgeted Sales
+## 11010 DI_External
+[{ '20', '21', '23', '24', '25', '26', '27', '28', '29'}, '11010', 'Value'] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'DI_External','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment');
+
+## Budgeted Sales
+## 11020 DI_STEEL GROUP
+[{ '20', '21', '23', '24', '25', '26', '27', '28', '29'}, '11020', 'Value'] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'DI_Steel Group','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment');
+
+## Budgeted Sales
+## 11030 DI OTHER
+[{'20', '21', '23', '24', '25', '26', '27', '28', '29'}, '11030', 'Value'] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'DI_NZ OTHER','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment')+
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'DI_PLACEMAKERS','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment')+
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'DI_OTHER DIVISIONS','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment');
+
+## Budgeted Sales
+## 11020 PCC to Dimond and Calder Stewart
+[ '30 - PACIFIC COILCOATERS', '11020', 'Value' ] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'300045','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment') +
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'300019','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment') ;
+
+## Budgeted Sales
+## 11010 PCC Sales less Dimond and Calder Stewart
+[ '30 - PACIFIC COILCOATERS', '11010', 'Value' ] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment') -
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'300045','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment') -
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'300019','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment') ;
+
+## Budgeted Sales
+## 11010 External Sales
+[ '11010', 'Value' ] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL Sales $ After Phasing Adjustment') ;
+
+## Budgeted Sales
+## 12010 Customer Rebates
+['12010', 'Value' ] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL Customer Rebates $') * - 1 ;
+
+## Budgeted Sales
+## 11520 PCC Customer Discounts to Dimond and Calder Stewart
+['PCC', '11520', 'Value' ] = N:
+( DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'300045','Product_by_Business_Unit','TOTAL Customer Discounts $') +
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'300019','Product_by_Business_Unit','TOTAL Customer Discounts $') ) * -1 ;
+
+## Budgeted Sales
+## 11510 PCC Customer Discounts less Dimond and Calder Stewart
+['PCC', '11510', 'Value' ] = N:
+( DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL Customer Discounts $') -
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'300045','Product_by_Business_Unit','TOTAL Customer Discounts $') -
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'300019','Product_by_Business_Unit','TOTAL Customer Discounts $') ) * -1 ;
+
+## Budgeted Sales
+## 11510 Customer Discounts
+[ '11510', 'Value' ] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL Customer Discounts $') * -1 ;
+
+## Budgeted Sales
+## 27030 Freight Recoveries
+[ '27030', 'Value' ] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'Customer_by_Business_Unit','Product_by_Business_Unit','Freight Recoveries $') ;
+
+## Budgeted Sales
+## 21010 Cost of Sales
+['21010', 'Value' ] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL COST OF SALES $ After Adjustment') ;
+
+# Budgeted Sales
+## 22010 Supplier Rebates
+['22010', 'Value' ] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'Customer_by_Business_Unit','Product_by_Business_Unit','TOTAL SUPPLIER REBATES $') * -1 ;
+
+## Budgeted Sales
+## 27000 Freight Interbranch
+[ '27000', 'Value' ] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'Customer_by_Business_Unit','Product_by_Business_Unit','Interbranch Freight $') ;
+
+## Budgeted Sales
+## 27010 Freight In
+[ '27010', 'Value' ] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'Customer_by_Business_Unit','Product_by_Business_Unit','Freight In $') ;
+
+## Budgeted Sales
+## 27020 Freight Out
+[ '27020', 'Value' ] = N:
+DB('plan_Sales',!plan_Version,'NZD Converted',!plan_Period,!Branch,!Business_Unit,'Customer_by_Business_Unit','Product_by_Business_Unit','Freight Out $') ;
+
+## Budgeted Payroll
+## Monthly Salary - Production
+[ '26075', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Production Staff','MONTHLY SALARY $'), 
+  CONTINUE);
+#EndRegion
+
+#Region - Budgeted Payroll
+## Monthly Salary - Admin
+[ '46075', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Administrative Staff','MONTHLY SALARY $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Staff Wages - Production
+['26085', 'Value' ] = N:
+    If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+      DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Production Staff','MONTHLY WAGES $'),
+    CONTINUE);
+
+## Budgeted Payroll
+## Staff Wages - Admin
+['46085', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Administrative Staff','MONTHLY WAGES $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Staff ACC Levies - Production Staff
+## Planned at Account Level - 19/03/2021
+[ '26010', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Production Staff','MONTHLY ACC $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Staff ACC Levies - Admin
+## Planned at Account Level - 19/03/2021
+['46010', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Administrative Staff','MONTHLY ACC $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Kiwsaver - Production
+['26052', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Production Staff','MONTHLY KIWISAVER $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Kiwisaver - Admin
+[ '46052', 'Value' ] = N:
+    If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+      DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Administrative Staff','MONTHLY KIWISAVER $'),
+    CONTINUE);
+
+## Budgeted Payroll
+## Incentive - Production
+['26020', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Production Staff','MONTHLY INCENTIVE $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Incentive - Admin
+#[ 'Budget', '46020', 'Value' ] = N:
+#DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Administrative Staff','MONTHLY INCENTIVE $') ;
+
+## Budgeted Payroll
+## Overtime - Production
+['26086', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Production Staff','MONTHLY OVERTIME $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Overtime - Admin
+['46087', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Administrative Staff','MONTHLY OVERTIME $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Overtime - Sales and Marketing
+[ '46088', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Sales and Marketing','MONTHLY OVERTIME $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## ACC - Sales and Marketing
+['46011', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Sales and Marketing','MONTHLY ACC $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Staff Salaries - Sales and Marketing
+['46076', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Sales and Marketing','Monthly Salary $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Staff Wages - Sales and Marketing
+['46086', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Sales and Marketing','MONTHLY WAGES $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Incentive - Sales and Marketing
+#[ 'Budget', '46021', 'Value' ] = N:
+#DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Sales and Marketing','MONTHLY INCENTIVE $') ;
+
+## Budgeted Payroll
+## Kiwisaver - Sales and Marketing
+['46048', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Sales and Marketing','MONTHLY KIWISAVER $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Holiday Pay - Sales and Marketing
+[ '46090', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Sales and Marketing','Holiday Pay $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Holiday Pay - Production
+['26087', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+  DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Production Staff','Holiday Pay $'),
+  CONTINUE);
+
+## Budgeted Payroll
+## Holiday Pay - Admin
+['46089', 'Value' ] = N:
+  If(ELISANC( 'plan_Version', 'Calculated Budgets', !plan_Version)=1,
+    DB('plan_payroll',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_STAFF_ROLE','Administrative Staff','Holiday Pay $'),
+  CONTINUE);
+
+#EndRegion
+
+#Region - CAPEX
+## Depreciation - Production - Land
+[ '29010', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Production','Land','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Support - Land
+[ '41510', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Support','Land','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Production - Buildings
+[ '29011', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Production','Buildings','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Support - Buildings
+[ '41511', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Support','Buildings','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Production - L/H Improvements
+['29012', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Production','Leasehold Improvements','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Support - L/H Improvements
+[ '41512', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Support','Leasehold Improvements','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Production - Plant & Mach
+[ '29013', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Production','Plant_Equipment','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') +
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Production','Motor Vehicles_Mobile Plant','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Support - Plant & Mach
+[ '41513', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Support','Plant_Equipment','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') +
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Support','Motor Vehicles_Mobile Plant','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Production - Fixtures & Equip
+['29014', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Production','Furniture_Fittings','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Support - Fixtures & Equip
+['41514', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Support','Furniture_Fittings','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Production - Computer Hardware
+[ '29015', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Production','Computer_Equipment','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Support - Computer Hardware
+[ '41515', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Support','Computer_Equipment','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Support - Computer Software
+[ '41516', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Support','Software','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## CAPEX
+## Depreciation - Production - Computer Software
+['29016', 'Value' ] = N:
+DB('plan_Capex_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,'TOTAL_CAPEX_ITEM_LIST',
+'Production','Software','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+#EndRegion
+
+FEEDERS ;
+
+[ 'Actual', 'Value' ] =>
+  DB( 'plan_Profit_and_Loss','plan_Version':'Calculated Forecasts',!Currency,!plan_Period,!Branch,!Business_Unit,!Account_PL,'Value' ) ;
+
+## Feed EBITDA to rpt_Balance_Sheet
+[ 'EBITDA', 'Value' ] =>
+  DB('plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'EBITDA','Value') ;
+
+## Total Overheads %
+['OVERHEADS (Excl Management Fees)' ] => [ 'Total Overheads %' ] ;
+
+## EBIT %
+[ 'EBIT' ] => [ 'EBIT %' ] ;
+
+## EBIT Before Management Fees %
+[ 'EBIT Before Management Fees' ] => [ 'EBIT Before Management Fees %' ] ;
+
+## Gross Profit %
+[ 'Gross Profit' ] => [ 'Gross Profit %' ] ;
+
+## Gross Margin %
+[ 'Gross Margin' ] => [ 'Gross Margin %' ] ;
+
+#Region Feed z_Plan_Profit_Loss_Account_Mapping
+[] => DB('z_Plan_Profit_Loss_Account_Mapping',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,!Account_PL,!m_plan_Profit_and_Loss,ATTRS('Account_PL', !Account_PL, IF(ATTRS('Business_Unit', !Business_Unit, 'Type') @= 'MFG', 'HFM_Mfg_GROUP', 'HFM_NonMfg_GROUP')));
+
+## Feed Cost of Goods Sold to rpt_Balance_Sheet
+['plan_Version':'plan_Version':'Calculated Versions','COST OF GOODS SOLD', 'Value' ] =>
+DB('plan_Balance_Sheet',!plan_Version,!Currency,'TOTAL_PLAN_PERIOD',
+!Branch,!Business_Unit,'Inv_Cost of Goods Sold - Rolling 12 Months','Value') ;
+
+## Feed Balance Sheet Debtor Calcs
+['plan_Version':'plan_Version':'Calculated Versions','11010', 'Value' ] => 
+  DB( 'plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Credit Sales','Value' ) ;
+['plan_Version':'plan_Version':'Calculated Versions','11015', 'Value' ] => 
+  DB( 'plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Credit Sales','Value' ) ;
+
+['plan_Version':'plan_Version':'Calculated Versions','11020', 'Value' ] => 
+  DB( 'plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Credit Sales - Intracompany','Value' ) ;
+['plan_Version':'plan_Version':'Calculated Versions','11030', 'Value' ] => 
+  DB( 'plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Credit Sales - Intracompany','Value' ) ;
+['plan_Version':'plan_Version':'Calculated Versions','11025', 'Value' ] => 
+  DB( 'plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Credit Sales - Intracompany','Value' ) ;
+['plan_Version':'plan_Version':'Calculated Versions','11035', 'Value' ] => 
+    DB( 'plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Credit Sales - Intracompany','Value' ) ;
+
+## Feed Balance Sheet DPO Calcs
+['plan_Version':'plan_Version':'Calculated Versions','Cost of Goods Sold', 'Value' ] => 
+  DB( 'plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'COGS (exc GST/VAT)','Value' ) ;
+
+['plan_Version':'plan_Version':'Calculated Versions','WAREHOUSING AND DISTRIBUTION EXPENSES', 'Value' ] => 
+  DB( 'plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Add Warehouse & Distribution','Value' ) ;
+
+['plan_Version':'plan_Version':'Calculated Versions','TOTAL DEPRECIATION', 'Value' ] => 
+  DB( 'plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Less Depreciation & Amortisation','Value' ) ;
+['plan_Version':'plan_Version':'Calculated Versions','Employee Costs', 'Value' ] => 
+  DB( 'plan_Balance_Sheet',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'Less Employee Costs','Value' ) ;
+
+#Region
+['27020',  'Actual'  ,'Value' ] => 
+DB( 'plan_Sales', 'Budget', 'LCY',  DB( 'plan_Version_Control', !plan_Version, 'Plan Year'  ), !Branch, !Business_Unit,'Customer_Freight', 'Product_Freight', 'Freight Out Rate' );
+
+#EndRegion

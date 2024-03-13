@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Picklist_Sub_Unit",
+	"Alias":"Code & Description",
+	"Expression":"{TM1FILTERBYLEVEL( {TM1SORT( {TM1SUBSETALL( [Business_Unit] )}, ASC)}, 0)}"
+}

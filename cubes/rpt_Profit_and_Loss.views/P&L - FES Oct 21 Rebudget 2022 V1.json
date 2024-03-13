@@ -1,0 +1,350 @@
+{
+	"@type":"NativeView",
+	"Name":"P&L - FES Oct 21 Rebudget 2022 V1",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')"
+				},
+				"ExpandAbove":true,
+				"Alias":"Month_Short",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('1')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('2')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('3')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('4')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('5')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('6')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('7')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('8')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('9')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('10')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('11')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('12')"
+					},
+					{
+						"@id":"Dimensions('rpt_Month')/Hierarchies('rpt_Month')/Elements('TOTAL_RPT_MONTH')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')"
+				},
+				"ExpandAbove":true,
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Sales')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Discounts and Accruals')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Rebate Expenses and Price Support')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Other Revenue')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('TOTAL REVENUE')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Cost of Sales')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Rebate & Price Support Rec''d')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Materials')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Labour')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Freight')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('R & M')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Other Production Variable Costs')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Warranty''s')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Other Fixed Production Costs')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('COST OF GOODS SOLD')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Margin')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Margin %25')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('WAREHOUSING AND DISTRIBUTION EXPENSES')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Profit')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Gross Profit %25')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Communications')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Debtors')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Depreciation')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Financial')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('General Office')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('IT Expenses')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Marketing')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Management Fees')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Property Costs')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Risk Management')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Staff Costs')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Services')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Travel & Entertainment')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Vehicle')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Unusual Items')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Significant Items')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Total Overheads %25')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('OTHER INCOME/EXPENSES')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBIT')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBIT %25')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('Below EBIT Items')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('TOTAL DEPRECIATION')"
+					},
+					{
+						"@id":"Dimensions('Account_PL')/Hierarchies('Account_PL')/Elements('EBITDA')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')"
+				},
+				"Expression":"TM1SubsetAll([rpt_Version])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('FES Oct21 Rebudget 2022 V1')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency')/Hierarchies('Currency')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('LCY')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_rpt_Profit_and_Loss')/Hierarchies('m_rpt_Profit_and_Loss')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_rpt_Profit_and_Loss')/Hierarchies('m_rpt_Profit_and_Loss')/Elements('Value')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('m_rpt_Profit_and_Loss')/Hierarchies('m_rpt_Profit_and_Loss')/Elements('Value')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Fletcher Steel')"
+					},
+					{
+						"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Fletcher Steel Exc CSP')"
+					},
+					{
+						"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Easysteel')"
+					},
+					{
+						"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Dimond Consolidation')"
+					},
+					{
+						"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('PCC')"
+					},
+					{
+						"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Reinforcing')"
+					},
+					{
+						"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('SD Support')"
+					},
+					{
+						"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('NZSD Divisional')"
+					},
+					{
+						"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('CSP Pacific')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('rpt_Business_Unit')/Hierarchies('rpt_Business_Unit')/Elements('Fletcher Steel Exc CSP')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Branch')/Hierarchies('Branch')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('TOTAL_BRANCH')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('TOTAL_BRANCH')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2021')"
+					},
+					{
+						"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2022')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('rpt_Year')/Hierarchies('rpt_Year')/Elements('2022')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

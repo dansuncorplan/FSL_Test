@@ -1,0 +1,38 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Payroll",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Staff_Role')"
+		},
+		{
+			"@id":"Dimensions('Staff_Type')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')"
+		}
+	],
+	"Rules@Code.link":"plan_Payroll.rules",
+	"Views@Code.links":
+	[
+		"plan_Payroll.views/Default.json",
+		"plan_Payroll.views/Headcount Detail.json",
+		"plan_Payroll.views/Headcount Report.json",
+		"plan_Payroll.views/Input Example.json",
+		"plan_Payroll.views/Summary.json",
+		"plan_Payroll.views/ZeroOut.json"
+	]
+}

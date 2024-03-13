@@ -1,0 +1,31 @@
+{
+	"@type":"Cube",
+	"Name":"lookup_Currency_Rates",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('Currency_Rate')"
+		},
+		{
+			"@id":"Dimensions('m_lookup_Currency_Rates')"
+		}
+	],
+	"Rules@Code.link":"lookup_Currency_Rates.rules",
+	"MeasuresDimension":
+	{
+		"@id":"Dimensions('m_lookup_Currency_Rates')"
+	},
+	"Views@Code.links":
+	[
+		"lookup_Currency_Rates.views/Currency Rate Assumptions.json"
+	]
+}

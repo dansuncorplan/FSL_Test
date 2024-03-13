@@ -1,0 +1,35 @@
+{
+	"@type":"Subset",
+	"Name":"Cashflow Accounts",
+	"Alias":"Code & Description",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Cashflow Accounts')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('CF_Funds (Closing)')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('CF_Net Working Capital')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('CF_Trading Working Capital')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('CF_Other Debtors')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('CF_Provisions')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('CF_Fixed Assets, Intangibles & Investments')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('EBITDA')"
+		},
+		{
+			"@id":"Dimensions('Account_BS')/Hierarchies('Account_BS')/Elements('Trading Cashflow')"
+		}
+	]
+}

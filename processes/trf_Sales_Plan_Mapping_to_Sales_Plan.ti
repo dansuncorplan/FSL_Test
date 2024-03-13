@@ -1,0 +1,102 @@
+#region Prolog
+
+# #----------------------------------------------------
+#  Define constant
+# #----------------------------------------------------
+
+cProcessName = GetProcessName();
+
+sErr = '' ;
+
+cTimeStamp = TIMST( NOW() , '\Y\m\d\h\i\s' ) | NumberToString( RAND * 1000000000 );
+cTempObjName = Expand('%cProcessName%_%cTimeStamp%');
+cTargetRandObjName = 'Target'|cProcessName|cTimeStamp;
+cSourceRandObjName = 'Source'|cProcessName|cTimeStamp;
+cTemp = 1 ;
+
+# ----------------------------------------------------
+# zero target view
+# ----------------------------------------------------
+cTargetCube = 'plan_Sales';
+
+ViewCreate( cTargetCube , cTargetRandObjName , cTemp );
+
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL({{DISTINCT({DESCENDANTS([Customer_Sales].[Customer_Sales].[Customer_by_Business_Unit])})}}, 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL({{DISTINCT({DESCENDANTS([Product_Group].[Product_Group].[Product_by_Business_Unit])})}}, 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{[plan_Period].[Linked for Input]}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{[plan_Version].['|pVersion|']}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{[Currency_Sales].[Currency_Sales].[NZD]}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1SubsetToSet([m_plan_Sales].[m_plan_Sales],"SYS.Measures_for_Inputs","public")}' , cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( cTargetCube , nDimCount )@<> '' );
+	sDim = TABDIM( cTargetCube , nDimCount );
+	IF( SUBSETEXISTS( sDim , cTargetRandObjName ) = 1 );
+		VIEWSUBSETASSIGN( cTargetCube , cTargetRandObjName , sDim , cTargetRandObjName );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+#----------------------------------------------------
+ViewSuppressZeroesSet( cTargetCube , cTargetRandObjName , 1 );
+ViewExtractSkipZeroesSet(cTargetCube, cTargetRandObjName , 1 );
+ViewZeroOut(cTargetCube, cTargetRandObjName);
+
+
+# ----------------------------------------------------
+# set data source view
+# ----------------------------------------------------
+cSourceCube = 'plan_sales_Mapping';
+
+ViewCreate( cSourceCube , cSourceRandObjName , cTemp );
+
+SubsetCreatebyMDX( cSourceRandObjName , '{TM1FILTERBYLEVEL(TM1SubsetAll([Business_Unit].[Business_Unit]), 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceRandObjName , '{TM1FILTERBYLEVEL(TM1SubsetAll([Branch].[Branch]), 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceRandObjName , '{EXCEPT(DISTINCT({[Customer_Sales].[Customer_Sales].[Customer_by_Business_Unit],DESCENDANTS([Customer_Sales].[Customer_Sales].[Customer_by_Business_Unit] , 99 , LEAVES)}) , {[Customer_Sales].[Customer_Sales].[Customer_by_Business_Unit]})}' , cTemp );
+SubsetCreatebyMDX( cSourceRandObjName , '{EXCEPT(DISTINCT({[Product_Group].[Product_Group].[Product_by_Business_Unit],DESCENDANTS([Product_Group].[Product_Group].[Product_by_Business_Unit] , 99 , LEAVES)}) , {[Product_Group].[Product_Group].[Product_by_Business_Unit]})}' , cTemp );
+SubsetCreatebyMDX( cSourceRandObjName , '{[m_plan_BU_Branch_Mapping].[m_plan_BU_Branch_Mapping].[Final]}' , cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( cSourceCube , nDimCount )@<> '' );
+	sDim = TABDIM( cSourceCube , nDimCount );
+	IF( SUBSETEXISTS( sDim , cSourceRandObjName ) = 1 );
+		VIEWSUBSETASSIGN( cSourceCube , cSourceRandObjName , sDim , cSourceRandObjName );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+#----------------------------------------------------
+ViewSuppressZeroesSet( cSourceCube , cSourceRandObjName , 1 );
+ViewExtractSkipCalcsSet( cSourceCube, cSourceRandObjName, 0);
+ViewExtractSkipZeroesSet(cSourceCube, cSourceRandObjName , 1 );
+ViewExtractSkipRuleValuesSet(cSourceCube, cSourceRandObjName, 0);
+
+DataSourceType = 'VIEW' ;
+DataSourceNameForServer = 'Plan_Sales_Mapping' ;
+DataSourceCubeView = cSourceRandObjName ;
+
+#endregion
+#region Data
+
+# ASCIIOutput( 'plan_Sales_Input_Flag.txt' , pVersion, vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, vMeasure, NumberToString( vValue ) );
+
+If(vValue <1);
+    ItemSkip;
+Endif;
+
+# ASCIIOutput( 'plan_Sales_Input_Flag_Final.txt' , pVersion, vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, vMeasure ,  NumberToString( vValue ) );
+
+i=1;
+while(i<=SubsetGetSize( 'm_plan_Sales', 'SYS.Measures_for_Inputs' ) );
+    sMeasure=SubsetGetElementName( 'm_plan_Sales', 'SYS.Measures_for_Inputs', i );
+
+     CellPutN( 1,  'plan_Sales', pVersion, 'NZD', 'Linked for Input', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, sMeasure);
+ 
+    i=i+1;
+end;
+
+
+
+#endregion

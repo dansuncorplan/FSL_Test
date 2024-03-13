@@ -1,0 +1,427 @@
+
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+
+
+## Average Consolidations
+
+[ ] =
+IF( ATTRN( 'm_plan_Payroll_Summary', !m_plan_Payroll_Summary, 'Average_Calc_Flag' ) = 1,
+# THEN
+	IF(  DTYPE( 'Staff_Type', !Staff_Type ) @= 'C' % DTYPE( 'plan_Period', !plan_Period ) @= 'C' %
+	DTYPE( 'Business_Unit', !Business_Unit ) @= 'C' % DTYPE( 'Branch', !Branch ) @= 'C' ,
+	# THEN
+		CONSOLIDATEDAVG( 2, 'plan_Payroll_Summary',!plan_Version,!plan_Period,!Business_Unit,!Branch,!Staff_Type,!Staff_Member,!m_plan_Payroll_Summary) ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+
+## Headcount Consolidation Rules
+
+[ 'Headcount' ] =
+IF( ELLEV( 'Branch', !Branch ) > 0 ,
+# THEN
+	CONSOLIDATECHILDREN( 'Branch' ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Headcount' ] =
+IF( ELLEV( 'Business_Unit', !Business_Unit ) > 0 ,
+# THEN
+	CONSOLIDATECHILDREN( 'Business_Unit' ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Headcount' ] =
+IF( ELLEV( 'Staff_Type', !Staff_Type ) > 0 ,
+# THEN
+	CONSOLIDATECHILDREN( 'Staff_Type' ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Headcount' ] =
+IF( ELLEV( 'Staff_Member', !Staff_Member ) > 0 ,
+# THEN
+	CONSOLIDATECHILDREN( 'Staff_Member' ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+[ 'Headcount'] =
+IF( DTYPE( 'plan_Period', !plan_Period ) @= 'C' ,
+# THEN
+	CONSOLIDATEDAVG( 2, 'plan_Payroll_Summary',!plan_Version,'Year +1',!Business_Unit,!Branch,!Staff_Type,!Staff_Member,'Headcount') ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+
+
+## Link to Staff Type
+
+[ ] = N:
+IF( !Staff_Type @<> DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Staff Type') ,
+# THEN
+	STET ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+
+
+
+
+## Acc Rate
+
+[ 'ACC Rate %' ] =
+IF( [ 'Valid' ] <> 0 ,
+# THEN
+	DB('lookup_Payroll_Assumptions',!plan_Version,'ACC Rate') ,
+# ELSE
+	CONTINUE ) ;
+
+
+## Kiwi Saver
+
+[ 'Kiwi Saver %' ] =
+IF( [ 'Valid' ] <> 0 ,
+# THEN
+	DB('lookup_Payroll_Assumptions',!plan_Version,'Employer Kiwisaver Contrib') ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+
+
+## Opening Balance
+
+[ ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ) @= 'Opening Balance' ,
+# THEN
+	STET ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+
+
+
+## Valid
+
+['Valid'] = N:
+IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position Start Period Number') <= ATTRN( 'plan_Period', !plan_Period, 'Period_Number' ) ,
+# THEN
+	IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position End Period Number') >= ATTRN( 'plan_Period', !plan_Period, 'Period_Number' ) %
+	DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position End Period Number') = 0 ,
+	# THEN
+		1 ,
+	# ELSE
+		STET ) ,
+# THEN
+	STET ) ;
+
+
+
+
+
+## Headcount
+
+['Headcount'] = N:
+IF( DTYPE( 'plan_Period', !plan_Period ) @= 'N' ,
+# THEN
+	IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position Start Period Number') <= ATTRN( 'plan_Period', !plan_Period, 'Period_Number' ) ,
+	# THEN
+		IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position End Period Number') >= ATTRN( 'plan_Period', !plan_Period, 'Period_Number' ) %
+		DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Position End Period Number') = 0 ,
+		# THEN
+			1 ,
+		# ELSE
+			STET ) ,
+	# THEN
+		STET ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+
+
+
+
+## Acc Rate
+
+[ 'ACC Rate %' ] =
+IF( [ 'Valid' ] <> 0 ,
+# THEN
+	DB('lookup_Payroll_Assumptions',!plan_Version,'ACC Rate') ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+
+
+
+
+## Monthly Salary
+
+[ 'Monthly Salary $' ] = N:
+IF( [ 'Valid' ] <> 0 ,
+# THEN
+	IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Pay Interval') @= 'M' ,
+	# THEN
+		DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Monthly Amount $') ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Monthly Wages
+
+[ 'Monthly Wages $' ] = N:
+IF( [ 'Valid' ] <> 0 ,
+# THEN
+	IF( DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Pay Interval') @= 'W' ,
+	# THEN
+		DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Monthly Amount $') ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## TOTAL INCENTIVES $
+
+['TOTAL INCENTIVE $'] = N:
+IF( [ 'Valid' ] <> 0 ,
+# THEN
+	DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'TOTAL INCENTIVE $') \ 12 ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Holiday Pay $
+
+['Holiday Pay $'] = N:
+IF( [ 'Valid' ] <> 0 ,
+# THEN
+	DB('plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,'Holiday Pay $') \ 12 ,
+# ELSE
+	CONTINUE ) ;
+
+
+## Holiday Pay Salary $
+
+['Holiday Pay Salary $'] = N:
+IF( [ 'Valid' ] <> 0 ,
+# THEN
+	IF( [ 'Monthly Salary $' ] <> 0 ,
+	# THEN
+		[ 'Holiday Pay $' ] ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+## Holiday Pay Staff Wages $
+
+['Holiday Pay Staff Wages $'] = N:
+IF( [ 'Valid' ] <> 0 ,
+# THEN
+	IF( [ 'Monthly Wages $' ] <> 0 ,
+	# THEN
+		[ 'Holiday Pay $' ] ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+
+
+## Take Values from Payroll Input
+## Measures must be named the same
+
+
+[ ] =
+IF( [ 'Valid' ] <> 0 ,
+# THEN
+	IF( DIMIX( 'm_plan_Payroll_Input', !m_plan_Payroll_Summary ) <> 0 ,
+	# THEN
+		DB( 'plan_Payroll_Input',!plan_Version,!Business_Unit,!Branch,!Staff_Member,!m_plan_Payroll_Summary ) ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+FEEDERS ;
+
+[ 'Valid' ] => [ 'TOTAL_FEEDER_CONSOLIDATION' ] ;
+
+[ 'Holiday Pay Rate' ] => [ 'Holiday Pay Salary $' ] , [ 'Holiday Pay Staff Wages $' ] ;
+
+
+
+## Plan Profit and Loss
+## Monthly Salary - Production
+
+[ 'Budget', 'Production Staff', 'MONTHLY SALARY $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'26075','Value') ;
+
+
+## Plan Profit and Loss
+## Monthly Salary - Administrative
+
+[ 'Budget', 'Administrative Staff', 'MONTHLY SALARY $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46075','Value') ;
+
+
+## Plan Profit and Loss
+## Monthly Salary - Sales & Marketing
+
+[ 'Budget', 'Sales and Marketing', 'MONTHLY SALARY $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46076','Value') ;
+
+
+
+## Plan Profit and Loss
+## Monthly Wages - Production
+
+[ 'Budget', 'Production Staff', 'Staff Wages' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'26085','Value') ;
+
+
+## Plan Profit and Loss
+## Monthly Wages - Administrative
+
+[ 'Budget', 'Administrative Staff', 'Staff Wages' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46085','Value') ;
+
+
+## Plan Profit and Loss
+## Monthly Wages - Sales and Marketing
+
+[ 'Budget', 'Sales and Marketing', 'Staff Wages' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46086','Value') ;
+
+
+
+## Plan Profit and Loss
+## ACC
+
+[ 'Budget', 'Production Staff', 'ACC $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'26010','Value') ;
+
+[ 'Budget', 'Administrative Staff', 'ACC $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46010','Value') ;
+
+[ 'Budget', 'Sales and Marketing', 'ACC $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46011','Value') ;
+
+
+
+## Plan Profit and Loss
+## Kiwisaver - Production
+
+[ 'Budget', 'Production Staff', 'KIWISAVER $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'26052','Value') ;
+
+
+## Plan Profit and Loss
+## Kiwisaver - Administrative
+
+[ 'Budget', 'Administrative Staff', 'KIWISAVER $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46052','Value') ;
+
+
+## Plan Profit and Loss
+## Kiwisaver - Sales and Marketing
+
+[ 'Budget', 'Sales and Marketing', 'KIWISAVER $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46048','Value') ;
+
+
+
+## Plan Profit and Loss
+## Staff Bonus - Production
+
+[ 'Budget', 'Production Staff', 'TOTAL INCENTIVE $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'26020','Value') ;
+
+
+## Plan Profit and Loss
+## Staff Bonus - Administrative
+
+[ 'Budget', 'Administrative Staff', 'TOTAL INCENTIVE $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46020','Value') ;
+
+
+## Plan Profit and Loss
+## Staff Bonus - Sales and Marketing
+
+[ 'Budget', 'Sales and Marketing', 'TOTAL INCENTIVE $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46021','Value') ;
+
+
+## Plan Profit and Loss
+## Overtime - Production
+
+[ 'Budget', 'Production Staff', 'OVERTIME $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'26086','Value') ;
+
+
+## Plan Profit and Loss
+## Overtime - Administrative
+
+[ 'Budget', 'Administrative Staff', 'OVERTIME $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46087','Value') ;
+
+
+## Plan Profit and Loss
+## Overtime - Sales and Marketing
+
+[ 'Budget', 'Sales and Marketing', 'OVERTIME $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46088','Value') ;
+
+
+
+
+## Plan Profit and Loss
+## Holiday Pay - Production
+
+[ 'Budget', 'Production Staff', 'Holiday Pay $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'26087','Value') ;
+
+
+## Plan Profit and Loss
+## Holiday Pay - Administrative
+
+[ 'Budget', 'Administrative Staff', 'Holiday Pay $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46089','Value') ;
+
+
+## Plan Profit and Loss
+## Holiday Pay - Sales and Marketing
+
+[ 'Budget', 'Sales and Marketing', 'Holiday Pay $' ] =>
+DB('plan_Profit_and_Loss','Budget','LCY',!plan_Period,!Branch,!Business_Unit,'46090','Value') ;
+
+
+

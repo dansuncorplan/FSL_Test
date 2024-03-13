@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_lookup_Currency_Rates",
+	"Elements":
+	[
+		{
+			"Name":"Value",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

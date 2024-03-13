@@ -1,0 +1,188 @@
+#region Prolog
+
+# #----------------------------------------------------
+#  Define constant
+# #----------------------------------------------------
+
+cProcessName = GetProcessName();
+
+sErr = '' ;
+
+cTimeStamp = TIMST( NOW() , '\Y\m\d\h\i\s' ) | NumberToString( RAND * 1000000000 );
+cTempObjName = Expand('%cProcessName%_%cTimeStamp%');
+cSourceObj='source_'|cTempObjName;
+cTargetRandObjName = 'Target'|cProcessName|cTimeStamp;
+cTemp = 1 ;
+
+#--------------
+If(pVersionFrom@=pVersionTo & pPeriodFrom@=pPeriodTo);
+    sErr='Source and target cannot be the same!';
+    ProcessBreak; 
+Endif;    
+
+
+# # ----------------------------------------------------
+# # zero target view
+# # ----------------------------------------------------
+cTargetCube = 'Plan_Sales';
+
+ViewCreate( cTargetCube , cTargetRandObjName , cTemp );
+
+
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL({{DISTINCT({DESCENDANTS([Customer_Sales].[Customer_Sales].[Customer_by_Business_Unit])})}}, 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL({{DISTINCT({DESCENDANTS([Product_Group].[Product_Group].[Product_by_Business_Unit])})}}, 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{[plan_Period].[plan_Period].['|pPeriodTo |']}' , cTemp ); 
+SubsetCreatebyMDX( cTargetRandObjName , '{[plan_Version].[plan_Version].['|pVersionTo |']}' , cTemp ); 
+SubsetCreatebyMDX( cTargetRandObjName , '{[Currency_Sales].[Currency_Sales].[NZD]}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1SubsetToSet([m_plan_Sales].[m_plan_Sales],"sys.measuresforversioncopy","public")}' , cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( cTargetCube , nDimCount )@<> '' );
+	sDim = TABDIM( cTargetCube , nDimCount );
+	IF( SUBSETEXISTS( sDim , cTargetRandObjName ) = 1 );
+		VIEWSUBSETASSIGN( cTargetCube , cTargetRandObjName , sDim , cTargetRandObjName );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+#----------------------------------------------------
+ViewSuppressZeroesSet( cTargetCube , cTargetRandObjName , 1 );
+ViewExtractSkipZeroesSet(cTargetCube, cTargetRandObjName , 1 );
+ViewExtractSkipRuleValuesSet(cTargetCube, cTargetRandObjName, 1);
+
+#---Zero Out the view in the Target Version 
+ViewZeroOut(cTargetCube, cTargetRandObjName);
+
+
+#-----------------
+# Set source view
+#-----------------
+ViewCreate( 'plan_Sales' , cSourceObj , 1 );
+
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL({{DISTINCT({DESCENDANTS([Customer_Sales].[Customer_Sales].[Customer_by_Business_Unit])})}}, 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL({{DISTINCT({DESCENDANTS([Product_Group].[Product_Group].[Product_by_Business_Unit])})}}, 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{[plan_Period].[plan_Period].['|pPeriodFrom |']}' , cTemp ); 
+SubsetCreatebyMDX( cSourceObj , '{[plan_Version].[plan_Version].['|pVersionFrom |']}' , cTemp ); 
+SubsetCreatebyMDX( cSourceObj , '{[Currency_Sales].[Currency_Sales].[NZD]}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1SubsetToSet([m_plan_Sales].[m_plan_Sales],"sys.measuresforversioncopy","public")}' , cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( 'plan_Sales' , nDimCount )@<> '' );
+	sDim = TABDIM( 'plan_Sales' , nDimCount );
+	IF( SUBSETEXISTS( sDim , cSourceObj ) = 1 );
+		VIEWSUBSETASSIGN( 'plan_Sales' , cSourceObj , sDim , cSourceObj );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+ViewSuppressZeroesSet( 'plan_Sales' , cSourceObj , 1 );
+ViewExtractSkipCalcsSet( 'plan_Sales' , cSourceObj , 1 );
+ViewExtractSkipZeroesSet( 'plan_Sales' , cSourceObj , 1 );
+ViewExtractSkipRuleValuesSet( 'plan_Sales' , cSourceObj , 1 );
+ 
+
+DataSourceType = 'VIEW' ;
+DataSourceNameForServer = 'plan_Sales' ;
+DataSourceCubeView = cSourceObj ;
+
+# #----------------------------------------------------
+# # Delete Subset for Copy Version
+# #----------------------------------------------------
+
+# if( SubsetExists( 'plan_Version', 'sys.Scenario_Copy.Version_Compare' )=1);
+#  SubsetDeleteAllElements(  'plan_Version', 'sys.Scenario_Copy.Version_Compare'  );
+# endif;
+# #----------------------------------------------------
+# # Delete Subset for New Version
+# #----------------------------------------------------
+
+# if( SubsetExists( 'plan_Version', 'sys.Scenario_Copy.New_Version' )=1);
+#  SubsetDeleteAllElements(  'plan_Version', 'sys.Scenario_Copy.New_Version'  );
+# endif;
+
+#endregion
+#region Data
+
+if(CellIsUpdateable('plan_Sales', pVersionTo, vCurrency_Sales, pPeriodTo, vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, vm_plan_Sales )=1);
+CellPutN( vValue, 'plan_Sales', pVersionTo, vCurrency_Sales, pPeriodTo, vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, vm_plan_Sales );
+ENDIF;
+
+nMeasure =  'Sales Volume - EA';
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,'Planning Driver' , vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,  'Planning Driver', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure ); 
+
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,   'Percentage Change' , vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,   'Percentage Change', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, nMeasure ); 
+
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,  'Annual Input', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,  'Annual Input', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure); 
+
+nMeasure =  'Sales Volume - TN';
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,'Planning Driver' , vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,  'Planning Driver', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure ); 
+
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,   'Percentage Change' , vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,   'Percentage Change', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, nMeasure ); 
+
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,  'Annual Input', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,  'Annual Input', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure); 
+
+nMeasure =  'Sales Volume - LM';
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,'Planning Driver' , vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,  'Planning Driver', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure ); 
+
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,   'Percentage Change' , vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,   'Percentage Change', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, nMeasure ); 
+
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,  'Annual Input', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,  'Annual Input', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure); 
+
+nMeasure =  'Base Selling Price';
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,'Planning Driver' , vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,  'Planning Driver', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure ); 
+
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,   'Percentage Change' , vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,   'Percentage Change', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, nMeasure ); 
+
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,  'Annual Input', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,  'Annual Input', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure); 
+
+nMeasure =  'Cost Price per UOM Base';
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,'Planning Driver' , vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,  'Planning Driver', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure ); 
+
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,   'Percentage Change' , vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,   'Percentage Change', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, nMeasure ); 
+
+vPlanningValue = CellGetN( 'plan_Sales',  pVersionFrom, vCurrency_Sales,  'Annual Input', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure);
+CellPutN( vPlanningValue, 'plan_Sales', pVersionTo, vCurrency_Sales,  'Annual Input', vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group,nMeasure); 
+
+
+# #----------------------------------------------------
+# # Update Subset Elements
+# #----------------------------------------------------
+
+# sPeriodVersion = CellGetS( 'plan_Version_Setup', pVersionTo, 'Annual Input', 'Plan End Month');
+# sNewVersion =  pVersionTo ;
+# SourceVersion = CellGetS( 'plan_Version_Setup', sNewVersion, sPeriodVersion, 'Source Version' )   ;
+
+# if (SubsetElementExists( 'plan_Version',  'sys.Scenario_Copy.Version_Compare' , sNewVersion )=0);
+#        SubsetElementInsert('plan_Version',  'sys.Scenario_Copy.Version_Compare' , sNewVersion,1);
+# endif;
+
+# if (SubsetElementExists( 'plan_Version',  'sys.Scenario_Copy.Version_Compare' , SourceVersion )=0);
+#        SubsetElementInsert('plan_Version',  'sys.Scenario_Copy.Version_Compare' , SourceVersion,2);
+# endif;
+
+
+#endregion
+#region Epilog
+
+If(sErr@<>'');
+    ItemReject( sErr );
+Endif;    
+#endregion

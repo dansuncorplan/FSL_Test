@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_plan_Balance_Sheet",
+	"Hierarchies@Code.links":
+	[
+		"m_plan_Balance_Sheet.hierarchies/m_plan_Balance_Sheet.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_plan_Balance_Sheet')/Hierarchies('m_plan_Balance_Sheet')"
+	}
+}

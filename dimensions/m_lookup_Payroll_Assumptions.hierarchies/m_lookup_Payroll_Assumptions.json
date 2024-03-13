@@ -1,0 +1,115 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_lookup_Payroll_Assumptions",
+	"Elements":
+	[
+		{
+			"Name":"ACC Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Salary Increase %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Wage Increase %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shift Allowance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Night Shift Allowance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Meal Allowance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IC Allowance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2IC Allowance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"H&S Allowance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Employer Kiwisaver Contrib",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg. weeks per month",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ASM Incentive (incl STI)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BDM Incentive",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Acct Mgr Incentive",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CSR Incentive",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Storeperson Incentive",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Production Incentive",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DC Incentive",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"STI  5%",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"STI 7.5%",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"STI  10%",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"STI  15%",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"STI  20%",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"STI  25%",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"STI  40%",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"STI 120%",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_lookup_Payroll_Assumptions.subsets/Default.json"
+	]
+}

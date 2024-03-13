@@ -1,0 +1,34 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Payroll_Summary",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Staff_Type')"
+		},
+		{
+			"@id":"Dimensions('Staff_Member')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Summary')"
+		}
+	],
+	"Rules@Code.link":"plan_Payroll_Summary.rules",
+	"Views@Code.links":
+	[
+		"plan_Payroll_Summary.views/Default.json",
+		"plan_Payroll_Summary.views/Wages Salary Example.json"
+	]
+}

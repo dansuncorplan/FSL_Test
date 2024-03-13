@@ -1,0 +1,70 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+## ================================================
+## TITLE: z_Backup_Automatic_Monthly
+##
+## Desc: Creates an automated backup and zips it to a folder for 
+## the particular day of the month
+## ================================================
+## 
+## Author: Rowan Edwards
+## Created: 10/11/2014
+##
+## ================================================
+
+## ================================================
+## Save All Data Before Backing Up
+## ================================================
+
+SAVEDATAALL ;
+
+
+## ================================================
+## Find Data and Backup Directory
+## ================================================
+
+sCube = 'z_System_Parameters' ;
+sDataDirectory = CELLGETS( sCube, 'Data_Directory', 'String' ) ;
+sBackupDirectory = CELLGETS( sCube, 'Backup_Directory', 'String' ) ;
+sBatchFileDirectory = CELLGETS( sCube, 'Batch_File_Directory', 'String' ) ;
+
+
+## ================================================
+## Find Day and Command Line Location
+## ================================================
+
+myday = trim(str(day(today(1)),2,0)) ;
+sBatchFile = sBatchFileDirectory | '\7za.exe a -tzip ' ;
+sBackupLocation = '""' | sBackupDirectory | '\Automatic\' | myday | '.zip"" ' ;
+
+sCommandLine = sBatchFile | sBackupLocation | ' ""' | sDataDirectory | '""' ;
+
+#mycommline = 'e:\tm1\7z a -tzip e:\tm1\data_directory_backups\data_'| myday |'.zip e:\tm1\data\';
+
+ASCIIOUTPUT( 'zDev_Test.csv', sCommandLine ) ;
+
+## ================================================
+## Run Command Line to Backup Model to Zip File
+## ================================================
+
+EXECUTECOMMAND( sCommandLine,1 ) ;
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

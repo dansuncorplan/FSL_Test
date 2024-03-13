@@ -1,0 +1,58 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('Product_by_Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('PCC Products')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('Reinforcing Products')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('Easysteel Products')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('Dimond & CSR Products')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_ACCESSORIES OTHER')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_CLADDING PROFILES')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_COLORFLO')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_DIMOND COIL')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_FLASHINGS')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_FLOORING')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_HIGH RIB ROOFING')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_LOW RIB ROOFING')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_NATURAL LIGHTING')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_PURLIN SYSTEMS')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('DI_RIDGING')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('Product_Freight')"
+		}
+	]
+}

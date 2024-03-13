@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_lookup_Capex_Assumptions",
+	"Hierarchies@Code.links":
+	[
+		"m_lookup_Capex_Assumptions.hierarchies/m_lookup_Capex_Assumptions.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_lookup_Capex_Assumptions')/Hierarchies('m_lookup_Capex_Assumptions')"
+	}
+}

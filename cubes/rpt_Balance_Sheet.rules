@@ -1,0 +1,308 @@
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+
+
+## Opening Balance - Balance Sheet Accounts Actuals
+
+[ 'Actual', 'Opening Balance', 'Value' ] = N:
+IF( ELISANC( 'Account_BS', 'Balance', !Account_BS ) = 1 ,
+# THEN
+	STET ,
+#ELSE
+	CONTINUE ) ;
+
+
+## Opening Balance - EBITDA
+
+[ 'Opening Balance', 'EBITDA', 'Value' ] = N: STET ;
+
+
+
+## Opening Balance - Rolling COGS
+
+[ 'Opening Balance', 'Inv_Cost of Goods Sold - Rolling 12 Months', 'Value' ] = N: STET ;
+
+
+## Opening Balance  - 2015
+
+[ 'Opening Balance', '2015', 'Value' ] = N: STET ;
+
+
+
+## Debtor Calcs
+## Debtor Days
+## Update to Debtor Days calcs - requested from Kajal & Joseph 20/04/2021
+
+#[ 'Debtor Days Outstanding', 'Value' ] =
+#[ 'Gross Debtors' ] \ ( [ 'Average Credit Sales (excl Intercompany)' ] \ 30 ) ;
+
+[ 'Debtor Days Outstanding', 'Value' ] =
+( ( ( [ 'Gross Debtors' ] - [ 'Total Credit Sales' ] ) \
+DB('rpt_Balance_Sheet',!rpt_Version,!Currency,DB('lookup_Calendar',!rpt_Year,!rpt_Month,'Previous_Month_1'),DB('lookup_Calendar',!rpt_Year,!rpt_Month,'Previous_Year_1'),!Branch,!rpt_Business_Unit,'Total Credit Sales','Value') ) + 1 ) * 30 ;
+
+
+
+
+
+## Opening Balance - Previous Jun YTD
+
+[ {'Actual', 'Budget FY18' }, 'Opening Balance', 'Value' ] = N:
+DB('rpt_Balance_Sheet',!rpt_Version,!Currency,'Jun_YTD',ATTRS( 'rpt_Year', !rpt_Year, 'Prev_Year' ) ,
+!Branch,!rpt_Business_Unit,!Account_BS,!m_rpt_Balance_Sheet) ;
+
+[ 'Opening Balance', 'Value' ] = STET ;
+
+
+
+## Cashflow Accounts
+
+[ 'Cashflow Accounts', 'Value' ] = N: STET ;
+
+
+## EBITDA - P&L
+
+[ 'EBITDA', 'Value' ] = N:
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'EBITDA (incl sig items)','Value') ;
+#DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Other Depreciation','Value')  ;
+
+
+## Trading Cashflow
+
+[ 'Trading Cashflow', 'Value' ] =
+IF( SCAN( 'YTD', !rpt_Month ) <> 0 ,
+# THEN
+	DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'EBITDA','Value') +
+	( DB('rpt_Balance_Sheet',!rpt_Version,!Currency,'Opening Balance',!rpt_Year,!Branch,!rpt_Business_Unit,'Net Working Capital','Value')  -
+	DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Net Working Capital','Value') ) +
+	DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Other Depreciation','Value') ,
+# ELSE
+	CONTINUE ) ;
+
+
+[ 'Trading Cashflow', 'Value' ] = N:
+	DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'EBITDA','Value') +
+	( DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Net Working Capital','Value') * -1 ) +
+	DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Other Depreciation','Value') ;
+
+
+
+
+## Inventory Detail
+
+[ 'Inventory Detail', 'Value' ] = N: STET ;
+
+
+
+## Cost of Goods Sold - P&L Rolling 12 Months * -1
+
+
+
+[ 'Inv_Cost of Goods Sold - Rolling 12 Months', 'Value' ] =
+IF( SCAN( 'YTD', !rpt_Month ) <> 0 ,
+	## THEN
+	DB('rpt_Balance_Sheet',!rpt_Version,!Currency,SUBST( !rpt_Month, 1, 3 ),!rpt_Year,!Branch,!rpt_Business_Unit,!Account_BS,!m_rpt_Balance_Sheet) ,
+	## ELSE
+	CONTINUE ) ;
+
+
+[ 'Inv_Cost of Goods Sold - Rolling 12 Months', 'Value' ] =
+IF( ATTRN( 'rpt_Version', !rpt_Version, 'Rolling_COGS_Calc_Flag' ) = 0 ,
+# THEN
+	STET ,
+# ELSE
+	CONTINUE ) ;
+
+
+[ 'Inv_Cost of Goods Sold - Rolling 12 Months', 'Value' ] = N:
+( DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,
+!rpt_Month ,
+!rpt_Year ,
+!Branch,!rpt_Business_Unit,'Total COGS','Value') +
+
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Month_1' ) ,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Year_1' ) ,
+!Branch,!rpt_Business_Unit,'Total COGS','Value') +
+
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Month_2' ) ,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Year_2' ) ,
+!Branch,!rpt_Business_Unit,'Total COGS','Value') +
+
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Month_3' ) ,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Year_3' ) ,
+!Branch,!rpt_Business_Unit,'Total COGS','Value') +
+
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Month_4' ) ,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Year_4' ) ,
+!Branch,!rpt_Business_Unit,'Total COGS','Value') +
+
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Month_5' ) ,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Year_5' ) ,
+!Branch,!rpt_Business_Unit,'Total COGS','Value') +
+
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Month_6' ) ,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Year_6' ) ,
+!Branch,!rpt_Business_Unit,'Total COGS','Value') +
+
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Month_7' ) ,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Year_7' ) ,
+!Branch,!rpt_Business_Unit,'Total COGS','Value') +
+
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Month_8' ) ,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Year_8' ) ,
+!Branch,!rpt_Business_Unit,'Total COGS','Value') +
+
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Month_9' ) ,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Year_9' ) ,
+!Branch,!rpt_Business_Unit,'Total COGS','Value') +
+
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Month_10' ) ,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Year_10' ) ,
+!Branch,!rpt_Business_Unit,'Total COGS','Value') +
+
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Month_11' ) ,
+DB( 'lookup_Calendar', !rpt_Year, !rpt_Month, 'Previous_Year_11' ) ,
+!Branch,!rpt_Business_Unit,'Total COGS','Value')  ) * -1 ;
+
+
+
+
+## Inventory Days - Total Stock \ Cost of Goods Sold * Number of Days in the Year
+
+[ 'Inventory Days', 'Value' ] =
+IF( SCAN( 'YTD', !rpt_Month ) <> 0 ,
+	## THEN
+	( DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Inv_Total Stock','Value') \
+	DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Inv_Cost of Goods Sold - Rolling 12 Months','Value') ) *
+	ATTRN( 'rpt_Year', !rpt_Year, 'Total_Days' ) * -1 ,
+	## ELSE
+	( DB('rpt_Balance_Sheet',!rpt_Version,!Currency,ATTRS( 'rpt_Month', !rpt_Month, 'Month_Short' ) | '_YTD' ,!rpt_Year,!Branch,!rpt_Business_Unit,'Inv_Total Stock','Value') \
+	DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Inv_Cost of Goods Sold - Rolling 12 Months','Value') ) *
+	ATTRN( 'rpt_Year', !rpt_Year, 'Total_Days' ) * -1 ) ;
+
+
+
+
+## Debtor Days Calcs
+## Gross Debtors per BS
+
+[ '2016', 'Gross Debtors per BS', 'Value' ] = N: STET ;
+
+[ 'Gross Debtors per BS', 'Value' ] = N:
+DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'61000','Value') +
+DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'61700','Value') ;
+
+
+## Debtor Calcs
+## Less Rebates Provision
+
+[ '2016', 'Less Rebates Provision with Gross Debtors', 'Value' ] = N: STET ;
+
+[ 'Less Rebates Provision with Gross Debtors', 'Value' ] = N:
+DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'61500','Value') ;
+
+
+## Debtor Calcs
+## Other Adjustment - Intracompany
+
+## Manually entered until calculations are ready from Joseph
+
+#[ 'Other Adjustment - Intracompany', 'Value' ] = N:
+#DB('rpt_Balance_Sheet',!rpt_Version,!Currency,ATTRS( 'rpt_Month', !rpt_Month, 'Month_Short' ) | '_YTD',!rpt_Year,!Branch,!rpt_Business_Unit,'61100','Value') ;
+
+
+## Debtor Calcs
+## Credit Sales
+
+[ 'Credit Sales', 'Value' ] = N:
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,!rpt_Month, !rpt_Year,!Branch,!rpt_Business_Unit, '11010','Value') +
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,!rpt_Month, !rpt_Year,!Branch,!rpt_Business_Unit, '11015','Value') ;
+
+
+## Debtor Calcs
+## Credit Sales - Intracompany
+
+[ 'Credit Sales - Intracompany', 'Value' ] = N:
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,!rpt_Month, !rpt_Year,!Branch,!rpt_Business_Unit, '11020','Value') +
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,!rpt_Month, !rpt_Year,!Branch,!rpt_Business_Unit, '11030','Value') +
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,!rpt_Month, !rpt_Year,!Branch,!rpt_Business_Unit, '11025','Value') +
+DB('rpt_Profit_and_Loss',!rpt_Version,!Currency,!rpt_Month, !rpt_Year,!Branch,!rpt_Business_Unit, '11035','Value') ;
+
+
+
+FEEDERS ;
+
+
+## Feed Opening Balance
+
+[ 'Jun_YTD', 'Value' ] =>
+DB('rpt_Balance_Sheet',!rpt_Version,!Currency,'Opening Balance',
+ATTRS( 'rpt_Year', !rpt_Year, 'Next_Year' ),
+!Branch,!rpt_Business_Unit,!Account_BS,'Value') ;
+
+
+## Feed Actuals to plan_Balance_Sheet
+
+[ 'Actual', 'Value' ] =>
+DB( 'plan_Balance_Sheet','Actual',!Currency,
+!rpt_Year | ' ' | ATTRS( 'rpt_Month', !rpt_Month, 'Month_Short' ) ,
+!Branch,!rpt_Business_Unit,!Account_BS,'Value' ) ;
+
+
+
+
+## Feed Trading Cashflow
+
+[ 'Net Working Capital', 'Value' ] => [ 'Trading Cashflow' ] ;
+[ 'EBITDA', 'Value' ] => [ 'Trading Cashflow' ] ;
+
+
+
+## Feed Inventory Days
+[ 'Inv_Total Stock', 'Value' ] => [ 'Inventory Days' ] ;
+
+
+
+
+
+
+
+## Feed P&L Gross Debtors
+[ '61000', 'Value' ] => DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Gross Debtors per BS','Value') ;
+
+## Feed P&L Rebates Provision
+[ '61500', 'Value' ] => DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Less Rebates Provision with Gross Debtors','Value') ;
+[ '61700', 'Value' ] => DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Less Rebates Provision with Gross Debtors','Value') ;
+
+
+## Feed P&L Other Adjustment iNTRACOMPANY
+[ '61100', 'Value' ] => DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Other Adjustment - Intracompany','Value') ;
+
+## Feed Credit Sales
+#[ 'Credit Sales : Current Month', 'Value' ] => [ 'Average Credit Sales (excl Intercompany)' ] ;
+#[ 'Credit Sales : Previous Month', 'Value' ] => [ 'Average Credit Sales (excl Intercompany)' ] ;
+#[ 'Credit Sales : Previous Month -1', 'Value' ] => [ 'Average Credit Sales (excl Intercompany)' ] ;
+
+#[ 'Credit Sales : Current Month', 'Value' ] =>
+#DB( 'rpt_Balance_Sheet',!rpt_Version,!Currency,'TOTAL_RPT_MONTH','TOTAL_RPT_YEAR',!Branch,!rpt_Business_Unit,'Credit Sales : Previous Month','Value' ) ;
+
+#[ 'Credit Sales : Current Month', 'Value' ] =>
+#DB( 'rpt_Balance_Sheet',!rpt_Version,!Currency,'TOTAL_RPT_MONTH','TOTAL_RPT_YEAR',!Branch,!rpt_Business_Unit,'Credit Sales : Previous Month -1','Value' ) ;
+
+
+## Feed Gross Debtors
+
+[ 'Gross Debtors', 'Value' ] => [ 'Debtor Days Outstanding' ] ;
+
+

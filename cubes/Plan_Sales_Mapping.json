@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"Plan_Sales_Mapping",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Product_Group')"
+		},
+		{
+			"@id":"Dimensions('Customer_Sales')"
+		},
+		{
+			"@id":"Dimensions('m_plan_BU_Branch_Mapping')"
+		}
+	],
+	"Rules@Code.link":"Plan_Sales_Mapping.rules",
+	"Views@Code.links":
+	[
+		"Plan_Sales_Mapping.views/Default.json"
+	]
+}

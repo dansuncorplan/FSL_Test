@@ -1,0 +1,38 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Payroll_Input",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Staff_Member')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll_Input')"
+		}
+	],
+	"Rules@Code.link":"plan_Payroll_Input.rules",
+	"MeasuresDimension":
+	{
+		"@id":"Dimensions('m_plan_Payroll_Input')"
+	},
+	"Views@Code.links":
+	[
+		"plan_Payroll_Input.views/Default.json",
+		"plan_Payroll_Input.views/DIM OT template.json",
+		"plan_Payroll_Input.views/Holiday Pay Example.json",
+		"plan_Payroll_Input.views/Payroll Allocation Budget 2020.json",
+		"plan_Payroll_Input.views/Payroll Input Detail - FCST.json",
+		"plan_Payroll_Input.views/Payroll Input Detail - FSL Internal.json",
+		"plan_Payroll_Input.views/zClearData.json",
+		"plan_Payroll_Input.views/ZeroOut.json"
+	]
+}

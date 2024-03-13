@@ -1,0 +1,125 @@
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+
+## Calculations
+
+[ 'Calculations' ] = 0 ;
+
+
+
+
+
+
+
+## Total Overheads %
+
+[ 'Total Overheads %' ] =
+[ 'OVERHEADS (Excl Management Fees)' ] \ [ 'Total Revenue' ] ;
+
+
+## EBIT %
+
+[ 'EBIT %' ] =
+[ 'EBIT' ] \ [ 'Total Revenue' ] ;
+
+
+## Gross Profit %
+
+[ 'Gross Profit %' ] =
+[ 'Gross Profit' ] \ [ 'Total Revenue' ] ;
+
+
+## Gross Margin %
+
+[ 'Gross Margin %' ] =
+[ 'Gross Margin' ] \ [ 'Total Revenue' ] ;
+
+
+
+
+
+
+
+
+
+
+FEEDERS ;
+
+
+
+## Feed Actuals to plan_Profit_and_Loss
+
+# [ 'Actual', 'Fletcher Steel', 'Value' ] =>
+# DB( 'plan_Profit_and_Loss','Actual',!Currency,
+# !rpt_Year | ' ' | ATTRS( 'rpt_Month', !rpt_Month, 'Month_Short' ) ,
+# !Branch,'Fletcher Steel',!Account_PL,'Value' ) ;
+
+#-- CorPlan changed this to improve the feeder
+[ 'Actual', 'Fletcher Steel', 'Value' ] =>
+DB( 'plan_Profit_and_Loss','Actual',!Currency,
+!rpt_Year | ' ' | ATTRS( 'rpt_Month', !rpt_Month, 'Month_Short' ) ,
+!Branch,!rpt_Business_Unit,!Account_PL,'Value' ) ;
+
+## Feed Actuals to plan_Profit_and_Loss
+
+[ 'Actual', 'Value' ] =>
+DB( 'plan_Profit_and_Loss','Actual',!Currency,
+!rpt_Year | ' ' | ATTRS( 'rpt_Month', !rpt_Month, 'Month_Short' ) ,
+!Branch,!rpt_Business_Unit,!Account_PL,'Value' ) ;
+
+
+## Feed EBITDA to rpt_Balance_Sheet
+
+[ 'EBITDA', 'Value' ] =>
+DB('rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,
+!Branch,!rpt_Business_Unit,'EBITDA','Value') ;
+
+
+
+## Feed Cost of Goods Sold to rpt_Balance_Sheet
+
+[ 'COST OF GOODS SOLD', 'Value' ] =>
+DB('rpt_Balance_Sheet',!rpt_Version,!Currency,'TOTAL_RPT_MONTH','TOTAL_RPT_YEAR',
+!Branch,!rpt_Business_Unit,'Inv_Cost of Goods Sold - Rolling 12 Months','Value') ;
+
+
+
+
+
+
+## Total Overheads %
+
+[ 'OVERHEADS (Excl Management Fees)' ] => [ 'Total Overheads %' ] ;
+
+
+
+## EBIT %
+
+[ 'EBIT' ] => [ 'EBIT %' ] ;
+
+
+## Gross Profit %
+
+[ 'Gross Profit' ] => [ 'Gross Profit %' ] ;
+
+
+## Gross Margin %
+
+[ 'Gross Margin' ] => [ 'Gross Margin %' ] ; [ 'Gross Margin' ] => [ 'Gross Margin %' ] ;
+
+
+## Feed Balance Sheet Debtor Calcs
+
+[ '11010', 'Value' ] => DB( 'rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Credit Sales','Value' ) ;
+[ '11015', 'Value' ] => DB( 'rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Credit Sales','Value' ) ;
+
+[ '11020', 'Value' ] => DB( 'rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Credit Sales - Intracompany','Value' ) ;
+[ '11030', 'Value' ] => DB( 'rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Credit Sales - Intracompany','Value' ) ;
+[ '11025', 'Value' ] => DB( 'rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Credit Sales - Intracompany','Value' ) ;
+[ '11035', 'Value' ] => DB( 'rpt_Balance_Sheet',!rpt_Version,!Currency,!rpt_Month,!rpt_Year,!Branch,!rpt_Business_Unit,'Credit Sales - Intracompany','Value' ) ;
+
+
+
+
+

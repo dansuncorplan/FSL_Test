@@ -1,0 +1,2190 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_plan_Capex_Input",
+	"Elements":
+	[
+		{
+			"Name":"Asset ID",
+			"Type":"String"
+		},
+		{
+			"Name":"Initiative Name",
+			"Type":"String"
+		},
+		{
+			"Name":"Business Unit",
+			"Type":"String"
+		},
+		{
+			"Name":"Branch",
+			"Type":"String"
+		},
+		{
+			"Name":"Tfr to FA",
+			"Type":"String"
+		},
+		{
+			"Name":"Description",
+			"Type":"String"
+		},
+		{
+			"Name":"Asset Type",
+			"Type":"String"
+		},
+		{
+			"Name":"Asset Driver",
+			"Type":"String"
+		},
+		{
+			"Name":"Asset Flag - BU",
+			"Type":"String"
+		},
+		{
+			"Name":"Asset Flag - Overwrite",
+			"Type":"String"
+		},
+		{
+			"Name":"Asset Flag",
+			"Type":"String"
+		},
+		{
+			"Name":"Amount Remaining",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Asset Total",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Approved Rejected",
+			"Type":"String"
+		},
+		{
+			"Name":"Revised Allocation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Approved Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Approved Amount Remaining",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Asset Life",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Spend Start Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Depn Start Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Monthly Depn Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Spend by Period",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -4 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -3 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -2 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +2 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +3 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +4 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 Spend",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Depreciation by Period",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -4 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -3 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -2 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year 0 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +1 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +2 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +3 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +4 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year +5 Depn",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Depreciation YTD by Period",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year -1 1 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 2 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 3 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 4 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 5 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 6 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 7 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 8 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 9 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 10 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 11 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 12 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 1 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 2 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 3 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 4 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 5 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 6 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 7 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 8 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 9 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 10 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 11 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 12 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 1 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 2 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 3 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 4 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 5 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 6 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 7 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 8 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 9 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 10 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 11 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 12 Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 Full Year Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 Full Year Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 Full Year Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 Full Year Depn YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 0 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 1 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 2 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 3 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 4 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 5 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 6 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 7 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 8 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 9 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 10 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 11 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 12 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 0 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 1 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 2 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 3 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 4 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 5 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 6 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 7 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 8 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 9 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 10 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 11 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 12 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 0 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 1 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 2 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 3 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 4 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 5 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 6 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 7 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 8 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 9 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 10 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 11 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 12 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 0 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 1 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 2 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 3 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 4 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 5 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 6 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 7 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 8 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 9 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 10 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 11 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 12 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  0 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  1 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  2 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  3 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  4 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  5 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  6 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  7 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  8 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  9 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  10 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  11 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4  12 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 0 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 1 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 2 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 3 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 4 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 5 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 6 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 7 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 8 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 9 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 10 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 11 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 12 Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 Full Year Spend",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 0 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 1 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 2 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 3 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 4 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 5 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 6 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 7 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 8 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 9 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 10 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 11 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -2 12 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 0 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 1 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 2 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 3 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 4 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 5 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 6 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 7 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 8 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 9 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 10 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 11 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -1 12 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 0 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 1 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 2 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 3 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 4 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 5 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 6 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 7 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 8 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 9 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 10 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 11 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year 0 12 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 0 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 1 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 2 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 3 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 4 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 5 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 6 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 7 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 8 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 9 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 10 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 11 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +1 12 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +2 Full Year Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +3 Full Year Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +4 Full Year Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 0 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 1 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 2 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 3 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 4 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 5 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 6 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 7 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 8 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 9 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 10 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 11 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -4 12 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 0 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 1 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 2 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 3 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 4 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 5 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 6 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 7 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 8 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 9 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 10 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 11 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year -3 12 Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year +5 Full Year Depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Future Rolling 12 Months Spend",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"Year -4 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"Year -3 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"Year -2 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"Year -1 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"Year 0 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"Year +1 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"Year +2 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"Year +3 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"Year +4 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spend by Period",
+			"ComponentName":"Year +5 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  0 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  1 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  2 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  3 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  4 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  5 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  6 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  7 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  8 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  9 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  10 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  11 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Spend",
+			"ComponentName":"Year -4  12 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 0 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 1 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 2 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 3 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 4 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 5 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 6 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 7 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 8 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 9 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 10 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 11 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Spend",
+			"ComponentName":"Year -3 12 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 0 Spend",
+			"Weight":0
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 1 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 2 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 3 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 4 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 5 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 6 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 7 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 8 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 9 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 10 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 11 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Spend",
+			"ComponentName":"Year -2 12 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 0 Spend",
+			"Weight":0
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 1 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 2 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 3 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 4 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 5 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 6 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 7 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 8 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 9 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 10 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 11 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Spend",
+			"ComponentName":"Year -1 12 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 0 Spend",
+			"Weight":0
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 1 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 2 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 3 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 4 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 5 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 6 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 7 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 8 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 9 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 10 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 11 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Spend",
+			"ComponentName":"Year 0 12 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 0 Spend",
+			"Weight":0
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 1 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 2 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 3 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 4 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 5 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 6 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 7 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 8 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 9 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 10 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 11 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Spend",
+			"ComponentName":"Year +1 12 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2 Spend",
+			"ComponentName":"Year +2 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3 Spend",
+			"ComponentName":"Year +3 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4 Spend",
+			"ComponentName":"Year +4 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 Spend",
+			"ComponentName":"Year +5 Full Year Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"Year -4 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"Year -3 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"Year -2 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"Year -1 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"Year 0 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"Year +1 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"Year +2 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"Year +3 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"Year +4 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation by Period",
+			"ComponentName":"Year +5 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 0 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 1 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 2 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 3 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 4 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 5 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 6 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 7 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 8 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 9 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 10 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 11 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -4 Depn",
+			"ComponentName":"Year -4 12 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 0 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 1 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 2 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 3 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 4 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 5 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 6 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 7 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 8 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 9 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 10 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 11 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -3 Depn",
+			"ComponentName":"Year -3 12 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 0 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 1 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 2 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 3 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 4 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 5 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 6 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 7 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 8 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 9 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 10 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 11 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -2 Depn",
+			"ComponentName":"Year -2 12 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 0 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 1 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 2 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 3 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 4 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 5 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 6 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 7 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 8 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 9 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 10 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 11 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year -1 Depn",
+			"ComponentName":"Year -1 12 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 0 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 1 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 2 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 3 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 4 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 5 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 6 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 7 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 8 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 9 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 10 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 11 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year 0 Depn",
+			"ComponentName":"Year 0 12 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 0 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 1 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 2 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 3 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 4 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 5 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 6 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 7 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 8 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 9 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 10 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 11 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +1 Depn",
+			"ComponentName":"Year +1 12 Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +2 Depn",
+			"ComponentName":"Year +2 Full Year Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +3 Depn",
+			"ComponentName":"Year +3 Full Year Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +4 Depn",
+			"ComponentName":"Year +4 Full Year Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Year +5 Depn",
+			"ComponentName":"Year +5 Full Year Depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year -1 1 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year -1 2 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year -1 3 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year -1 4 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year -1 5 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year -1 6 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year -1 7 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year -1 8 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year -1 9 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year -1 10 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year -1 11 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year -1 12 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year 0 1 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year 0 2 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year 0 3 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year 0 4 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year 0 5 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year 0 6 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year 0 7 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year 0 8 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year 0 9 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year 0 10 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year 0 11 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year 0 12 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +1 1 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +1 2 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +1 3 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +1 4 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +1 5 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +1 6 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +1 7 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +1 8 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +1 9 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +1 10 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +1 11 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +1 12 Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +2 Full Year Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +3 Full Year Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +4 Full Year Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation YTD by Period",
+			"ComponentName":"Year +5 Full Year Depn YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months Spend",
+			"ComponentName":"Year 0 8 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months Spend",
+			"ComponentName":"Year 0 9 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months Spend",
+			"ComponentName":"Year 0 10 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months Spend",
+			"ComponentName":"Year 0 11 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months Spend",
+			"ComponentName":"Year 0 12 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months Spend",
+			"ComponentName":"Year +1 1 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months Spend",
+			"ComponentName":"Year +1 2 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months Spend",
+			"ComponentName":"Year +1 3 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months Spend",
+			"ComponentName":"Year +1 4 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months Spend",
+			"ComponentName":"Year +1 5 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months Spend",
+			"ComponentName":"Year +1 6 Spend",
+			"Weight":1
+		},
+		{
+			"ParentName":"Future Rolling 12 Months Spend",
+			"ComponentName":"Year +1 7 Spend",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_plan_Capex_Input.subsets/Default.json"
+	]
+}

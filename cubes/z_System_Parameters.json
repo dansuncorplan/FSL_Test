@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"z_System_Parameters",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('z_System_Parameters_List')"
+		},
+		{
+			"@id":"Dimensions('m_z_System_Parameters')"
+		}
+	],
+	"MeasuresDimension":
+	{
+		"@id":"Dimensions('m_z_System_Parameters')"
+	},
+	"Views@Code.links":
+	[
+		"z_System_Parameters.views/Default.json"
+	]
+}

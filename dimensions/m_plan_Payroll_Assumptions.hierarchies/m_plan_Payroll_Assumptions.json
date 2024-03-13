@@ -1,0 +1,51 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_plan_Payroll_Assumptions",
+	"Elements":
+	[
+		{
+			"Name":"Working Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Public Holidays",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Closed Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Paid Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Paid Days %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Amount Increase %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Kiwisaver %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Leave Accrual %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Leave Taken %",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_plan_Payroll_Assumptions.subsets/Default.json"
+	]
+}

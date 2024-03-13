@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_plan_Payroll_Pay_Interval",
+	"Hierarchies@Code.links":
+	[
+		"m_plan_Payroll_Pay_Interval.hierarchies/m_plan_Payroll_Pay_Interval.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_plan_Payroll_Pay_Interval')/Hierarchies('m_plan_Payroll_Pay_Interval')"
+	}
+}

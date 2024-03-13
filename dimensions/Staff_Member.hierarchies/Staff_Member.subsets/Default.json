@@ -1,0 +1,17 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Alias":"Code_and_Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Staff_Member')/Hierarchies('Staff_Member')/Elements('TOTAL_STAFF_MEMBER')"
+		},
+		{
+			"@id":"Dimensions('Staff_Member')/Hierarchies('Staff_Member')/Elements('ACTUAL_TOTAL_STAFF_MEMBER')"
+		},
+		{
+			"@id":"Dimensions('Staff_Member')/Hierarchies('Staff_Member')/Elements('PLAN_TOTAL_STAFF_MEMBER')"
+		}
+	]
+}

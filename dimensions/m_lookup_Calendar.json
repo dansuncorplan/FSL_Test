@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_lookup_Calendar",
+	"Hierarchies@Code.links":
+	[
+		"m_lookup_Calendar.hierarchies/m_lookup_Calendar.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_lookup_Calendar')/Hierarchies('m_lookup_Calendar')"
+	}
+}

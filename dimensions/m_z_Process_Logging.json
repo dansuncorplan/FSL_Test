@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_z_Process_Logging",
+	"Hierarchies@Code.links":
+	[
+		"m_z_Process_Logging.hierarchies/m_z_Process_Logging.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_z_Process_Logging')/Hierarchies('m_z_Process_Logging')"
+	}
+}

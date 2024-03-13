@@ -1,0 +1,113 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_plan_Payroll",
+	"Elements":
+	[
+		{
+			"Name":"Headcount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Headcount Calc",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Annual Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Annual Amount $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Annual Amount $ Calc",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Amount Increase $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Allowance Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Allowance Amount $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Allowance Amount $ Calc",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MONTHLY SALARY $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MONTHLY WAGES $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Incentive Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Incentive Amount $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Incentive Amount $ Calc",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MONTHLY INCENTIVE $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Overtime %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MONTHLY OVERTIME $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MONTHLY KIWISAVER $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MONTHLY ACC $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LEAVE ACCRUAL $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LEAVE TAKEN $",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"HOLIDAY PAY $",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"HOLIDAY PAY $",
+			"ComponentName":"LEAVE ACCRUAL $",
+			"Weight":1
+		},
+		{
+			"ParentName":"HOLIDAY PAY $",
+			"ComponentName":"LEAVE TAKEN $",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_plan_Payroll.subsets/Input.json",
+		"m_plan_Payroll.subsets/Summary.json"
+	]
+}

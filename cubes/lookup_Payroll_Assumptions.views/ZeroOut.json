@@ -1,0 +1,13 @@
+{
+	"@type":"MDXView",
+	"Name":"ZeroOut",
+	"MDX@Code.link":"ZeroOut.mdx",
+	"Meta": {
+		"Aliases": {},
+		"ExpandAboves": {
+			"[plan_Version].[plan_Version]": false,
+			"[m_lookup_Payroll_Assumptions].[m_lookup_Payroll_Assumptions]": false
+		},
+		"ContextSets": {}
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_plan_Profit_and_Loss",
+	"Elements":
+	[
+		{
+			"Name":"Value",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

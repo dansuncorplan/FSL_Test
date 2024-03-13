@@ -1,0 +1,32 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_map_Profit_and_Loss_Sales_Accounts",
+	"Elements":
+	[
+		{
+			"Name":"Valid_Flag",
+			"Type":"String"
+		},
+		{
+			"Name":"Customer_Sales_Mapping",
+			"Type":"String"
+		},
+		{
+			"Name":"Product_Group_Mapping",
+			"Type":"String"
+		},
+		{
+			"Name":"Sales_Measure_Mapping",
+			"Type":"String"
+		},
+		{
+			"Name":"Signage_Multiplier",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Signage_Multiplier_Calc",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

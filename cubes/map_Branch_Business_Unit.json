@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"map_Branch_Business_Unit",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Branch_Desc')"
+		},
+		{
+			"@id":"Dimensions('m_map_Branch_Business_Unit')"
+		}
+	],
+	"MeasuresDimension":
+	{
+		"@id":"Dimensions('m_map_Branch_Business_Unit')"
+	},
+	"Views@Code.links":
+	[
+		"map_Branch_Business_Unit.views/Default.json"
+	]
+}

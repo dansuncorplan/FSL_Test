@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"z_System_Parameters_List",
+	"Hierarchies@Code.links":
+	[
+		"z_System_Parameters_List.hierarchies/z_System_Parameters_List.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('z_System_Parameters_List')/Hierarchies('z_System_Parameters_List')"
+	}
+}

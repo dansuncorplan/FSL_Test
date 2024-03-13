@@ -1,0 +1,78 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Capex_Asset_Driver",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL_CAPEX_ASSET_DRIVER",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Regulatory/Compliance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Safety",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cost Reduction",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sustain",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Capacity Expansion",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Operational Excellence",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Strategic",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOTAL_CAPEX_ASSET_DRIVER",
+			"ComponentName":"Regulatory/Compliance",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CAPEX_ASSET_DRIVER",
+			"ComponentName":"Safety",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CAPEX_ASSET_DRIVER",
+			"ComponentName":"Cost Reduction",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CAPEX_ASSET_DRIVER",
+			"ComponentName":"Sustain",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CAPEX_ASSET_DRIVER",
+			"ComponentName":"Capacity Expansion",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CAPEX_ASSET_DRIVER",
+			"ComponentName":"Operational Excellence",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL_CAPEX_ASSET_DRIVER",
+			"ComponentName":"Strategic",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

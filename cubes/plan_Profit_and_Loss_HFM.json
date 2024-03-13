@@ -1,0 +1,34 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Profit_and_Loss_HFM",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Accounts_HFM')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Profit_and_Loss')"
+		}
+	],
+	"Rules@Code.link":"plan_Profit_and_Loss_HFM.rules",
+	"Views@Code.links":
+	[
+		"plan_Profit_and_Loss_HFM.views/Default.json",
+		"plan_Profit_and_Loss_HFM.views/Review HFM Accounts.json"
+	]
+}

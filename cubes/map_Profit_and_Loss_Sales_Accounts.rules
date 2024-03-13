@@ -1,0 +1,46 @@
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+
+
+## Valid Flag
+## If mapping is valid, mark with 1
+
+[ 'Valid_Flag' ] = S:
+IF( DB('map_Profit_and_Loss_Sales_Accounts',!Business_Unit,!Account_PL,'Product_Group_Mapping') @<> '' &
+DB('map_Profit_and_Loss_Sales_Accounts',!Business_Unit,!Account_PL,'Customer_Sales_Mapping') @<> '' ,
+# THEN
+	'1' ,
+# ELSE
+	'0' ) ;
+
+
+
+## Signage Multiplier Calc
+
+[ 'Signage_Multiplier_Calc' ] = N:
+IF( DB( 'map_Profit_and_Loss_Sales_Accounts',!Business_Unit,!Account_PL,'Valid_Flag' ) @= '1' ,
+# THEN
+	IF( DB( 'map_Profit_and_Loss_Sales_Accounts',!Business_Unit,!Account_PL,'Signage_Multiplier' ) = 0 ,
+	# THEN
+		1 ,
+	# ELSE
+		DB( 'map_Profit_and_Loss_Sales_Accounts',!Business_Unit,!Account_PL,'Signage_Multiplier' ) ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+
+
+FEEDERS ;
+
+## Feed Valid Flag
+
+[ 'Customer_Sales_Mapping' ] => [ 'Valid_Flag' ] ;
+[ 'Product_Group_Mapping' ] => [ 'Valid_Flag' ] ;
+
+
+## Feed Signage Multiplier Calc
+
+[ 'Valid_Flag' ] => [ 'Signage_Multiplier_Calc' ] ;

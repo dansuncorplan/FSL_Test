@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_rpt_Capex_Input",
+	"Hierarchies@Code.links":
+	[
+		"m_rpt_Capex_Input.hierarchies/m_rpt_Capex_Input.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_rpt_Capex_Input')/Hierarchies('m_rpt_Capex_Input')"
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"plan_Version_Control_Measure",
+	"Hierarchies@Code.links":
+	[
+		"plan_Version_Control_Measure.hierarchies/plan_Version_Control_Measure.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('plan_Version_Control_Measure')/Hierarchies('plan_Version_Control_Measure')"
+	}
+}

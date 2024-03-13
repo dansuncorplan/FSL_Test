@@ -1,0 +1,122 @@
+#region Prolog
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+## ================================================
+## TITLE: z_Update_z_ADMIN_Dims_Cubes
+##
+## Desc: Updates admin cube with cube/dimension relationships
+##
+## ================================================
+## 
+## Author: Rowan Edwards
+## Created: 21/10/2014
+##
+## ================================================
+
+
+## ================================================
+## Clear z_ADMIN_Dims_Cubes cube
+## ================================================
+
+vCubeData = 'z_Dim_Cubes';
+
+CubeClearData( vCubeData ) ;
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+vCube = '}Cubes';
+pProcessName = GetProcessName();
+vNbCube = DIMSIZ(vCube);
+vFlag = 'X';
+
+
+#If(CubeExists(vCubeData)=0);
+
+i= 1;
+
+WHILE (i<=vNbCube);
+   vCubeName = DIMNM(vCube,i);
+#    If(Subst(vDimName,1,1)@<>'}' & Subst(vCubeName,1,1)@<>'}') ;
+#       If(1=1) ;
+        vNrOfDimensions=0;
+        While(Long(Tabdim(vCubeName,vNrOfDimensions+1))>0);
+           vNrOfDimensions=vNrOfDimensions+1;
+          END;
+
+          iDim=1;
+           WHILE(iDim<=vNrOfDimensions);
+
+              vDimInCube=Tabdim(vCubeName,iDim);
+               IF(vDimName@=vDimInCube);
+                      vNrOfElement=DIMSIZ(vDimName);
+                      CellPutS(vFlag,vCubeData, vDimName, vCubeName,'Used');
+                      CellPutN(vNrOfElement,vCubeData, vDimName, vCubeName,'NumberOfElEment');
+                ENDIF;
+                iDim=iDim+1;
+          END;
+#        ENDIF;
+       i=i+1;
+END;
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+countRecords = countRecords + 1;
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion
+#region Epilog
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

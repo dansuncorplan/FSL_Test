@@ -1,0 +1,413 @@
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+[ 'Actual', 'Asset ID' ] = S:
+IF( ELISPAR( 'Capex_Item_List', 'Capital_WIP', !Capex_Item_List ) = 1 ,
+# THEN
+	DB('plan_Capex_Item','Forecast',!Business_Unit,!Branch,!Capex_Item_List,'Asset ID') ,
+# ELSE
+	CONTINUE ) ;
+    
+#Region - control calculated months
+[]=N:
+  If(ELISANC( 'plan_Version', 'Calculated Versions', !plan_Version)=1,
+    CONTINUE,
+  STET);
+  
+# []=N:
+#   If(DB( 'plan_Version_Setup', !plan_Version, !plan_Period, 'Calculated Flag'  )=1,
+#     CONTINUE,
+#   STET);
+#EndRegion
+
+## Forecast Existing Assets
+## Values entered via process
+[] = N:
+  IF( ELISPAR( 'Capex_Item_List', 'Existing_Assets', !Capex_Item_List ) = 1 ,
+      STET  ,
+	CONTINUE ) ;
+
+## ROLLING FORECAST
+## Check if "Trf to FA" exists and use as current month if there is
+[] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Tfr to FA') @<> '' ,
+# THEN
+	IF( ELISANC( 'm_plan_Capex_Input', 'Spend by Period', !m_plan_Capex_Input ) = 1 %
+	ELISANC( 'm_plan_Capex_Input', 'Depreciation by Period', !m_plan_Capex_Input ) = 1 ,
+	# THEN
+		IF( NUMBR( ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Period_Offset' ) ) >= NUMBR( ATTRS( 'm_plan_Capex_Input', DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Tfr to FA') | ' Spend', 'Period_Offset' ) ) ,
+		# THEN
+		#	IF(  DB('plan_Capex_Item','Actual',!Business_Unit,!Branch,!Capex_Item_List,!m_plan_Capex_Input) < 0 ,
+			# THEN
+		#		0 ,
+			# ELSE
+			CONTINUE
+		#		 )
+		 ,
+		# ELSE
+			CONTINUE ) ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+## ROLLING FORECAST
+## Forecast equals actual where period offset is negative (in the past)
+[] = N:
+IF( ELISANC( 'm_plan_Capex_Input', 'Spend by Period', !m_plan_Capex_Input ) = 1 %
+ELISANC( 'm_plan_Capex_Input', 'Depreciation by Period', !m_plan_Capex_Input ) = 1 ,
+# THEN
+	IF( NUMBR( ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Period_Offset' ) ) < 0 ,
+	# THEN
+		DB('plan_Capex_Item','Actual',!Business_Unit,!Branch,!Capex_Item_List,!m_plan_Capex_Input) ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+## Forecasted Amount Remaining
+[ 'Amount Remaining' ] =
+IF( DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Revised Allocation' ) <> 0 ,
+# THEN
+	DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Revised Allocation' ) -
+	DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Spend by Period' ) ,
+# ELSE
+	DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Amount' ) -
+	DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Spend by Period' ) ) ;
+
+
+## Forecasted Asset Total
+[ 'Asset Total' ] = N: [ 'Spend by Period' ] ;
+
+## Asset Life
+
+[ 'Asset Life' ] =
+IF( DTYPE( 'Capex_Item_List', !Capex_Item_List ) @= 'C' ,
+# THEN
+	0 ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Asset Life' ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Type') @<> '' ,
+# THEN
+	DB('lookup_Capex_Assumptions',!plan_Version,
+	DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Type') ) ,
+# ELSE
+	STET ) ;
+
+## Approved Amount
+[ { 'Forecast', 'FSL_Internal' }, 'Approved Amount' ] = N: STET ;
+
+[ 'Approved Amount' ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Rejected') @= 'Approved' ,
+# THEN
+	IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Revised Allocation') <> 0 ,
+	# THEN
+		DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Revised Allocation') ,
+	# ELSE
+		DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Total') ) ,
+# ELSE
+	STET ) ;
+
+## Approved Amount Remaining
+[ 'Approved Amount Remaining' ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Rejected') @= 'Approved' ,
+# THEN
+	DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Amount') ,
+# ELSE
+	STET ) ;
+
+## Monthly Depn Amount
+[ 'Monthly Depn Amount' ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Rejected') @= 'Approved' ,
+# THEN
+	IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Revised Allocation') <> 0 ,
+	# THEN
+		ROUND( DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Revised Allocation' ) \
+		( DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Life' ) * 12 ) ) ,
+	# ELSE
+		ROUND( DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Amount' ) \
+		( DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Life' ) * 12 ) ) ),
+# ELSE
+	STET ) ;
+
+## Depn YTD
+
+[ ] = N:
+IF( ELISANC( 'm_plan_Capex_Input', 'Depreciation YTD by Period', !m_plan_Capex_Input ) = 1 ,
+# THEN
+	IF( dimix( 'plan_Period', DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Depn Start Period' ) ) = 0 ,
+	# THEN
+		STET ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+## Depn YTD
+## Zero if Asset Life = 0
+
+[ ] = N:
+IF( ELISANC( 'm_plan_Capex_Input', 'Depreciation YTD by Period', !m_plan_Capex_Input ) = 1 ,
+# THEN
+	IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Life') = 0 ,
+	# THEN
+		STET ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+## Depn YTD
+## Depn Start Period
+
+[ ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Rejected') @= 'Approved' ,
+# THEN
+	IF( ELISANC( 'm_plan_Capex_Input', 'Depreciation YTD by Period', !m_plan_Capex_Input ) = 1 ,
+	# THEN
+		IF( DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Depn Start Period' ) @=
+		ATTRS( 'plan_Period', ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'plan_Period' ), 'rpt_Period' ) ,
+		# THEN
+			DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Monthly Depn Amount' ) ,
+		# ELSE
+			CONTINUE ) ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+## Depn YTD
+## Full Year YTD Depn
+[ { 'Year +2 Full Year Depn YTD', 'Year +3 Full Year Depn YTD', 'Year +4 Full Year Depn YTD' }  ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Rejected') @= 'Approved' ,
+# THEN
+	IF( DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Prev_Period'  ) ) = 0 %
+	DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Prev_Period'  ) ) =
+	DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Amount Remaining') ,
+	# THEN
+		STET ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ { 'Year +2 Full Year Depn YTD', 'Year +3 Full Year Depn YTD', 'Year +4 Full Year Depn YTD' }  ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Rejected') @= 'Approved' ,
+# THEN
+	IF( DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Monthly Depn Amount' ) * 12 +
+	DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Prev_Period' ) )  <=
+	DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Amount Remaining') ,
+	# THEN
+		DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Monthly Depn Amount' ) * 12 +
+		DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Prev_Period' ) ) ,
+	# ELSE
+		IF( DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Monthly Depn Amount' ) * 12 +
+		DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Prev_Period' ) ) -
+		DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Amount Remaining') > 0 ,
+		# THEN
+			DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Amount Remaining') ,
+		# ELSE
+			STET ) ) ,
+# ELSE
+	STET ) ;
+
+## Depn YTD
+## Rolling YTD by Month
+[ ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Rejected') @= 'Approved' ,
+# THEN
+	IF( ELISANC( 'm_plan_Capex_Input', 'Depreciation YTD by Period', !m_plan_Capex_Input ) = 1 ,
+	# THEN
+		IF( ATTRN( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Period_Number' ) >
+		ATTRN( 'plan_Period', DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Depn Start Period' ), 'Period_Number' ) ,
+		# THEN
+			IF( DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List, ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Prev_Period' ) ) = 0 %
+			DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List, ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Prev_Period' ) ) =
+			DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Amount Remaining') ,
+			# THEN
+				STET ,
+			# ELSE
+				CONTINUE ) ,
+		# ELSE
+			CONTINUE ) ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Rejected') @= 'Approved' ,
+# THEN
+	IF( ELISANC( 'm_plan_Capex_Input', 'Depreciation YTD by Period', !m_plan_Capex_Input ) = 1 ,
+	# THEN
+		IF( ATTRN( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Period_Number' ) >
+		ATTRN( 'plan_Period', DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Depn Start Period' ), 'Period_Number' ) ,
+		# THEN
+			IF( DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Monthly Depn Amount' ) +
+			DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List, ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Prev_Period' ) ) <=
+			DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Amount Remaining') ,
+			# THEN
+				DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Monthly Depn Amount' ) +
+				DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List, ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Prev_Period' ) ) ,
+			# ELSE
+
+				DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Amount Remaining') ) ,
+
+		# ELSE
+			0 ) ,
+	# ELSE
+		CONTINUE ) ,
+	CONTINUE ) ;
+
+## Depn
+## Calculate Monthly Depreciation
+
+## Only calculate for Forecast Capex Items & Capital WIP
+## Forecast Existing Assets entered manually
+
+[ ] = N:
+IF( ELISANC( 'Capex_Item_List', 'Existing_Assets', !Capex_Item_List ) = 1 ,
+# THEN
+	STET ,
+# ELSE
+	CONTINUE ) ;
+
+## Only calculate for Budget Capex Items
+## Existing Assets and Capital WIP entered manually
+[ { 'Budget', 'Actual' } ] = N:
+IF( ELISANC( 'Capex_Item_List', 'Capex_Items', !Capex_Item_List ) = 0 ,
+# THEN
+	STET ,
+# ELSE
+	CONTINUE ) ;
+
+## Depn YTD
+[ ] = N:
+IF( ELISANC( 'm_plan_Capex_Input', 'Depreciation by Period', !m_plan_Capex_Input ) = 1 ,
+# THEN
+	IF( dimix( 'plan_Period', DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Depn Start Period' ) ) = 0 ,
+	# THEN
+		STET ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ ] = N:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Rejected') @= 'Approved' ,
+# THEN
+	IF( ELISANC( 'm_plan_Capex_Input', 'Depreciation by Period', !m_plan_Capex_Input ) = 1 ,
+	# THEN
+		IF( ATTRN( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Period_Number' ) >=
+		ATTRN( 'plan_Period', DB( 'plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Depn Start Period' ), 'Period_Number' ) ,
+		# THEN
+			IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,!m_plan_Capex_Input | ' YTD' ) <> 0 ,
+			# THEN
+				IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,!m_plan_Capex_Input | ' YTD' ) =
+				DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Approved Amount Remaining') ,
+				# THEN
+					DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,!m_plan_Capex_Input | ' YTD' ) -
+					DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,ATTRS( 'm_plan_Capex_Input', !m_plan_Capex_Input, 'Prev_Period' ) | ' YTD' ) ,
+				# ELSE
+					IF( SCAN( 'Full Year', !m_plan_Capex_Input ) = 0 ,
+					# THEN
+						DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Monthly Depn Amount') ,
+					# ELSE
+						DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Monthly Depn Amount') * 12 ) ) ,
+			# ELSE
+				STET ) ,
+		# ELSE
+			STET ) ,
+	# ELSE
+		CONTINUE ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+## Asset Flag - Business Unit
+[ { 'Forecast', 'FSL_Internal', 'Budget' } , 'Asset Flag - BU' ] = S:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Type') @<> '' ,
+# THEN
+	IF( ATTRN( 'Business_Unit', !Business_Unit, 'Support_Flag' ) = 1 ,
+	# THEN
+		'Support' ,
+	# ELSE
+		'Production' ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+## Asset Flag
+[ { 'Forecast', 'FSL_Internal', 'Budget' } , 'Asset Flag' ] = S:
+IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Type') @<> '' ,
+# THEN
+	IF( DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Flag - Overwrite') @<> '' ,
+	# THEN
+		DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Flag - Overwrite') ,
+	# ELSE
+		DB('plan_Capex_Item',!plan_Version,!Business_Unit,!Branch,!Capex_Item_List,'Asset Flag - BU') ) ,
+# ELSE
+	CONTINUE ) ;
+
+FEEDERS ;
+
+## Asset Type
+['plan_Version':'plan_Version':'Calculated Versions','Asset Type' ] => [ 'Asset Life' ] ;
+
+## Asset Total
+['plan_Version':'plan_Version':'Calculated Versions','Asset Total' ] => [ 'Approved Amount' ] , [ 'Approved Amount Remaining' ] , [ 'Monthly Depn Amount' ] ;
+
+## Monthly Depn Amount
+
+['plan_Version':'plan_Version':'Calculated Versions','Monthly Depn Amount' ] => [ 'Depreciation by Period' ] , [ 'Depreciation YTD by Period' ] ;
+
+
+## Feed Summary - Spend
+['plan_Version':'plan_Version':'Calculated Versions','Spend by Period'] =>
+DB('plan_Capex_Summary',!plan_Version,'TOTAL_PLAN_PERIOD',!Business_Unit,!Branch,!Capex_Item_List,
+'TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Spend' ) ;
+
+['plan_Version':'plan_Version':'Calculated Versions','Asset Type'] =>
+DB('plan_Capex_Summary',!plan_Version,'TOTAL_PLAN_PERIOD',!Business_Unit,!Branch,!Capex_Item_List,
+'TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Spend' ) ;
+
+['plan_Version':'plan_Version':'Calculated Versions','Asset Driver'] =>
+DB('plan_Capex_Summary',!plan_Version,'TOTAL_PLAN_PERIOD',!Business_Unit,!Branch,!Capex_Item_List,
+'TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Spend' ) ;
+
+['plan_Version':'plan_Version':'Calculated Versions','Asset Flag'] =>
+DB('plan_Capex_Summary',!plan_Version,'TOTAL_PLAN_PERIOD',!Business_Unit,!Branch,!Capex_Item_List,
+'TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Spend' ) ;
+
+## Feed Summary - Depreciation
+['plan_Version':'plan_Version':'Calculated Versions','Depreciation by Period'] =>
+DB('plan_Capex_Summary',!plan_Version,'TOTAL_PLAN_PERIOD',!Business_Unit,!Branch,!Capex_Item_List,
+'TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+# ['plan_Version':'plan_Version':'Calculated Versions','Asset Type'] =>
+# DB('plan_Capex_Summary',!plan_Version,'TOTAL_PLAN_PERIOD',!Business_Unit,!Branch,!Capex_Item_List,
+# 'TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+['plan_Version':'plan_Version':'Calculated Versions','Asset Driver'] =>
+DB('plan_Capex_Summary',!plan_Version,'TOTAL_PLAN_PERIOD',!Business_Unit,!Branch,!Capex_Item_List,
+'TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+['plan_Version':'plan_Version':'Calculated Versions','Asset Flag'] =>
+DB('plan_Capex_Summary',!plan_Version,'TOTAL_PLAN_PERIOD',!Business_Unit,!Branch,!Capex_Item_List,
+'TOTAL_CAPEX_ASSET_FLAG','TOTAL_CAPEX_ASSET_TYPE','TOTAL_CAPEX_ASSET_DRIVER','Depreciation') ;
+
+## Rolling Forecast
+['plan_Version':'plan_Version':'Calculated Versions','Asset ID' ] => DB('plan_Capex_Item','Actual',!Business_Unit,!Branch,!Capex_Item_List,!m_plan_Capex_Input) ;
+
+[ 'Actual' ] => [ 'Forecast' ] , [ 'FSL_Internal' ] ;
+
+## Amount Remaining
+['plan_Version':'plan_Version':'Calculated Versions', 'Spend by Period' ] => [ 'Amount Remaining' ] ;
+['plan_Version':'plan_Version':'Calculated Versions','Revised Allocation' ] => [ 'Amount Remaining' ] ;
+['plan_Version':'plan_Version':'Calculated Versions','Approved Amount' ] => [ 'Amount Remaining' ] ;
+
+## Forecast Asset Total
+['plan_Version':'plan_Version':'Calculated Versions','Spend by Period' ] => [ 'Asset Total' ] ;

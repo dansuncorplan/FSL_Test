@@ -1,0 +1,36 @@
+{
+	"@type":"Cube",
+	"Name":"z_Plan_Profit_Loss_Account_Mapping",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')"
+		},
+		{
+			"@id":"Dimensions('Branch')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Profit_and_Loss')"
+		},
+		{
+			"@id":"Dimensions('Accounts_HFM')"
+		}
+	],
+	"Rules@Code.link":"z_Plan_Profit_Loss_Account_Mapping.rules",
+	"Views@Code.links":
+	[
+		"z_Plan_Profit_Loss_Account_Mapping.views/Default.json"
+	]
+}

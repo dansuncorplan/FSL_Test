@@ -1,0 +1,32 @@
+{
+	"@type":"Process",
+	"Name":"exe_Copy_Planning_to_Planning",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"exe_Copy_Planning_to_Planning.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pSourceVersion",
+			"Prompt":"",
+			"Value":"Budget",
+			"Type":"String"
+		},
+		{
+			"Name":"pTargetVersion",
+			"Prompt":"",
+			"Value":"Forecast",
+			"Type":"String"
+		},
+		{
+			"Name":"pYear",
+			"Prompt":"",
+			"Value":"2022",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

@@ -1,0 +1,268 @@
+{
+	"@type":"NativeView",
+	"Name":"Freight Input FCST",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 1')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 2')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 3')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 4')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 5')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 6')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 7')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 8')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 9')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 10')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 11')"
+					},
+					{
+						"@id":"Dimensions('plan_Period')/Hierarchies('plan_Period')/Elements('Year 0 12')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Branch')/Hierarchies('Branch')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('05')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('15')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('25')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('30')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('35')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('50')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('65')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('80')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('83')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('85')"
+					},
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('95')"
+					}
+				]
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Freight Recoveries %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Freight Recoveries $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Freight In %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Freight In $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Freight Out %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Freight Out $')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Interbranch Freight %25')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Sales')/Hierarchies('m_plan_Sales')/Elements('Interbranch Freight $')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('AUD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('EUR')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('USD')"
+					},
+					{
+						"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD Converted')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency_Sales')/Hierarchies('Currency_Sales')/Elements('NZD')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('Customer_Freight')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Customer_Sales')/Hierarchies('Customer_Sales')/Elements('Customer_Freight')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('Product_Freight')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Product_Group')/Hierarchies('Product_Group')/Elements('Product_Freight')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Easysteel')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Dimond Consolidation')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('PCC')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Reinforcing')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Dimond Consolidation')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":""
+}

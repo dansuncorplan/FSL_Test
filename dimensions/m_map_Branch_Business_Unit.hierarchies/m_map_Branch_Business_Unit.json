@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_map_Branch_Business_Unit",
+	"Elements":
+	[
+		{
+			"Name":"Business_Unit_Mapping",
+			"Type":"String"
+		},
+		{
+			"Name":"Branch_Mapping",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

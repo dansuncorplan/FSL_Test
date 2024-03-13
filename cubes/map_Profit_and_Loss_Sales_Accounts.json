@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"map_Profit_and_Loss_Sales_Accounts",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('Account_PL')"
+		},
+		{
+			"@id":"Dimensions('m_map_Profit_and_Loss_Sales_Accounts')"
+		}
+	],
+	"Rules@Code.link":"map_Profit_and_Loss_Sales_Accounts.rules",
+	"Views@Code.links":
+	[
+		"map_Profit_and_Loss_Sales_Accounts.views/Default.json"
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"rpt_Version",
+	"Hierarchies@Code.links":
+	[
+		"rpt_Version.hierarchies/rpt_Version.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')"
+	}
+}

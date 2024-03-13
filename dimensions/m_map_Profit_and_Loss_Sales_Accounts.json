@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_map_Profit_and_Loss_Sales_Accounts",
+	"Hierarchies@Code.links":
+	[
+		"m_map_Profit_and_Loss_Sales_Accounts.hierarchies/m_map_Profit_and_Loss_Sales_Accounts.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_map_Profit_and_Loss_Sales_Accounts')/Hierarchies('m_map_Profit_and_Loss_Sales_Accounts')"
+	}
+}

@@ -1,0 +1,180 @@
+{
+	"@type":"Hierarchy",
+	"Name":"rpt_Version",
+	"Elements":
+	[
+		{
+			"Name":"Actual",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget FY18",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TEST VERSION",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Sep 17",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Oct 17",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Nov 17",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Dec 17",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Jan 18",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Feb 18",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Mar 18",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget FY19 V1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Apr 18",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast May 18",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget FY19 V2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget FY19",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget FY19 Jun18 CBAL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget FY19 FINAL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Aug 18",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"=pCreateVersion",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BUDGET 2021",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Test Budget 21",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BUDGET 2021 TEST REPORT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BUDGET 2021 FINAL - REPORT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FORECAST JUL 2020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Sep 20 ME",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Feb 21",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget FY22 Final May",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY2022 Submitted Budget",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rollover Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY2022 Final Budget",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sep21 Rebudget 2022 Submitted HFM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sep21 Rebudget 2022 V1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FES Oct21 Rebudget 2022 V1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY23 Budget R1 11Apr22",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY23 Budget R3 19Apr22",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY23 Budget R4 Final 12May22",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY22 Forecast Jun22 Actual preAudit",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY24 Budget Feb23 EOM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY24 Budget Mar23 EOM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY24 Budget Mar23 EOM FINAL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY24 Budget Jun23 EOM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY24 Budget Jun23 EOM FINAL",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"rpt_Version.subsets/Budget_Versions.json",
+		"rpt_Version.subsets/Forecast_Versions.json"
+	]
+}

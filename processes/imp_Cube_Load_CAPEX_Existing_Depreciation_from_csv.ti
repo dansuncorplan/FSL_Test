@@ -1,0 +1,609 @@
+#region Prolog
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+processName=GetProcessName();
+timeStart=NOW;
+dateStart = TIMST(timeStart,'\Y \M \d - \h:\i:\s');
+elementName = processName | ' - ' | dateStart;
+countRecords = 0;
+status = 'Not Complete';
+#Send parameters to StartLogging
+return_value = ExecuteProcess('z_ADMIN_Process_Logging_Start','processName', processName,'elementName',elementName);
+#Write status information for Start
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',elementName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',elementName,'ProcessName');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateStart,'z_Process_Logging',processName,'StartTime');
+CELLPUTS(processName,'z_Process_Logging',processName,'ProcessName');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Description
+## Load csv file to plan_CAPEX_Item for CWIP Items
+
+
+
+## Hardcoded Variables
+
+sTargetCube = 'plan_CAPEX_Item' ;
+
+sParameterCube = 'z_System_Parameters' ;
+
+sVersionDim = 'plan_Version' ;
+sBusinessUnitDim = 'Business_Unit' ;
+sBranchDim = 'Branch' ;
+sCAPEXListDim = 'Capex_Item_List' ;
+sMeasureDim = 'm_plan_Capex_Input' ;
+
+
+sView = processName ;
+sSubset = sView ;
+
+
+
+## Set Source File
+
+sFileFolder = CELLGETS( sParameterCube, 'Import_Directory', 'String' ) | '\' | processName | '\' ;
+
+sDatasource = sFileFolder | pFileName ;
+
+DATASOURCENAMEFORSERVER = sDatasource ;
+
+
+
+## Create Zero Out Target View - Profit and Loss
+
+sCube = sTargetCube ;
+
+IF( VIEWEXISTS( sCube, sView ) = 1 ) ;
+	VIEWDESTROY( sCube, sView ) ;
+ENDIF ;
+
+VIEWCREATE( sCube, sView ) ;
+
+
+
+## Subset - Version
+
+sDim = sVersionDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( sElement @= pVersion ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Business Unit
+
+sDim = sBusinessUnitDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+
+## Subset - Branch
+
+sDim = sBranchDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+
+## Subset - Capex Item List
+
+sDim = sCapexListDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELISANC( sDim, 'Existing_Assets', sElement ) = 1 ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Subset - Measure
+
+sDim = sMeasureDim ;
+
+IF( SUBSETEXISTS( sDim, sSubset ) = 1 ) ;
+	SUBSETDESTROY( sDim, sSubset ) ;
+ENDIF ;
+
+SUBSETCREATE( sDim, sSubset ) ;
+
+nLoopCount = 1 ;
+nLoopMax = DIMSIZ( sDim ) ;
+
+WHILE( nLoopCount <= nLoopMax ) ;
+
+	sElement = DIMNM( sDim, nLoopCount ) ;
+
+	IF( ELLEV( sDim, sElement ) = 0 & sElement @<> 'Asset Flag' ) ;
+		SUBSETELEMENTINSERT( sDim, sSubset, sElement, 1 ) ;
+	ENDIF ;
+
+	nLoopCount = nLoopCount + 1 ;
+
+END ;
+
+VIEWSUBSETASSIGN( sCube, sView, sDim, sSubset ) ;
+
+
+
+## Zero Out Target View
+
+VIEWZEROOUT( sCube, sView ) ;
+
+
+
+## Destroy Target View & Subsets
+
+VIEWDESTROY( sCube, sView ) ;
+
+SUBSETDESTROY( sVersionDim, sSubset ) ;
+SUBSETDESTROY( sBranchDim, sSubset ) ;
+SUBSETDESTROY( sBusinessUnitDim, sSubset ) ;
+SUBSETDESTROY( sCapexListDim, sSubset ) ;
+SUBSETDESTROY( sMeasureDim, sSubset ) ;
+
+
+
+
+
+
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+## Variables
+
+sVersion = pVersion ;
+sBU = vSU ;
+
+IF( LONG( vBR ) = 1 ) ;
+	sBranch = '0' | vBR ;
+ELSE ;
+	sBranch = vBR ;
+ENDIF ;
+
+
+
+## Set Asset Flag
+
+IF( subst(vAccount, 1,2) @= '29' ) ;
+	sAssetFlag = 'Production' ;
+
+ELSEIF( subst(vAccount, 1,2) @= '41' ) ;
+	sAssetFlag = 'Support' ;
+
+ENDIF ;	
+
+
+
+## Set Periods from Record 1
+
+IF( countRecords = 0 ) ;
+
+	sPeriod = vP1 ;
+	sMonth = SUBST( sPeriod, 1, 3 ) ;
+	sYear = '20' | SUBST( sPeriod, 5, 2 ) ;
+
+	IF( sMonth @= 'Jul' % sMonth @= 'Aug' % sMonth @= 'Sep' % sMonth @= 'Oct' % sMonth @= 'Nov' % sMonth @= 'Dec' ) ;
+		sYear = NUMBERTOSTRING( STRINGTONUMBER( sYear ) + 1 ) ;
+	ENDIF ;
+
+	sPeriod1 = sYear | ' ' | sMonth | ' Depn' ;
+
+
+	sPeriod = vP2 ;
+	sMonth = SUBST( sPeriod, 1, 3 ) ;
+	sYear = '20' | SUBST( sPeriod, 5, 2 ) ;
+
+	IF( sMonth @= 'Jul' % sMonth @= 'Aug' % sMonth @= 'Sep' % sMonth @= 'Oct' % sMonth @= 'Nov' % sMonth @= 'Dec' ) ;
+		sYear = NUMBERTOSTRING( STRINGTONUMBER( sYear ) + 1 ) ;
+	ENDIF ;
+
+	sPeriod2 = sYear | ' ' | sMonth | ' Depn' ;
+
+
+	sPeriod = vP3 ;
+	sMonth = SUBST( sPeriod, 1, 3 ) ;
+	sYear = '20' | SUBST( sPeriod, 5, 2 ) ;
+
+	IF( sMonth @= 'Jul' % sMonth @= 'Aug' % sMonth @= 'Sep' % sMonth @= 'Oct' % sMonth @= 'Nov' % sMonth @= 'Dec' ) ;
+		sYear = NUMBERTOSTRING( STRINGTONUMBER( sYear ) + 1 ) ;
+	ENDIF ;
+
+	sPeriod3 = sYear | ' ' | sMonth | ' Depn' ;
+
+
+
+	sPeriod = vP4 ;
+	sMonth = SUBST( sPeriod, 1, 3 ) ;
+	sYear = '20' | SUBST( sPeriod, 5, 2 ) ;
+
+	IF( sMonth @= 'Jul' % sMonth @= 'Aug' % sMonth @= 'Sep' % sMonth @= 'Oct' % sMonth @= 'Nov' % sMonth @= 'Dec' ) ;
+		sYear = NUMBERTOSTRING( STRINGTONUMBER( sYear ) + 1 ) ;
+	ENDIF ;
+
+	sPeriod4 = sYear | ' ' | sMonth | ' Depn' ;
+
+
+	sPeriod = vP5 ;
+	sMonth = SUBST( sPeriod, 1, 3 ) ;
+	sYear = '20' | SUBST( sPeriod, 5, 2 ) ;
+
+	IF( sMonth @= 'Jul' % sMonth @= 'Aug' % sMonth @= 'Sep' % sMonth @= 'Oct' % sMonth @= 'Nov' % sMonth @= 'Dec' ) ;
+		sYear = NUMBERTOSTRING( STRINGTONUMBER( sYear ) + 1 ) ;
+	ENDIF ;
+
+	sPeriod5 = sYear | ' ' | sMonth | ' Depn' ;
+
+
+	sPeriod = vP6 ;
+	sMonth = SUBST( sPeriod, 1, 3 ) ;
+	sYear = '20' | SUBST( sPeriod, 5, 2 ) ;
+
+	IF( sMonth @= 'Jul' % sMonth @= 'Aug' % sMonth @= 'Sep' % sMonth @= 'Oct' % sMonth @= 'Nov' % sMonth @= 'Dec' ) ;
+		sYear = NUMBERTOSTRING( STRINGTONUMBER( sYear ) + 1 ) ;
+	ENDIF ;
+
+	sPeriod6 = sYear | ' ' | sMonth | ' Depn' ;
+
+
+	sPeriod = vP7 ;
+	sMonth = SUBST( sPeriod, 1, 3 ) ;
+	sYear = '20' | SUBST( sPeriod, 5, 2 ) ;
+
+	IF( sMonth @= 'Jul' % sMonth @= 'Aug' % sMonth @= 'Sep' % sMonth @= 'Oct' % sMonth @= 'Nov' % sMonth @= 'Dec' ) ;
+		sYear = NUMBERTOSTRING( STRINGTONUMBER( sYear ) + 1 ) ;
+	ENDIF ;
+
+	sPeriod7 = sYear | ' ' | sMonth | ' Depn' ;
+
+
+	sPeriod = vP8 ;
+	sMonth = SUBST( sPeriod, 1, 3 ) ;
+	sYear = '20' | SUBST( sPeriod, 5, 2 ) ;
+
+	IF( sMonth @= 'Jul' % sMonth @= 'Aug' % sMonth @= 'Sep' % sMonth @= 'Oct' % sMonth @= 'Nov' % sMonth @= 'Dec' ) ;
+		sYear = NUMBERTOSTRING( STRINGTONUMBER( sYear ) + 1 ) ;
+	ENDIF ;
+
+	sPeriod8 = sYear | ' ' | sMonth | ' Depn' ;
+
+
+	sPeriod = vP9 ;
+	sMonth = SUBST( sPeriod, 1, 3 ) ;
+	sYear = '20' | SUBST( sPeriod, 5, 2 ) ;
+
+	IF( sMonth @= 'Jul' % sMonth @= 'Aug' % sMonth @= 'Sep' % sMonth @= 'Oct' % sMonth @= 'Nov' % sMonth @= 'Dec' ) ;
+		sYear = NUMBERTOSTRING( STRINGTONUMBER( sYear ) + 1 ) ;
+	ENDIF ;
+
+	sPeriod9 = sYear | ' ' | sMonth | ' Depn' ;
+
+
+	sPeriod = vP10 ;
+	sMonth = SUBST( sPeriod, 1, 3 ) ;
+	sYear = '20' | SUBST( sPeriod, 5, 2 ) ;
+
+	IF( sMonth @= 'Jul' % sMonth @= 'Aug' % sMonth @= 'Sep' % sMonth @= 'Oct' % sMonth @= 'Nov' % sMonth @= 'Dec' ) ;
+		sYear = NUMBERTOSTRING( STRINGTONUMBER( sYear ) + 1 ) ;
+	ENDIF ;
+
+	sPeriod10 = sYear | ' ' | sMonth | ' Depn' ;
+
+
+	sPeriod = vP11 ;
+	sMonth = SUBST( sPeriod, 1, 3 ) ;
+	sYear = '20' | SUBST( sPeriod, 5, 2 ) ;
+
+	IF( sMonth @= 'Jul' % sMonth @= 'Aug' % sMonth @= 'Sep' % sMonth @= 'Oct' % sMonth @= 'Nov' % sMonth @= 'Dec' ) ;
+		sYear = NUMBERTOSTRING( STRINGTONUMBER( sYear ) + 1 ) ;
+	ENDIF ;
+
+	sPeriod11 = sYear | ' ' | sMonth | ' Depn' ;
+
+
+	sPeriod = vP12 ;
+	sMonth = SUBST( sPeriod, 1, 3 ) ;
+	sYear = '20' | SUBST( sPeriod, 5, 2 ) ;
+
+	IF( sMonth @= 'Jul' % sMonth @= 'Aug' % sMonth @= 'Sep' % sMonth @= 'Oct' % sMonth @= 'Nov' % sMonth @= 'Dec' ) ;
+		sYear = NUMBERTOSTRING( STRINGTONUMBER( sYear ) + 1 ) ;
+	ENDIF ;
+
+	sPeriod12 = sYear | ' ' | sMonth | ' Depn' ;
+
+
+ELSE ;
+
+
+	## Loop Through Existing Assets & Find Blank Row
+
+	nLoopCount = 1 ;
+	nLoopMax = 20 ;
+	sAssetItem = '' ;
+
+	WHILE( nLoopCount <= nLoopMax ) ;
+
+		sLoopCount = NUMBERTOSTRING( nLoopCount ) ;
+
+		IF( LONG( sLoopCount ) = 1 ) ;
+			sLoopAsset = 'Existing Assets 00' | sLoopCount ;
+		ELSEIF( LONG( sLoopCount ) = 2 ) ;
+			sLoopAsset = 'Existing Assets 0' | sLoopCount ;
+		ELSE ;
+			sLoopAsset = 'Existing Assets ' | sLoopCount ;
+		ENDIF ;
+
+		nDepn = CELLGETN( sTargetCube, sVersion, sBU, sBranch, sLoopAsset, 'Depreciation by Period' ) ;
+
+		IF( nDepn = 0 ) ;
+			sAssetItem = sLoopAsset ;
+			nLoopCount = nLoopMax + 1 ;
+		ELSE ;
+			nLoopCount = nLoopCount + 1 ;
+		ENDIF ;
+
+	END ;
+
+	
+	## Load Asset Type
+
+	sMeasure = 'Asset Type' ;
+	sValue = vAssetType ;
+
+	CELLPUTS( sValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	## Load Asset Flag Overwrite
+
+	sMeasure = 'Asset Flag - Overwrite' ;
+	sValue = sAssetFlag ;
+
+	CELLPUTS( sValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	## Load Asset Driver
+
+	sMeasure = 'Asset Driver' ;
+	sValue = vAssetDriver ;
+
+	CELLPUTS( sValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	## Load Asset Flag
+
+	sMeasure = 'Asset Flag' ;
+	sValue = sAssetFlag ;
+
+	CELLPUTS( sValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	## Load Periods
+
+	sMeasure = sPeriod1 ;
+	nValue = STRINGTONUMBER( vP1 ) ;
+
+	CELLPUTN( nValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	sMeasure = sPeriod2 ;
+	nValue = STRINGTONUMBER( vP2 ) ;
+
+	CELLPUTN( nValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	sMeasure = sPeriod3 ;
+	nValue = STRINGTONUMBER( vP3 ) ;
+
+	CELLPUTN( nValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	sMeasure = sPeriod4 ;
+	nValue = STRINGTONUMBER( vP4 ) ;
+
+	CELLPUTN( nValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	sMeasure = sPeriod5 ;
+	nValue = STRINGTONUMBER( vP5 ) ;
+
+	CELLPUTN( nValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	sMeasure = sPeriod6 ;
+	nValue = STRINGTONUMBER( vP6 ) ;
+
+	CELLPUTN( nValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	sMeasure = sPeriod7 ;
+	nValue = STRINGTONUMBER( vP7 ) ;
+
+	CELLPUTN( nValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	sMeasure = sPeriod8 ;
+	nValue = STRINGTONUMBER( vP8 ) ;
+
+	CELLPUTN( nValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	sMeasure = sPeriod9 ;
+	nValue = STRINGTONUMBER( vP9 ) ;
+
+	CELLPUTN( nValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	sMeasure = sPeriod10 ;
+	nValue = STRINGTONUMBER( vP10 ) ;
+
+	CELLPUTN( nValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	sMeasure = sPeriod11 ;
+	nValue = STRINGTONUMBER( vP11 ) ;
+
+	CELLPUTN( nValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+	sMeasure = sPeriod12 ;
+	nValue = STRINGTONUMBER( vP12 ) ;
+
+	CELLPUTN( nValue, sTargetCube, sVersion, sBU, sBranch, sAssetItem, sMeasure ) ;
+
+
+
+
+
+ENDIF ;
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+countRecords = countRecords + 1;
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion
+#region Epilog
+
+
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~ProcessLogging~~~~~~~~~~#
+#Variables
+timeFinish=NOW;
+elapsedTime=TIMST(timeFinish - timeStart,'\h:\i:\s');
+dateFinish = TIMST(timeFinish,'\Y \M \d - \h:\i:\s');
+status = 'Complete';
+#Write status information for Finish
+CELLPUTS(status,'z_Process_Logging',elementName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',elementName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',elementName,'Elapsed Time');
+CELLPUTN(countRecords,'z_Process_Logging',elementName,'Records');
+CELLPUTS(status,'z_Process_Logging',processName,'Status');
+CELLPUTS(dateFinish,'z_Process_Logging',processName,'FinishTime');
+CELLPUTS(elapsedTime,'z_Process_Logging',processName,'Elapsed Time');
+#~~~~~~~~~~EndProcessLogging~~~~~~~~~~#
+#endregion

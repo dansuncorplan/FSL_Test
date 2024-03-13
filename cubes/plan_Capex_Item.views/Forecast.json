@@ -1,0 +1,493 @@
+{
+	"@type":"NativeView",
+	"Name":"Forecast",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')"
+				},
+				"Alias":"rpt_Period",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Asset ID')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Initiative Name')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Business Unit')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Branch')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Description')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Asset Type')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Asset Driver')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Asset Flag')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Tfr to FA')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Amount Remaining')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Asset Total')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Approved Rejected')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Revised Allocation')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Approved Amount')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Approved Amount Remaining')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Asset Life')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Spend Start Period')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Depn Start Period')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Monthly Depn Amount')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Spend by Period')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year -2 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year -1 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 0 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 1 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 2 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 3 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 4 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 5 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 6 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 7 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 8 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 9 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 10 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 11 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 12 Spend')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Depreciation by Period')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 0 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 1 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 2 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 3 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 4 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 5 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 6 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 7 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 8 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 9 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 10 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 11 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year 0 12 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 0 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 1 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 2 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 3 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 4 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 5 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 6 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 7 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 8 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 9 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 10 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 11 Depn')"
+					},
+					{
+						"@id":"Dimensions('m_plan_Capex_Input')/Hierarchies('m_plan_Capex_Input')/Elements('Year +1 12 Depn')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('TOTAL_CAPEX_ITEM_LIST')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Existing_Assets')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capital_WIP')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('Capex_Items')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('001')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('002')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('003')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('004')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('005')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('006')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('007')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('008')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('009')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('010')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('011')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('012')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('013')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('014')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('015')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('016')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('017')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('018')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('019')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('020')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('021')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('022')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('023')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('024')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('025')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('026')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('027')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('028')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('029')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('030')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('031')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('032')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('033')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('034')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('035')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('036')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('037')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('038')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('039')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('040')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('041')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('042')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('043')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('044')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('045')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('046')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('047')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('048')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('049')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('050')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('051')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('052')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('053')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('054')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('055')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('056')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('057')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('058')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('059')"
+					},
+					{
+						"@id":"Dimensions('Capex_Item_List')/Hierarchies('Capex_Item_List')/Elements('060')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+					},
+					{
+						"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Dimond Consolidation')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Business_Unit')/Hierarchies('Business_Unit')/Elements('Fletcher Steel')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Branch')/Hierarchies('Branch')"
+				},
+				"Alias":"Code & Description",
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('TOTAL_BRANCH')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Branch')/Hierarchies('Branch')/Elements('TOTAL_BRANCH')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

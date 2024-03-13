@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"plan_Sales_Assumptions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('plan_Period')"
+		},
+		{
+			"@id":"Dimensions('Business_Unit')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Sales_Assumptions')"
+		}
+	],
+	"Views@Code.links":[]
+}

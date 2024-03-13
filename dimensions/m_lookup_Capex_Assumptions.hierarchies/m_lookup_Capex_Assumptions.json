@@ -1,0 +1,43 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_lookup_Capex_Assumptions",
+	"Elements":
+	[
+		{
+			"Name":"Land",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Buildings",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Leasehold Improvements",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Furniture_Fittings",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Computer_Equipment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Plant_Equipment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Motor Vehicles_Mobile Plant",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Software",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_lookup_Capex_Assumptions.subsets/Default.json"
+	]
+}

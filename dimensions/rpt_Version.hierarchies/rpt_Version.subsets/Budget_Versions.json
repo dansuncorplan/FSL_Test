@@ -1,0 +1,25 @@
+{
+	"@type":"Subset",
+	"Name":"Budget_Versions",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY18')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY19')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY19 FINAL')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY19 Jun18 CBAL')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY19 V1')"
+		},
+		{
+			"@id":"Dimensions('rpt_Version')/Hierarchies('rpt_Version')/Elements('Budget FY19 V2')"
+		}
+	]
+}

@@ -1,0 +1,21 @@
+
+['No Customer','No Product_Group','Is Linked']=STET;
+
+# ['Is Linked']=N:
+# If( DB( 'plan_Sales_Mapping', !Branch, !Business_Unit, 'No Product_Group', 'No Customer', 'Is Linked'  )<>0,
+#   If( ATTRS( 'Business_Unit', !Business_Unit, 'Sales Input - Customer Group')@=ELPAR( 'Customer_Sales', !Customer_Sales, 1) & 
+#       ATTRS( 'Business_Unit', !Business_Unit, 'Sales Input - Product Group')@=ELPAR( 'Product_Group', !Product_Group, 1),
+#   1,
+#   CONTINUE)
+# ,CONTINUE);
+
+['Is Linked']=N:
+  If( DB( 'plan_Sales_Mapping', !Branch, !Business_Unit, 'No Product_Group', 'No Customer', 'Is Linked'  )<>0,
+    CONTINUE
+  ,STET);
+  
+['Is Linked']=N:
+  If( ATTRS( 'Business_Unit', !Business_Unit, 'Sales Input - Customer Group')@=ELPAR( 'Customer_Sales', !Customer_Sales, 1) & 
+      ATTRS( 'Business_Unit', !Business_Unit, 'Sales Input - Product Group')@=ELPAR( 'Product_Group', !Product_Group, 1),
+  1,
+  CONTINUE);

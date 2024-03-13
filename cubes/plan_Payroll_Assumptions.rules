@@ -1,0 +1,62 @@
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+
+[ 'Avg Kiwisaver %' ] =
+IF( DTYPE( 'plan_Period', !plan_Period ) @= 'C' ,
+# THEN
+	CONSOLIDATEDAVG( 2, 'plan_Payroll_Assumptions',!plan_Version,!plan_Period,!Business_Unit,!Branch,!m_plan_Payroll_Assumptions ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+['Avg Amount Increase %'] =
+IF( DTYPE( 'plan_Period', !plan_Period ) @= 'C' ,
+# THEN
+	CONSOLIDATEDAVG( 2, 'plan_Payroll_Assumptions',!plan_Version,!plan_Period,!Business_Unit,!Branch,!m_plan_Payroll_Assumptions ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+
+## Opening Balance
+
+[ ] = N:
+IF( ATTRS( 'plan_Period', !plan_Period, 'rpt_Month' ) @= 'Opening Balance' ,
+# THEN
+	0 ,
+# ELSE
+	CONTINUE ) ;
+
+
+
+## Paid Days %
+
+[ 'Paid Days %' ] = N:
+[ 'Paid Days' ] \ DB( 'plan_Payroll_Assumptions',!plan_Version,ATTRS( 'plan_Period', !plan_Period, 'rpt_Year' ),!Business_Unit,!Branch,'Paid Days' ) ;
+
+
+## Total Days
+
+[ 'Total Days' ] = N:
+[ 'Working Days' ] + [ 'Public Holidays' ] + [ 'Closed Days' ] ;
+
+
+## Paid Days
+
+[ 'Paid Days' ] = N:
+[ 'Working Days' ] + [ 'Public Holidays' ] ;
+
+
+
+FEEDERS ;
+
+## Feed Paid Days %
+
+[ 'Paid Days' ] => [ 'Paid Days %' ] ;
+
+
+## Feed Paid & Total Days
+
+[ 'Working Days' ] => [ 'Paid Days' ] , [ 'Total Days' ] ;

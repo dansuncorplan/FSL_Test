@@ -1,0 +1,16 @@
+Skipcheck;
+Feedstrings;
+['Warehousing and Distribution Adjustment'] = N: -['Total Cost of Sales Adjustment'];
+
+[] = n:IF(ATTRS('Accounts_HFM', !Accounts_HFM, 'Adj_Line') @= 'Y', STET, Continue);
+
+[] = DB('z_Plan_Profit_Loss_Account_Mapping',!plan_Version,!Currency,!plan_Period,!Branch,!Business_Unit,'TOTAL_ACCOUNT_PL',!m_plan_Profit_and_Loss,!Accounts_HFM);
+
+
+
+
+
+
+
+Feeders;
+['Total Cost of Sales Adjustment'] => ['Warehousing and Distribution Adjustment'];

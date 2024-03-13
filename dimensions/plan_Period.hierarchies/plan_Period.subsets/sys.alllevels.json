@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"sys.alllevels",
+	"Alias":"rpt_Period",
+	"Expression":"TM1IGNORE_BADTUPLES {DISTINCT(DESCENDANTS([plan_Period].[plan_Period].[TOTAL_PLAN_PERIOD])),DRILLDOWNMEMBER({[plan_Period].[plan_Period].[TOTAL_PLAN_PERIOD_YTD]} , {[plan_Period].[plan_Period].[TOTAL_PLAN_PERIOD_YTD],[plan_Period].[plan_Period].[Year -1 YTD],[plan_Period].[plan_Period].[Year 0 YTD],[plan_Period].[plan_Period].[Year +1 YTD]} , RECURSIVE)}"
+}

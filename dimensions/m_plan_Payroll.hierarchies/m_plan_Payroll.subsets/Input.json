@@ -1,0 +1,58 @@
+{
+	"@type":"Subset",
+	"Name":"Input",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Headcount')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Headcount Calc')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Annual Amount $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Annual Amount $ Calc')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Amount Increase $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Allowance Amount $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Allowance Amount $ Calc')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY SALARY $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY WAGES $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Incentive Amount $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Incentive Amount $ Calc')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY INCENTIVE $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('Avg Overtime %25')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY OVERTIME $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('MONTHLY KIWISAVER $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('LEAVE ACCRUAL $')"
+		},
+		{
+			"@id":"Dimensions('m_plan_Payroll')/Hierarchies('m_plan_Payroll')/Elements('LEAVE TAKEN $')"
+		}
+	]
+}

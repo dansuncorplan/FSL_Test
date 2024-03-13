@@ -1,0 +1,29 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+#### Process Logging
+DIMENSIONSORTORDER('z_Process_Logging_List','ByName','ASCENDING','ByHierarchy','ASCENDING');
+DimensionElementInsert ('z_Process_Logging_List', processName, '', 'N');
+DimensionElementComponentAdd ('z_Process_Logging_List', 'AllLogs', processName, 1);
+DimensionElementInsert ('z_Process_Logging_List', elementName, '', 'N');
+DimensionElementComponentAdd ('z_Process_Logging_List', processName, elementName, 1);
+#### Process Logging
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

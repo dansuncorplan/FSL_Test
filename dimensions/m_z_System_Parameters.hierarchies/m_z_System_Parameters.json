@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_z_System_Parameters",
+	"Elements":
+	[
+		{
+			"Name":"Numeric",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"String",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

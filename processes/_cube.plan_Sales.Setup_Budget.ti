@@ -1,0 +1,147 @@
+#region Prolog
+
+#--------------------------------------
+# constant variables
+#--------------------------------------
+cThisProcName  = GetProcessName();
+cUserName = TM1User();
+cTimeStamp  = TimSt( Now, '\Y\m\d\h\i\s' );
+cRandomInt = NumberToString( INT( RAND( ) * 1000 ));
+cTempObjName = Expand('%cThisProcName%_%cTimeStamp%_%cRandomInt%');
+cSourceObj='source_'|cTempObjName;
+cTargetObj='target_'|cTempObjName;
+
+cError = '';
+
+cLogInfo = 'Process:%cThisProcName% run with parameters - pMonth %pVersionToPopulate% and Temp obj name is %cTempObjName %';
+
+nTimeNow = NOW();
+ServerTime = NewDateFormatter('' , 'Etc/UTC' , 'serial' , 'full' , 'datetime' );
+NZTime = NewDateFormatter( '' , 'Pacific/Auckland' , 'serial' , 'full' , 'datetime' );
+sTimeNowNZ = FormatDate( nTimeNow , 'yyyyMMddHHmmss' , NZTime );
+nTimeNowNZ = ParseDate( sTimeNowNZ , 'yyyyMMddHHmmss' , ServerTime );
+sTodayDate = FormatDate( nTimeNowNZ , 'yyyy-MM-dd' ) ;
+
+LogOutput('INFO',  expand(cLogInfo) ); 
+
+#--------------------------------------
+# validate parameter - on PAW book these will be synchronised
+#--------------------------------------
+If(pVersionToPopulate@='');
+  cError = 'Version input cannot be blank!';
+  ProcessBreak;
+Endif;
+
+If(pVersionToPopulate@='Actual');
+  cError = 'Target version cannot be Actual!';
+  ProcessBreak;
+Endif;
+
+#-----------------
+# clear target
+#-----------------
+
+If(pResetPhasingDrivers@='Yes');
+    
+    ViewCreate( 'plan_Sales' , cTargetObj|'_Phasing', 1 );
+    
+    SubsetCreatebyMDX( cTargetObj|'_Phasing' , '{[plan_Version].[plan_Version].['|pVersionToPopulate|']}', 1 );
+    SubsetCreatebyMDX( cTargetObj|'_Phasing' , '{[Currency_Sales].[Currency_Sales].[NZD]}', 1 );
+    SubsetCreatebyMDX( cTargetObj|'_Phasing' , '{[plan_Period].[plan_Period].[Planning Driver]}', 1 );
+    SubsetCreatebyMDX( cTargetObj|'_Phasing' , '{TM1FILTERBYLEVEL(TM1SubsetAll([Branch].[Branch]), 0)}', 1 );
+    SubsetCreatebyMDX( cTargetObj|'_Phasing' , '{TM1FILTERBYLEVEL(TM1SubsetAll([Business_Unit].[Business_Unit]), 0)}', 1 );
+    SubsetCreatebyMDX( cTargetObj|'_Phasing' , '{TM1FILTERBYLEVEL(TM1SubsetAll([Customer_Sales].[Customer_Sales]) , 0)}', 1 );
+    SubsetCreatebyMDX( cTargetObj|'_Phasing' , '{TM1FILTERBYLEVEL(TM1SubsetAll([Product_Group].[Product_Group]), 0)}', 1 );
+    SubsetCreatebyMDX( cTargetObj|'_Phasing' , '{[m_plan_Sales].[m_plan_Sales].[Sales Volume - LM],[m_plan_Sales].[m_plan_Sales].[Sales Volume - EA],[m_plan_Sales].[m_plan_Sales].[Sales Volume - TN]} ', 1 );
+    
+    nDimCount = 1;
+    WHILE( TABDIM( 'plan_Sales' , nDimCount )@<> '' );
+    	sDim = TABDIM( 'plan_Sales' , nDimCount );
+    	IF( SUBSETEXISTS( sDim , cTargetObj|'_Phasing' ) = 1 );
+    		VIEWSUBSETASSIGN( 'plan_Sales' , cTargetObj|'_Phasing' , sDim , cTargetObj|'_Phasing' );
+    	ENDIF;
+    	nDimCount = nDimCount +1;
+    END;
+
+    ViewZeroOut( 'plan_Sales' , cTargetObj|'_Phasing');
+    
+Endif;
+
+ViewCreate( 'plan_Sales' , cTargetObj , 1 );
+SubsetCreatebyMDX( cTargetObj , '{[plan_Version].[plan_Version].['|pVersionToPopulate|']}', 1 );
+SubsetCreatebyMDX( cTargetObj , '{[Currency_Sales].[Currency_Sales].[NZD]}', 1 );
+SubsetCreatebyMDX( cTargetObj , '{[plan_Period].[plan_Period].[Year +1 1],
+[plan_Period].[plan_Period].[Year +1 2],
+[plan_Period].[plan_Period].[Year +1 3],
+[plan_Period].[plan_Period].[Year +1 4],
+[plan_Period].[plan_Period].[Year +1 5],
+[plan_Period].[plan_Period].[Year +1 6],
+[plan_Period].[plan_Period].[Year +1 7]}', 1 );
+SubsetCreatebyMDX( cTargetObj , '{TM1FILTERBYLEVEL(TM1SubsetAll([Branch].[Branch]), 0)}', 1 );
+SubsetCreatebyMDX( cTargetObj , '{TM1FILTERBYLEVEL(TM1SubsetAll([Business_Unit].[Business_Unit]), 0)}', 1 );
+SubsetCreatebyMDX( cTargetObj , '{TM1FILTERBYLEVEL(TM1SubsetAll([Customer_Sales].[Customer_Sales]) , 0)}', 1 );
+SubsetCreatebyMDX( cTargetObj , '{TM1FILTERBYLEVEL(TM1SubsetAll([Product_Group].[Product_Group]), 0)}', 1 );
+SubsetCreatebyMDX( cTargetObj , '{[m_plan_Sales].[m_plan_Sales].[Sales Volume - LM],[m_plan_Sales].[m_plan_Sales].[Sales Volume - EA],[m_plan_Sales].[m_plan_Sales].[Sales Volume - TN],[m_plan_Sales].[m_plan_Sales].[TOTAL SALES $],[m_plan_Sales].[m_plan_Sales].[COST OF SALES STANDARD $],[m_plan_Sales].[m_plan_Sales].[Base Selling Price],
+[m_plan_Sales].[m_plan_Sales].[Cost Price per UOM Base]} ', 1 );
+
+nDimCount = 1;
+WHILE( TABDIM( 'plan_Sales' , nDimCount )@<> '' );
+	sDim = TABDIM( 'plan_Sales' , nDimCount );
+	IF( SUBSETEXISTS( sDim , cTargetObj ) = 1 );
+		VIEWSUBSETASSIGN( 'plan_Sales' , cTargetObj , sDim , cTargetObj );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+ViewZeroOut( 'plan_Sales' , cTargetObj);
+
+#-----------------
+# Set source view
+#-----------------
+ViewCreate( 'plan_Sales' , cSourceObj , 1 );
+
+SubsetCreatebyMDX( cSourceObj , '{[plan_Version].[plan_Version].[Actual]}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{[Currency_Sales].[Currency_Sales].[NZD]}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{[plan_Period].[plan_Period].[Year 0 1], [plan_Period].[plan_Period].[Year 0 2], [plan_Period].[plan_Period].[Year 0 3], [plan_Period].[plan_Period].[Year 0 4], [plan_Period].[plan_Period].[Year 0 5], [plan_Period].[plan_Period].[Year 0 6], [plan_Period].[plan_Period].[Year 0 7]}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SubsetAll([Branch].[Branch]), 0)}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SubsetAll([Business_Unit].[Business_Unit]), 0)}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Customer_Sales].[Customer_Sales]) , 0)}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SubsetAll([Product_Group].[Product_Group]), 0)}', 1 );
+SubsetCreatebyMDX( cSourceObj , '{[m_plan_Sales].[m_plan_Sales].[Sales Volume - LM],[m_plan_Sales].[m_plan_Sales].[Sales Volume - EA],[m_plan_Sales].[m_plan_Sales].[Sales Volume - TN],[m_plan_Sales].[m_plan_Sales].[TOTAL SALES $],[m_plan_Sales].[m_plan_Sales].[COST OF SALES STANDARD $],[m_plan_Sales].[m_plan_Sales].[Base Selling Price],
+[m_plan_Sales].[m_plan_Sales].[Cost Price per UOM Base]} ', 1 );
+
+
+nDimCount = 1;
+WHILE( TABDIM( 'plan_Sales' , nDimCount )@<> '' );
+	sDim = TABDIM( 'plan_Sales' , nDimCount );
+	IF( SUBSETEXISTS( sDim , cSourceObj ) = 1 );
+		VIEWSUBSETASSIGN( 'plan_Sales' , cSourceObj , sDim , cSourceObj );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+ViewSuppressZeroesSet( 'plan_Sales' , cSourceObj , 1 );
+ViewExtractSkipCalcsSet( 'plan_Sales' , cSourceObj , 1 );
+ViewExtractSkipZeroesSet( 'plan_Sales' , cSourceObj , 1 );
+ViewExtractSkipRuleValuesSet( 'plan_Sales' , cSourceObj , 0 );
+
+DataSourceType = 'VIEW' ;
+DataSourceNameForServer = 'plan_Sales' ;
+DataSourceCubeView = cSourceObj ;
+
+
+#endregion
+#region Data
+
+
+sTargeMonthName=ATTRS( 'plan_Period', vPlan_Period, 'rpt_Period');
+sTargetMonth=NumberToString(StringToNumber(SUBST( sTargeMonthName, 1, 4 ))+1) | ' ' | SUBST( sTargeMonthName, 6, 3 );
+
+ASCIIOutput( 'TEMP.VersionSetup.Sales.txt',  pVersionToPopulate, vPlan_Version, vCurrency_Sales, ATTRS( 'plan_Period', vPlan_Period, 'rpt_Period'), sTargetMonth, vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, vMeasure, NumberToString( vValue ) );
+
+If(CellIsUpdateable( 'plan_Sales', pVersionToPopulate, vCurrency_Sales, sTargetMonth, vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, vMeasure )=1);
+    CellPutN( vValue, 'plan_Sales', pVersionToPopulate, vCurrency_Sales, sTargetMonth, vBranch, vBusiness_Unit, vCustomer_Sales, vProduct_Group, vMeasure  );
+Endif;
+
+
+#endregion

@@ -1,0 +1,48 @@
+SKIPCHECK ;
+FEEDSTRINGS ;
+
+
+## Consolidated Averages
+
+[ 'Headcount Calc' ] =
+IF( ELLEV( 'Branch', !Branch ) > 0 ,
+# THEN
+	CONSOLIDATECHILDREN( 'Branch' ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Headcount Calc' ] =
+IF( ELLEV( 'Business_Unit', !Business_Unit ) > 0 ,
+# THEN
+	CONSOLIDATECHILDREN( 'Business_Unit' ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Headcount Calc' ] =
+IF( ELLEV( 'Staff_Type', !Staff_Type ) > 0 ,
+# THEN
+	CONSOLIDATECHILDREN( 'Staff_Type' ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Headcount Calc' ] =
+IF( ELLEV( 'Staff_Role', !Staff_Role ) > 0 ,
+# THEN
+	CONSOLIDATECHILDREN( 'Staff_Role' ) ,
+# ELSE
+	CONTINUE ) ;
+
+[ 'Headcount Calc' ] =
+IF( DTYPE( 'rpt_Year', !rpt_Year ) @= 'C' % DTYPE( 'rpt_Month', !rpt_Month ) @= 'C' ,
+# THEN
+		CONSOLIDATEDAVG( 2, 'rpt_Payroll',!rpt_Version,!rpt_Month, !rpt_Year,!Business_Unit,!Branch,!Staff_Role,!Staff_Type,!m_rpt_Payroll ) ,
+# ELSE
+	CONTINUE ) ;
+
+
+[ 'Avg Annual Amount $ Calc' ] =
+IF( DTYPE( 'rpt_Year', !rpt_Year ) @= 'C' % DTYPE( 'rpt_Month', !rpt_Month ) @= 'C' ,
+# THEN
+	CONSOLIDATEDAVG( 2, 'rpt_Payroll',!rpt_Version,!rpt_Month, !rpt_Year,!Business_Unit,!Branch,!Staff_Role,!Staff_Type,!m_rpt_Payroll ) ,
+# ELSE
+	CONTINUE ) ;

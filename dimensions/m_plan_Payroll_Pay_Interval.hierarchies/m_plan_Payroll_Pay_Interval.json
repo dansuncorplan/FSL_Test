@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_plan_Payroll_Pay_Interval",
+	"Elements":
+	[
+		{
+			"Name":"Pay Interval",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

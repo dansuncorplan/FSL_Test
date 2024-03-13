@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_lookup_Currency_Rates",
+	"Hierarchies@Code.links":
+	[
+		"m_lookup_Currency_Rates.hierarchies/m_lookup_Currency_Rates.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_lookup_Currency_Rates')/Hierarchies('m_lookup_Currency_Rates')"
+	}
+}

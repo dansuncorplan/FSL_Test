@@ -1,0 +1,53 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Actual')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Budget')"
+					},
+					{
+						"@id":"Dimensions('plan_Version')/Hierarchies('plan_Version')/Elements('Forecast')"
+					}
+				]
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_lookup_Payroll_Assumptions')/Hierarchies('m_lookup_Payroll_Assumptions')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_lookup_Payroll_Assumptions')/Hierarchies('m_lookup_Payroll_Assumptions')/Elements('ACC Rate')"
+					},
+					{
+						"@id":"Dimensions('m_lookup_Payroll_Assumptions')/Hierarchies('m_lookup_Payroll_Assumptions')/Elements('Avg. weeks per month')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":[],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

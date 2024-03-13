@@ -1,0 +1,66 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Staff_Role')/Hierarchies('Staff_Role')"
+				},
+				"Expression":"TM1SubsetAll([Staff_Role])"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('Production Staff')"
+					},
+					{
+						"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('Administrative Staff')"
+					},
+					{
+						"@id":"Dimensions('Staff_Type')/Hierarchies('Staff_Type')/Elements('Sales and Marketing')"
+					}
+				]
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_plan_Payroll_Pay_Interval')/Hierarchies('m_plan_Payroll_Pay_Interval')"
+				},
+				"Elements":
+				[
+					{
+						"@id":"Dimensions('m_plan_Payroll_Pay_Interval')/Hierarchies('m_plan_Payroll_Pay_Interval')/Elements('Pay Interval')"
+					}
+				]
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('m_plan_Payroll_Pay_Interval')/Hierarchies('m_plan_Payroll_Pay_Interval')/Elements('Pay Interval')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

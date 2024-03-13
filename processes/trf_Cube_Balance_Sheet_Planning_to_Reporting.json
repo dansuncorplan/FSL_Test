@@ -1,0 +1,105 @@
+{
+	"@type":"Process",
+	"Name":"trf_Cube_Balance_Sheet_Planning_to_Reporting",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"trf_Cube_Balance_Sheet_Planning_to_Reporting.ti",
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForServer":"plan_Balance_Sheet",
+		"dataSourceNameForClient":"plan_Balance_Sheet",
+		"view":"Default"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pSourceVersion",
+			"Prompt":"Copy from Version",
+			"Value":"Forecast",
+			"Type":"String"
+		},
+		{
+			"Name":"pTargetVersion",
+			"Prompt":"Paste to Version",
+			"Value":"Forecast Dec 17",
+			"Type":"String"
+		},
+		{
+			"Name":"pYear",
+			"Prompt":"Year (ALL for all years)",
+			"Value":"2017",
+			"Type":"String"
+		},
+		{
+			"Name":"pMonthFrom",
+			"Prompt":"Range from Month",
+			"Value":"Opening Balance",
+			"Type":"String"
+		},
+		{
+			"Name":"pMonthTo",
+			"Prompt":"Range to Month",
+			"Value":"Jun",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vVersion",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vCurrency",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vPeriod",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vBranch",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vBusiness_Unit",
+			"Type":"String",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vAccount",
+			"Type":"String",
+			"Position":6,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vMeasure",
+			"Type":"String",
+			"Position":7,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vValue",
+			"Type":"Numeric",
+			"Position":8,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

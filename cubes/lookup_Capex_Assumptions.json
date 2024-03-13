@@ -1,0 +1,18 @@
+{
+	"@type":"Cube",
+	"Name":"lookup_Capex_Assumptions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('plan_Version')"
+		},
+		{
+			"@id":"Dimensions('m_lookup_Capex_Assumptions')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"lookup_Capex_Assumptions.views/Default.json",
+		"lookup_Capex_Assumptions.views/ZeroOut.json"
+	]
+}
