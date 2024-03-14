@@ -1,0 +1,85 @@
+#region Prolog
+
+
+# #----------------------------------------------------
+#  Define constant
+# #----------------------------------------------------
+
+cProcessName = GetProcessName();
+
+sErr = '' ;
+
+cTimeStamp = TIMST( NOW() , '\Y\m\d\h\i\s' ) | NumberToString( RAND * 1000000000 );
+cTempObjName = Expand('%cProcessName%_%cTimeStamp%');
+cSourceObj='source_'|cTempObjName;
+cTargetRandObjName = 'Target'|cProcessName|cTimeStamp;
+cTemp = 1 ;
+
+#-----------------
+# Set source view
+#-----------------
+ViewCreate( 'plan_Capex_Item' , cSourceObj , 1 );
+
+SubsetCreatebyMDX( cSourceObj , '{[plan_Version].[plan_Version].['|pVersion |']}' , cTemp ); 
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Capex_Item_List].[Capex_Item_List]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{[m_plan_Capex_Input].[m_plan_Capex_Input].[Depreciation by Period]}' , cTemp );
+
+
+# Clears only the BU specified in the parameter
+
+nDimCount = 1;
+WHILE( TABDIM( 'plan_Capex_Item' , nDimCount )@<> '' );
+	sDim = TABDIM( 'plan_Capex_Item' , nDimCount );
+	IF( SUBSETEXISTS( sDim , cSourceObj ) = 1 );
+		VIEWSUBSETASSIGN( 'plan_Capex_Item' , cSourceObj , sDim , cSourceObj );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+ViewSuppressZeroesSet( 'plan_Capex_Item' , cSourceObj , 1 );
+ViewExtractSkipCalcsSet( 'plan_Capex_Item' , cSourceObj , 0 );
+ViewExtractSkipZeroesSet( 'plan_Capex_Item' , cSourceObj , 1 );
+ViewExtractSkipRuleValuesSet( 'plan_Capex_Item' , cSourceObj , 1 );
+ 
+
+DataSourceType = 'VIEW' ;
+DataSourceNameForServer = 'plan_Capex_Item' ;
+DataSourceCubeView = cSourceObj ;
+
+
+
+#endregion
+#region Data
+
+
+sAssetType=CellGetS( 'plan_Capex_Item', pVersion, vBusiness_Unit,  vBranch,  vCapex_Item_List, 'Asset Type' );
+sAssetFlag=CellGetS( 'plan_Capex_Item', pVersion, vBusiness_Unit,  vBranch,  vCapex_Item_List, 'Asset Flag' );
+sAssetDriver=CellGetS( 'plan_Capex_Item', pVersion, vBusiness_Unit,  vBranch,  vCapex_Item_List, 'Asset Driver' );
+
+sTargetStartMonth = CellGetS('plan_Version_Setup', pVersion,'Annual Input', 'Plan Start Month' ); 
+sTargetEndMonth = CellGetS('plan_Version_Setup', pVersion,'Annual Input', 'Plan End Month' ); 
+
+ASCIIOutput( 'TEMP.capex.txt', vCapex_Item_List, vm_plan_Capex_Input, vValue , sAssetType,sAssetFlag,sAssetDriver, sTargetStartMonth,sTargetEndMonth);
+
+i=DIMIX( 'plan_Period', sTargetStartMonth );
+while (i<=DIMIX( 'plan_Period', sTargetEndMonth )); 
+    sPeriod=DIMNM( 'plan_Period', i );
+    if(ELLEV( 'plan_Period', sPeriod )=0);
+        if(sAssetFlag@<>'' & sAssetType@<> '' & sAssetDriver@<>'');
+            CellPutN( 1,'plan_Capex_Summary', pVersion, sPeriod, vBusiness_Unit, vBranch, vCapex_Item_List, sAssetFlag, sAssetType, sAssetDriver, 'Feeder Flag' );
+        endif;
+
+    endif;
+    
+    i=i+1;
+end;
+
+#endregion
+#region Epilog
+
+If(sErr@<>'');
+    ItemReject( sErr );
+Endif;    
+#endregion

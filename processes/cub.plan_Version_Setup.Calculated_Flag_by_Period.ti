@@ -1,0 +1,91 @@
+#region Prolog
+# #----------------------------------------------------
+#  Define constant
+# #----------------------------------------------------
+
+cProcessName = GetProcessName();
+
+sErr = '' ;
+
+cTimeStamp = TIMST( NOW() , '\Y\m\d\h\i\s' ) | NumberToString( RAND * 1000000000 );
+cTempObjName = Expand('%cProcessName%_%cTimeStamp%');
+cSourceObj='source_'|cTempObjName;
+cTargetRandObjName = 'Target'|cProcessName|cTimeStamp;
+cTemp = 1 ;
+
+#--------------
+# If(pVersionFrom@=pVersionTo );
+#     sErr='Source and target cannot be the same!';
+#     ProcessBreak; 
+# Endif;        
+
+
+# # ----------------------------------------------------
+# # zero target view
+# # ----------------------------------------------------
+cTargetCube = 'plan_Version_Setup';
+
+ViewCreate( cTargetCube , cTargetRandObjName , cTemp );
+
+SubsetCreatebyMDX( cTargetRandObjName , '{[plan_Version].[plan_Version].['|pVersionTo|']}' , cTemp ); 
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([plan_Period].[plan_Period]) , 0)}' , cTemp ); 
+SubsetCreatebyMDX( cTargetRandObjName , ' {[m_plan_Version_Setup].[m_plan_Version_Setup].[Calculated Flag]} ', cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( cTargetCube , nDimCount )@<> '' );
+	sDim = TABDIM( cTargetCube , nDimCount );
+	IF( SUBSETEXISTS( sDim , cTargetRandObjName ) = 1 );
+		VIEWSUBSETASSIGN( cTargetCube , cTargetRandObjName , sDim , cTargetRandObjName );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+#----------------------------------------------------
+ViewSuppressZeroesSet( cTargetCube , cTargetRandObjName , 1 );
+ViewExtractSkipZeroesSet(cTargetCube, cTargetRandObjName , 1 );
+ViewExtractSkipRuleValuesSet(cTargetCube, cTargetRandObjName, 1);
+
+#---Zero Out the view in the Target Version 
+ViewZeroOut(cTargetCube, cTargetRandObjName);
+
+#-----------------
+# Set source view
+#-----------------
+ViewCreate( 'plan_Version_Setup' , cSourceObj , 1 );
+
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([plan_Version].[plan_Version]) , 0)}' , cTemp ); 
+SubsetCreatebyMDX( cSourceObj , '{[plan_Period].[plan_Period].[Annual Input]}' , cTemp ); 
+SubsetCreatebyMDX( cSourceObj , ' {TM1SubsetToSet([m_plan_Version_Setup].[m_plan_Version_Setup] , "sys.planstart_and_endmonth" , "public")}' , cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( 'plan_Version_Setup' , nDimCount )@<> '' );
+	sDim = TABDIM( 'plan_Version_Setup' , nDimCount );
+	IF( SUBSETEXISTS( sDim , cSourceObj ) = 1 );
+		VIEWSUBSETASSIGN( 'plan_Version_Setup' , cSourceObj , sDim , cSourceObj );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+ViewSuppressZeroesSet( 'plan_Version_Setup' , cSourceObj , 1 );
+ViewExtractSkipCalcsSet( 'plan_Version_Setup' , cSourceObj , 1 );
+ViewExtractSkipZeroesSet( 'plan_Version_Setup' , cSourceObj , 1 );
+ViewExtractSkipRuleValuesSet( 'plan_Version_Setup' , cSourceObj , 1 );
+ 
+
+DataSourceType = 'VIEW' ;
+DataSourceNameForServer = 'plan_Version_Setup' ;
+DataSourceCubeView = cSourceObj ;
+
+#endregion
+#region Data
+
+sTargetStartMonth = CellGetS('plan_Version_Setup', pVersionTo,'Annual Input', 'Plan Start Month' ); 
+sTargetEndMonth = CellGetS('plan_Version_Setup', pVersionTo,'Annual Input', 'Plan End Month' ); 
+i=DIMIX( 'plan_Period', sTargetStartMonth );
+    while (i<=DIMIX( 'plan_Period', sTargetEndMonth )); 
+        sPeriod=DIMNM( 'plan_Period', i );
+        CellPutN( 1, 'plan_Version_Setup', pVersionTo, sPeriod, 'Calculated Flag' );
+    i=i+1;
+    end;
+
+#endregion

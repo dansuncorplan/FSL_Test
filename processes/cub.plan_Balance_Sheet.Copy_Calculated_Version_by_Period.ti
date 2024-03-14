@@ -1,0 +1,106 @@
+#region Prolog
+
+# #----------------------------------------------------
+#  Define constant
+# #----------------------------------------------------
+
+cProcessName = GetProcessName();
+
+sErr = '' ;
+
+cTimeStamp = TIMST( NOW() , '\Y\m\d\h\i\s' ) | NumberToString( RAND * 1000000000 );
+cTempObjName = Expand('%cProcessName%_%cTimeStamp%');
+cSourceObj='source_'|cTempObjName;
+cTargetRandObjName = 'Target'|cProcessName|cTimeStamp;
+cTemp = 1 ;
+
+#--------------
+If(pVersionFrom@=pVersionTo & pPeriodFrom@=pPeriodTo);
+    sErr='Source and target cannot be the same!';
+    ProcessBreak; 
+Endif;    
+
+
+# # ----------------------------------------------------
+# # zero target view
+# # ----------------------------------------------------
+cTargetCube = 'plan_Balance_Sheet';
+
+ViewCreate( cTargetCube , cTargetRandObjName , cTemp );
+
+SubsetCreatebyMDX( cTargetRandObjName , '{[plan_Version].[plan_Version].['|pVersionTo |']}' , cTemp ); 
+SubsetCreatebyMDX( cTargetRandObjName , '{[Currency].[Currency].[LCY]}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{[plan_Period].[plan_Period].['|pPeriodTo |']}' , cTemp ); 
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Account_BS].[Account_BS]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{[m_plan_Balance_Sheet].[m_plan_Balance_Sheet].[Value]}' , cTemp );
+# Clears only the BU specified in the parameter
+
+
+nDimCount = 1;
+WHILE( TABDIM( cTargetCube , nDimCount )@<> '' );
+	sDim = TABDIM( cTargetCube , nDimCount );
+	IF( SUBSETEXISTS( sDim , cTargetRandObjName ) = 1 );
+		VIEWSUBSETASSIGN( cTargetCube , cTargetRandObjName , sDim , cTargetRandObjName );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+#--------------------------------------------------------------
+ViewSuppressZeroesSet( cTargetCube , cTargetRandObjName , 1 );
+ViewExtractSkipZeroesSet(cTargetCube, cTargetRandObjName , 1 );
+ViewExtractSkipRuleValuesSet(cTargetCube, cTargetRandObjName, 1);
+
+#---Zero Out the view in the Target Version 
+ViewZeroOut(cTargetCube, cTargetRandObjName);
+
+
+#-----------------
+# Set source view
+#-----------------
+ViewCreate( 'plan_Balance_Sheet' , cSourceObj , 1 );
+
+SubsetCreatebyMDX( cSourceObj , '{[plan_Version].[plan_Version].['|pVersionFrom |']}' , cTemp ); 
+SubsetCreatebyMDX( cSourceObj , '{[Currency].[Currency].[LCY]}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{[plan_Period].[plan_Period].['|pPeriodFrom |']}' , cTemp ); 
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Account_BS].[Account_BS]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{[m_plan_Balance_Sheet].[m_plan_Balance_Sheet].[Value]}' , cTemp );
+# Clears only the BU specified in the parameter
+
+nDimCount = 1;
+WHILE( TABDIM( 'plan_Balance_Sheet' , nDimCount )@<> '' );
+	sDim = TABDIM( 'plan_Balance_Sheet' , nDimCount );
+	IF( SUBSETEXISTS( sDim , cSourceObj ) = 1 );
+		VIEWSUBSETASSIGN( 'plan_Balance_Sheet' , cSourceObj , sDim , cSourceObj );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+ViewSuppressZeroesSet( 'plan_Balance_Sheet' , cSourceObj , 1 );
+ViewExtractSkipCalcsSet( 'plan_Balance_Sheet' , cSourceObj , 1 );
+ViewExtractSkipZeroesSet( 'plan_Balance_Sheet' , cSourceObj , 1 );
+ViewExtractSkipRuleValuesSet( 'plan_Balance_Sheet' , cSourceObj , 1 );
+ 
+
+DataSourceType = 'VIEW' ;
+DataSourceNameForServer = 'plan_Balance_Sheet' ;
+DataSourceCubeView = cSourceObj ;
+
+
+#endregion
+#region Data
+
+
+ CellPutN( vValue, 'plan_Balance_Sheet', pVersionTo, vCurrency, pPeriodTo, vBranch, vBusiness_Unit, vAccount_BS,  vm_plan_Balance_Sheet );
+
+
+#endregion
+#region Epilog
+
+If(sErr@<>'');
+    ItemReject( sErr );
+Endif;    
+#endregion

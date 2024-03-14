@@ -1,0 +1,22 @@
+{
+	"@type":"Process",
+	"Name":"exec.scenario_copy",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"exec.scenario_copy.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersionTo",
+			"Prompt":"",
+			"Value":"Budget Test Version",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

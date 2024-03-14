@@ -1,0 +1,194 @@
+#region Prolog
+
+
+#----------------------------------------------------
+# Start of Copy Version
+#----------------------------------------------------
+sTargetStartMonth = CellGetS('plan_Version_Setup', pVersionTo,'Annual Input', 'Plan Start Month' ); 
+sTargetEndMonth = CellGetS('plan_Version_Setup', pVersionTo,'Annual Input', 'Plan End Month' ); 
+
+        
+if(pCube @='Sales');
+    i=DIMIX( 'plan_Period', sTargetStartMonth );
+    while (i<=DIMIX( 'plan_Period', sTargetEndMonth )); 
+                sPeriod=DIMNM( 'plan_Period', i );
+        if(ELLEV( 'plan_Period', sPeriod )=0);
+             sSourcePeriod = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Period' );
+             sSourceVersion = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Version' );
+             sSourceVersionCapex  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );        
+             # Sales Cube
+            ExecuteProcess( 'cub.plan_Sales.Copy_Calculated_Version_by_Period', 
+                           'pVersionTo', pVersionTo, 
+                           'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+                           'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+        endif;    
+        i=i+1;
+    end;
+endif;
+
+# if(pCube @='Payroll Assumptions');
+#     i=DIMIX( 'plan_Period', sTargetStartMonth );
+#     while (i<=DIMIX( 'plan_Period', sTargetEndMonth )); 
+#                 sPeriod=DIMNM( 'plan_Period', i );
+#         if(ELLEV( 'plan_Period', sPeriod )=0);
+#              sSourcePeriod = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Period' );
+#              sSourceVersion = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Version' );
+#              sSourceVersionCapex  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );        
+#         # Payroll Assumptions
+#           ExecuteProcess( ' cub.plan_Payroll_Assumptions.Copy_Calculated_Version_by_Period', 
+#                        'pVersionTo', pVersionTo, 
+#                        'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+#                        'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+#         endif;    
+#         i=i+1;
+#     end;
+        # plan_Payroll_Input no Period 
+        # sSourceVersionPayroll  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );
+        #       ExecuteProcess( '   cub.plan_Payroll_Input.Copy_Calculated_Version', 
+        #                'pVersionTo', pVersionTo, 
+        #                'pVersionFrom', sSourceVersionPayroll);
+# endif;
+
+
+
+
+if(pCube @='Payroll');
+    
+    # Payroll Assumptions lookup cube 
+        sSourceVersionPayroll  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );
+              ExecuteProcess( '  cub.lookup_Payroll_Assumptions.Copy_Calculated_Version', 
+                       'pVersionTo', pVersionTo, 
+                       'pVersionFrom', sSourceVersionPayroll);
+    
+    i=DIMIX( 'plan_Period', sTargetStartMonth );
+    while (i<=DIMIX( 'plan_Period', sTargetEndMonth )); 
+                sPeriod=DIMNM( 'plan_Period', i );
+        if(ELLEV( 'plan_Period', sPeriod )=0);
+             sSourcePeriod = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Period' );
+             sSourceVersion = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Version' );
+                     
+            # Payroll Assumptions plan cube
+              ExecuteProcess( ' cub.plan_Payroll_Assumptions.Copy_Calculated_Version_by_Period', 
+                       'pVersionTo', pVersionTo, 
+                       'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+                       'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+            
+            # Payroll 
+               ExecuteProcess( ' cub.plan_Payroll.Copy_Calculated_Version_by_Period', 
+                       'pVersionTo', pVersionTo, 
+                       'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+                       'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+        endif;    
+        i=i+1;
+    end;
+    
+
+endif;
+
+
+if(pCube @='Profit and Loss');
+     i=DIMIX( 'plan_Period', sTargetStartMonth );
+     while (i<=DIMIX( 'plan_Period', sTargetEndMonth )); 
+            sPeriod=DIMNM( 'plan_Period', i );
+        if(ELLEV( 'plan_Period', sPeriod )=0);
+          sSourcePeriod = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Period' );
+          sSourceVersion = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Version' );
+          sSourceVersionCapex  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );        
+         # Profit and Loss Cube 
+           ExecuteProcess( ' cub.plan_ProfitandLoss.Copy_Calculated_Version_by_Period', 
+                       'pVersionTo', pVersionTo, 
+                       'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+                       'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+    endif;    
+    i=i+1;
+ end;
+endif;
+
+
+if(pCube @='Balance Sheet');
+        i=DIMIX( 'plan_Period', sTargetStartMonth );
+        while (i<=DIMIX( 'plan_Period', sTargetEndMonth )); 
+            sPeriod=DIMNM( 'plan_Period', i );
+            if(ELLEV( 'plan_Period', sPeriod )=0);
+         sSourcePeriod = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Period' );
+         sSourceVersion = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Version' );
+         sSourceVersionCapex  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );        
+        # Balance Sheet Cube 
+             ExecuteProcess( ' cub.plan_Balance_Sheet.Copy_Calculated_Version_by_Period', 
+                       'pVersionTo', pVersionTo, 
+                       'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+                       'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+
+            endif;    
+    i=i+1;
+end;
+    
+        # Balance Sheet Opening Balance
+        #---Target Year based on the Base Year Input 
+        sTargetYear = CellGetS('plan_Version_Setup', pVersionTo,'Annual Input', 'Base Year' ); 
+        # sTargetYear = pYearTo; 
+
+        #---Target Opening Balance concatenate with the Target Base Year 
+        sPeriodOB = sTargetYear|' '|'Opening Balance';
+
+        #---Source Year based on the Source Period Input using the Opening Balance of the New Version 
+        sSourcePeriodYear = CellGetS('plan_Version_Setup', pVersionTo, sPeriodOB, 'Source Period' );
+        # sSourcePeriodYear = pYear;
+
+        #--Source Version  based on the Source Period Input using the Opening Balance of the New Version 
+        sSourcePeriodVersion =  CellGetS('plan_Version_Setup', pVersionTo, sPeriodOB, 'Source Version' );
+              ExecuteProcess( '   cub.plan_Balance_Sheet_Opening_Balance', 
+                       'pVersionTo', pVersionTo, 
+                       'pPeriodTo', sTargetYear, 
+                       'pVersionFrom', sSourcePeriodVersion, 'pPeriodFrom', sSourcePeriodYear);   
+endif;
+
+if(pCube @='Capex');
+    
+    # Lookup Capex Assumptions
+        sSourceVersionCapex  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );
+              ExecuteProcess( '  cub.lookup_Capex_Assumptions.Copy_Calculated_Version', 
+                       'pVersionTo', pVersionTo, 
+                       'pVersionFrom', sSourceVersionCapex);
+    # Capex Item no Period 
+        sSourceVersionCapex  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );
+              ExecuteProcess( '  cub.plan_Capex_Item.Copy_Calculated_Version_by_Period', 
+                       'pVersionTo', pVersionTo, 
+                       'pVersionFrom', sSourceVersionCapex);   
+    
+     i=DIMIX( 'plan_Period', sTargetStartMonth );
+     while (i<=DIMIX( 'plan_Period', sTargetEndMonth )); 
+            sPeriod=DIMNM( 'plan_Period', i );
+         if(ELLEV( 'plan_Period', sPeriod )=0);
+            
+          sSourcePeriod = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Period' );
+          sSourceVersion = CellGetS('plan_Version_Setup', pVersionTo, sPeriod, 'Source Version' );
+
+        # Capex Summary Cube 
+        ExecuteProcess( 'cub.plan_Capex_Summary.Copy_Calculated_Version_by_Period', 
+           'pVersionTo', pVersionTo, 
+                   'pPeriodTo', ATTRS( 'plan_Period', sPeriod, 'rpt_Period'), 
+                   'pVersionFrom', sSourceVersion, 'pPeriodFrom', sSourcePeriod);
+     
+         endif;    
+        i=i+1;
+     end;
+   
+endif;
+
+
+# if(pCube @='Capex');
+# #    # Lookup Capex Assumptions
+#         sSourceVersionCapex  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );
+#               ExecuteProcess( '  cub.lookup_Capex_Assumptions.Copy_Calculated_Version', 
+#                        'pVersionTo', pVersionTo, 
+#                        'pVersionFrom', sSourceVersionCapex);
+#     # Capex Item no Period 
+#         sSourceVersionCapex  = CellGetS('plan_Version_Setup', pVersionTo, sTargetEndMonth, 'Source Version' );
+#               ExecuteProcess( '  cub.plan_Capex_Item.Copy_Calculated_Version_by_Period', 
+#                        'pVersionTo', pVersionTo, 
+#                        'pVersionFrom', sSourceVersionCapex);    
+# endif;
+
+
+#endregion

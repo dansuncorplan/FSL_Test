@@ -1,0 +1,28 @@
+{
+	"@type":"Process",
+	"Name":"exec.scenario_copy.single_cube",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"exec.scenario_copy.single_cube.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersionTo",
+			"Prompt":"",
+			"Value":"Budget 003",
+			"Type":"String"
+		},
+		{
+			"Name":"pCube",
+			"Prompt":"",
+			"Value":"Capex",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}
