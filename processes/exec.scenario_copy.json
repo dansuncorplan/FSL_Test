@@ -1,0 +1,28 @@
+{
+	"@type":"Process",
+	"Name":"exec.scenario_copy",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"exec.scenario_copy.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersionTo",
+			"Prompt":"",
+			"Value":"Budget R2 Feb24 8+4 Calc",
+			"Type":"String"
+		},
+		{
+			"Name":"pVersionType",
+			"Prompt":"",
+			"Value":"Calculated",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"VariablesUIData": [],
+	"UIData": "_ParameterConstraints=e30=\f"
+}

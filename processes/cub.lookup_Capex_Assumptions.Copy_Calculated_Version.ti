@@ -1,0 +1,98 @@
+#region Prolog
+
+# #----------------------------------------------------
+#  Define constant
+# #----------------------------------------------------
+
+cProcessName = GetProcessName();
+
+sErr = '' ;
+
+cTimeStamp = TIMST( NOW() , '\Y\m\d\h\i\s' ) | NumberToString( RAND * 1000000000 );
+cTempObjName = Expand('%cProcessName%_%cTimeStamp%');
+cSourceObj='source_'|cTempObjName;
+cTargetRandObjName = 'Target'|cProcessName|cTimeStamp;
+cTemp = 1 ;
+
+#--------------
+If(pVersionFrom@=pVersionTo);
+    sErr='Source and target cannot be the same!';
+    ProcessBreak; 
+Endif;    
+
+# # ----------------------------------------------------
+# # zero target view
+# # ----------------------------------------------------
+cTargetCube = 'lookup_Capex_Assumptions';
+
+ViewCreate( cTargetCube , cTargetRandObjName , cTemp );
+
+SubsetCreatebyMDX( cTargetRandObjName , '{[plan_Version].[plan_Version].['|pVersionTo |']}' , cTemp ); 
+SubsetCreatebyMDX( cTargetRandObjName , ' {[m_lookup_Payroll_Assumptions].[m_lookup_Payroll_Assumptions].MEMBERS} ', cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( cTargetCube , nDimCount )@<> '' );
+    sDim = TABDIM( cTargetCube , nDimCount );
+    IF( SUBSETEXISTS( sDim , cTargetRandObjName ) = 1 );
+        VIEWSUBSETASSIGN( cTargetCube , cTargetRandObjName , sDim , cTargetRandObjName );
+    ENDIF;
+    nDimCount = nDimCount +1;
+END;
+
+#----------------------------------------------------
+ViewSuppressZeroesSet( cTargetCube , cTargetRandObjName , 1 );
+ViewExtractSkipZeroesSet(cTargetCube, cTargetRandObjName , 1 );
+ViewExtractSkipRuleValuesSet(cTargetCube, cTargetRandObjName, 1);
+
+# If(pVersionType@='Calculated');
+#     ViewExtractSkipRuleValuesSet(cTargetCube, cTargetRandObjName, 1);
+# Else;
+#     ViewExtractSkipRuleValuesSet(cTargetCube, cTargetRandObjName, 0);
+# Endif;
+
+#---Zero Out the view in the Target Version 
+ViewZeroOut(cTargetCube, cTargetRandObjName);
+
+#----------------------
+# Set source view
+#----------------------
+ViewCreate( 'lookup_Capex_Assumptions' , cSourceObj , 1 );
+
+SubsetCreatebyMDX( cSourceObj , '{[plan_Version].[plan_Version].['|pVersionFrom |']}' , cTemp ); 
+SubsetCreatebyMDX( cSourceObj , ' {[m_lookup_Payroll_Assumptions].[m_lookup_Payroll_Assumptions].MEMBERS}' , cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( 'lookup_Capex_Assumptions' , nDimCount )@<> '' );
+    sDim = TABDIM( 'lookup_Capex_Assumptions' , nDimCount );
+    IF( SUBSETEXISTS( sDim , cSourceObj ) = 1 );
+        VIEWSUBSETASSIGN( 'lookup_Capex_Assumptions' , cSourceObj , sDim , cSourceObj );
+    ENDIF;
+    nDimCount = nDimCount +1;
+END;
+
+ViewSuppressZeroesSet( 'lookup_Capex_Assumptions' , cSourceObj , 1 );
+ViewExtractSkipCalcsSet( 'lookup_Capex_Assumptions' , cSourceObj , 1 );
+ViewExtractSkipZeroesSet( 'lookup_Capex_Assumptions' , cSourceObj , 1 );
+# ViewExtractSkipRuleValuesSet( 'lookup_Capex_Assumptions' , cSourceObj , 1 );
+
+If(pVersionType@='Calculated');
+    ViewExtractSkipRuleValuesSet( 'lookup_Capex_Assumptions' , cSourceObj, 1);
+Else;
+    ViewExtractSkipRuleValuesSet( 'lookup_Capex_Assumptions' , cSourceObj, 0);
+Endif;
+
+DataSourceType = 'VIEW' ;
+DataSourceNameForServer = 'lookup_Capex_Assumptions' ;
+DataSourceCubeView = cSourceObj ;
+
+
+
+#endregion
+#region Data
+
+if  (CellIsUpdateable('lookup_Capex_Assumptions', pVersionTo , vm_lookup_Capex_Assumptions )=1);
+    CellPutN( vValue, 'lookup_Capex_Assumptions',pVersionTo , vm_lookup_Capex_Assumptions );
+endif;
+
+
+#endregion

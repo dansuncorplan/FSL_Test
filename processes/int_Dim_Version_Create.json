@@ -1,0 +1,29 @@
+{
+	"@type":"Process",
+	"Name":"int_Dim_Version_Create",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"int_Dim_Version_Create.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"plan_Version:plan_Version",
+		"dataSourceNameForClient":"plan_Version:plan_Version",
+		"subset":"All"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersion",
+			"Prompt":"Enter Scenario Name ",
+			"Value":"Forecast 001",
+			"Type":"String"
+		},
+		{
+			"Name":"pVersionType",
+			"Prompt":"",
+			"Value":"Calculated Forecasts",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

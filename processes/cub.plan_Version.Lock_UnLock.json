@@ -1,0 +1,28 @@
+{
+	"@type":"Process",
+	"Name":"cub.plan_Version.Lock_UnLock",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"cub.plan_Version.Lock_UnLock.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersion",
+			"Prompt":"",
+			"Value":"Forecast 123",
+			"Type":"String"
+		},
+		{
+			"Name":"pLockType",
+			"Prompt":"",
+			"Value":"Lock",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

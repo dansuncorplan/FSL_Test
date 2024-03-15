@@ -1,0 +1,99 @@
+#region Prolog
+# #----------------------------------------------------
+#  Define constant
+# #----------------------------------------------------
+
+cProcessName = GetProcessName();
+
+sErr = '' ;
+
+cTimeStamp = TIMST( NOW() , '\Y\m\d\h\i\s' ) | NumberToString( RAND * 1000000000 );
+cTempObjName = Expand('%cProcessName%_%cTimeStamp%');
+cSourceObj='source_'|cTempObjName;
+cTargetRandObjName = 'Target'|cProcessName|cTimeStamp;
+cTemp = 1 ;
+
+#--------------
+If(pVersionFrom@=pVersionTo & pPeriodFrom@=pPeriodTo);
+    sErr='Source and target cannot be the same!';
+    ProcessBreak; 
+Endif;    
+
+
+# # ----------------------------------------------------
+# # zero target view
+# # ----------------------------------------------------
+cTargetCube = 'plan_Payroll';
+
+ViewCreate( cTargetCube , cTargetRandObjName , cTemp );
+
+SubsetCreatebyMDX( cTargetRandObjName , '{[plan_Version].[plan_Version].['|pVersionTo |']}' , cTemp ); 
+SubsetCreatebyMDX( cTargetRandObjName , '{[plan_Period].[plan_Period].['|pPeriodTo |']}' , cTemp ); 
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(DISTINCT(DESCENDANTS([Staff_Role].[Staff_Role].[Total_Staff_Role])) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{TM1FILTERBYLEVEL(DISTINCT(DESCENDANTS([Staff_Type].[Staff_Type].[Total_Staff_Type])) , 0)}' , cTemp );
+SubsetCreatebyMDX( cTargetRandObjName , '{[m_plan_Payroll].[m_plan_Payroll].MEMBERS}' , cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( cTargetCube , nDimCount )@<> '' );
+	sDim = TABDIM( cTargetCube , nDimCount );
+	IF( SUBSETEXISTS( sDim , cTargetRandObjName ) = 1 );
+		VIEWSUBSETASSIGN( cTargetCube , cTargetRandObjName , sDim , cTargetRandObjName );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+#----------------------------------------------------
+ViewSuppressZeroesSet( cTargetCube , cTargetRandObjName , 1 );
+ViewExtractSkipZeroesSet(cTargetCube, cTargetRandObjName , 1 );
+ViewExtractSkipRuleValuesSet(cTargetCube, cTargetRandObjName, 1);
+
+#---Zero Out the view in the Target Version 
+ViewZeroOut(cTargetCube, cTargetRandObjName);
+
+#-----------------
+# Set source view
+#-----------------
+ViewCreate( 'plan_Payroll' , cSourceObj , 1 );
+
+SubsetCreatebyMDX( cSourceObj , '{[plan_Version].[plan_Version].['|pVersionFrom |']}' , cTemp ); 
+SubsetCreatebyMDX( cSourceObj , '{[plan_Period].[plan_Period].['|pPeriodFrom |']}' , cTemp ); 
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(DISTINCT(DESCENDANTS([Staff_Role].[Staff_Role].[Total_Staff_Role])) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(DISTINCT(DESCENDANTS([Staff_Type].[Staff_Type].[Total_Staff_Type])) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{[m_plan_Payroll].[m_plan_Payroll].MEMBERS}' , cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( 'plan_Payroll' , nDimCount )@<> '' );
+	sDim = TABDIM( 'plan_Payroll' , nDimCount );
+	IF( SUBSETEXISTS( sDim , cSourceObj ) = 1 );
+		VIEWSUBSETASSIGN( 'plan_Payroll' , cSourceObj , sDim , cSourceObj );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+ViewSuppressZeroesSet( 'plan_Payroll' , cSourceObj , 1 );
+ViewExtractSkipCalcsSet( 'plan_Payroll' , cSourceObj , 1 );
+ViewExtractSkipZeroesSet( 'plan_Payroll' , cSourceObj , 1 );
+If(pVersionType@='Calculated');
+    ViewExtractSkipRuleValuesSet( 'plan_Payroll' , cSourceObj, 1);
+Else;
+    ViewExtractSkipRuleValuesSet(  'plan_Payroll' , cSourceObj, 0);
+Endif;
+ 
+
+DataSourceType = 'VIEW' ;
+DataSourceNameForServer = 'plan_Payroll' ;
+DataSourceCubeView = cSourceObj ;
+
+
+#endregion
+#region Data
+
+if(CellIsUpdateable('plan_Payroll', pVersionTo, pPeriodTo, vBusiness_Unit, vBranch, vStaff_Role, vStaff_Type, vm_plan_Payroll )=1);
+CellPutN(vValue, 'plan_Payroll', pVersionTo, pPeriodTo, vBusiness_Unit, vBranch, vStaff_Role, vStaff_Type, vm_plan_Payroll );
+endif;
+
+#endregion

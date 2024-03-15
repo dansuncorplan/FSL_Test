@@ -1,0 +1,64 @@
+{
+	"@type":"Process",
+	"Name":"cub.lookup_Payroll_Assumptions.Copy_Calculated_Version",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"cub.lookup_Payroll_Assumptions.Copy_Calculated_Version.ti",
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForServer":"lookup_Payroll_Assumptions",
+		"dataSourceNameForClient":"lookup_Payroll_Assumptions",
+		"view":"ZeroOut"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersionTo",
+			"Prompt":"",
+			"Value":"Budget R2 Feb24 8+4",
+			"Type":"String"
+		},
+		{
+			"Name":"pVersionFrom",
+			"Prompt":"",
+			"Value":"Budget",
+			"Type":"String"
+		},
+		{
+			"Name":"pVersionType",
+			"Prompt":"",
+			"Value":"Calculated",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vplan_Version",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vm_lookup_Payroll_Assumptions",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vValue",
+			"Type":"Numeric",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"VariablesUIData": [
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=33\fColType=827\f"
+	],
+	"UIData": "_ParameterConstraints=e30=\f"
+}

@@ -1,0 +1,24 @@
+#region Prolog
+
+
+i=DIMSIZ( '}Groups' );
+
+while (i>0); 
+    sGroup=DIMNM( '}Groups', i );
+    if(SCAN( 'ADMIN', sGroup)=0 & SCAN( 'Admin', sGroup)=0);
+        
+        if(pLockType@='Lock');
+            sLockValue='LOCK';
+        elseif(pLockType@='UnLock');
+            sLockValue='WRITE';
+        endif;
+    
+        CellPutS( sLockValue, '}ElementSecurity_plan_Version', pVersion, sGroup );
+        
+ASCIIOutput( 'TEMP.security.txt', pLockType, sGroup, sLockValue );
+
+    endif;
+
+    i=i-1; 
+end;
+#endregion
