@@ -1,0 +1,65 @@
+#region Prolog
+
+# #----------------------------------------------------
+#  Define constant
+# #----------------------------------------------------
+
+cProcessName = GetProcessName();
+
+sErr = '' ;
+
+cTimeStamp = TIMST( NOW() , '\Y\m\d\h\i\s' ) | NumberToString( RAND * 1000000000 );
+cTempObjName = Expand('%cProcessName%_%cTimeStamp%');
+cSourceObj='source_'|cTempObjName;
+cTargetRandObjName = 'Target'|cProcessName|cTimeStamp;
+cTemp = 1 ;
+
+
+
+#-----------------
+# Set source view
+#-----------------
+ViewCreate( 'plan_Balance_Sheet' , cSourceObj , 1 );
+
+SubsetCreatebyMDX( cSourceObj , '{[plan_Version].[plan_Version].['|pVersionFrom |']}' , cTemp ); 
+SubsetCreatebyMDX( cSourceObj , '{[Currency].[Currency].[LCY]}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([plan_Period].[plan_Period]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Branch].[Branch]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Business_Unit].[Business_Unit]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{TM1FILTERBYLEVEL(TM1SUBSETALL([Account_BS].[Account_BS]) , 0)}' , cTemp );
+SubsetCreatebyMDX( cSourceObj , '{[m_plan_Balance_Sheet].[m_plan_Balance_Sheet].[Value]}' , cTemp );
+
+nDimCount = 1;
+WHILE( TABDIM( 'plan_Balance_Sheet' , nDimCount )@<> '' );
+	sDim = TABDIM( 'plan_Balance_Sheet' , nDimCount );
+	IF( SUBSETEXISTS( sDim , cSourceObj ) = 1 );
+		VIEWSUBSETASSIGN( 'plan_Balance_Sheet' , cSourceObj , sDim , cSourceObj );
+	ENDIF;
+	nDimCount = nDimCount +1;
+END;
+
+ViewSuppressZeroesSet( 'plan_Balance_Sheet' , cSourceObj , 1 );
+ViewExtractSkipCalcsSet( 'plan_Balance_Sheet' , cSourceObj , 1 );
+ViewExtractSkipZeroesSet( 'plan_Balance_Sheet' , cSourceObj , 1 );
+ViewExtractSkipRuleValuesSet( 'plan_Balance_Sheet' , cSourceObj ,0 );
+ 
+
+DataSourceType = 'VIEW' ;
+DataSourceNameForServer = 'plan_Balance_Sheet' ;
+DataSourceCubeView = cSourceObj ;
+
+
+#endregion
+#region Data
+
+# If(DTYPE( 'm_plan_Balance_Sheet', vm_plan_Balance_Sheet)@'')
+ ASCIIOutput( 'EXP.plan_Balance_Sheet', vplan_Version, vCurrency ,vplan_Period, vBranch, vBusiness_Unit, vAccount_BS, vm_plan_Balance_Sheet, vValue );
+
+
+#endregion
+#region Epilog
+
+If(sErr@<>'');
+    ItemReject( sErr );
+Endif;    
+#endregion
